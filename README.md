@@ -1,6 +1,5 @@
 # sistema_wi
-"INSERIR PITCH AQUI"
-
+"SI voltado para facilitar a organização do evento Workshop Integrativo"
 
 
 Equipe:
@@ -12,7 +11,7 @@ Rafael Araripe (Summer)
 Pedro Kassardjian (Summer)  
 
 Início:
-Janeiro 2018
+Janeiro 2019
 
 Informações:
 Mantenha o branch Master estável!
