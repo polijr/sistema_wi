@@ -8,4 +8,4 @@ from django.views.generic import View, TemplateView
 from django.http import HttpResponse
 # Create your views here.
 def Home(request):
-    return render(request, 'home.html')
+    return render(request, 'dashboard_staff.html')
