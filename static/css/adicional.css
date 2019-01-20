@@ -1,0 +1,18 @@
+.text-orange {
+    color: #FFAF00;
+  }
+  a.text-orange:hover,
+  a.text-orange:active,
+  a.text-orange:focus,
+  button.text-orange:hover,
+  button.text-orange:active,
+  button.text-orange:focus {
+    color: #FFAF00;
+    opacity: .75;
+  }
+
+  .image-wi-dash {
+    max-width:10%;
+    max-height:10%; 
+    float: right;
+  }

@@ -24,21 +24,17 @@ var BasePagesLogin = function() {
             rules: {
                 'login-username': {
                     required: true,
-                    minlength: 3
                 },
                 'login-password': {
                     required: true,
-                    minlength: 5
                 }
             },
             messages: {
                 'login-username': {
-                    required: 'Please enter a username',
-                    minlength: 'Your username must consist of at least 3 characters'
+                    required: 'Por favor digite um nome de usuário',
                 },
                 'login-password': {
-                    required: 'Please provide a password',
-                    minlength: 'Your password must be at least 5 characters long'
+                    required: 'Por favor, digite uma senha',
                 }
             }
         });

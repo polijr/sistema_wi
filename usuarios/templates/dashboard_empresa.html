@@ -1,5 +1,5 @@
-{% extends "base_menus.html" %}
-{% block nomePagina %}Dashboard de Staff{% endblock%}
+{% extends "base_menus_empresa.html" %}
+{% block nomePagina %}Dashboard da Empresa{% endblock%}
 {% comment %} {%block descricao%} {%endblock%}
 {% block subnomePagina %}{% endblock%} {% endcomment %}
 
@@ -7,36 +7,25 @@
 {% block conteudo %}
 <main id="main-container">
     <!-- Page Header -->
-    <div class="content bg-image overflow-hidden" style="background-image: url('static/img/photos/banner_wi.png');">
+    <div class="content bg-image overflow-hidden" style="background-image: url('/static/img/photos/banner_wi.png');">
+        <img class="image-wi-dash animated zoomIn" src="/static/img/various/logo_wi.png">
         <div class="push-50-t push-15">
-            <h1 class="h2 text-white animated zoomIn">Dashboard</h1>
-            <h2 class="h5 text-white-op animated zoomIn">Welcome Administrator</h2>
+            <h1 class="h2 text-orange animated zoomIn">Informes</h1>
+            <h2 class="h5 text-white-op animated zoomIn">Bem vindo ao Workshop Integrativo, {{request.user.first_name}} !</h2>
         </div>
     </div>
     <!-- END Page Header -->
 
     <!-- Stats -->
     <div class="content bg-white border-b">
-        <div class="row items-push text-uppercase">
+        <div class="row items-push">
             <div class="col-xs-6 col-sm-3">
-                <div class="font-w700 text-gray-darker animated fadeIn">Product Sales</div>
-                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> Today</small></div>
-                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">300</a>
+                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Senha do WiFi</div>
+                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">#polijunior#</a>
             </div>
             <div class="col-xs-6 col-sm-3">
-                <div class="font-w700 text-gray-darker animated fadeIn">Product Sales</div>
-                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> This Month</small></div>
-                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">8,790</a>
-            </div>
-            <div class="col-xs-6 col-sm-3">
-                <div class="font-w700 text-gray-darker animated fadeIn">Total Earnings</div>
-                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> All Time</small></div>
-                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">$ 93,880</a>
-            </div>
-            <div class="col-xs-6 col-sm-3">
-                <div class="font-w700 text-gray-darker animated fadeIn">Average Sale</div>
-                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> All Time</small></div>
-                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">$ 270</a>
+                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Telefone de ajuda:</div>
+                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">(11)98213-5888</a>
             </div>
         </div>
     </div>
@@ -340,21 +329,21 @@
                                     <ul class="nav-users push-10-t push">
                                         <li>
                                             <a href="base_pages_profile.html">
-                                                <img class="img-avatar" src="static/img/avatars/avatar13.jpg" alt="">
+                                                <img class="img-avatar" src="/static/img/avatars/avatar13.jpg" alt="">
                                                 <i class="fa fa-circle text-success"></i> Keith Simpson
                                                 <div class="font-w400 text-muted"><small>Graphic Designer</small></div>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="base_pages_profile.html">
-                                                <img class="img-avatar" src="static/img/avatars/avatar7.jpg" alt="">
+                                                <img class="img-avatar" src="/static/img/avatars/avatar7.jpg" alt="">
                                                 <i class="fa fa-circle text-warning"></i> Ann Parker
                                                 <div class="font-w400 text-muted"><small>Photographer</small></div>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="base_pages_profile.html">
-                                                <img class="img-avatar" src="static/img/avatars/avatar12.jpg" alt="">
+                                                <img class="img-avatar" src="/static/img/avatars/avatar12.jpg" alt="">
                                                 <i class="fa fa-circle text-danger"></i> George Stone
                                                 <div class="font-w400 text-muted"><small>UI Designer</small></div>
                                             </a>
@@ -389,9 +378,9 @@
                                 <div class="block-header">
                                     <h3 class="block-title text-center">Author of the Month</h3>
                                 </div>
-                                <div class="block-content block-content-full text-center bg-image" style="background-image: url('static/img/photos/photo2.jpg');">
+                                <div class="block-content block-content-full text-center bg-image" style="background-image: url('/static/img/photos/photo2.jpg');">
                                     <div>
-                                        <img class="img-avatar img-avatar96 img-avatar-thumb" src="static/img/avatars/avatar1.jpg" alt="">
+                                        <img class="img-avatar img-avatar96 img-avatar-thumb" src="/static/img/avatars/avatar1.jpg" alt="">
                                     </div>
                                     <div class="h5 text-white push-15-t push-5">Tiffany Kim</div>
                                     <div class="h5 text-white-op">Web Developer</div>

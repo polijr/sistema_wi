@@ -2,6 +2,7 @@
 * OneUI - v2.1.0 - Auto-compiled on 2016-05-18 - Copyright 2016 
 * @author pixelcave
 */
+
 html,
 body {
   height: 100%;
@@ -505,7 +506,7 @@ a.bg-muted:focus {
   background-color: #808080;
 }
 .bg-primary {
-  background-color: #5c90d2;
+  background-color: #FFAF00;
 }
 a.bg-primary:hover,
 a.bg-primary:focus {

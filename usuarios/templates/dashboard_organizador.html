@@ -1,0 +1,205 @@
+{% extends "base_menus_organizador.html" %}
+{% block nomePagina %}Dashboard da Empresa{% endblock%}
+{% comment %} {%block descricao%} {%endblock%}
+{% block subnomePagina %}{% endblock%} {% endcomment %}
+
+
+{% block conteudo %}
+<main id="main-container">
+    <!-- Page Header -->
+    <div class="content bg-image overflow-hidden" style="background-image: url('/static/img/photos/banner_wi.png');">
+        <img class="image-wi-dash animated zoomIn" src="/static/img/various/logo_wi.png">
+        <div class="push-50-t push-15">
+            <h1 class="h2 text-orange animated zoomIn">Pedidos</h1>
+            <h2 class="h5 text-white-op animated zoomIn">Bem vindo {{request.user.username}}</h2>
+        </div>
+    </div>
+    <!-- END Page Header -->
+
+    <!-- Stats -->
+    <div class="content bg-white border-b">
+        <div class="row items-push text-uppercase">
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn">Product Sales</div>
+                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> Today</small></div>
+                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">300</a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn">Product Sales</div>
+                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> This Month</small></div>
+                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">8,790</a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn">Total Earnings</div>
+                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> All Time</small></div>
+                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">$ 93,880</a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn">Average Sale</div>
+                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> All Time</small></div>
+                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">$ 270</a>
+            </div>
+        </div>
+    </div>
+    <!-- END Stats -->
+
+    <!-- Page Content -->
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Latest Sales Widget -->
+                <div class="block">
+                    <div class="block-header">
+                        <ul class="block-options">
+                            <li>
+                                <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                            </li>
+                        </ul>
+                        <h3 class="block-title">Ultimos pedidos</h3>
+                    </div>
+                    {% comment %} <div class="block-content bg-gray-lighter">
+                        <div class="row items-push">
+                            <div class="col-xs-4">
+                                <div class="text-muted"><small><i class="si si-calendar"></i> 24 hrs</small></div>
+                                <div class="font-w600">18 Sales</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="text-muted"><small><i class="si si-calendar"></i> 7 days</small></div>
+                                <div class="font-w600">78 Sales</div>
+                            </div>
+                            <div class="col-xs-4 h1 font-w300 text-right">$769</div>
+                        </div>
+                    </div> {% endcomment %}
+                    <div class="block-content">
+                        <div class="pull-t pull-r-l">
+                            <!-- Slick slider (.js-slider class is initialized in App() -> uiHelperSlick()) -->
+                            <!-- For more info and examples you can check out http://kenwheeler.github.io/slick/ -->
+                            <div class="js-slider remove-margin-b" data-slider-autoplay="true" data-slider-autoplay-speed="2500">
+                                <div>
+                                    <table class="table remove-margin-b font-s13">
+                                        <tbody>
+                                            <tr>   
+                                                <td class="font-w600">
+                                                    <a href="javascript:void(0)">Água</a>
+                                                </td>
+                                                <td class="hidden-xs text-muted text-right" style="width: 70px;">23:01</td>
+                                                <td class="font-w600 text-success text-right" style="width: 70px;">+ $21</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Coletor</a></td>
+                                                <td class="hidden-xs text-muted text-right">22:15</td>
+                                                <td class="font-w600 text-success text-right">+ $52</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Suporte Técnico</a></td>
+                                                <td class="hidden-xs text-muted text-right">22:01</td>
+                                                <td class="font-w600 text-success text-right">+ $16</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Água</a></td>
+                                                <td class="hidden-xs text-muted text-right">21:45</td>
+                                                <td class="font-w600 text-success text-right">+ $23</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Coletor</a></td>
+                                                <td class="hidden-xs text-muted text-right">21:15</td>
+                                                <td class="font-w600 text-success text-right">+ $48</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Água</a></td>
+                                                <td class="hidden-xs text-muted text-right">20:11</td>
+                                                <td class="font-w600 text-success text-right">+ $23</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Coletor</a></td>
+                                                <td class="hidden-xs text-muted text-right">20:01</td>
+                                                <td class="font-w600 text-success text-right">+ $50</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Suporte Técnico</a></td>
+                                                <td class="hidden-xs text-muted text-right">19:35</td>
+                                                <td class="font-w600 text-success text-right">+ $16</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Coletor</a></td>
+                                                <td class="hidden-xs text-muted text-right">19:17</td>
+                                                <td class="font-w600 text-success text-right">+ $60</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Coletor</a></td>
+                                                <td class="hidden-xs text-muted text-right">17:49</td>
+                                                <td class="font-w600 text-success text-right">+ $59</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div>
+                                    <table class="table remove-margin-b font-s13">
+                                        <tbody>
+                                            <tr>
+                                                <td class="font-w600">
+                                                    <a href="javascript:void(0)">Água</a>
+                                                </td>
+                                                <td class="hidden-xs text-muted text-right" style="width: 70px;">16:10</td>
+                                                <td class="font-w600 text-success text-right" style="width: 70px;">+ $21</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Coletor</a></td>
+                                                <td class="hidden-xs text-muted text-right">16:06</td>
+                                                <td class="font-w600 text-success text-right">+ $48</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Coletor</a></td>
+                                                <td class="hidden-xs text-muted text-right">15:21</td>
+                                                <td class="font-w600 text-success text-right">+ $52</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Água</a></td>
+                                                <td class="hidden-xs text-muted text-right">12:10</td>
+                                                <td class="font-w600 text-success text-right">+ $23</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Água</a></td>
+                                                <td class="hidden-xs text-muted text-right">12:09</td>
+                                                <td class="font-w600 text-success text-right">+ $23</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Suporte Técnico</a></td>
+                                                <td class="hidden-xs text-muted text-right">11:39</td>
+                                                <td class="font-w600 text-success text-right">+ $16</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Água</a></td>
+                                                <td class="hidden-xs text-muted text-right">11:33</td>
+                                                <td class="font-w600 text-success text-right">+ $23</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Água</a></td>
+                                                <td class="hidden-xs text-muted text-right">11:18</td>
+                                                <td class="font-w600 text-success text-right">+ $23</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Coletor</a></td>
+                                                <td class="hidden-xs text-muted text-right">09:49</td>
+                                                <td class="font-w600 text-success text-right">+ $50</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="font-w600"><a href="javascript:void(0)">Suporte Técnico</a></td>
+                                                <td class="hidden-xs text-muted text-right">09:35</td>
+                                                <td class="font-w600 text-success text-right">+ $16</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- END Slick slider -->
+                        </div>
+                    </div>
+                </div>
+                <!-- END Latest Sales Widget -->
+            </div>
+        </div>
+    </div>
+    <!-- END Page Content -->
+</main>
+{% endblock %}
