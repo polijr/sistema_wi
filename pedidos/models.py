@@ -1,3 +1,12 @@
 from django.db import models
 
-# Create your models here.
+class Type(models.Model):
+	name = models.CharField('Nome', unique=True)
+	image = models.ImageField(upload_to='pedidos/images', verbose_name='Imagem', blank=True, null=True)
+
+	def __str__(self):
+		return self.name 
+
+	class Meta:
+		verbose_name = 'Tipo de Pedido'
+		verbose_name_plural = 'Tipos de Pedido'
