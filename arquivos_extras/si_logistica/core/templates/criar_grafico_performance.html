@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+{% endblock %}
+
+{% block body %}
+<form id="forms_post" method="post">
+    {% csrf_token %}
+    <div class="card">
+        <div class="card-body">
+            <p class="title" style="font-size: 25px; font-family: Dubai, Roboto, Arial, Helvetica, Sans-serif; font-weight: bold;">Gerar Gráficos</p>
+            <div role="application" class="wizard clearfix" id="steps-uid-0">
+            <div class="steps clearfix">
+                <ul role="tablist">
+                    <li role="tab" class="done" aria-disabled="false" aria-selected="false">
+                        <a id="steps-uid-0-t-0" href="/grafico/entrega" aria-controls="steps-uid-0-p-0">Gráficos de Entrega </a>
+                    </li>
+                    <li role="tab" class="current" aria-disabled="false" aria-selected="true">
+                        <a id="steps-uid-0-t-1" href="/grafico/performance" aria-controls="steps-uid-0-p-1">Gráficos de Performace</a>
+                    </li>
+                    <li role="tab" class="done" aria-disabled="false" aria-selected="true">
+                        <a id="steps-uid-0-t-1" href="/grafico/financeiro" aria-controls="steps-uid-0-p-1">Gráficos Financeiros</a>
+                    </li>
+                    <li role="tab" class="done" aria-disabled="false" aria-selected="true">
+                        <a id="steps-uid-0-t-1" href="/grafico/pendencia" aria-controls="steps-uid-0-p-1">Gráficos Pendência</a>
+                    </li>
+                </ul>
+        </div>
+        <p class="card-description" style="margin-top: 4em";>
+        </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label" for="dataPrevista"><strong>Inico do periodo</strong></label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="inicio-periodo" id="inicio-periodo" type="date">
+                        </div>
+                        <label class="col-sm-3 col-form-label" for="dataPrevista"><strong>Fim do periodo</strong></label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="fim-periodo" id="fim-periodo" type="date">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label" for="UFDestino"><strong>Estados</strong></label>
+                        <div class="col-sm-9">
+                            <select class="form-control" name="estado" id="estados" multiple>
+                                <option value="" disabled>Escolha os estados..</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goias</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                            <p style="text-align: center; color: black">Para selecionar múltiplos itens segure a tecla Ctrl e clique nos itens desejados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label" for="UFDestino"><strong>Transportadora</strong></label>
+                        <div class="col-sm-9">
+                            <select class="form-control" name="transportadora" id="transportadora" multiple>
+                                <option value="" disabled>Escolha uma transportadora..</option>
+                                {% for transportadora in transportadora_list %}
+                                    <option value="{{transportadora.pk}}">{{transportadora.nome}}</option>
+                                {% endfor %}
+                            </select>
+                            <p style="text-align: center; color: black">Para selecionar múltiplos itens segure a tecla Ctrl e clique nos itens desejados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row" style="display: flex; justify-content: space-around;">
+            <button id="botao_post" class="btn btn-dark btn-fw" style="margin-top: 2em;" type="submit">Visualizar Gŕaficos de Performance</button>
+        </div>
+        <!--<a href="/relatorio_performance/ranking"><button type="button" class="btn btn-info">Visualizar ranking de performace</button></a>-->
+    </div>
+</div>
+<script type="text/javascript">
+    // var btnEstado = document.getElementById('btn-estado')
+    // let path = window.location.pathname
+    // path = path.split('')
+    // path.splice(1, 18)
+    // path = path.toString()
+    // path = path.replace(/,/g, '')
+
+    var form = document.getElementById('forms_post')
+    let botao = document.getElementById('botao_post')
+    botao.addEventListener('click', function(e){
+        // let tipo_de_relatorio = document.createElement('input')
+        // tipo_de_relatorio.name = 'tipo-de-relatorio'
+        // tipo_de_relatorio.style.display = 'none'
+        // path = path.replace('/', '')
+        // path = path.replace('/', '')
+        // tipo_de_relatorio.value = path
+        // form.appendChild(tipo_de_relatorio)
+
+        form.submit()
+    })
+    setInterval(function () {
+        let data1 = document.getElementById('inicio-periodo')
+        let data2 = document.getElementById('fim-periodo')
+    
+        let estado = document.getElementById('estados')
+
+        let transportadora = document.getElementById('transportadora')
+
+        if(data1.value == '' || data2.value == '' || estado.value == '' || transportadora.value == ''){
+            botao.disabled = true      
+            botao.textContent = 'Preencha todos os campos'
+        } else {
+            botao.disabled = false
+            botao.textContent = 'Visualizar Gŕaficos de Performance'
+        }
+    }, 1000)
+</script>
+
+{% endblock %}

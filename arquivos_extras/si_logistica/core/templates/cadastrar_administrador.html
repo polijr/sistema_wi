@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+{% endblock %}
+
+
+{% block body %}
+<form method="POST">
+  {% csrf_token %}
+<div class="col-12 grid-margin">
+    <div class="card">
+            <div class= "row">
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h4 class="card-title">Cadastrar Administrador</h4>
+                    </div>
+                </div>
+            </div>
+      <div class="row" style="margin-top: -2em";>
+        <div class="col-md-6">
+          <div class="card-body">
+            <p class="card-description">Nome</p>
+            <input type="text" name="nome" id="nome" class="form-control">
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card-body">
+              <p class="card-description">Telefone</p>
+              <input type="text" name= "telefone" id="telefone" class="form-control">
+            </div>
+        </div>
+      </div>
+      <div class="row" style="margin-top: -2em";>
+            <div class="col-md-6">
+              <div class="card-body">
+                <p class="card-description">Email</p>
+                <input type="email" name="email" id="email" class="form-control">
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                  <p class="card-description">Login</p>
+                  <input type="tel" name= "login" id="login" class="form-control">
+                </div>
+            </div>
+          </div>
+      <div class="row" style="margin-top: -2em";>
+            <div class="col-md-6">
+                <div class="card-body">
+                  <p class="card-description">Senha</p>
+                  <input type="password" name="senha" id="senha" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-6">
+                    <div class="card-body">
+                      <p class="card-description">Foto de Perfil</p>
+                      <input type="file" name="foto" id = "foto" class="form-control">
+                    </div>
+            </div>
+          </div>
+          <div class="row" style="margin-top: -2em";>
+              <div class="col-md-6">
+                  <div class="card-body">
+                    <p class="card-description">Confirmar Senha</p>
+                    <input type="password" name="confirmar_senha" id="confirmar_senha" class="form-control">
+                  </div>
+              </div>
+            </div>
+          <button type="submit" class="btn btn-dark btn-fw" id="botaoPesquisa">Cadastrar</button>
+    </div>
+    
+  </div>
+</form>
+
+{% endblock %}

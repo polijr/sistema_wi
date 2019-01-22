@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<style>
+    *{
+        font-family: Dubai, Roboto, Helvetica, sans-serif;
+    }
+    .add{
+        margin-left: 1%;
+        margin-bottom: 0.3%;
+        margin:1%;
+    }
+    .texto{
+        font-size: 1.2rem;
+        color: black;
+        text-decoration:none;
+    }
+    .form-control, .pesquisa, .add, .texto{
+        display: inline;
+    }
+    .pesquisa, .add{
+        margin-inline-end: 30%;
+    }
+    .add, .texto{
+        margin-inline-end: 7px;
+    }
+    .jsgrid-edit-row, .jsgrid-cell, .jsgrid-filter-row, .jsgrid-cell, .jsgrid-grid-body, .jsgrid-grid-header, .jsgrid-header-row, .jsgrid-header-cell, .jsgrid-insert-row, .jsgrid-cell {
+        border: none;
+    }
+
+    .jsgrid-grid-body{
+        border-top: gray;
+        overflow-x: hidden;
+        overflow-y: hidden;
+    }
+    td a {
+        width: 100%;
+        display: block;
+        color: black;
+        font-size: .995rem;
+        letter-spacing: 0.2px;
+    } 
+
+}
+</style>
+<div class="row grid-margin">
+        <div class="col-12">
+           <div class="card">
+              <div class="card-body">
+                <h4 class="card-title" style="font-size: 1.9rem;">Funcionários</h4>
+                    <label style="width: 35%;"><input type="text" id="myInput" class="form-control" onkeyup="myFunction()" placeholder="Digite o nome do Funcionário" aria-controls="order-listing" style="width:100%;"></label>
+                    <img src="{% static 'images/magnifying-glass.png' %}" class="pesquisa" style="width:25px;" id="myInput" onkeyup="myFunction()">
+                    <a href="/cadastrarfuncionario"><img src="{% static 'images/add.png' %}" style="width:25px;" class="add" title="Adicionar Funcionário"></a> 
+                    <a href="/cadastrarfuncionario" class="texto" style="text-decoration:none;">Adicionar Funcionário</a>
+
+                    <div id="js-grid" class="jsgrid" style="position: relative; height: 500px; width: 100%;">
+                    </br>
+                    <div class="jsgrid-grid-body"style="height: 312.625px;">
+                       <table class="table table-striped">
+                          <tbody>
+                              {% for Funcionario in lista_funcionarios %}
+                             <tr class="jsgrid-row">
+                                <!--<td style="width: 10px;" id="foto"><a href={% url 'funcionario_ver' Funcionario.id  %} style="text-decoration:none; color: black;"><img src="{% static "media/funcionario/default.png" %}"></a></td>-->
+                                <td style="width: 90px;" id="nome"><a href={% url 'funcionario_ver' Funcionario.id  %} style="text-decoration:none; ">{{ Funcionario.nome }}</a></td>
+                                <td style="width: 90px;" id="telefone"><a href={% url 'funcionario_ver' Funcionario.id  %} style="text-decoration:none;">{{ Funcionario.telefone }}</a></td>
+                                <td style="width: 90px;" id="email"><a href={% url 'funcionario_ver' Funcionario.id  %} style="text-decoration:none;">{{ Funcionario.email }}</a></td>
+                                <td style="width: 25px;"><a href="{% url 'funcionario_editar' Funcionario.id %}"><input class="jsgrid-button jsgrid-edit-button" type="button" title="Editar"></a>
+                             </tr> 
+                            </a>
+                             {% endfor %}
+                          </tbody>
+                       </table>
+                    </div>
+                    
+                 <!-- <div id="js-grid" class="jsgrid" style="position: relative; height: 500px; width: 100%;">
+                    <div class="jsgrid-grid-body" style="height: 312.625px;">
+                       <table class="jsgrid-table">
+                          <tbody>
+                              {% for Transportadora in lista_transportadoras %}
+                             <tr class="jsgrid-row">
+                               <td class="jsgrid-cell" style="width: 10px;" id="logo"><a href={% url 'transportadora_ver' Transportadora.id  %} style="text-decoration:none; color: black;"><img src="{% static "media/transportadoras/default.png" %}"></a></td>
+                                <td class="jsgrid-cell jsgrid-align-left" style="width: 90px;" id="nome"><a href={% url 'transportadora_ver' Transportadora.id  %} style="text-decoration:none; ">{{ Transportadora.nome }}</a></td>
+                                <td class="jsgrid-cell jsgrid-align-left" style="width: 90px;" id="telefone"><a href={% url 'transportadora_ver' Transportadora.id  %} style="text-decoration:none;">{{ Transportadora.telefone }}</a></td>
+                                <td class="jsgrid-cell jsgrid-align-left" style="width: 90px;" id="email"><a href={% url 'transportadora_ver' Transportadora.id  %} style="text-decoration:none;">{{ Transportadora.email }}</a></td>
+                                <td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 25px;"><a href="{% url 'transportadora_editar' Transportadora.id %}"><input class="jsgrid-button jsgrid-edit-button" type="button" title="Editar"></a>
+                             </tr> 
+                            </a>
+                             {% endfor %}
+                          </tbody>
+                       </table>
+                    </div> -->
+                    <!-- <div class="jsgrid-pager-container">
+                         <div class="jsgrid-pager">Páginas: <span class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a href="javascript:void(0);">Primeira</a></span> <span class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a href="javascript:void(0);">Prev</a></span> <span class="jsgrid-pager-page jsgrid-pager-current-page">1</span><span class="jsgrid-pager-page"><a href="javascript:void(0);">2</a></span><span class="jsgrid-pager-page"><a href="javascript:void(0);">3</a></span><span class="jsgrid-pager-page"><a href="javascript:void(0);">4</a></span><span class="jsgrid-pager-page"><a href="javascript:void(0);">5</a></span><span class="jsgrid-pager-nav-button"><a href="javascript:void(0);">...</a></span> <span class="jsgrid-pager-nav-button"><a href="javascript:void(0);">Próximo</a></span> <span class="jsgrid-pager-nav-button"><a href="javascript:void(0);">Anterior</a></span> &nbsp;&nbsp; 1 of 7 </div>
+                         </div> -->
+                    <div class="jsgrid-load-shader" style="display: none; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; z-index: 1000;"></div>
+                    <div class="jsgrid-load-panel" style="display: none; position: absolute; top: 50%; left: 50%; z-index: 1000;">Please, wait...</div>
+                 </div>
+              </div>
+           </div>
+        </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#myInput').keyup(function(){
+      var text = $(this).val();
+      $('.jsgrid-row').hide();
+      $('.jsgrid-row:contains("'+text+'")').show();      
+    });
+  }); 
+</script>
+{% endblock %}

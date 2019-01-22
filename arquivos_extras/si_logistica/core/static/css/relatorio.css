@@ -1,0 +1,77 @@
+body {
+    margin: 20px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+}
+h1 {
+    color: black;
+    text-align: center;
+    font-family: Arial;
+    font-size: 250%;
+    margin: 0px;
+}
+
+#linha-separar {
+    margin: 0px;
+    color: purple;
+    text-align: center;
+}
+
+#cabecalho {
+    margin: 4%;
+}
+
+#infos {
+    margin-left: 30%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.infos-r {
+    margin: 5px;
+    font-size: 125%;
+}
+
+#tabela {
+    margin-left: 17%;
+}
+
+table {
+    width: 80%; 
+    margin-top: -20px;
+    text-align: center;
+}
+
+#nome-estados {
+    margin-top: 50px;
+    width: 70%;
+    display: flex;
+    margin-left: 15%;
+    justify-content: space-around;
+}
+
+.dados {
+    color: #6495ed;
+    font-size: 200%;
+    font-style: italic;
+}
+
+#campos-tabela {
+    background-color: #add8e6;
+
+}
+
+th {
+    border-top: 5px solid #6495ED;
+    margin: -10px;
+    padding: 7px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+strong {
+    font-style: italic;
+}

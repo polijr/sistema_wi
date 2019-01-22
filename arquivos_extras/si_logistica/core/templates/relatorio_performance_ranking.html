@@ -1,0 +1,184 @@
+{% load static %}
+<!DOCTYPE html5>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'css/relatorio.css' %}">-->
+    <title>Relatorio</title>
+    <style type="text/css">
+        .wrapper {
+            margin-left: -22%;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .fa {
+            margin-right: 15px;
+        }
+        .btn {
+          margin-top: 5%;
+          margin-bottom: 50px;
+          position: absolute;
+          background-color: DodgerBlue;
+          border: none;
+          color: white;
+          padding: 10px 30px;
+          cursor: pointer;
+          font-size: 20px;
+        }
+
+        /* Darker background on mouse-over */
+        .btn:hover {
+          background-color: RoyalBlue;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="cabecalho">
+        <h1 id="heading">Ranking de Performances</h1>
+        <p id="linha-separar">_______________________________________________________________________</p>
+    </div>
+
+    <div id="infos">
+        <p class="infos-r" id="periodo">Relatório gerado em: <strong id="dataGerado">{{data_gerado}}</strong></p>
+        <p class="infos-r" id="transportadoras">Transportadoras: <strong>Todas</strong></p>
+        <p class="infos-r" id="transportadoras"><strong>{{dicionario.y}}</strong></p>
+    </div>
+
+    
+        <div id="nome-estados">
+            <p class="dados">Resultado</p>
+        </div>
+                <div id="tabela">
+                    <table>
+                        <tr id="campos-tabela">
+                            <th>Ranking</th>
+                            <th>Transportadora</th>
+                            <th>Performance</th>
+                        </tr>
+        {% for element in transportadora_list %}
+                        <tr>
+                            <td class="posicaoRanking">{{element.ranking}}</td>
+                            <td>{{element.transportadora.nome}}</td>
+                            <td>{{element.transportadora.performance}}%</td>
+                        </tr>
+        {% endfor %}
+                    </table>
+                </div>
+
+    <!--<div id="nome-estados">
+        <p class="dados">São Paulo</p>
+        <p class="dados">EX: 1</p>
+        <p class="dados">AV: 5</p>
+        <p class="dados">Total: 6</p>
+    </div>
+
+    <div id="tabela">
+        <table>
+            <tr id="campos-tabela">
+                <th>Data de Entrega</th>
+                <th>Transportadora</th>
+                <th>Cliente</th>
+                <th>Estados</th>
+                <th>Peso</th>
+                <th>Código</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>1/1/2018</td>
+                <td>Transportadora 1</td>
+                <td>Angelo</td>
+                <td>SP</td>
+                <td>0,450 kg</td>
+                <td>098712</td>
+                <td>Extraviado</td>
+            </tr>
+            <tr>
+                <td>1/1/2018</td>
+                <td>Transportadora 1</td>
+                <td>Angelo</td>
+                <td>SP</td>
+                <td>0,450 kg</td>
+                <td>098712</td>
+                <td>Extraviado</td>
+            </tr>
+            <tr>
+                <td>1/1/2018</td>
+                <td>Transportadora 1</td>
+                <td>Angelo</td>
+                <td>SP</td>
+                <td>0,450 kg</td>
+                <td>098712</td>
+                <td>Extraviado</td>
+            </tr>
+        </table>
+    </div>
+    <div id="nome-estados">
+        <p class="dados">Espírito Santo</p>
+        <p class="dados">EX: 10</p>
+        <p class="dados">AV: 5</p>
+        <p class="dados">Total: 15</p>
+        
+    </div>
+    <div id="tabela">
+        <table>
+            <tr id="campos-tabela">
+                <th>Data de Entrega</th>
+                <th>Transportadora</th>
+                <th>Cliente</th>
+                <th>Estados</th>
+                <th>Peso</th>
+                <th>Código</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Data de Entrega</td>
+                <td>Transportadora</td>
+                <td>Cliente</td>
+                <td>Estados</td>
+                <td>Peso</td>
+                <td>Código</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>Data de Entrega</td>
+                <td>Transportadora</td>
+                <td>Cliente</td>
+                <td>Estados</td>
+                <td>Peso</td>
+                <td>Código</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>Data de Entrega</td>
+                <td>Transportadora</td>
+                <td>Cliente</td>
+                <td>Estados</td>
+                <td>Peso</td>
+                <td>Código</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>Data de Entrega</td>
+                <td>Transportadora</td>
+                <td>Cliente</td>
+                <td>Estados</td>
+                <td>Peso</td>
+                <td>Código</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+
+                <td>Data de Entrega</td>
+                <td>Transportadora</td>
+                <td>Cliente</td>
+                <td>Estados</td>
+                <td>Peso</td>
+                <td>Código</td>
+                <td>Status</td>
+            </tr>
+        </table>
+    </div>-->
+</body>
+</html>

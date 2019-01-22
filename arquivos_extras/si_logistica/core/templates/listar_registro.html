@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Lista de Registros{% endblock %}
+{% block body %}
+<style>
+   
+</style>
+
+<div class="grid-margin stretch-card">
+
+<div class="card" >
+    <div class="card-body" >
+      <p class="title" style="font-size: 25px; font-family: Dubai, Roboto, Arial, Helvetica, Sans-serif; font-weight: bold;">Listas de pedidos</p>
+      <br/>
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> Número </th>
+            <th> Data de criação </th>
+            <th> Visualizar </th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for registro in registros %}
+          <tr>
+            <td>{{ registro.pk }}</td>
+            <td>{{ registro.data }}</td>
+            <td><a href= "/registros/ver/{{ registro.id }}"><img src="{% static 'images/menu_icons/lupapreta.png' %}" alt="search icon" style="width: 7.5%; height: auto; border-radius: 1px;"></a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+</div>
+
+{% endblock %}

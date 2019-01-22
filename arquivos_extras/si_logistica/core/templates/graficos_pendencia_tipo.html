@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-12 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 style="text-align: center; color:black">No período entre {{inicio_periodo}} até {{fim_periodo}}:</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    {% for element in status_list%}
+    <div class="col-md-6 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title" style="">Pedidos com {{element.status}}</h3>
+                    <div id="piechart-{{element.status}}"></div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      
+    var dias_semana = [];
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+
+    function drawChart() {
+        var status_list = {{status_list| safe}}
+        console.log(status_list)
+
+//        document.getElementById('piechart-avaria')
+//        document.getElementById('piechart-atraso')
+//        document.getElementById('piechart-extravio')
+
+        // Create the data table.
+        {% for element in status_list %}
+            {% if element.status == 'avaria' %}
+                var dataAvaria = google.visualization.arrayToDataTable([
+                    ['Status', 'Número de Pedidos'],
+                    ['element.status', element.total_especifico],
+                    ['Restante', element.total_menos_especifico],
+                ]);
+
+                var options = {
+                    title: ''
+                };
+
+                var chartAvaria = new google.visualization.PieChart(document.getElementById('piechart-avaria'))
+                chartAvaria.draw(dataAvaria,options)
+            {% elif element.status == 'extravio' %}
+                var dataExtravio = google.visualization.arrayToDataTable([
+                        ['Status', 'Número de Pedidos'],
+                        ['element.status', element.total_especifico],
+                        ['Restante', element.total_menos_especifico],
+                    ]);
+
+                    var options = {
+                        title: ''
+                    };
+
+                    var chartExtravio = new google.visualization.PieChart(document.getElementById('piechart-extravio'))
+                    chartExtravio.draw(dataExtravio,options)
+
+            {% elif element.status == 'atraso' %}
+                var dataAtraso = google.visualization.arrayToDataTable([
+                    ['Status', 'Número de Pedidos'],
+                    ['element.status', element.total_especifico],
+                    ['Restante', element.total_menos_especifico],
+                ]);
+            
+                var options = {
+                    title: ''
+                };
+            
+                var chartAtraso = new google.visualization.PieChart(document.getElementById('piechart-atraso'))
+                chartAtraso.draw(dataAtraso,options)
+            {% endif %}
+        {% endfor %}
+
+    }
+</script>
+{% endblock %}

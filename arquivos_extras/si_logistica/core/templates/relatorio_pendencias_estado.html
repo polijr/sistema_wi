@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html5>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'css/relatorio.css' %}">-->
+    <title>Relatorio</title>
+    <style type="text/css">
+        .wrapper {
+            margin-left: -22%;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .fa {
+            margin-right: 15px;
+        }
+        .btn {
+          margin-top: 5%;
+          margin-bottom: 50px;
+          position: absolute;
+          background-color: DodgerBlue;
+          border: none;
+          color: white;
+          padding: 10px 30px;
+          cursor: pointer;
+          font-size: 20px;
+        }
+        /* Darker background on mouse-over */
+        .btn:hover {
+          background-color: RoyalBlue;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="cabecalho">
+        <h1 id="heading">Relatório de pendências</h1>
+        <p id="linha-separar">_______________________________________________</p>
+    </div>
+
+    <div id="infos">
+        <p class="infos-r" id="periodo">Periodo:<strong>De {{inicio_periodo}} até {{fim_periodo}}</strong></p>
+        <p class="infos-r" id="estados">Estados:
+            {% for estado in estado_list %}
+                <strong>{{estado}}/</strong>
+            {% endfor %}
+        </p>
+        <p class="infos-r" id="transportadoras">Transportadoras:
+            {% for transportadora in transportadora_list %}
+                <strong>{{transportadora.nome}}</strong>
+            {% endfor %}
+        </p>
+        <p class="infos-r" id="transportadoras">Tipo de pendência:
+                {% for status in status_list %}
+                    <strong>{{status}}</strong>
+                {% endfor %}
+            </p>
+    </div>
+
+    {% for estado in estado_list %}
+        <div id="nome-estados">
+            <p class="dados">{{estado}}</p>
+            <p class="dados">Total: {{estado.total}}</p>
+        </div>
+                <div id="tabela">
+                    <table>
+                        <tr id="campos-tabela">
+                            <th>Data de Entrega</th>
+                            <th>Transportadora</th>
+                            <th>Cliente</th>
+                            <th>Estado</th>
+                            <th>Peso</th>
+                            <th>Codigo</th>
+                            <th>Status</th>
+                        </tr>
+        {% for pedido in pedidos_list %}
+            {% if pedido.transportadora == transportadora %}
+                        <tr>
+                            <td>{{pedido.data_previsao}}</td>
+                            <td>{{pedido.transportadora.nome}}</td>
+                            <td>{{pedido.cliente}}</td>
+                            <td>{{pedido.UFDestino}}</td>
+                            <td>{{pedido.peso}}</td>
+                            <td>{{pedido.codigo}}</td>
+                            <td>{{pedido.status}}</td>
+                        </tr>
+            {% endif %}
+        {% endfor %}
+                    </table>
+                </div>
+    {% endfor %}
+
+</body>
+</html>

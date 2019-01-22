@@ -1,0 +1,43 @@
+{% extends 'rastreamento.html' %}
+{% load static %}
+
+{% block corpo %}
+<div role="application" class="wizard clearfix" id="steps-uid-0">
+    <div class="steps clearfix">
+        <ul role="tablist">
+            <li role="tab" class="done" aria-disabled="false" aria-selected="false">
+                <a id="steps-uid-0-t-0" href="/rastreamento/busca" aria-controls="steps-uid-0-p-0">Busca Específica </a>
+            </li>
+            <li role="tab" class="current" aria-disabled="false" aria-selected="true">
+                <a id="steps-uid-0-t-1" href="/rastreamento/periodo" aria-controls="steps-uid-0-p-1">Busca por Período</a>
+            </li>
+        </ul>
+    </div>
+<form action="" method="POST">
+    
+    {% csrf_token %}
+    
+    <p class="card-description" style="margin-top: 2.5em";>
+    Busca por período: Todos os pedidos gerados entre um determinado período de tempo
+</p>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">De</label>
+            <div class="col-sm-9">
+                <input type="date" class="form-control" name="dataInicio" id="dataInicio">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Até</label>
+            <div class="col-sm-9">
+                <input type="date" class="form-control" name="dataFim" id="dataFim">
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-dark btn-fw" id="botaoPesquisa">Pesquisar</button>
+</div>
+</form>
+{% endblock %}

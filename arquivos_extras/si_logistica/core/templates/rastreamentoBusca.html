@@ -1,0 +1,113 @@
+{% extends 'rastreamento.html' %}
+{% load static %}
+
+{% block corpo %}
+<div role="application" class="wizard clearfix" id="steps-uid-0">
+    <div class="steps clearfix">
+        <ul role="tablist">
+            <li role="tab" class="current" aria-disabled="false" aria-selected="false">
+                <a id="steps-uid-0-t-0" href="/rastreamento/busca" aria-controls="steps-uid-0-p-0">Busca Específica </a>
+            </li>
+            <li role="tab" class="done" aria-disabled="false" aria-selected="true">
+                <a id="steps-uid-0-t-1" href="/rastreamento/periodo" aria-controls="steps-uid-0-p-1">Busca por Período</a>
+            </li>
+        </ul>
+    </div>
+<form id="busca" action="" method="post">
+        
+    {% csrf_token %}
+    
+    <p class="card-description" style="margin-top: 2.5em";>
+        Busca
+    </p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="identificacao">Nome do cliente</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="identificacao" id="identificacao">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="transportadora">Nome da Transportadora</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="transportadora" id="transportadora">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="dataRegistro">Data de Registro</label>
+                <div class="col-sm-9">
+                    <input class="form-control" name="dataRegistro" id="dataRegistro" type="date">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="UFDestino">UF de destino</label>
+                <div class="col-sm-9">
+                    <select class="form-control" name="UFDestino" id="UFDestino">
+                        <option value="">Estado..</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goias</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="status">Status</label>
+                <div class="col-sm-4">
+                    <div class="form-radio">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="status" id="status" value="pendente" checked="">
+                        Pendente
+                        <i class="input-helper"></i></label>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-radio">
+                        <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="status" id="status" value="entregue">
+                        Entregue
+                        <i class="input-helper"></i></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-dark btn-fw" id="botaoPesquisa">Pesquisar</button>
+</form>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-12 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 style="text-align: center; color:black">No período entre {{inicio_periodo}} até {{fim_periodo}}:</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title" style="">Pendências por Transportadora</h3>
+                    <div id="chart_div"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      
+    var dias_semana = [];
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+        var transportadora_list = {{transportadora_list|safe}}
+        console.log(transportadora_list)
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Transportadora')
+        data.addColumn('number', 'Total');
+        data.addColumn('number', 'Pendentes');
+        data.addRows([
+        {% for element in transportadora_list %}
+            ['{{element.transportadora}}', {{element.total}}, {{element.total_pendentes}}],
+        {% endfor %}
+        ]);
+
+        var options = {
+            title: '',
+            colors: ['#9575cd', '#33ac71'],
+            hAxis: {
+                title: 'Transportadora',
+            },
+            vAxis: {
+                title: 'Número de Pedidos'
+            }
+        };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block body %}
+
+
+<div class="row">
+    <div class="col-md-12 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 style="text-align: center; color:black">No período entre {{inicio_periodo}} até {{fim_periodo}}:</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title" style="">Performance por Transportadora</h3>
+                <div id="performance_column_chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">performance Média por Estado</h3>
+                <div id="performance_chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      var dias_semana = [];
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      var cores = ['yellow', 'green', 'blue', 'black', 'gold', 'gray', 'purple', 'red', 'orange', '#37AB65', '#3DF735', '#AD6D70', '#EC2504', '#8C0B90', '#C0E4FF', '#27B502', '#7C60A8', '#CF95D7', '#F6CC1D']
+      function drawChart() {
+        // Create the data table.
+
+        var data_performance = new google.visualization.arrayToDataTable([
+            ['Transportadora', 'Performance', {role :  'style'}],
+            {% for element in transportadora_performance %}
+              ['{{element.transportadora}}', {{element.performance}}, 'blue'],
+            {% endfor %}
+        ])
+
+        var options_performance = {
+            'title': '',
+            'width': 1000,
+            'height' : 450
+        }
+        var chart2 = new google.visualization.BarChart(document.getElementById('performance_column_chart'))
+        chart2.draw(data_performance, options_performance)
+
+        var data_entregas = new google.visualization.arrayToDataTable([
+          ['Estado', 'Performance média:', {role: 'style'}],
+          {% for element in performance_media %}
+            ['{{element.estado}}', {{element.media}}, cores[Math.floor(Math.random() * cores.length) + 1]],
+          {% endfor %}
+        ])
+
+        var options_entregas = {
+          title: '',
+          width: 1000,
+          height: 400,
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        }
+
+        var chart3 = new google.visualization.ColumnChart(document.getElementById('performance_chart'));
+        chart3.draw(data_entregas, options_entregas); 
+    }
+</script>
+{% endblock %}

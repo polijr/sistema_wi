@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<style>
+    h4{
+        font-size: 1.9rem;
+    }
+    h5{
+        font-size: 1.2rem;
+    }
+    #steps-uid-0-t-1, #steps-uid-0-t-0, #steps-uid-0-t-2{
+    font-size: 1rem;
+   }
+   .form-control{
+     display: inline;
+   }
+   h5, h3{
+       display: inherit;
+   }
+   .aviso {
+       display:none;
+   }
+</style>
+<div class="col-12 grid-margin">
+        <div class="card">
+           <div class="card-body">
+              <h4 class="card-title">Programação de Transporte</h4>
+              <form id="example-form" action="#">
+                 <div role="application" class="wizard clearfix" id="steps-uid-0">
+                    <div class="steps clearfix">
+                       <ul role="tablist">
+                          <li role="tab" class="first done" aria-disabled="false" aria-selected="false"><a id="steps-uid-0-t-0"   aria-controls="steps-uid-0-p-0">Importar lista de pedidos</a></li>
+                          <li role="tab" class="current" aria-disabled="false" aria-selected="true"><a id="steps-uid-0-t-1" href="/registros/ver/{{registros.pk}}" aria-controls="steps-uid-0-p-1"><span class="current-info audible">current step: </span> Conferir Dados</a></li>
+                          <li role="tab" class="disabled" aria-disabled="true" style="width: 30%;"><a id="steps-uid-0-t-2"  aria-controls="steps-uid-0-p-2">Programação de Transporte</a></li>
+                       </ul>
+                    </div>
+                    <div class="content clearfix" style="height:600px;"> 
+                       <section id="steps-uid-0-p-1" role="tabpanel" aria-labelledby="steps-uid-0-h-1" class="body current" aria-hidden="false" style="left: 0px;">
+                                            <h5>Pedidos nesta lista</h5>
+                                            <h3 style="font-size:1rem;"> Data: {{ registro.data }} </h3><br/>
+                                            <div class="col-sm-12 col-md-6" style=" left: -1vw;">
+                                                <div id="order-listing_filter" class="dataTables_filter">
+                                                    <label>
+                                                        <input type="search" class="form-control" placeholder="Search" aria-controls="order-listing">
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div style="overflow:auto;height:400px;width:104%;">
+                                            <table class="table table-hover" style="background-color: white;">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="font-size: 1.1rem;">Cliente</th>
+                                                        <th style="font-size: 1.1rem;">Origem (CEP)</th>
+                                                        <th style="font-size: 1.1rem;">Destino (CEP)</th>
+                                                        <th style="font-size: 1.1rem;">Valor</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for pedido in pedidos %}
+                                                    <tr>
+                                                        <td style="font-size: 0.995rem;">{{ pedido.identificacao }}</td>
+                                                        <td style="font-size: 0.995rem;">{{ pedido.origem }}</td>
+                                                        <td style="font-size: 0.995rem;">{{ pedido.destino }}</td>
+                                                        <td style="font-size: 0.995rem;">R$ {{ pedido.valor }}</td>
+                                                        <td><a href= "/pedido/ver/{{ pedido.id }}"><img src="{% static 'images/menu_icons/magnifying-glass.png' %}" alt="search icon" style="width: 20px; height: auto; border-radius: 1px;"></a></td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                       </section>
+                    </div>
+                    <div class="card">
+                    <div class="card-body">
+                        <div class="input-group col-xs-12">
+                            <!-- <a href="{% url 'exportar_programacao' %}"><button type="button" class="btn btn-info btn-fw"><i class="mdi mdi-download"></i>(.xls)</button></a> -->
+                            <a>
+                                <button type="button" class="btn btn-info btn-fw mostra-aviso" style="font-size: 1rem;">
+                                    <i ></i>Gerar Programação de Transporte
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="card aviso">
+                    <div class="card-body">
+                        <h3 style="font-size:1.2rem;">Deseja cadastrar/alterar regra de negócio?</h3>
+                        <div class="input-group col-xs-12" id=>
+                                <a href="/regras/" >
+                                    <button type="button" class="btn btn-success btn-fw" style="font-size: 1rem;">
+                                        <i class="mdi mdi-thumb-up"></i>Sim
+                                    </button>
+                                </a>
+                                <a href="/programacao/criar">
+                                    <button type="button" class="btn btn-danger btn-fw" style="margin-left:10%; font-size: 1rem;">
+                                        <i class="mdi mdi-thumb-down"></i>Não
+                                    </button>
+                                </a>
+                        </div>
+                    </div>
+                    </div>
+                   <div class="actions clearfix">
+                       <ul role="menu" aria-label="Pagination">
+                          <li class="" aria-disabled="false"><a href="/registros/criar" role="menuitem" style="font-size: 1rem;" >Anterior</a></li>
+                       </ul>
+                    </div>
+                 </div>
+              </form>
+           </div>
+        </div>
+     </div>
+{% endblock %}

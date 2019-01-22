@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<style>
+  h4{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.9rem;
+  }
+  #steps-uid-0-t-1, #steps-uid-0-t-0, #steps-uid-0-t-2{
+    font-size: 1rem;
+  }
+</style>
+  {% if erro %}
+    <div class="error-alert">
+      <span class="closebtn">&times;</span> 
+        <p>Ocorreu um erro!</p>
+    </div>
+  {% endif %}
+  {% if success %}
+    <div class="success-alert">
+      <span class="closebtn">&times;</span> 
+        <p>Arquivo importado com sucesso!</p>
+    </div>
+  {% endif %}
+
+  <div class="row">
+    <div class="col-md-5 grid-margin stretch-card" style="margin-left: 25%">
+      <div class="card">
+        <div class="card-body">
+          <p class="title" style="font-size: 25px;">Upload de CONEMB/OCOREN</p>
+          <form class="forms-sample" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+                <div class="form-group">
+                  <input type="file" name="arquivo" class="file-upload-default">
+                  <div class="input-group col-xs-12">
+                    <input type="text" class="form-control file-upload-info" disabled placeholder=".txt">
+                    <span class="input-group-append">
+                      <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+                    </span>
+                  </div>
+                </div>
+            <button class="btn btn-success mr-2" type="submit" name="Text">Enviar</button>
+          </form>
+        </div>         
+      </div>
+    </div>
+  </div>
+
+<div class="card">
+<div class="card-body">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th style="font-size: 1.1rem;">Arquivo</th>
+        <th style="font-size: 1.1rem;">Data</th>
+        <th style="font-size: 1.1rem;">Tipo</th>
+        <th style="font-size: 1.1rem;">Pedido</th>
+        <th style="font-size: 1.1rem;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for arquivo in arquivos %}
+      <tr>
+        <td style="font-size: 0.995rem;">{{ arquivo.id }}</td>
+        <td style="font-size: 0.995rem;">{{ arquivo.data }}</td>
+        <td style="font-size: 0.995rem;">{{ arquivo.tipo }}</td>
+        <td style="font-size: 0.995rem;">{{ arquivo.pedido.identificacao }}</td>
+        <td style="font-size: 0.995rem;">{{ arquivo.status }}</td>
+       
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+</div>
+
+
+</div>
+
+{% endblock %}

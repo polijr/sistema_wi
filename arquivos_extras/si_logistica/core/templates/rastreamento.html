@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+{% endblock %}
+
+{% block body %}
+<div class="card">
+    <div class="card-body">
+        <p class="title" style="font-size: 25px; font-family: Dubai, Roboto, Arial, Helvetica, Sans-serif; font-weight: bold;">Rastreamento</p>
+{% block corpo %}
+{% endblock %}
+            </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">pedidos</h4>
+        <div class="row">
+            <form action="{% url 'exportar_rastreamento_url' %}" id="forms_post" method="post">
+                {% csrf_token %}
+                <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                    <table id="sortable-table-1 sortable-table mytable" class="table">
+                        <thead>
+                            <tr>
+                                <th class="sortStyle ascStyle">Cliente</th>
+                                <th class="sortStyle ascStyle">Valor</th>
+                                <th class="sortStyle unsortStyle">Data de Registro</th>
+                                <th class="sortStyle unsortStyle">CEP de Origem</th>
+                                <th class="sortStyle unsortStyle">CEP de Destino</th>
+                                <th class="sortStyle unsortStyle">Transportadora</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody id="searchable">
+                            {% for pedido in pedidos %}
+                            <tr>
+                                <td class="dados-pedido">{{ pedido.identificacao }}</td>
+                                <td class="dados-pedido">{{ pedido.valor }}</td>
+                                <td class="dados-pedido">{{ pedido.registro.data }}</td>
+                                <td class="dados-pedido">{{ pedido.origem }}</td>
+                                <td class="dados-pedido">{{ pedido.destino }}</td>
+                                <td class="dados-pedido">{{ pedido.transportadora.nome }}</td>
+                                <td><a href= "/pedido/ver/{{ pedido.id }}"><img src="{% static 'images/menu_icons/lupapreta.png' %}" alt="search icon" style="width: 20px; height: auto; border-radius: 1px;"></a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <button id="botao_post" class="btn btn-dark btn-fw" style="margin-top: 2em;" type="submit">Exportar tabela para .xlsx</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var form = document.getElementById('forms_post')
+    let botao = document.getElementById('botao_post')
+    botao.addEventListener('click', function(e){
+        let dados = document.getElementsByClassName('dados-pedido')
+        
+        for(var i = 0; i < dados.length; i++){
+            let input = document.createElement('input')
+            input.name = 'input' + String(i)
+            input.id = 'input' + String(i)
+            input.style.display = 'none'
+            input.value = dados[i].textContent
+            form.appendChild(input)
+        }
+        let tamanho = document.createElement('input')
+        tamanho.name = 'tamanho'
+        tamanho.style.display = 'none'
+        tamanho.value = dados.length
+        form.appendChild(tamanho)
+
+        form.submit()
+    })
+</script>
+
+{% endblock %}

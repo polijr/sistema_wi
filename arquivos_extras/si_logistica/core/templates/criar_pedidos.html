@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+{% if erro %}
+<div class="error-alert">
+  <span class="closebtn">&times;</span>
+  <p>Ocorreu um erro!</p>
+</div>
+{% endif %}
+<div class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Fazer um pedido</h4>
+        <form id="example-form" enctype="multipart/form-data" action="" method="post">
+
+          {% csrf_token %}
+            <div class="content clearfix">
+              <section id="steps-uid-0-p-0" role="tabpanel" aria-labelledby="steps-uid-0-h-0" class="body current" aria-hidden="false">
+                <div class="form-group">
+                  <label>Identificação</label>
+                  <input type="text" class="form-control"  maxlength="25" name="nome" id="nome" placeholder="Digite o nome da transportadora">
+                </div>
+                <div class="form-group">
+                  <label>CNPJ</label>
+                  <input class="form-control" maxlength="20" name="CNPJ" id="CNPJ" type="text" placeholder="Exemplo: xx.xx.xxx/xxxx-xx">
+                </div>
+                <div class="form-group">
+                  <label>E-mail</label>
+                  <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Exemplo: transportadora@exemplo.com" maxlength="30" name="email" id="email">
+                </div>
+                <div class="form-group">
+                  <label>Telefone</label>
+                  <input class="form-control"  maxlength="30" name="telefone" id="telefone" type="tel" placeholder="Exemplo: (xx) xxxxx-xxxx">
+                </div>
+              </section>
+              <h3 id="steps-uid-0-h-1" tabindex="-1" class="title">Profile</h3>
+              <section id="steps-uid-0-p-1" role="tabpanel" aria-labelledby="steps-uid-0-h-1" class="body" aria-hidden="true" style="display: none;">
+                <h6>Profile</h6>
+                <div class="form-group">
+                  <label>First name</label>
+                  <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter first name">
+                </div>
+                <div class="form-group">
+                  <label>Last name</label>
+                  <input type="password" class="form-control" placeholder="Last name">
+                </div>
+                <div class="form-group">
+                  <label>Profession</label>
+                  <input type="password" class="form-control" placeholder="Profession">
+                </div>
+            </div>
+            <div class="actions clearfix">
+              <button class="btn btn-primary" type="submit" name = "criar">Próximo</button>
+              <!-- <button class="btn btn-primary" type="submit" name = "outro">Criar Mais Produto</button> -->
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{% static '../../vendors/js/vendor.bundle.base.js' %}"></script>
+<script src="{% static '../../vendors/js/vendor.bundle.addons.js' %}"></script>
+<script src="{% static '../../js/off-canvas.js' %}"></script>
+<script src="{% static '../../js/hoverable-collapse.js' %}"></script>
+<script src="{% static '../../js/misc.js' %}"></script>
+<script src="{% static '../../js/settings.js' %}"></script>
+<script src="{% static '../../js/todolist.js' %}"></script>
+<script src="{% static '../../js/wizard.js' %}"></script>
+{% endblock %}

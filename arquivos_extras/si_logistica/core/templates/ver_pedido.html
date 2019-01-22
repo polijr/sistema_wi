@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<style>
+  h4{
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-size: 1.9rem;
+  }
+  #steps-uid-0-t-1, #steps-uid-0-t-0, #steps-uid-0-t-3{
+    font-size: 1rem;
+  }
+
+  #order-listing_filter, #export-all {
+    display: inline-block;
+  }
+
+  #order-listing_filter{
+    padding-left: 36.2vw;
+  }
+ 
+
+
+</style>
+<div class="col-12 grid-margin">
+        <div class="card">
+          <h4 class="card-title" style="text-align: center; padding-top: 30px;">{{ pedido.identificacao }}</h4>
+           <div class="card-body" style="padding: 0px;">
+              <div role="application" class="wizard clearfix" id="steps-uid-0">
+                    <div class="content clearfix" style="height: 550px;">
+                       <section id="steps-uid-0-p-3" role="tabpanel" aria-labelledby="steps-uid-0-h-3" class="body current" aria-hidden="false" style="left: 0px; width: 100%; height: 100%">
+
+                       <!-- Linha de cima com informações gerais-->
+                                              <div class="row">
+                                                <div class="col-md-6 grid-margin stretch-card">
+                                                  <div class="card card-statistics">
+                                                    <div class="card-body">
+                                                      <div class="d-flex align-items-center justify-content-center">
+
+                                                        <div class="highlight-icon bg-light mr-3" style="margin-left: 0%;">
+                                                          <i class="mdi mdi-briefcase text-success icon-lg"></i>
+                                                        </div>
+                                                        <div class="wrapper" style="margin-left: 5%;">
+                                                          <p class="card-text mb-0">Valor do pedido</p>
+                                                          <div class="fluid-container">
+                                                            <h3 class="card-title mb-0">{{ pedido.valor }}</h3>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              
+                                                <div class="col-md-6 grid-margin stretch-card">
+                                                  <div class="card card-statistics">
+                                                    <div class="card-body">
+                                                      <div class="d-flex align-items-center justify-content-center">
+
+                                                        <div class="highlight-icon bg-light mr-3" style="margin-left: 0%;">
+                                                          <i class="mdi mdi-database text-primary icon-lg"></i>
+                                                        </div>
+                                                        <div class="wrapper" style="margin-left: 5%;">
+                                                          <p class="card-text mb-0">Peso do pedido</p>
+                                                          <div class="fluid-container">
+                                                            <h3 class="card-title mb-0">{{ pedido.peso }}</h3>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+
+                    <!-- Início do card -->
+                                              <div class="row">
+                                                <div class="col-md-6 grid-margin stretch-card">
+                                                  <div class="card card-statistics">
+                                                    <div class="card-body">
+
+                                                      <!-- Nome da transportadora --> 
+                                                      <h4 class="title" >Dados do pedido</h4>
+                                                      <!-- Início da tabela -->
+                                                      <br/>
+                                                      <table class="table table-striped">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td style="font-weight: bold;"> Origem </td>
+                                                            <td> {{ pedido.origem}} </td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td style="font-weight: bold;"> Destino </td>
+                                                            <td> {{ pedido.destino}} </td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td style="font-weight: bold;"> UF </td>
+                                                            <td> {{ pedido.UFDestino}} </td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td style="font-weight: bold;"> Código </td>
+                                                            <td> {{ pedido.codigo}} </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              
+                                                <div class="col-md-6 grid-margin stretch-card">
+                                                  <div class="card card-statistics">
+                                                    <div class="card-body">
+
+                                                      <!-- Nome da transportadora --> 
+                                                      <h4 class="title" >Programação de Transporte</h4>
+                                                      <!-- Início da tabela -->
+                                                      <br/>
+                                                      <table class="table table-striped">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td style="font-weight: bold;"> Transportadora: </td>
+                                                            <td> {{ pedido.transportadora}} </td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td style="font-weight: bold;"> Confirmação de embarcação: </td>
+                                                            <td> {{ pedido.data_conemb}} </td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td style="font-weight: bold;"> Previsão de entrega: </td>
+                                                            <td> {{ pedido.data_previsao}} </td>
+                                                          </tr><tr>
+                                                            <td style="font-weight: bold;"> Data da ocorrência de entrega: </td>
+                                                            <td> {{ pedido.data_ocoren}} </td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td style="font-weight: bold;"> Status </td>
+                                                            <td> {{ pedido.status}} </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                      </section>
+                    </div>
+                 </div>
+
+           </div>
+        </div>
+     </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block body %}
+
+<div class="row">
+    <div class="col-md-4 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Pedidos</h3>
+                <div class="d-flex align-items-start pb-3 pt-1 mb-4 border-bottom">
+                    <img src="https://placehold.it/50x50" alt="brand logo">
+                    <div class="wrapper w-100 pl-3">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="badge badge-warning badge-lg mb-2">TRANSPORTADORA 1</span>
+                            <span class="text-gray text-small">13:17 PM</span>
+                        </div>
+                        <p>Objeto encaminhado</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start pb-3 pt-1 mb-4 border-bottom">
+                    <img src="https://placehold.it/50x50" alt="brand logo">
+                    <div class="wrapper w-100 pl-3">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="badge badge-danger badge-lg mb-2">TRANSPORTADORA 2</span>
+                            <span class="text-gray text-small">09:29 PM</span>
+                        </div>
+                        <p>PEDIDO PENDENTE</p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-start pb-3 pt-1 mb-4 border-bottom">
+                    <img src="https://placehold.it/50x50" alt="brand logo">
+                    <div class="wrapper w-100 pl-3">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <span class="badge badge-success badge-lg mb-2">TRANSPORTADORA 3</span>
+                            <span class="text-gray text-small">03:43 AM</span>
+                        </div>
+                        <p>Pedido entregue</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Top Selling Products</h3>
+                <div class="row border-bottom pb-3 mb-3">
+                    <div class="col-12 py-4 my-3">
+                        <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                            <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                            </div>
+                            <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                            </div>
+                        </div>
+                        <canvas id="DashboardBarChart-1" style="height: 100px; display: block; width: 336px;" width="840" height="250" class="chartjs-render-monitor"></canvas>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="d-flex align-items-end">
+                            <h1 class="display-4 font-weight-semibold mb-0">8935</h1>
+                            <h5 class="ml-3 mb-2">Sales Per Day</h5>
+                        </div>
+                        <p class="mt-0 mb-2">Some quick example text to build</p>
+                        <div class="d-flex align-items-center">
+                            <div class="progress progress-md w-100 mr-3">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 38%" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p class="mb-0">38%</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex align-items-end">
+                            <h1 class="display-4 font-weight-semibold mb-0">6843</h1>
+                            <h5 class="ml-3 mb-2">Orders Per Day</h5>
+                        </div>
+                        <p class="mt-0 mb-2">Proin eget tortor risus.</p>
+                        <div class="d-flex align-items-center">
+                            <div class="progress progress-md w-100 mr-3">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 64%" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <p class="mb-0">64%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">Total Revenue</h3>
+                <div class="w-75 mx-auto">
+                    <div class="d-flex justify-content-between text-center mb-2">
+                        <div class="wrapper">
+                            <h4>6,256</h4>
+                            <small class="text-muted">Totel sales</small>
+                        </div>
+                        <div class="wrapper">
+                            <h4>8569</h4>
+                            <small class="text-muted">Open Compaign</small>
+                        </div>
+                    </div>
+                </div>
+                <div id="morris-line-example" style="height: 250px; position: relative; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                    <svg height="250" version="1.1" width="254" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.2px; top: -0.2px;">
+                        <desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.4</desc>
+                        <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></defs>
+                        <text x="32.515625" y="211.34375" text-anchor="end" font-family="sans-serif" font-size="12px" stroke="none" fill="#888888" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: end; font-family: sans-serif; font-size: 12px; font-weight: normal;" font-weight="normal">
+                        </text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+      var dias_semana = [];
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['corechart']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+      function drawChart() {
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+        data.addRows([
+          ['Mushrooms', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ]);
+
+        // Set chart options
+        var options = {'title':'',
+                       'width':650,
+                       'height':300};
+
+        // Instantiate and draw our chart, passing in some options.
+        document.getElementById('chart_div').style = 'padding: 0px;'
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+
+        var data_performance = new google.visualization.arrayToDataTable([
+            ['Transportadora', 'Performance', {role :  'style'}],
+            ['T. 1', 70, 'green'],
+            ['T. 2', 86.4, 'blue'],
+            ['T. 3', 98.5, 'gold']
+        ])
+
+        var view = new google.visualization.DataView(data_performance);
+        var options_performance = {
+            'title': '',
+            'width': 300,
+            'height' : 300
+        }
+        var chart2 = new google.visualization.ColumnChart(document.getElementById('performance_column_chart'))
+        chart2.draw(view, options_performance)
+
+        var data_entregas = google.visualization.arrayToDataTable([
+          ['Dia', 'SP', 'RJ', 'ES', 'MG'],
+          ['segunda-feira',  1000,      400, 650, 802],
+          ['terça-feira',  1170,      460, 1000, 250],
+          ['quarta-feira',  660,       1120, 1073, 203],
+          ['quinta-feira',  1030,      540, 987, 162],
+          ['sexta-feira', 1200, 500, 1200, 500],
+          ['sábado', 800, 200, 1002, 300],
+          ['domingo', 1500, 784, 800, 800]
+        ]);
+
+        var options_entregas = {
+          title: 'Entregas na Região Sudeste na última semana.',
+          width: 1000,
+          height: 400,
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart3 = new google.visualization.LineChart(document.getElementById('entregas_chart'));
+        chart3.draw(data_entregas, options_entregas);
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<!--dentro de head-->
+<style>
+  .tooltip-inner{
+    display: inline-block;
+    width: 11vw;
+    height: 2vw;
+    font-size: 1vw;
+    text-align: center;
+    margin-inline-start: 7vw;
+    margin-inline-end: 4vw;
+    margin-top: 1vw;
+  }
+  .noUi-target .noUi-base{
+    background-color:#857bff;
+  }
+  .noUi-target .noUi-base .noUi-origin .noUi-handle:after{
+    background-color:#857bff;
+  }
+  p {
+    font-size: 1rem;
+  }
+  .ul-slider, .slider-primary, .mb-5{
+    width:110%;
+    margin-left: -7%;
+  }
+</style>  
+<!--dentro de head-->
+
+<!--Parte teste inicio regra de negocio-->
+<form id="example-form" enctype="multipart/form-data" action="" method="post">
+  {% csrf_token %}
+<div class="card">
+  <div class="card-body" id="escolha-estado">
+    <h4 class="card-title">Regras de negócio</h4>
+    <p class="card-description"> 
+      Escolha para todos os estados do Brasil uma regra de negócio, para o interior e capital, de sua preferência
+    </p>
+    <br/>
+    <p class="card-description"> 
+        Estados:
+      </p>
+    <div class="form-group">
+      <select class="form-control border-primary" id="estados" name="estados" style="width: 200px">
+        <option value="ALL">TODOS</option>
+        <option value="AC">Acre - AC</option>
+        <option valeu="AL">Alagoas - AL</option>
+        <option value="AP">Amapá - AP</option>
+        <option value="AM">Amazonas - AM</option>
+        <option value="BA">Bahia - BA</option>
+        <option value="CE">Ceará - CE</option>
+        <option value="DF">Distrito Federal - DF</option>
+        <option value="ES">Espírito Santo - ES</option>
+        <option value="GO">Goiás - GO</option>
+        <option value="MA">Maranhão - MA</option>
+        <option value="MT">Mato Grosso - MT</option>
+        <option value="MS">Mato Grosso do Sul - MS</option>
+        <option value="MG">Minas Gerais - MG</option>
+        <option value="PA">Pará - PA</option>
+        <option value="PB">Paraíba - PB</option>
+        <option value="PR">Paraná - PR</option>
+        <option value="PE">Pernambuco - PE</option>
+        <option value="PI">Piauí - PI</option>
+        <option value="RJ">Rio de Janeiro - RJ</option>
+        <option value="RS">Rio Grande do Sul - RS</option>
+        <option value="RN">Rio Grande do Norte - RN</option>
+        <option value="RO">Rondônia - RO</option>
+        <option value="RR">Roraima - RR</option>
+        <option value="SC">Santa Catarina - SC</option>
+        <option value="SP">São Paulo - SP</option>
+        <option value="SE">Sergipe -  SE</option>
+        <option value="TO">Tocantins - TO</option>
+      </select>
+    </div>
+    <br/>
+    <p class="card-description"> 
+        Região:
+      </p>
+    <div class="form-group">
+        <select class="form-control border-primary" id="regiao" name="estados" style="width: 200px">
+          <option value="ALL">TODOS</option>
+          <option value="AC">Capital</option>
+          <option value="AC">Interior</option>
+        </select>
+      </div>
+  </div>
+
+  <div class="card-body" id="escolha-variaveis-interior">
+    <p class="card-description">
+      Coloque de 0% a 100% o grau de importância das seguintes variáveis:
+    </p>
+    
+    <div class="tooltip-inner">
+      Preço:
+      <span id="valor-preço-interior" name="valor-preço-interior"></span>
+      %
+    </div>
+    <input type="text" id="preco_interior" name="preco_interior" value="10" hidden>
+
+    <div class="tooltip-inner">
+      Prazo:
+      <span id="valor-prazo-interior" name="valor-prazo-interior"></span>
+      %
+    </div>
+    <input type="text" id="prazo_interior" name="prazo_interior" value="10" hidden>
+    <div class="tooltip-inner">
+        Performance:
+      <span id="valor-performance-interior" name="valor-performance-interior"></span>
+      %
+    </div>
+    <input type="text" id="performance_interior" name="performance_interior" value="10" hidden>
+
+    
+    <div class="mt-5 pt-4 w-75 mx-auto grid-margin">
+      <div id="slider-interior" class="ul-slider slider-primary mb-5"></div>
+    </div>
+
+
+  </div>
+    
+  <br/>
+  <button class="btn btn-primary" type="submit" name = "criar" style="font-size: 1rem; width: 200px; margin-left: 40%; margin-bottom: 50px">Criar Regra de Negócio</button>
+</div>
+      </form>
+{% endblock%}

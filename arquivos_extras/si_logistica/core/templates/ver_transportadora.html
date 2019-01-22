@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<style>
+  h4{
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-size: 1.9rem;
+  }
+  #steps-uid-0-t-1, #steps-uid-0-t-0, #steps-uid-0-t-3{
+    font-size: 1rem;
+  }
+
+  #order-listing_filter, #export-all {
+    display: inline-block;
+  }
+
+  #order-listing_filter{
+    padding-left: 36.2vw;
+  }
+ 
+
+
+</style>
+<div class="col-12 grid-margin">
+        <div class="card">
+          <h4 class="card-title" style="text-align: center; padding-top: 30px;">{{transportadora.nome}}</h4>
+           <div class="card-body" style="padding: 0px;">
+              <div role="application" class="wizard clearfix" id="steps-uid-0">
+                    <div class="content clearfix" style="height: 500px;">
+                       <section id="steps-uid-0-p-3" role="tabpanel" aria-labelledby="steps-uid-0-h-3" class="body current" aria-hidden="false" style="left: 0px; width: 100%; height: 100%">
+
+                       <!-- Linha de cima com informações gerais-->
+                                              <div class="row">
+                                                <div class="col-md-6 grid-margin stretch-card">
+                                                  <div class="card card-statistics">
+                                                    <div class="card-body">
+                                                      <div class="d-flex align-items-center justify-content-center">
+
+                                                        <div class="highlight-icon bg-light mr-3" style="margin-left: 0%;">
+                                                          <i class="mdi mdi-briefcase text-success icon-lg"></i>
+                                                        </div>
+                                                        <div class="wrapper" style="margin-left: 5%;">
+                                                          <p class="card-text mb-0">Valor Máximo</p>
+                                                          <div class="fluid-container">
+                                                            <h3 class="card-title mb-0">{{transportadora.valorMaximo}}</h3>
+                                                          </div>
+                                                        </div>
+                                                        <div class="wrapper" style="margin-left: 10%;">
+                                                          <p class="card-text mb-0">Valor Atual</p>
+                                                          <div class="fluid-container">
+                                                            <h3 class="card-title mb-0">{{transportadora.valorAtual}}</h3>
+                                                          </div>
+                                                        </div>
+
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              
+                                                <div class="col-md-6 grid-margin stretch-card">
+                                                  <div class="card card-statistics">
+                                                    <div class="card-body">
+                                                      <div class="d-flex align-items-center justify-content-center">
+
+                                                        <div class="highlight-icon bg-light mr-3" style="margin-left: 0%;">
+                                                          <i class="mdi mdi-database text-primary icon-lg"></i>
+                                                        </div>
+                                                        <div class="wrapper" style="margin-left: 5%;">
+                                                          <p class="card-text mb-0">Máximo de pedidos</p>
+                                                          <div class="fluid-container">
+                                                            <h3 class="card-title mb-0">{{transportadora.maximoPedidos}}</h3>
+                                                          </div>
+                                                        </div>
+                                                        <div class="wrapper" style="margin-left: 10%;">
+                                                          <p class="card-text mb-0">Quantidade Atual</p>
+                                                          <div class="fluid-container">
+                                                            <h3 class="card-title mb-0">{{transportadora.quantidadeAtual}}</h3>
+                                                          </div>
+                                                        </div>
+
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+
+                    <!-- Início do card -->
+                                              <div class="row">
+                                                <div class="col-md-6 grid-margin stretch-card">
+                                                  <div class="card card-statistics">
+                                                    <div class="card-body">
+
+                                                      <!-- Nome da transportadora --> 
+                                                      <h4 class="title" >Dados da transportadora</h4>
+                                                      <!-- Início da tabela -->
+                                                      <br/>
+                                                      <table class="table table-striped">
+                                                        <tbody>
+                                                          <tr>
+                                                            <td style="font-weight: bold;"> CNPJ </td>
+                                                            <td> {{transportadora.CNPJ}} </td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td style="font-weight: bold;"> E-mail </td>
+                                                            <td> {{transportadora.email}} </td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td style="font-weight: bold;"> Telefone </td>
+                                                            <td> {{transportadora.telefone}} </td>
+                                                          </tr>
+                                                        </tbody>
+                                                      </table>
+
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              
+                                                <div class="col-md-6 grid-margin stretch-card">
+                                                  <div class="card card-statistics">
+                                                    <div class="card-body">
+                                                      <div class="d-flex align-items-center justify-content-center" >
+                                                       <div style="padding-top: 0%;"><div class="template-demo">
+                                                          <a href="/transportadora/{{transportadora.pk}}/editar"><button type="button" class="btn btn-outline-secondary">Editar Dados</button></a>
+                                                          <a href="/transportadora/{{transportadora.pk}}/dados"><button type="button" class="btn btn-outline-secondary">Editar Atuação</button></a>
+                                                          <a href="/transportadora/{{transportadora.pk}}/uploads"><button type="button" class="btn btn-outline-secondary">Atualizar Uploads</button></a>
+                                                          </div><br/><br/>
+                                                          <a href="{% url 'download_preco_padrao' %}"><button type="button" class="btn btn-success btn-fw preco" style="margin-left: 25%"><i class="mdi mdi-cloud-download"></i>Baixar tabela de preços</button></a>
+                                                         <br/><br/>
+                                                         <a href="{% url 'download_prazo_padrao' %}"><button type="button" class="btn btn-primary btn-fw prazo" style="margin-left: 25%"><i class="mdi mdi-cloud-download"></i>Baixar tabela de prazos</button></div></a>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+
+                      </section>
+                    </div>
+                 </div>
+
+           </div>
+        </div>
+     </div>
+{% endblock %}

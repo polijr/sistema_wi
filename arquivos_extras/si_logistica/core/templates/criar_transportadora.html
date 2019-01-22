@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+{% if erro %}
+   <div class="error-alert">
+     <span class="closebtn">&times;</span> 
+       <p>Ocorreu um erro!</p>
+   </div>
+{% endif %}
+<style>
+    h4{
+     font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+<div class="row">
+   <div class="col-12 grid-margin">
+      <div class="card">
+         <div class="card-body">
+            <h4 class="card-title" style="font-size: 1.9rem;">Cadastrar transportadora</h4>
+            <form id="example-form" enctype="multipart/form-data" action="" method="post">
+              {% csrf_token %}
+               <div role="application" class="wizard clearfix" id="steps-uid-0">
+                  <div class="steps clearfix">
+                     <ul role="tablist">
+                        <li role="tab" class="first current" aria-disabled="false" aria-selected="true">
+                           <a id="steps-uid-0-t-0" href="/transportadora/cadastrar" aria-controls="steps-uid-0-p-0" style="font-size: 1rem;"><span class="current-info audible">current step: </span><span style="font-size: 1rem;" class="number">1.</span>Dados</a>
+                        </li>
+                        <li role="tab" class="disabled" aria-disabled="true">
+                           <a id="steps-uid-0-t-1" href="/transportadora/cadastrar/dados" aria-controls="steps-uid-0-p-1" style="font-size: 1rem;"><span style="font-size: 1rem;" class="number">2.</span>Atuação</a>
+                        </li>
+                        <li role="tab" class="disabled" aria-disabled="true">
+                           <a id="steps-uid-0-t-2" href="/transportadora/cadastrar/uploads" aria-controls="steps-uid-0-p-2" style="font-size: 1rem;"><span style="font-size: 1rem;" class="number">3.</span> Tabela de preços</a>
+                        <li role="tab" class="disabled" aria-disabled="true" >
+                           <a id="steps-uid-0-t-2" href="/transportadora/{{transportadora.pk}}/uploads_prazo" aria-controls="steps-uid-0-p-2" style="font-size: 1rem;"><span style="font-size: 1rem;" class="number">4.</span> Tabela de prazos</a>
+                        </li>
+                        </li>
+                        <li role="tab" class="disabled last" aria-disabled="true">
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="content clearfix">
+                     <section id="steps-uid-0-p-0" role="tabpanel" aria-labelledby="steps-uid-0-h-0" class="body current" aria-hidden="false">
+                        <div class="form-group">
+                            <label style="font-size: 1rem;">Nome</label>
+                            <input type="text" class="form-control"  maxlength="25" name="nome" id="nome" placeholder="Digite o nome da transportadora">
+                         </div>
+                        <div class="form-group">
+                           <label style="font-size: 1rem;">CNPJ</label>
+                           <input class="form-control" data-inputmask="'alias': '99.999.999/9999-99'" name="CNPJ" type="text" placeholder="00.000.000/0000-00"  id="CNPJ">
+                        </div>
+                        <div class="form-group">
+                            <label style="font-size: 1rem;">E-mail</label>
+                            <input class="form-control" data-inputmask="'alias': 'email'" placeholder="transportadora@exemplo.com" maxlength="30" name="email" id="email">
+                         </div>
+                        <div class="form-group">
+                           <label style="font-size: 1rem;">Telefone</label>
+                           <input class="form-control" data-inputmask="'mask': '+55(99)9999-9999'" name="telefone" id="telefone" placeholder="+55 (00) 0000-0000">
+                        </div>
+                     </section>
+                  </div>
+                  <div class="actions clearfix">
+                    <button class="btn btn-warning" type="submit" name = "criar" style="font-size: 1rem;">Próximo</button>
+                    <!-- <button class="btn btn-primary" type="submit" name = "outro">Criar Mais Produto</button> -->
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+
+<script src="{% static '../../vendors/js/vendor.bundle.base.js' %}"></script>
+<script src="{% static '../../vendors/js/vendor.bundle.addons.js' %}"></script>
+<script src="{% static '../../js/off-canvas.js' %}"></script>
+<script src="{% static '../../js/hoverable-collapse.js' %}"></script>
+<script src="{% static '../../js/misc.js' %}"></script>
+<script src="{% static '../../js/settings.js' %}"></script>
+<script src="{% static '../../js/todolist.js' %}"></script>
+<script src="{% static '../../js/wizard.js' %}"></script>
+{% endblock %}
+

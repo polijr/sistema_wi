@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<style>
+    .form-check, .form-check-label, .input-helper{
+        display: inline;
+        margin-inline-end: 23px;
+    }
+    .form-check-label{
+        margin-top: 4px; 
+    }
+    h4, .form-group{
+     font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+<div class="row">
+   <div class="col-12 grid-margin">
+      <div class="card">
+         <div class="card-body">
+            <h4 class="card-title" style="font-size: 1.9rem;">Transportadora {{ transportadora.nome }}</h4>
+            <form id="example-form" enctype="multipart/form-data" action="" method="post">
+
+              {% csrf_token %}
+              
+               <div role="application" class="wizard clearfix" id="steps-uid-0">
+                  <div class="steps clearfix">
+                     <ul role="tablist">
+                        <li role="tab" class="first done" aria-disabled="false" aria-selected="false">
+                           <a id="steps-uid-0-t-0" href="/transportadora/{{transportadora.pk}}/editar" aria-controls="steps-uid-0-p-0" style="font-size: 1rem;"><span class="current-info audible">current step: </span><span style="font-size: 1rem;" class="number">1.</span>Dados </a>
+                        </li>
+                        <li role="tab" class="current" aria-disabled="false" aria-selected="true">
+                           <a id="steps-uid-0-t-1" href="/transportadora/{{transportadora.pk}}/dados" aria-controls="steps-uid-0-p-1" style="font-size: 1rem;"><span style="font-size: 1rem;" class="number">2.</span>Atuação</a>
+                        </li>
+                        <li role="tab" class="done" aria-disabled="false" aria-selected="false">
+                           <a id="steps-uid-0-t-2" href="/transportadora/{{transportadora.pk}}/uploads" aria-controls="steps-uid-0-p-2" style="font-size: 1rem;" ><span style="font-size: 1rem;" class="number">3.</span> Tabela de preços</a>
+                        <li role="tab" class="last done" aria-disabled="false" aria-selected="false">
+                           <a id="steps-uid-0-t-2" href="/transportadora/{{transportadora.pk}}/uploads_prazo" aria-controls="steps-uid-0-p-2" style="font-size: 1rem;"><span class="number">4.</span> Tabela de prazos</a>
+                        </li>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="content clearfix">
+                    <h3 id="steps-uid-0-h-1" tabindex="-1" class="title">Profile</h3>
+                     <section id="steps-uid-0-p-1" role="tabpanel" aria-labelledby="steps-uid-0-h-1" class="body current" aria-hidden="false" style="left: 0px;">
+                        <div class="form-group">
+
+
+                           <label style="font-size: 1rem;">Máximo de pedidos</label>
+                           <input  class="form-control" maxlength="10" name="maximo_pedidos" id="maximo_pedidos" type="number" placeholder="{{transportadora.maximoPedidos}}">
+                        </div>
+                        <div class="form-group">
+                          <label style="font-size: 1rem;">Valor Máximo</label>
+                          <!-- <input class="form-control" data-inputmask="'alias': 'currency'" style="text-align: right;" name="valor_maximo" id="valor_maximo" > -->
+                          <input class="form-control" style="text-align: left;" name="valor_maximo" id="valor_maximo" placeholder="{{transportadora.valorMaximo}}">
+                        </div>
+                     </section>
+                     <h3 id="steps-uid-0-h-2" tabindex="-1" class="title">Comments</h3>
+                  </div>
+                  <div class="actions clearfix">
+                    <button class="btn btn-primary" type="submit" name = "criar"style="font-size: 1rem;">Próximo</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+<script>
+    function verPermissao(campo) {
+        var opt1 = document.getElementById('opt1');
+        var opt2 = document.getElementById('opt2');
+    if (campo.checked) {
+        // mostra...
+        opt1.style.display = "block";
+        opt2.style.display = "block";
+    } else {
+        // esconde...
+        opt1.style.display = "hidden";
+        opt2.style.display = "hidden";
+    }
+</script>
+<script src="{% static '../../vendors/js/vendor.bundle.base.js' %}"></script>
+<script src="{% static '../../vendors/js/vendor.bundle.addons.js' %}"></script>
+<script src="{% static '../../js/off-canvas.js' %}"></script>
+<script src="{% static '../../js/hoverable-collapse.js' %}"></script>
+<script src="{% static '../../js/misc.js' %}"></script>
+<script src="{% static '../../js/settings.js' %}"></script>
+<script src="{% static '../../js/todolist.js' %}"></script>
+<script src="{% static '../../js/wizard.js' %}"></script>
+{% endblock %}

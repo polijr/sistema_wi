@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+<style>
+  h4{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.9rem;
+  }
+  #steps-uid-0-t-1, #steps-uid-0-t-0, #steps-uid-0-t-2{
+    font-size: 1rem;
+  }
+</style>
+<div class="col-12 grid-margin">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="title">Programação de transporte</h4><br/>
+      <form id="example-form" action="#">
+        <div role="application" class="wizard clearfix" id="steps-uid-0">
+          <div class="steps clearfix">
+            <ul role="tablist">
+              <li role="tab" class="first current" aria-disabled="false" aria-selected="true" ><a id="steps-uid-0-t-0" href="/registros/criar" aria-controls="steps-uid-0-p-0"><span class="current-info audible">current step: </span>Importar Arquivo</a></li>
+              <li role="tab" class="disabled" aria-disabled="true"><a id="steps-uid-0-t-1" href="/registros/ver/{{registros.pk}}" aria-controls="steps-uid-0-p-1">Conferir Dados</a></li>
+              <li role="tab" class="disabled" aria-disabled="true" style="width: 30%;"><a id="steps-uid-0-t-2" href="/programacao/criar" aria-controls="steps-uid-0-p-2">Programação de Transporte</a></li>
+            </ul>
+          </div>
+          <div class="content clearfix">
+            <h3 id="steps-uid-0-h-0" tabindex="-1" class="title current">Account</h3>
+1            <!-- <section id="steps-uid-0-p-0" role="tabpanel" aria-labelledby="steps-uid-0-h-0" class="body current" aria-hidden="false">
+                 {% if erro %}
+                 <div class="error-alert">
+                 <span class="closebtn">&times;</span>
+                 <p>Ocorreu um erro!</p>
+                 </div>
+                 {% endif %}
+                 {% if success %}
+                 <div class="success-alert">
+                 <span class="closebtn">&times;</span>
+                 <p>Pedidos criados com sucesso!</p>
+                 </div>
+                 {% endif %} -->
+
+              <div class="row">
+                <div class="col-md-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="title" style="font-size: 25px; font-weight: bold;">Upload dos pedidos (NOTFIS)</p>
+                      <form class="forms-sample" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                          <input type="file" name="arquivo" class="file-upload-default">
+                          <div class="input-group col-xs-12">
+                            <input type="text" class="form-control file-upload-info" disabled placeholder=".txt">
+                            <span class="input-group-append">
+                              <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+                            </span>
+                          </div>
+                        </div>
+                        <button class="btn btn-success mr-2" type="submit" name="Text">Enviar</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="title" style="font-size: 25px; font-weight: bold;">Upload dos pedidos (Excel)</p>
+                      <a>LINK PARA O EXCEL</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+    </div>
+
+
+
+    {% endblock %}

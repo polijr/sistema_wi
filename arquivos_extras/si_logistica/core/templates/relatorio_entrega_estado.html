@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html5>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="{% static 'css/relatorio.css' %}">-->
+    <title>Relatorio</title>
+    <style type="text/css">
+        .wrapper {
+            margin-left: -22%;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .fa {
+            margin-right: 15px;
+        }
+        .btn {
+          margin-top: 5%;
+          margin-bottom: 50px;
+          position: absolute;
+          background-color: DodgerBlue;
+          border: none;
+          color: white;
+          padding: 10px 30px;
+          cursor: pointer;
+          font-size: 20px;
+        }
+
+        /* Darker background on mouse-over */
+        .btn:hover {
+          background-color: RoyalBlue;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="cabecalho">
+        <h1 id="heading">Relatório de entregas</h1>
+        <p id="linha-separar">_______________________________________________________________________</p>
+    </div>
+
+    <div id="infos">
+        <p class="infos-r" id="periodo">Periodo:<strong>De {{inicio_periodo}} até {{fim_periodo}}</strong></p>
+        <p class="infos-r" id="estados">Estados:
+            {% for element in estado_list %}
+                <strong>{{element.estado}}/</strong>
+            {% endfor %}
+        </p>
+        <p class="infos-r" id="transportadoras">Transportadoras:
+            {% for transportadora in transportadora_list %}
+                <strong>{{transportadora.nome}}</strong>
+            {% endfor %}
+        </p>
+    </div>
+
+    {% for element in estado_list %}
+        <div id="nome-estados">
+            <p class="dados">{{element.estado}}</p>
+            <p class="dados">Total : {{element.total}}</p>
+        </div>
+                <div id="tabela">
+                    <table>
+                        <tr id="campos-tabela">
+                            <th>Data de Entrega</th>
+                            <th>Transportadora</th>
+                            <th>Cliente</th>
+                            <th>Estado</th>
+                            <th>Peso</th>
+                            <th>Código</th>
+                            <th>Frete</th>
+                        </tr>
+        {% for e in pedidos_list %}
+            {% if e.pedido.UFDestino == element.estado %}
+                        <tr>
+                            <td>{{e.pedido.data_previsao}}</td>
+                            <td>{{e.pedido.transportadora.nome}}</td>
+                            <td>{{e.pedido.cliente}}</td>
+                            <td>{{e.pedido.UFDestino}}</td>
+                            <td>{{e.pedido.peso}} kg</td>
+                            <td>{{e.pedido.codigo}}</td>
+                            <td>R$ {{e.frete}}</td>
+                        </tr>
+            {% endif %}
+        {% endfor %}
+                    </table>
+                </div>
+    {% endfor %}
+
+    <!--<div id="nome-estados">
+        <p class="dados">São Paulo</p>
+        <p class="dados">EX: 1</p>
+        <p class="dados">AV: 5</p>
+        <p class="dados">Total: 6</p>
+    </div>
+
+    <div id="tabela">
+        <table>
+            <tr id="campos-tabela">
+                <th>Data de Entrega</th>
+                <th>Transportadora</th>
+                <th>Cliente</th>
+                <th>Estados</th>
+                <th>Peso</th>
+                <th>Código</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>1/1/2018</td>
+                <td>Transportadora 1</td>
+                <td>Angelo</td>
+                <td>SP</td>
+                <td>0,450 kg</td>
+                <td>098712</td>
+                <td>Extraviado</td>
+            </tr>
+            <tr>
+                <td>1/1/2018</td>
+                <td>Transportadora 1</td>
+                <td>Angelo</td>
+                <td>SP</td>
+                <td>0,450 kg</td>
+                <td>098712</td>
+                <td>Extraviado</td>
+            </tr>
+            <tr>
+                <td>1/1/2018</td>
+                <td>Transportadora 1</td>
+                <td>Angelo</td>
+                <td>SP</td>
+                <td>0,450 kg</td>
+                <td>098712</td>
+                <td>Extraviado</td>
+            </tr>
+        </table>
+    </div>
+    <div id="nome-estados">
+        <p class="dados">Espírito Santo</p>
+        <p class="dados">EX: 10</p>
+        <p class="dados">AV: 5</p>
+        <p class="dados">Total: 15</p>
+        
+    </div>
+    <div id="tabela">
+        <table>
+            <tr id="campos-tabela">
+                <th>Data de Entrega</th>
+                <th>Transportadora</th>
+                <th>Cliente</th>
+                <th>Estados</th>
+                <th>Peso</th>
+                <th>Código</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>Data de Entrega</td>
+                <td>Transportadora</td>
+                <td>Cliente</td>
+                <td>Estados</td>
+                <td>Peso</td>
+                <td>Código</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>Data de Entrega</td>
+                <td>Transportadora</td>
+                <td>Cliente</td>
+                <td>Estados</td>
+                <td>Peso</td>
+                <td>Código</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>Data de Entrega</td>
+                <td>Transportadora</td>
+                <td>Cliente</td>
+                <td>Estados</td>
+                <td>Peso</td>
+                <td>Código</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+                <td>Data de Entrega</td>
+                <td>Transportadora</td>
+                <td>Cliente</td>
+                <td>Estados</td>
+                <td>Peso</td>
+                <td>Código</td>
+                <td>Status</td>
+            </tr>
+            <tr>
+
+                <td>Data de Entrega</td>
+                <td>Transportadora</td>
+                <td>Cliente</td>
+                <td>Estados</td>
+                <td>Peso</td>
+                <td>Código</td>
+                <td>Status</td>
+            </tr>
+        </table>
+    </div>-->
+</body>
+</html>

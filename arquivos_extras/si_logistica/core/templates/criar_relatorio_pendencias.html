@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<meta http-equiv="content-type" content="text/plain; charset=UTF-8"/>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+{% endblock %}
+
+{% block body %}
+<form action="{% url 'gerar_relatorio_pendencias' tipo_de_relatorio='post_request' %}" id="forms_post" method="POST">
+    {% csrf_token %}
+    <div class="card-body">
+        <h4 class="card-title">Criar Relatório de Pendência</h4>
+        <div class="steps clearfix">
+            <div role="application" id="steps-uid-0">
+                    <div class="steps clearfix">
+                        <ul role="tablist" style="padding: 0; margin-top: 25px; margin-bottom: 20px;">
+                            <li role="tab" class="done" aria-disabled="false" aria-selected="false" id="btn-estado">
+                                <a id="steps-uid-0-t-0" href="/relatorio_pendencias/estado" aria-controls="steps-uid-0-p-0">Relatório por Estado</a>
+                            </li>
+                            <li role="tab" class="done" aria-disabled="false" aria-selected="true" id="btn-periodo">
+                                <a href="/relatorio_pendencias/tipo" id="steps-uid-0-t-1" aria-controls="steps-uid-0-p-1">Relatório por Tipo de Pendência</a>
+                            </li>
+                            <li role="tab" class="done" aria-disabled="false" aria-selected="true" id="btn-transportadora">
+                                <a href="/relatorio_pendencias/transportadora" id="steps-uid-0-t-2" aria-controls="steps-uid-0-p-2">Relatório por Transportadora</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+        </div>
+        <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label" for="dataPrevista"><strong>Inico do periodo</strong></label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="inicio-periodo" id="inicio-periodo" type="date">
+                        </div>
+                        <label class="col-sm-3 col-form-label" for="dataPrevista"><strong>Fim do periodo</strong></label>
+                        <div class="col-sm-9">
+                            <input class="form-control" name="fim-periodo" id="fim-periodo" type="date">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label" for="UFDestino"><strong>Estados</strong></label>
+                        <div class="col-sm-9">
+                            <select class="form-control" name="estado" id="estados" multiple>
+                                <option value="" disabled>Escolha os estados..</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goias</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                            </select>
+                            <p style="text-align: center; color: black;">Para selecionar múltiplos itens segure a tecla Ctrl e clique nos itens desejados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label" for="UFDestino"><strong>Transportadora</strong></label>
+                        <div class="col-sm-9">
+                            <select class="form-control" name="transportadora" id="transportadora" multiple>
+                                <option value="" disabled>Escolha uma transportadora..</option>
+                                {% for transportadora in transportadora_list %}
+                                    <option value="{{transportadora.pk}}">{{transportadora.nome}}</option>
+                                {% endfor %}
+                                <option value="ALL">Todas</option>
+                            </select>
+                            <p style="text-align: center; color: black">Para selecionar múltiplos itens segure a tecla Ctrl e clique nos itens desejados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label" for="status"><strong>Pendência</strong></label>
+                            <div class="col-sm-9">
+                                <select class="form-control" name="status" id="status" multiple>
+                                    <option value="" disabled>Escolha um tipo de pendência..</option>
+                                    <option value="extravio">Extravio</option>
+                                    <option value="avaria">Avaria</option>
+                                    <option value="ALL">Todos</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</form>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row" style="display: flex; justify-content: space-around;">
+            <button id="botao_post" class="btn btn-dark btn-fw" style="margin-top: 2em;" type="submit">Visualizar Relatório de Entrega</button>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var btnEstado = document.getElementById('btn-estado')
+    var btnTipo = document.getElementById('btn-tipo')
+    var btnTransp = document.getElementById('btn-transportadora')
+    let path = window.location.pathname
+    path = path.split('')
+    path.splice(1, 18)
+    path = path.toString()
+    path = path.replace(/,/g, '')
+    
+    if (path == '/transportadora/') {
+        btnTransp.className = 'current'
+        btnEstado.className = 'done'
+        btnTipo.className = 'done'
+    } else if (path == '/estado/') {
+        btnEstado.className = 'current'
+        btnTransp.className = 'done'
+        btnTipo.className ='done'
+    } else {
+        btnTipo.className = 'current'
+        btnEstado.className = 'done'
+        btnTransp.className = 'done'
+    }
+    var form = document.getElementById('forms_post')
+    let botao = document.getElementById('botao_post')
+    botao.addEventListener('click', function(e){
+        let tipo_de_relatorio = document.createElement('input')
+        tipo_de_relatorio.name = 'tipo-de-relatorio'
+        tipo_de_relatorio.style.display = 'none'
+        path = path.replace('/', '')
+        path = path.replace('/', '')
+        tipo_de_relatorio.value = path
+        form.appendChild(tipo_de_relatorio)
+        form.submit()
+    })
+    setInterval(function () {
+        let data1 = document.getElementById('inicio-periodo')
+        let data2 = document.getElementById('fim-periodo')
+        console.log('data1', data1.value)
+        console.log('data2', data2.value)
+    
+        let estado = document.getElementById('estados')
+        console.log('estados', estado.value)
+        let transportadora = document.getElementById('transportadora')
+        console.log('transportadora', transportadora.value)
+        if(data1.value == '' || data2.value == '' || estado.value == '' || transportadora.value == ''){
+            botao.disabled = true      
+            botao.textContent = 'Preencha todos os campos'
+        } else {
+            botao.disabled = false
+            botao.textContent = 'Visualizar Relatório de Pendências'
+        }
+    }, 1000)
+</script>
+
+{% endblock %}

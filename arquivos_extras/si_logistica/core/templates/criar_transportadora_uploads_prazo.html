@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<style>
+    .popover{
+        position: relative;
+        float: right;
+        width:70%;
+    }
+   #preco, #primeira{
+       display: inline;
+   }  
+   #prazo, #segunda{
+       display: inline;
+   }
+   #preco, #prazo{
+       display:inherit;
+   }
+   .popover-body{
+       text-align: justify;
+   }
+   h4{
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-size: 1.9rem;
+   }
+   h6{
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+   }
+</style>
+<div class="row">
+   <div class="col-12 grid-margin">
+      <div class="card">
+         <div class="card-body">
+            <h4 class="card-title">Transportadora {{transportadora.nome}}</h4>
+               <div role="application" class="wizard clearfix" id="steps-uid-0">
+                  <div class="steps clearfix">
+                     <ul role="tablist">
+                        <li role="tab" class="first done" aria-disabled="false" aria-selected="false">
+                           <a id="steps-uid-0-t-0" href="/transportadora/{{transportadora.pk}}/editar" aria-controls="steps-uid-0-p-0" style="font-size: 1rem;" ><span class="current-info audible">current step: </span><span style="font-size: 1rem;" class="number">1.</span>Dados da transportadora</a>
+                        </li>
+                        <li role="tab" class="done" aria-disabled="false">
+                           <a id="steps-uid-0-t-1" href="/transportadora/{{transportadora.pk}}/dados" aria-controls="steps-uid-0-p-1" style="font-size: 1rem;"><span style="font-size: 1rem;" class="number">2.</span>Atuação</a>
+                        </li>
+                        <li role="tab" class="done" aria-disabled="false" aria-selected="false">
+                           <a id="steps-uid-0-t-2" href="/transportadora/{{transportadora.pk}}/uploads" aria-controls="steps-uid-0-p-2" style="font-size: 1rem;"><span style="font-size: 1rem;" class="number">3.</span> Tabela de preços</a>
+                        </li>
+                        <li role="tab" class="last current" aria-disabled="false" aria-selected="true">
+                           <a id="steps-uid-0-t-2" href="/transportadora/{{transportadora.pk}}/uploads_prazo" aria-controls="steps-uid-0-p-2" style="font-size: 1rem;"><span style="font-size: 1rem;" class="number">4.</span> Tabela de prazos</a>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="content clearfix" style="width:100%;">
+                        <div class="card-body">
+                          <h4 class="title">Inserir tabela de prazos</h5>
+                          <div class="row">
+                              <div class="card" style="width:50%">
+                                    <div class="card-body">
+                                      <form class="forms-sample" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                            <div class="form-group">
+                                              <input type="file" name="arquivo" class="file-upload-default">
+                                              <div class="input-group col-xs-12">
+                                                <input type="text" class="form-control file-upload-info" disabled placeholder=".xlsx">
+                                                <span class="input-group-append">
+                                                  <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+                                                </span>
+                                              </div>
+                                            </div>
+                                        <button class="btn btn-success mr-2" type="submit" name="Excel">Enviar</button>
+                                        <a href="{% url 'download_prazo_padrao' %}"><button type="button" class="btn btn-info btn-fw"><i class="mdi mdi-download"></i>Arquivo Padrão</button></a>
+                                      </form>
+                                    </div>
+                                  </div>
+                      
+                            <div class="col-md-6 pl-md-5">
+                              <h5 class="mb-4 pb-3"  style="margin-top: 30px;">É necessário que o arquivo esteja no formato padrão!</h5>
+                              
+                              <div class="tab-content tab-content-basic" style="margin-top: -20px;">
+                                <div class="tab-pane fade show active" id="whoweare" role="tabpanel" aria-labelledby="home-tab">
+                                  A tabela de prazos precisa estar no formato padrão para que o sistema possa interpretá-la corretamente. Por favor, verifique o arquivo que deseja importar. É possível baixar a planilha padrão clicando no botão Arquivo Padrão.
+                                </div><br/>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                     <section id="steps-uid-0-p-1" role="tabpanel" aria-labelledby="steps-uid-0-h-1" class="body current" aria-hidden="false" style="left: 0px; width: 80%;">
+                        <br/>
+<!--                         <div class="popover bs-popover-right bs-popover-right-demo" id="primeira">
+                                <div class="arrow"></div>
+                                <h3 class="popover-header">Instruções para upload da tabela de preços</h3>
+                                <div class="popover-body">
+                                  <p>Faça upload de um arquivo em formato .xls dividido em 4 sheets: capital-capital, interior-interior, capital-interior e interior-capital. </p>
+                                </div>
+                              </div> -->
+                        
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+<!--                         <div class="popover bs-popover-right bs-popover-right-demo" id="segunda">
+                                <div class="arrow"></div>
+                                <h3 class="popover-header">Instruções para upload da tabela de prazos</h3>
+                                <div class="popover-body">
+                                  <p>Faça upload de um arquivo em formato .xls ou .</p>
+                                </div>
+                              </div>
+                        <div class="form-group" id="prazo">
+                           <label>Tabela de prazos</label>
+                           <br/>
+                           <button type="button" class="btn btn-outline-info btn-fw" ><i class="mdi mdi-upload"></i> Fazer Upload</button>
+                        </div> -->
+    
+                    </section>
+                  </div>
+                  <div class="actions clearfix">
+                     <ul role="menu" aria-label="Pagination">
+                        <li class="disabled" aria-disabled="true"><a href="#previous" role="menuitem" style="font-size: 1rem;">Anterior</a></li>
+                        <!-- <li aria-hidden="false" aria-disabled="false"><a href="/transportadora/cadastrar/dados" role="menuitem">Próximo</a></li>
+                        <li aria-hidden="true" style="display: none;"><a href="#finish" role="menuitem">Finalizar</a></li> -->
+                        <button class="btn btn-primary" type="submit" name = "criar" style="font-size: 1rem;">Próximo</button>
+                     </ul>
+                  </div>
+               </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+<script src="{% static '../../vendors/js/vendor.bundle.base.js' %}"></script>
+<script src="{% static '../../vendors/js/vendor.bundle.addons.js' %}"></script>
+<script src="{% static '../../js/off-canvas.js' %}"></script>
+<script src="{% static '../../js/hoverable-collapse.js' %}"></script>
+<script src="{% static '../../js/misc.js' %}"></script>
+<script src="{% static '../../js/settings.js' %}"></script>
+<script src="{% static '../../js/todolist.js' %}"></script>
+<script src="{% static '../../js/wizard.js' %}"></script>
+{% endblock %}

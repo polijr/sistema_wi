@@ -8,7 +8,7 @@ from django.views.generic import View, TemplateView
 from django.http import HttpResponse
 # Create your views here.
 def login(request):
-    return render(request, 'erro_500.html')
+    return render(request, 'login.html')
 
 def esqueci_minha_senha(request):
     return render(request, 'esqueci_minha_senha.html')
