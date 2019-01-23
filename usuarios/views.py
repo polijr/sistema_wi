@@ -11,7 +11,7 @@ from django.http import HttpResponse
 
 class Login(View):
     def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             if request.user.usuario.cargo == 0:
                 return redirect('/usuarios/empresa')
             if request.user.usuario.cargo == 1:
