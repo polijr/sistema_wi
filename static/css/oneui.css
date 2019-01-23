@@ -5028,7 +5028,7 @@ a.list-group-item:focus {
 }
 #sidebar {
   width: 230px;
-  background-color: #2c343f;
+  background-color: #000000;
 }
 .sidebar-l #sidebar {
   left: 0;
@@ -6341,7 +6341,7 @@ a.block.block-link-hover3:active {
 .nav-main a {
   display: block;
   padding: 10px 20px;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.55);
 }
 .nav-main a:hover,
 .nav-main a:focus {
@@ -6362,7 +6362,7 @@ a.block.block-link-hover3:active {
 }
 .nav-main a > i {
   margin-right: 15px;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.35);
 }
 .nav-main a.nav-submenu {
   position: relative;
