@@ -10,7 +10,7 @@ app_name = 'usuarios'
 
 urlpatterns = [
 
-    url(r'^admin/$', login_required(dashboard_admin), name='Dashboard de admin'),
-    url(r'^organizador/$', login_required(dashboard_organizador), name='Dashboard de organizador'),
-    url(r'^empresa/$', login_required(dashboard_empresa), name='Dashboard de empresa'),
+    url(r'^admin/$', login_required(DashboardAdmin), name='Dashboard de admin'),
+    url(r'^organizador/$', login_required(DashboardOrganizador.as_view()), name='Dashboard de organizador'),
+    url(r'^empresa/$', login_required(DashboardEmpresa.as_view()), name='Dashboard de empresa'),
 ]

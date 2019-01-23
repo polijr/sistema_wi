@@ -24,8 +24,8 @@ import pedidos.urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', usuarios.views.login),
-    url(r'^recuperar_senha/$', usuarios.views.esqueci_minha_senha),
+    url(r'^$', usuarios.views.Login.as_view()),
+    url(r'^recuperar_senha/$', usuarios.views.EsqueciMinhaSenha.as_view()),
 	url(r'^usuarios/', include((usuarios.urls, "usuarios"), namespace='usuarios')),
     # url(r'^pedidos/', include((pedidos.urls, "pedidos"), namespace='pedidos')),
 ]
