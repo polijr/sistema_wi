@@ -20,9 +20,8 @@ class Type(models.Model):
 class Pedido(models.Model):
 	data = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 	tipo = models.ForeignKey(Type, on_delete=models.CASCADE, null=False)
-	caravaneiro = models.BooleanField(default=False)
-	organizador = models.ForeignKey(Organizador, on_delete=models.CASCADE, null=False)
-	requisitor = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False)
+	organizador = models.ForeignKey(Organizador, on_delete=models.CASCADE, null=True)
+	pedinte = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False)
 
 	def __str__(self):
 		return self.tipo.name
