@@ -37,6 +37,16 @@ class DashboardOrganizador(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'dashboard_organizador.html')
 
+class Redirecionar(View):
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            if request.user.usuario.cargo == 0:
+                return redirect('/usuarios/empresa')
+            if request.user.usuario.cargo == 1:
+                return redirect('/usuarios/organizador')
+            if request.user.usuario.cargo == 2:
+                return redirect('/usuarios/admin')  
+
 class CadastroEmpresa(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'cadastro_empresa.html')

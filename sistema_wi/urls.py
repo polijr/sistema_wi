@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth.views import LoginView
 
 import usuarios.views
 import usuarios.urls
@@ -24,7 +25,7 @@ import pedidos.urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', usuarios.views.Login.as_view()),
+    url(r'^$', LoginView.as_view(template_name='login.html')),
     url(r'^recuperar_senha/$', usuarios.views.EsqueciMinhaSenha.as_view()),
 	url(r'^usuarios/', include((usuarios.urls, "usuarios"), namespace='usuarios')),
     # url(r'^pedidos/', include((pedidos.urls, "pedidos"), namespace='pedidos')),
