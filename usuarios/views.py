@@ -6,6 +6,8 @@ from django.shortcuts import render_to_response
 from django.http import JsonResponse
 from django.views.generic import View, TemplateView
 from django.http import HttpResponse
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 
