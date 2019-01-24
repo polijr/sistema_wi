@@ -37,6 +37,6 @@ class DashboardOrganizador(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'dashboard_organizador.html')
 
-class CadastroEmpresa(view):
+class CadastroEmpresa(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'cadastro_empresa.html')
