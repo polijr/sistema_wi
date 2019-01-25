@@ -1,20 +1,2 @@
-<html>
-<form method="post">
-        {% csrf_token %}
-        <fieldset>
-            {{ form.non_field_errors }}
-
-            {% for field in form %}
-            <div>
-                {{ field.label_tag }}
-                {{ field }}
-                {{ field.errors }}
-            </div>
-            {% endfor %}
-
-            <div>
-                <button type="submit">Cadastrar</button>
-            </div>
-        </fieldset>
-    </form>
-    </html>
+{% extends 'base_menus_cadastro_empresa.html' %}
+{% load static %}
