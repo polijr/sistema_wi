@@ -1,2 +1,117 @@
-{% extends 'base_menus_cadastro_empresa.html' %}
-{% load static %}
+{% extends 'base_menus_empresa.html' %}
+{% block nomePagina %}Cadastro de Empresa{% endblock%}
+{% block conteudo %}
+
+            <main id="main-container">
+
+                    <!-- Register Forms -->
+                    <h2 class="content-heading"></h2>
+                        <div class="col-lg-12">
+                            <!-- Bootstrap Register -->
+                            <div class="block block-themed">
+                                <div class="block-header bg-success">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Empresa</h3>
+                                </div>
+                                <div class="block-content">
+                                    <form class="form-horizontal push-5-t" action="" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-firstname">Nome da empresa</label>
+                                                <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite o nome da empresa..">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="register4-lastname">CNPJ</label>
+                                                <input class="form-control" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ da empresa..">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-firstname">Nome de usuário</label>
+                                                <input class="form-control" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label class="col-xs-12" for="register4-email">Email</label>
+                                                <div class="input-group">
+                                                    <input class="form-control" type="email" id="email" name="email" placeholder="Digite o email da empresa..">
+                                                    <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-firstname">Número do stand</label>
+                                                <input class="form-control" type="text" id="stand" name="stand" placeholder="Digite o num. de stand da empresa..">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="register4-lastname">Tamanho do stand</label>
+                                                <select class="form-control" id="tamanho" name="tamanho" size="1">
+                                                    <option value="0">Por favor selecione</option>
+                                                    <option value="1">9 m²</option>
+                                                    <option value="2">10 m²</option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-lastname">Organizador responsável
+                                                </label>
+                                                <select class="form-control" id="organizador_resp" name="organizador_resp" size="1">
+                                                    <option value="-1">Por favor selecione</option>
+                                                    {% for organizador in organizadores %}
+                                                        <option value="{{organizador.pk}}">{{organizador.usuario.user.first_name}} {{organizador.usuario.user.last_name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="register4-lastname">Tem palestra?</label>
+                                                <select class="form-control" id="palestra" name="palestra" size="1">
+                                                    <option value="0">Não</option>
+                                                    <option value="1">Sim</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="register4-password">Senha</label>
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <input class="form-control" type="password" id="register4-password" name="password" placeholder="Digite a senha..">
+                                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="register4-password2">Confirmar senha</label>
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <input class="form-control" type="password" id="register4-password2" name="password2" placeholder="Digite a senha..">
+                                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-plus push-5-r"></i> Registrar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Bootstrap Register -->
+                        </div>
+                    </div>
+                    <!-- END Register Forms -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+
+{% endblock %}
