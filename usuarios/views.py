@@ -11,6 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CadastroEmpresaForm
 from django.contrib.auth.models import User
 from .models import *
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 
@@ -55,16 +56,20 @@ class Redirecionar(View):
 class CadastroEmpresa(View):
     def get(self, request, *args, **kwargs):
         organizadores = Organizador.objects.all()
-
         return render(request, 'cadastro_empresa.html', {'organizadores': organizadores})
 
     def post(self, request, *args, **kwargs):
         form = CadastroEmpresaForm(request.POST)
         print(form)
         if form.is_valid():
-            user = User.objects.create_user(username= form.data['username'], email=form.data['email'], password=form.data['password'])
+            print("chweguei aq")
+            user = User.objects.create_user(username= form.data['username'],
+                                            email=form.data['email'],
+                                            password=form.data['password'])
             user.save()
-            usuario = Usuario.objects.create(user=user, cargo=1)
+            usuario = Usuario.objects.create(
+                user=user,
+                cargo=0)
             usuario.save()
             organizador = Organizador.objects.get(pk=request.POST["organizador_resp"])
             empresa = Empresa.objects.create(
@@ -76,6 +81,8 @@ class CadastroEmpresa(View):
                 organizador_resp = organizador,
                 cnpj = request.POST["cnpj"],
             )
-            return redirect('/')
+            empresa.save()
+            return HttpResponseRedirect('/usuarios/admin')
 
-        return redirect('/')
+        organizadores = Organizador.objects.all()
+        return render(request, 'cadastro_empresa.html', {'form': form, 'organizadores': organizadores})
