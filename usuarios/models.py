@@ -22,6 +22,10 @@ class Gerente(models.Model):
 
 class Organizador(models.Model):
     usuario = models.OneToOneField(Usuario, on_delete = models.CASCADE, related_name = 'usuario_organizador', null = False, blank = False)
+    nome = models.CharField(null = False, blank = False, max_length=100)
+    sobrenome = models.CharField(null = False, blank = False, max_length=100)
+    telefone = models.CharField(null = False, blank = False, max_length=100)
+    email = models.EmailField(null = False, blank = False, max_length=100)
 
 
 class Empresa(models.Model):    
