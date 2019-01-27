@@ -212,7 +212,7 @@
                                         </div>
                                         <div class="block-content">
                                             <!-- Quick Settings Form -->
-                                            <form class="form-bordered" action="index.html" method="post" onsubmit="return false;">
+                                            <form class="form-bordered" action="/usuarios/admin" method="post" onsubmit="return false;">
                                                 <div class="form-group">
                                                     <div class="row">
                                                         <div class="col-xs-8">
@@ -449,8 +449,8 @@
                                     </li>
                                 </ul>
                             </div>
-                            <a class="h5 text-white" href="index.html">
-                                <i class="fa fa-circle-o-notch text-primary"></i> <span class="h4 font-w600 sidebar-mini-hide">ne</span>
+                            <a class="h5 text-white" href="/usuarios/admin">
+                                <img src="/static/img/favicons/favicon.png" class="fa fa-circle-o-notch text-primary" style="margin-left: -13%"></i> <span class="h4 font-w600 sidebar-mini-hide"> 29</span>
                             </a>
                         </div>
                         <!-- END Side Header -->
@@ -459,7 +459,7 @@
                         <div class="side-content">
                             <ul class="nav-main">
                                 <li>
-                                    <a class="active" href="index.html"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Dashboard</span></a>
+                                    <a class="active" href="/usuarios/admin"><i class="si si-layers"></i><span class="sidebar-mini-hide">Pedidos</span></a>
                                 </li>
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">User Interface</span></li>
                                 <li>
@@ -908,34 +908,19 @@
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-header">Profile</li>
-                                <li>
-                                    <a tabindex="-1" href="base_pages_inbox.html">
-                                        <i class="si si-envelope-open pull-right"></i>
-                                        <span class="badge badge-primary pull-right">3</span>Inbox
-                                    </a>
-                                </li>
+                                <li class="dropdown-header">Perfil</li>
                                 <li>
                                     <a tabindex="-1" href="base_pages_profile.html">
                                         <i class="si si-user pull-right"></i>
-                                        <span class="badge badge-success pull-right">1</span>Profile
-                                    </a>
-                                </li>
-                                <li>
-                                    <a tabindex="-1" href="javascript:void(0)">
-                                        <i class="si si-settings pull-right"></i>Settings
+                                        {% comment %} <span class="badge badge-success pull-right">1</span> {% endcomment %}
+                                        Meu Perfil
                                     </a>
                                 </li>
                                 <li class="divider"></li>
-                                <li class="dropdown-header">Actions</li>
+                                <li class="dropdown-header">Ações</li>
                                 <li>
-                                    <a tabindex="-1" href="base_pages_lock.html">
-                                        <i class="si si-lock pull-right"></i>Lock Account
-                                    </a>
-                                </li>
-                                <li>
-                                    <a tabindex="-1" href="base_pages_login.html">
-                                        <i class="si si-logout pull-right"></i>Log out
+                                    <a tabindex="-1" href="/usuarios/logout">
+                                        <i class="si si-logout pull-right"></i>Deslogar
                                     </a>
                                 </li>
                             </ul>
@@ -943,9 +928,6 @@
                     </li>
                     <li>
                         <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
-                        <button class="btn btn-default" data-toggle="layout" data-action="side_overlay_toggle" type="button">
-                            <i class="fa fa-tasks"></i>
-                        </button>
                     </li>
                 </ul>
                 <!-- END Header Navigation Right -->
@@ -964,19 +946,12 @@
                             <i class="fa fa-ellipsis-v"></i>
                         </button>
                     </li>
-                    <li>
-                        <!-- Opens the Apps modal found at the bottom of the page, before including JS code -->
-                        <button class="btn btn-default pull-right" data-toggle="modal" data-target="#apps-modal" type="button">
-                            <i class="si si-grid"></i>
-                        </button>
-                    </li>
                     <li class="visible-xs">
                         <!-- Toggle class helper (for .js-header-search below), functionality initialized in App() -> uiToggleClass() -->
                         <button class="btn btn-default" data-toggle="class-toggle" data-target=".js-header-search" data-class="header-search-xs-visible" type="button">
                             <i class="fa fa-search"></i>
                         </button>
                     </li>
-
                 </ul>
                 <!-- END Header Navigation Left -->
             </header>
@@ -1018,7 +993,7 @@
                         <div class="block-content">
                             <div class="row text-center">
                                 <div class="col-xs-6">
-                                    <a class="block block-rounded" href="index.html">
+                                    <a class="block block-rounded" href="/usuarios/admin">
                                         <div class="block-content text-white bg-default">
                                             <i class="si si-speedometer fa-2x"></i>
                                             <div class="font-w600 push-15-t push-15">Backend</div>

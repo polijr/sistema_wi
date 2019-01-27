@@ -129,6 +129,6 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
 
 #Auth
-LOGIN_URL = ''
-LOGIN_REDIRECT_URL = "usuarios/redirecionar/"
-
+LOGIN_URL = '/'
+LOGIN_REDIRECT_URL = "/usuarios/redirecionar/"
+LOGOUT_REDIRECT_URL = "/"

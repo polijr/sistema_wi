@@ -23,6 +23,11 @@ class CadastroEmpresaForm(forms.Form):
         # if username:
         #     if User.objects.filter(username=username).count()>=0:
         #         raise forms.ValidationError("Username ja foi pego!")
+        username = cleaned_data.get('username')
+        # if username:
+        #     if User.objects.get(username=username):
+        #         raise forms.ValidationError("Username ja foi pego!")
+        #         return cleaned_data
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
 
@@ -34,3 +39,34 @@ class CadastroEmpresaForm(forms.Form):
     class Meta:
         model = Empresa
         fields = ['usuario', 'nome', 'stand', 'tamanho', 'palestra', 'organizador_resp', 'cnpj']
+
+
+
+class CadastroOrganizadorForm(forms.Form):
+    nome = forms.CharField(required = True)
+    sobrenome = forms.CharField(required = True)
+    telefone = forms.CharField(required = True)
+    email = forms.EmailField(required = True)
+    username = forms.CharField(min_length=4)
+    password = forms.CharField(min_length=4)
+    password2 = forms.CharField(min_length=4)	     
+           
+    def clean(self):
+        cleaned_data = super(CadastroOrganizadorForm, self).clean()
+        username = cleaned_data.get('username')
+        # if username:
+        #     if User.objects.get(username=username):
+        #         raise forms.ValidationError("Username ja foi pego!")
+        #         return cleaned_data
+        password = cleaned_data.get('password')
+        password2 = cleaned_data.get('password2')
+
+        if password and password2:
+            if password != password2:
+                raise forms.ValidationError("Senhas diferentes!")
+        print(self)
+        return cleaned_data
+    
+    class Meta:
+        model = Organizador
+        fields = ['nome', 'sobrenome', 'telefone', 'email']

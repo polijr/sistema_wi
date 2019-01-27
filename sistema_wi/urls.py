@@ -25,7 +25,7 @@ import pedidos.urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', LoginView.as_view(template_name='login.html')),
+    url(r'^$', LoginView.as_view(template_name='login.html', redirect_authenticated_user=True)),
     url(r'^recuperar_senha/$', usuarios.views.EsqueciMinhaSenha.as_view()),
 	url(r'^usuarios/', include((usuarios.urls, "usuarios"), namespace='usuarios')),
     # url(r'^pedidos/', include((pedidos.urls, "pedidos"), namespace='pedidos')),

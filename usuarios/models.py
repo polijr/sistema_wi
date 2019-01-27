@@ -14,15 +14,22 @@ class Usuario(models.Model):
     )
     user = models.OneToOneField(User, on_delete = models.CASCADE, null = False, related_name = 'usuario')
     cargo = models.IntegerField(choices = CARGO_CHOICES, null = False, blank = False)
-
+    def __str__(self):
+        return self.user.username
 
 class Gerente(models.Model):
     usuario = models.OneToOneField(Usuario, on_delete = models.CASCADE, related_name = 'usuario_gerente', null = False, blank = False)
-
+    def __str__(self):
+        return self.usuario.user.username
 
 class Organizador(models.Model):
     usuario = models.OneToOneField(Usuario, on_delete = models.CASCADE, related_name = 'usuario_organizador', null = False, blank = False)
-
+    nome = models.CharField(null = False, blank = False, max_length=100)
+    sobrenome = models.CharField(null = False, blank = False, max_length=100)
+    telefone = models.CharField(null = False, blank = False, max_length=100)
+    email = models.EmailField(null = False, blank = False, max_length=100)
+    def __str__(self):
+        return self.usuario.user.username
 
 class Empresa(models.Model):    
     TAMANHO_CHOICES = (
@@ -44,3 +51,6 @@ class Empresa(models.Model):
     palestra = models.BooleanField(default = False, null = False, blank = False)
     organizador_resp = models.ForeignKey(Organizador, on_delete = models.CASCADE, null = False, blank = False)
     cnpj = models.CharField(max_length = 20, null = False, blank = False)
+    def __str__(self):
+        return self.usuario.user.username
+
