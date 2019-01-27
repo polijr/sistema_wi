@@ -2,6 +2,7 @@
 {% block nomePagina %}Dashboard da Empresa{% endblock%}
 {% comment %} {%block descricao%} {%endblock%}
 {% block subnomePagina %}{% endblock%} {% endcomment %}
+{% load static %}
 
 
 {% block conteudo %}
@@ -649,4 +650,5 @@
     </div>
     <!-- END Page Content -->
 </main>
+<script type="text/javascript" src="{% static 'js/carregarajax.js' %}"></script>
 {% endblock %}

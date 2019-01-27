@@ -3,7 +3,7 @@ from datetime import datetime
 
 import datetime
 from datetime import date
-from usuarios.models import Usuario, Organizador
+from usuarios.models import Empresa, Organizador
 
 class Type(models.Model):
 	name = models.CharField('Nome', unique=True, max_length=100)
@@ -21,7 +21,8 @@ class Pedido(models.Model):
 	data = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 	tipo = models.ForeignKey(Type, on_delete=models.CASCADE, null=False)
 	organizador = models.ForeignKey(Organizador, on_delete=models.CASCADE, null=True)
-	pedinte = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False)
+	pedinte = models.ForeignKey(Empresa, on_delete=models.CASCADE, null=False)
+	observacao = models.TextField("Observação", max_length=200, blank=True)
 
 	def __str__(self):
 		return self.tipo.name

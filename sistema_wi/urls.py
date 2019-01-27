@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^$', LoginView.as_view(template_name='login.html', redirect_authenticated_user=True)),
     url(r'^recuperar_senha/$', usuarios.views.EsqueciMinhaSenha.as_view()),
 	url(r'^usuarios/', include((usuarios.urls, "usuarios"), namespace='usuarios')),
-    # url(r'^pedidos/', include((pedidos.urls, "pedidos"), namespace='pedidos')),
+    url(r'^pedidos/', include((pedidos.urls, "pedidos"), namespace='pedidos')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
