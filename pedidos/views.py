@@ -50,5 +50,6 @@ class Pedidos(View):
 										pedinte = current_user.usuario.usuario_empresa,
 										organizador_associado = current_user.usuario.usuario_empresa.organizador_resp)
         pedido.save()
-		return render(request, 'pedir.html', {'form':form})
+		return render(request, 'pedir.html', {'form': form, 'organizador_nome': organizador_nome, 'organizador_sobrenome': organizador_sobrenome,
+																			 'organizador_telefone': organizador_telefone})
         
