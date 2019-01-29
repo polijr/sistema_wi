@@ -10,4 +10,5 @@ urlpatterns = [
 	#url(r'^pedir/$', login_required(LogoutView.as_view()), name = 'Pedir'),
 	url(r'^carregar_ajax/$', CarregarAjax.as_view(), name='Carregar'),
 	url(r'^deletar_ajax/$', DeletarAjax.as_view(), name='Deletar'),
+	url(r'^pedidos/$', Pedidos.as_view(), name = 'Pedidos')
 ]
