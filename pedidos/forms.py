@@ -1,8 +1,5 @@
 from django import form
-from usuarios.models import Empresa, Organizador
 
 class PedidosForm(forms.Form):
-    agua = form.
-    coletor = form.
-    staff = form.
-    outro = form.
+    tipo_de_pedido = form.ModelChoiceField(queryset = Type.objects.all())
+    obs = form.CharField(max_length = 100)
