@@ -54,3 +54,9 @@ class Empresa(models.Model):
     def __str__(self):
         return self.usuario.user.username
 
+class Documento(models.Model):
+    arquivo = models.FileField(upload_to='usuarios/files')
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, null=False)
+
+    def __str__(self):
+        return self.empresa.usuario.user.username
