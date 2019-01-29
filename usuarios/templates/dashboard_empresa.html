@@ -11,7 +11,7 @@
         <img class="image-wi-dash animated zoomIn" src="/static/img/various/logo_wi.png">
         <div class="push-50-t push-15">
             <h1 class="h2 text-orange animated zoomIn">Informes</h1>
-            <h2 class="h5 text-white-op animated zoomIn">Bem vindo ao Workshop Integrativo, {{request.user.first_name}} !</h2>
+            <h2 class="h5 text-white-op animated zoomIn">Bem vindo ao Workshop Integrativo, {{request.user.usuario.usuario_empresa.nome}} !</h2>
         </div>
     </div>
     <!-- END Page Header -->
@@ -20,12 +20,12 @@
     <div class="content bg-white border-b">
         <div class="row items-push">
             <div class="col-xs-6 col-sm-3">
-                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Senha do WiFi</div>
-                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">#polijunior#</a>
+                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Nome do WiFi</div>
+                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.nome_wifi}}</a>
             </div>
             <div class="col-xs-6 col-sm-3">
-                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Telefone de ajuda:</div>
-                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">(11)98213-5888</a>
+                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Senha do WiFi</div>
+                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.senha_wifi}}</a>
             </div>
         </div>
     </div>

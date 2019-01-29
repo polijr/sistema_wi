@@ -65,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'sistema_wi.context_processors.add_variable_to_context',
             ],
         },
     },
@@ -129,6 +130,6 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
 
 #Auth
-LOGIN_URL = ''
-LOGIN_REDIRECT_URL = "usuarios/redirecionar/"
-
+LOGIN_URL = '/'
+LOGIN_REDIRECT_URL = "/usuarios/redirecionar/"
+LOGOUT_REDIRECT_URL = "/"

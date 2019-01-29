@@ -8,22 +8,18 @@ from django.views.generic import View, TemplateView
 from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
 from .forms import CadastroEmpresaForm
+from .forms import CadastroOrganizadorForm
 from django.contrib.auth.models import User
+from django.contrib.auth import (login as auth_login,
+    logout as auth_logout,
+)
 from .models import *
+from django.http import HttpResponseRedirect
 # Create your views here.
 
 
-class Login(View):
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            if request.user.usuario.cargo == 0:
-                return redirect('/usuarios/empresa')
-            if request.user.usuario.cargo == 1:
-                return redirect('/usuarios/organizador')
-            if request.user.usuario.cargo == 2:
-                return redirect('/usuarios/admin')
-        return render(request, 'login.html')
 
 class EsqueciMinhaSenha(View):
     def get(self, request, *args, **kwargs):
@@ -55,16 +51,19 @@ class Redirecionar(View):
 class CadastroEmpresa(View):
     def get(self, request, *args, **kwargs):
         organizadores = Organizador.objects.all()
-
         return render(request, 'cadastro_empresa.html', {'organizadores': organizadores})
 
     def post(self, request, *args, **kwargs):
         form = CadastroEmpresaForm(request.POST)
         print(form)
         if form.is_valid():
-            user = User.objects.create_user(username= form.data['username'], email=form.data['email'], password=form.data['password'])
+            user = User.objects.create_user(username= form.data['username'],
+                                            email=form.data['email'],
+                                            password=form.data['password'])
             user.save()
-            usuario = Usuario.objects.create(user=user, cargo=1)
+            usuario = Usuario.objects.create(
+                user=user,
+                cargo=0)
             usuario.save()
             organizador = Organizador.objects.get(pk=request.POST["organizador_resp"])
             empresa = Empresa.objects.create(
@@ -76,6 +75,35 @@ class CadastroEmpresa(View):
                 organizador_resp = organizador,
                 cnpj = request.POST["cnpj"],
             )
-            return redirect('/')
+            empresa.save()
+            return HttpResponseRedirect('/usuarios/admin')
 
-        return redirect('/')
+        organizadores = Organizador.objects.all()
+        return render(request, 'cadastro_empresa.html', {'form': form, 'organizadores': organizadores})
+
+
+
+class CadastroOrganizador(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'cadastro_organizador.html')
+
+    def post(self, request, *args, **kwargs):
+        form = CadastroOrganizadorForm(request.POST)
+        if form.is_valid():
+            user = User.objects.create_user(username= form.data['username'],
+                                            email=form.data['email'],
+                                            password=form.data['password'],
+                                            first_name=form.data["nome"],
+                                            last_name=form.data["sobrenome"])
+            user.save()
+            usuario = Usuario.objects.create(user=user, cargo=1)
+            usuario.save()
+            organizador = Organizador.objects.create(
+                usuario = usuario,
+                nome = request.POST["nome"],
+                sobrenome = request.POST["sobrenome"],
+                telefone = request.POST["telefone"],
+                email = request.POST["email"],
+            )
+            return HttpResponseRedirect('/usuarios/admin')
+        return render(request, 'cadastro_organizador.html', {'form': form})
