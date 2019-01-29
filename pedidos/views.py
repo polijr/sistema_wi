@@ -31,3 +31,40 @@ class DeletarAjax(View):
 			return JsonResponse(data)
 		else:
 			return HttpResponse("Você não tem acesso a essa página")
+
+
+class CadastroEmpresa(View):
+    def get(self, request, *args, **kwargs):
+        current_user = request.user
+        organizador_responsavel = current_user.objects.organizador_resp
+        return render(request, 'pedir.html', {'organizador': organizador})
+
+    # def post(self, request, *args, **kwargs):
+    #     form = PedidosForm(request.POST)
+    #     print(form)
+    #     if form.is_valid():
+    #         user = User.objects.create_user(username= form.data['username'],
+    #                                         email=form.data['email'],
+    #                                         password=form.data['password'])
+    #         user.save()
+    #         usuario = Usuario.objects.create(
+    #             user=user,
+    #             cargo=0)
+    #         usuario.save()
+    #         organizador = Organizador.objects.get(pk=request.POST["organizador_resp"])
+    #         empresa = Empresa.objects.create(
+    #             usuario = usuario,
+    #             nome = request.POST["nome"],
+    #             stand = request.POST["stand"],
+    #             tamanho = request.POST["tamanho"],
+    #             palestra = request.POST["palestra"],
+    #             organizador_resp = organizador,
+    #             cnpj = request.POST["cnpj"],
+    #         )
+    #         empresa.save()
+    #         return HttpResponseRedirect('/usuarios/admin')
+
+    #     organizadores = Organizador.objects.all()
+        return render(request, 'pedir.html', {'form': form, 'organizador': organizador})
+
+
