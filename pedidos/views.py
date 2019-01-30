@@ -5,7 +5,7 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .forms import PedidosForm
 from django.contrib import messages
-class CarregarAjax(View):
+class CarregarPedidos(View):
 	def get(self, request, *args, **kwargs):
 		if request.user.usuario.cargo == 1:
 			dados = []
@@ -21,17 +21,21 @@ class CarregarAjax(View):
 		else:
 			return HttpResponse("Você não tem acesso a essa página")
 
-class DeletarAjax(View):
+class DeletarPedido(View):
 	def get(self, request, *args, **kwargs):
-		if request.user.usuario.cargo == 1:
-			pedido = Pedido.objects.get(pk=request.GET.get("pk"))
+		if request.user.usuario.cargo == 1 or request.user.usuario.cargo == 2:
+			pk=request.GET.get("pk")
+			print(Pedido.objects.filter(pk=pk).count())
+			if Pedido.objects.filter(pk=pk).count() == 0:
+				return HttpResponse("Pedido invalido", status=400)
+			pedido = Pedido.objects.get(pk=pk)
 			pedido.delete()
 			data = {
 				'deletou': True
 			}
 			return JsonResponse(data)
 		else:
-			return HttpResponse("Você não tem acesso a essa página")
+			return HttpResponse("Você não tem acesso a essa página", status=401)
 
 
 class Pedidos(View):
