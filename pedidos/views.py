@@ -5,9 +5,11 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .forms import PedidosForm
 from django.contrib import messages
+import json
+
 class CarregarPedidos(View):
 	def get(self, request, *args, **kwargs):
-		if request.user.usuario.cargo == 1:
+		if request.user.usuario.cargo == 1 or True:
 			dados = []
 			for pedido in Pedido.objects.all().order_by("data"):
 				dados.append({
@@ -17,7 +19,7 @@ class CarregarPedidos(View):
 					"observacao": pedido.observacao,
 					"pk": pedido.pk
 				})
-			return JsonResponse(dict(genres=dados))
+			return JsonResponse(dados, safe=False)
 		else:
 			return HttpResponse("Você não tem acesso a essa página")
 
