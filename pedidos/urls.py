@@ -1,7 +1,4 @@
-
-
 from django.conf.urls import url, include
-from .models import *
 from .views import *
 from django.contrib.auth.decorators import login_required
 app_name = 'pedidos'
