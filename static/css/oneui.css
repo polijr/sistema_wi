@@ -845,6 +845,7 @@ fieldset[disabled] .btn-primary.active {
   color: #fff;
   background-color: #46c37b;
   border-color: #34a263;
+  text-align: center;
 }
 .btn-success:focus,
 .btn-success.focus,

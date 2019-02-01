@@ -18,6 +18,7 @@ from django.contrib.auth import (login as auth_login,
 from .models import *
 from django.http import HttpResponseRedirect
 # Create your views here.
+from pedidos.models import *
 
 
 
@@ -36,7 +37,8 @@ class DashboardAdmin(View):
 
 class DashboardOrganizador(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'dashboard_organizador.html')
+        pedidos = Pedido.objects.all().order_by("data")
+        return render(request, 'dashboard_organizador.html', {"pedidos":pedidos})
 
 class Redirecionar(View):
     def get(self, request, *args, **kwargs):

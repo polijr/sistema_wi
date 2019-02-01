@@ -1,5 +1,5 @@
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "/pedidos/carregar_ajax/");
+xhr.open("GET", "/pedidos/carregar_pedidos/");
 xhr.addEventListener("load", function() {
 	var resposta = JSON.parse(this.responseText);
 	var pedidos = resposta.genres;
