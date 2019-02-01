@@ -1,0 +1,155 @@
+{% extends 'base_menus_empresa.html' %}
+{% block nomePagina %}Cadastro de Empresa{% endblock%}
+{% block conteudo %}
+
+            <main id="main-container">
+                    <!-- Register Forms -->
+                    <h2 class="content-heading"></h2>
+                        <div class="col-lg-12">
+                            <!-- Bootstrap Register -->
+                            <div class="block block-themed">
+                                <div class="block-header bg-success">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Empresa</h3>
+                                    
+                                </div>
+                                <div class="block-content">
+                                    <form class="form-horizontal push-5-t" action="" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <div class="col-xs-6" >
+                                                <label for="register4-firstname">Nome da empresa</label>
+                                                <input class="form-control" value="{{empresa.nome}}" type="text" id="nome" name="nome" placeholder="Digite o nome da empresa..">
+                                                {%if form.errors.nome %}
+                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.nome}}</div>
+                                                {%endif%}
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="register4-lastname">CNPJ</label>
+                                                <input class="form-control" value="{{empresa.cnpj}}" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ da empresa..">
+                                                {%if form.errors.cnpj %}
+                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.cpnj}}</div>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-firstname">Nome de usuário</label>
+                                                <input class="form-control" value="{{user}}" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
+                                                {%if form.errors.username %}
+                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.username}}</div>
+                                                {%endif%}
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="register4-email">Email</label>
+                                                <div class="input-group">
+                                                    <input class="form-control" value="{{empresa.email}}" type="email" id="email" name="email" placeholder="Digite o email da empresa..">
+                                                    <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                                </div>
+                                                {%if form.errors.email %}
+                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.email}}</div>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-firstname">Número do stand</label>
+                                                <input class="form-control" value="{{empresa.stand}}" type="text" id="stand" name="stand" placeholder="Digite o num. de stand da empresa..">
+                                                {%if form.errors.stand %}
+                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.stand}}</div>
+                                                {%endif%}
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="register4-lastname">Tamanho do stand</label>
+                                                <select class="form-control" id="tamanho" name="tamanho" size="1">
+                                                    <option value="-1">{{empresa.tamanho}}</option>
+                                                    <option value="0">9 m²</option>
+                                                    <option value="1">10 m²</option>
+                                                    <option value="2">10,5 m²</option>
+                                                    <option value="3">12 m²</option>
+                                                    <option value="4">14 m²</option>
+                                                    <option value="5">20 m²</option>
+                                                    <option value="6">25,5 m²</option>
+                                                    <option value="7">30 m²</option>
+                                                    <option value="8">40 m²</option>
+                                                    <option value="9">51,5 m²</option>
+                                                </select>
+                                                {%if form.errors.tamanho %}
+                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.tamanho}}</div>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-lastname">Organizador responsável
+                                                </label>
+                                                <select class="form-control" id="organizador_resp" name="organizador_resp" size="1">
+                                                    <option value="-1">Por favor selecione  {{meunome}}</option>
+                                                    {% for organizador in organizadores %}
+                                                        <option value="{{empresa.organizador_resp}}">{{organizador.usuario.user.first_name}} {{organizador.usuario.user.last_name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                {%if form.errors.organizador_resp %}
+                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.organizador_resp}}</div>
+                                                {%endif%}
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="register4-lastname">Tem palestra?</label>
+                                                <select class="form-control" id="palestra" name="palestra" size="1">
+                                                    <option value="-1">{{tem_palestra}}</option>
+                                                    <option value="0">Não</option>
+                                                    <option value="1">Sim</option>
+                                                </select>
+                                                {%if form.errors.palestra %}
+                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.palestra}}</div>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-group">
+                                            <label class="col-xs-12" for="register4-password">Senha</label>
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <input class="form-control" value="{{empresa.}}" type="password" id="register4-password" name="password" placeholder="Digite a senha..">
+                                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                                </div>
+                                                {%if form.errors.password %}
+                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.password}}</div>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="register4-password2">Confirmar senha</label>
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <input class="form-control" type="password" id="register4-password2" name="password2" placeholder="Digite a senha..">
+                                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                                </div>
+                                                {%if form.errors.password2 %}
+                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.password2}}</div>
+                                                {%endif%}
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm btn-success" type="submit"><i class="fa fa-plus push-5-r"></i>Registrar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Bootstrap Register -->
+                        </div>
+                    </div>
+                    <!-- END Register Forms -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+
+{% endblock %}
