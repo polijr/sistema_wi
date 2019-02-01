@@ -1,0 +1,26 @@
+{% extends 'base_menus_empresa.html' %}
+{% block nomePagina %}Documentos Enviados{% endblock%}
+{% load static %}
+{% block conteudo %}
+<main id="main-container">
+	{% if documentos.length != 0 %}
+	<table class="table table-bordered table-striped js-dataTable-full">
+		<thead>
+			<tr>
+				<th style="width: 50%">Nome</th>
+				<th>Documento</th>
+			</tr>
+        </thead>
+        <tbody>
+        	{% for documento in documentos %}
+        	<td> {{ documento.nome }} </td>
+        	<td> <a href="{{ documento.arquivo.url }}"><img src="{% static 'img/favicons/download-icon.png' %}" alt="download" style="height: 16px">Download</a></td>
+        	{% endfor %}
+        </tbody>
+	</table>
+	{% else %}
+		<h2>Você ainda não enviou nenhum documento</h2>
+	{% endif %}
+
+</main>
+{% endblock %}

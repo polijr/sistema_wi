@@ -1,5 +1,5 @@
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "/pedidos/carregar_ajax/");
+xhr.open("GET", "/pedidos/carregar_pedidos/");
 xhr.addEventListener("load", function() {
 	var resposta = JSON.parse(this.responseText);
 	var pedidos = resposta.genres;
@@ -8,6 +8,7 @@ xhr.addEventListener("load", function() {
 		// nome da empresa = pedidos[i].empresa
 		// stand = pedidos[i].stand
 		// observação = pedidos[i].observacao
+		// pk = pedidos[i].pk
 	}
 });
 xhr.send();

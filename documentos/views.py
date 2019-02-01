@@ -22,3 +22,9 @@ class EnviarDocumento(View):
 		messages.success(request, "Documento submetido com sucesso")
 		return render(request, 'enviar_documentos.html', {form: 'form', 'messages': messages, 'post': True, 'enviou': enviou})
 
+class Enviados(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo == 0:
+			return render(request, 'enviados.html', {'documentos': request.user.usuario.usuario_empresa.documento_set.all()})
+		else:
+			return HttpResponse('Você não tem acesso a essa página')
