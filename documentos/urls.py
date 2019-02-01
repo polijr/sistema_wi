@@ -7,5 +7,5 @@ app_name = 'documentos'
 urlpatterns = [
 
 	url(r'^enviar/$', login_required(EnviarDocumento.as_view()), name='Enviar'),
-	url(r'^enviados/$', login_required(Enviados.as_view()), name='Enviados')
+	url(r'^ver/$', login_required(VerDocumento.as_view()), name='Ver'),
 ]
