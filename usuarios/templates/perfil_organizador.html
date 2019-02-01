@@ -38,13 +38,6 @@
                                                         <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.nome}}</div>
                                                     {%endif%}
                                             </div>
-                                            <div class="col-xs-6">
-                                                <label for="register4-lastname">Telefone</label>
-                                                <input class="form-control" value="{{organizador.telefone}}" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ da empresa..">
-                                                {%if form.errors.cnpj %}
-                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.cpnj}}</div>
-                                                {%endif%}
-                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-xs-6">
@@ -62,6 +55,15 @@
                                                 </div>
                                                 {%if form.errors.email %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.email}}</div>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-lastname">Telefone</label>
+                                                <input class="form-control" value="{{organizador.telefone}}" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ da empresa..">
+                                                {%if form.errors.cnpj %}
+                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.cpnj}}</div>
                                                 {%endif%}
                                             </div>
                                         </div>
