@@ -1,5 +1,5 @@
 {% extends 'base_menus_empresa.html' %}
-{% block nomePagina %}Cadastro de Empresa{% endblock%}
+{% block nomePagina %}Editar Empresa{% endblock%}
 {% block conteudo %}
 
             <main id="main-container">
@@ -8,7 +8,7 @@
                         <div class="col-lg-12">
                             <!-- Bootstrap Register -->
                             <div class="block block-themed">
-                                <div class="block-header bg-success">
+                                <div class="block-header" style="background-color: #FFAF00">
                                     <ul class="block-options">
                                         <li>
                                             <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
@@ -26,14 +26,14 @@
                                         <div class="form-group">
                                             <div class="col-xs-6" >
                                                 <label for="register4-firstname">Nome da empresa</label>
-                                                <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite o nome da empresa..">
+                                                <input class="form-control" value="{{empresa.nome}}" type="text" id="nome" name="nome" placeholder="Digite o nome da empresa..">
                                                 {%if form.errors.nome %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.nome}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
                                                 <label for="register4-lastname">CNPJ</label>
-                                                <input class="form-control" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ da empresa..">
+                                                <input class="form-control" value="{{empresa.cnpj}}" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ da empresa..">
                                                 {%if form.errors.cnpj %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.cpnj}}</div>
                                                 {%endif%}
@@ -42,15 +42,15 @@
                                         <div class="form-group">
                                             <div class="col-xs-6">
                                                 <label for="register4-firstname">Nome de usuário</label>
-                                                <input class="form-control" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
+                                                <input class="form-control" value="{{user}}" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
                                                 {%if form.errors.username %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.username}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
-                                                <label class="col-xs-12" for="register4-email">Email</label>
+                                                <label for="register4-email">Email</label>
                                                 <div class="input-group">
-                                                    <input class="form-control" type="email" id="email" name="email" placeholder="Digite o email da empresa..">
+                                                    <input class="form-control" value="{{empresa.email}}" type="email" id="email" name="email" placeholder="Digite o email da empresa..">
                                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                                                 </div>
                                                 {%if form.errors.email %}
@@ -61,7 +61,7 @@
                                         <div class="form-group">
                                             <div class="col-xs-6">
                                                 <label for="register4-firstname">Número do stand</label>
-                                                <input class="form-control" type="text" id="stand" name="stand" placeholder="Digite o num. de stand da empresa..">
+                                                <input class="form-control" value="{{empresa.stand}}" type="text" id="stand" name="stand" placeholder="Digite o num. de stand da empresa..">
                                                 {%if form.errors.stand %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.stand}}</div>
                                                 {%endif%}
@@ -69,7 +69,7 @@
                                             <div class="col-xs-6">
                                                 <label for="register4-lastname">Tamanho do stand</label>
                                                 <select class="form-control" id="tamanho" name="tamanho" size="1">
-                                                    <option value="-1">Por favor selecione</option>
+                                                    <option value="-1">{{empresa.tamanho}}</option>
                                                     <option value="0">9 m²</option>
                                                     <option value="1">10 m²</option>
                                                     <option value="2">10,5 m²</option>
@@ -93,7 +93,7 @@
                                                 <select class="form-control" id="organizador_resp" name="organizador_resp" size="1">
                                                     <option value="-1">Por favor selecione  {{meunome}}</option>
                                                     {% for organizador in organizadores %}
-                                                        <option value="{{organizador.pk}}">{{organizador.usuario.user.first_name}} {{organizador.usuario.user.last_name}}</option>
+                                                        <option value="{{empresa.organizador_resp}}">{{organizador.usuario.user.first_name}} {{organizador.usuario.user.last_name}}</option>
                                                     {% endfor %}
                                                 </select>
                                                 {%if form.errors.organizador_resp %}
@@ -103,6 +103,7 @@
                                             <div class="col-xs-6">
                                                 <label for="register4-lastname">Tem palestra?</label>
                                                 <select class="form-control" id="palestra" name="palestra" size="1">
+                                                    <option value="-1">{{tem_palestra}}</option>
                                                     <option value="0">Não</option>
                                                     <option value="1">Sim</option>
                                                 </select>
@@ -111,11 +112,11 @@
                                                 {%endif%}
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label class="col-xs-12" for="register4-password">Senha</label>
                                             <div class="col-xs-12">
                                                 <div class="input-group">
-                                                    <input class="form-control" type="password" id="register4-password" name="password" placeholder="Digite a senha..">
+                                                    <input class="form-control" value="{{empresa.}}" type="password" id="register4-password" name="password" placeholder="Digite a senha..">
                                                     <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
                                                 </div>
                                                 {%if form.errors.password %}
@@ -134,7 +135,7 @@
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.password2}}</div>
                                                 {%endif%}
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="form-group">
                                             <div class="col-xs-12">
                                                 <button class="btn btn-sm bg-dark" type="submit"><i class="fa fa-plus push-5-r"></i>Registrar</button>
