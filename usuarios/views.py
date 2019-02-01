@@ -122,6 +122,15 @@ class EditarEmpresa(View):
             tem_palestra = "Sim"
         return render(request, 'editar_empresa.html', {'empresa': empresa, 'user': user, 'tem_palestra': tem_palestra})
 
+    def post(self, request, *args, **kwargs):
+        user = request.user
+        user_empresa = user.usuario
+        nome = request.POST["nome"]
+        Empresa.objects.filter(usuario = user_empresa).update(
+            nome = nome
+        )
+        return HttpResponseRedirect('/usuarios/empresa')
+
 class PerfilOrganizador(View):
     def get(self, request, *args, **kwargs):
         user = request.user
