@@ -13,7 +13,7 @@ class CarregarPedidos(View):
 			dados = []
 			for pedido in Pedido.objects.all().order_by("data"):
 				dados.append({
-					"tipo-pedido": pedido.tipo.name,
+					"tipo_pedido": pedido.tipo.name,
 					"empresa": pedido.pedinte.usuario.user.username,
 					"stand": pedido.pedinte.stand,
 					"observacao": pedido.observacao,

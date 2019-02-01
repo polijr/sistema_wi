@@ -75,20 +75,7 @@
                                         <th class="text-center" style="width: 10%;">Pop-Up</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    {% for pedido in pedidos %}
-                                    <tr>
-                                        <td class="font-w600">{{pedido.tipo}}</td>
-                                        <td class="text-center">
-                                            <div class="btn-group">
-                                                <div class="block-content block-content-full">
-                                                    <button class="btn btn-success" data-toggle="popover" title="Detalhes" data-placement="top" data-content="Empresa: {{pedido.pedinte.nome}}, Stand: {{pedido.pedinte.stand}}, Observação: {{pedido.observacao}}" type="button">+</button>
-                                                </div>
-                                                <button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Remove Client"><i class="fa fa-times"></i></button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
+                                <tbody class="corpo-pedidos">
                                 </tbody>
                             </table>
                         </div>
@@ -100,6 +87,6 @@
     </div>
     <!-- END Page Content -->
 </main>
-<script type="text/javascript" src="{% static 'js/carregarajax.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/deletarajax.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/carregarpedidos.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/deletarpedido.js' %}"></script>
 {% endblock %}
