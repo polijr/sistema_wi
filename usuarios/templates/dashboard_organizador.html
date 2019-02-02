@@ -6,6 +6,52 @@
 
 
 {% block conteudo %}
+<style type="text/css">
+    /* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+  word-wrap: break-word;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/**/
+</style>
 <main id="main-container">
     <!-- Page Header -->
     <div class="content bg-image overflow-hidden" style="background-image: url('/static/img/photos/banner_wi.png');">
@@ -89,5 +135,28 @@
 </main>
 <script type="text/javascript" src="{% static 'js/carregarpedidos.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/deletarpedido.js' %}"></script>
-<button class="btn btn-success" data-toggle="popover" title="Detalhes" data-placement="top" data-content="Empresa:empresa, Stand:12, Observação: lldolw" type="button">+</button>
+<script>
+// When the user clicks on <div>, open the popup
+function MostrarPopUp(index) {
+  var popups = document.querySelectorAll(".popuptext");
+  var botoes = document.querySelectorAll(".btn-popup");
+  for (var i = 0; i < popups.length; i++) {
+    if (i == index) {
+        if (popups[i].classList.contains("show")) {
+            popups[i].classList.remove("show");
+            botoes[i].innerHTML = '+';
+        }
+        else {
+            popups[i].classList.add("show");
+            botoes[i].innerHTML = '-';
+        }
+    }
+    else if (popups[i].classList.contains("show")) {
+        popups[i].classList.remove("show");
+        botoes[i].innerHTML = '+'
+    }
+  }
+  var botao = document.querySelectorAll(".btn-popup")[index];
+}
+</script>
 {% endblock %}

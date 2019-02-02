@@ -13,9 +13,9 @@ xhr.addEventListener("load", function() {
 			///observação = pedidos[i].observacao
 
 			tabela_nova += '<tr><td class="font-w600">' + pedidos[i].tipo_pedido + '</td><td class="text-center">'+
-			'<div class="btn-group"><div class="block-content block-content-full">'+
-			'<button class="btn btn-success" data-toggle="popover" data-original-title="Detalhes" data-placement="top" data-content="Empresa:'+
-			pedidos[i].empresa + ', Stand:' + pedidos[i].stand + ', Observação: ' + pedidos[i].observacao + '" type = "button">+</button>'+
+			'<div class="btn-group"><div class="block-content block-content-full">'+ '<div class="popup">' +
+			'<button class="btn btn-success btn-popup" onclick="MostrarPopUp('+ i +')" type = "button">+</button><span class="popuptext">Empresa: ' 
+			+ pedidos[i].empresa + ', Stand: ' + pedidos[i].stand + ', Observação: '+ pedidos[i].observacao +'</span></div>'+
 			'</div><button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Remove Client"'+
 			' onclick="Deletar('+ pedidos[i].pk + ')"><i class="fa fa-times"></i></button></div></td></tr>';
 		}
