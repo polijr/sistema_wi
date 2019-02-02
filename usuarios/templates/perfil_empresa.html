@@ -1,5 +1,5 @@
-{% extends 'base_menus_organizador.html' %}
-{% block nomePagina %}Editar Empresa{% endblock%}
+{% extends 'base_menus_empresa.html' %}
+{% block nomePagina %}Perfil Empresa{% endblock%}
 {% block conteudo %}
 
             <main id="main-container">
@@ -26,14 +26,14 @@
                                         <div class="form-group">
                                             <div class="col-xs-6" >
                                                 <label for="register4-firstname">Nome da empresa</label>
-                                                <input class="form-control" value="{{empresa.nome}}" type="text" id="nome" name="nome" placeholder="Digite o nome da empresa..">
+                                                <input class="form-control" value="{{empresa.nome}}" type="text" id="nome" name="nome" placeholder="Digite o nome da empresa.." disabled style="background-color: #FFFFFF">
                                                 {%if form.errors.nome %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.nome}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
                                                 <label for="register4-lastname">CNPJ</label>
-                                                <input class="form-control" value="{{empresa.cnpj}}" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ da empresa..">
+                                                <input class="form-control" value="{{empresa.cnpj}}" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ da empresa.." disabled style="background-color: #FFFFFF">
                                                 {%if form.errors.cnpj %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.cpnj}}</div>
                                                 {%endif%}
@@ -42,7 +42,7 @@
                                         <div class="form-group">
                                             <div class="col-xs-6">
                                                 <label for="register4-firstname">Nome de usuário</label>
-                                                <input class="form-control" value="{{empresa.usuario}}" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
+                                                <input class="form-control" value="{{empresa.usuario}}" type="text" id="username" name="username" placeholder="Digite o username da empresa.." disabled style="background-color: #FFFFFF">
                                                 {%if form.errors.username %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.username}}</div>
                                                 {%endif%}
@@ -50,7 +50,7 @@
                                             <div class="col-xs-6">
                                                 <label for="register4-email">Email</label>
                                                 <div class="input-group">
-                                                    <input class="form-control" value="{{empresa.usuario.user.email}}" type="email" id="email" name="email" placeholder="Digite o email da empresa..">
+                                                    <input class="form-control" value="{{empresa.usuario.user.email}}" type="email" id="email" name="email" placeholder="Digite o email da empresa.." disabled style="background-color: #FFFFFF">
                                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                                                 </div>
                                                 {%if form.errors.email %}
@@ -61,26 +61,15 @@
                                         <div class="form-group">
                                             <div class="col-xs-6">
                                                 <label for="register4-firstname">Número do stand</label>
-                                                <input class="form-control" value="{{empresa.stand}}" type="text" id="stand" name="stand" placeholder="Digite o num. de stand da empresa..">
+                                                <input class="form-control" value="{{empresa.stand}}" type="text" id="stand" name="stand" placeholder="Digite o num. de stand da empresa.." disabled style="background-color: #FFFFFF">
                                                 {%if form.errors.stand %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.stand}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
                                                 <label for="register4-lastname">Tamanho do stand</label>
-                                                <select class="form-control" id="tamanho" name="tamanho" size="1">
-                                                    <option value="{{empresa.tamanho}}">{{empresa.get_tamanho_display}}</option>
-                                                    <option value="0">9 m²</option>
-                                                    <option value="1">10 m²</option>
-                                                    <option value="2">10,5 m²</option>
-                                                    <option value="3">12 m²</option>
-                                                    <option value="4">14 m²</option>
-                                                    <option value="5">20 m²</option>
-                                                    <option value="6">25,5 m²</option>
-                                                    <option value="7">30 m²</option>
-                                                    <option value="8">40 m²</option>
-                                                    <option value="9">51,5 m²</option>
-                                                </select>
+                                                <input class="form-control" value="{{empresa.get_tamanho_display}}" id="tamanho" name="tamanho" size="1" disabled style="background-color: #FFFFFF">
+                                
                                                 {%if form.errors.tamanho %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.tamanho}}</div>
                                                 {%endif%}
@@ -90,29 +79,23 @@
                                             <div class="col-xs-6">
                                                 <label for="register4-lastname">Organizador responsável
                                                 </label>
-                                                <select class="form-control" id="organizador_resp" name="organizador_resp" size="1">
-                                                    <option value="{{empresa.organizador_resp.pk}}">{{empresa.organizador_resp.nome}} {{empresa.organizador_resp.sobrenome}}</option>
-                                                    {% for organizador in organizadores %}
-                                                        <option value="{{empresa.organizador_resp}}">{{organizador.nome}} {{organizador.sobrenome}}</option>
-                                                    {% endfor %}
-                                                </select>
+                                                <input value="{{empresa.organizador_resp.nome}} {{empresa.organizador_resp.sobrenome}}" class="form-control" id="organizador_resp" name="organizador_resp" size="1" disabled style="background-color: #FFFFFF">
+                                                
                                                 {%if form.errors.organizador_resp %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.organizador_resp}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
                                                 <label for="register4-lastname">Tem palestra?</label>
-                                                <select class="form-control" id="palestra" name="palestra" size="1">
-                                                    {% if empresa.palestra %}
-                                                    <option value="1">Sim</option>
-                                                    <option value="0">Não</option>
+                                                
+                                                {% if empresa.palestra %}
+                                                <input value="Sim" class="form-control" id="palestra" name="palestra" size="1" disabled style="background-color: #FFFFFF">    
                                                     
-                                                    {% else %}
-                                                    <option value="0">Não</option>
-                                                    <option value="1">Sim</option>
+                                                {% else %}
+                                                <input value="Não" class="form-control" id="palestra" name="palestra" size="1" disabled style="background-color: #FFFFFF">
                                                     
-                                                    {% endif %}
-                                                </select>
+                                                {% endif %}
+                                                
                                                 {%if form.errors.palestra %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.palestra}}</div>
                                                 {%endif%}
@@ -142,11 +125,11 @@
                                                 {%endif%}
                                             </div>
                                         </div> -->
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <div class="col-xs-12">
                                                 <button class="btn btn-sm bg-dark" type="submit"><i class="fa fa-plus push-5-r"></i>Editar</button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </form>
                                 </div>
                             </div>

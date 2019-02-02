@@ -15,22 +15,20 @@
             <thead>
                 <tr>
                     <th class="hidden-xs text-center">Nome da empresa</th>
+                    <th class="hidden-xs text-center">Editar</th>
                 </tr>
             </thead>
             <tbody>
+                {% for i in empresa %}
                 <tr>
-                    <td class="text-center" value=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td class="text-center">{{i.nome}}</td>
                     <td class="text-center">
                         <div class="btn-group btn-group-xs">
-                            <a href="base_pages_ecom_order.html" data-toggle="tooltip" title="Visualizar" class="btn btn-default"><i class="fa fa-eye"></i></a>                       
+                            <a href="{% url 'usuarios:EditarEmpresa' pk=i.pk %}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-pencil"></i></a>                       
                         </div>
                     </td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
