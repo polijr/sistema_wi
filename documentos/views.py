@@ -20,14 +20,14 @@ class EnviarDocumento(View):
 			documento = form.save(empresa=request.user.usuario.usuario_empresa)
 			enviou = True
 		messages.success(request, "Documento submetido com sucesso")
-		return render(request, 'enviar_documentos.html', {form: 'form', 'messages': messages, 'post': True, 'enviou': enviou})
+		return render(request, 'enviar_documentos.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
 
 
 
 
 class VerDocumento(View):
 	def get(self, request, *args, **kwargs):
-		# current_user = request.user
-		# documento = current_user.usuario.usuario_organizador.empresa_set.all()
-		return render(request, 'ver_documentos.html')
+		organizador = request.user.usuario.usuario_organizador 
+		empresas = organizador.empresa_organizador.all()
+		return render(request, 'ver_documentos.html', {'empresas':empresas})
 
