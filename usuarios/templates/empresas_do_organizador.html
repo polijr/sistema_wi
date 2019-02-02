@@ -1,0 +1,38 @@
+{% extends 'base_menus_organizador.html' %}
+{% block nomePagina %}Minhas Empresas{% endblock%}
+{% load static %}
+{% block conteudo %}
+<main id="main-container">
+    <h2 class="content-heading"></h2>
+    <div class="col-lg-12">
+        <div class="block-header" style="background-color: #FFAF00">
+            <h3 class="block-title" style="color: #FFFFFF">Minhas Empresas</h3>
+        </div>
+    </div>
+
+    <div class="block-content">
+        <table class="table table-borderless table-striped table-vcenter">
+            <thead>
+                <tr>
+                    <th class="hidden-xs text-center">Nome da empresa</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center" value=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td class="text-center">
+                        <div class="btn-group btn-group-xs">
+                            <a href="base_pages_ecom_order.html" data-toggle="tooltip" title="Visualizar" class="btn btn-default"><i class="fa fa-eye"></i></a>                       
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+{% endblock %}

@@ -122,14 +122,14 @@ class EditarEmpresa(View):
             tem_palestra = "Sim"
         return render(request, 'editar_empresa.html', {'empresa': empresa, 'user': user, 'tem_palestra': tem_palestra})
 
-    def post(self, request, *args, **kwargs):
-        user = request.user
-        user_empresa = user.usuario
-        nome = request.POST["nome"]
-        Empresa.objects.filter(usuario = user_empresa).update(
-            nome = nome
-        )
-        return HttpResponseRedirect('/usuarios/empresa')
+    # def post(self, request, *args, **kwargs):
+    #     user = request.user
+    #     user_empresa = user.usuario
+    #     nome = request.POST["nome"]
+    #     Empresa.objects.filter(usuario = user_empresa).update(
+    #         nome = nome
+    #     )
+    #     return HttpResponseRedirect('/usuarios/empresa')
 
 class PerfilOrganizador(View):
     def get(self, request, *args, **kwargs):
@@ -137,3 +137,8 @@ class PerfilOrganizador(View):
         user_organizador = user.usuario
         organizador = Organizador.objects.get(usuario = user_organizador)
         return render(request, 'perfil_organizador.html', {'organizador': organizador, 'user': user})
+
+class MinhasEmpresas(View):
+    def get(self, request, *args, **kwargs):
+        
+        return render(request, 'empresas_do_organizador.html')

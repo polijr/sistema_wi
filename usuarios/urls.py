@@ -19,5 +19,6 @@ urlpatterns = [
     url(r'^cadastro-organizador/$', login_required(CadastroOrganizador.as_view()), name = 'Cadastro de organizador'),
     url(r'^logout/$', login_required(LogoutView.as_view(template_name='logout.html')), name = 'Logout'),
     url(r'^editar-empresa/$', login_required(EditarEmpresa.as_view()), name = "Editar empresa"),
-    url(r'^perfil-organizador/$', login_required(PerfilOrganizador.as_view()), name = "Perfil organizador")
+    url(r'^perfil-organizador/$', login_required(PerfilOrganizador.as_view()), name = "Perfil organizador"),
+    url(r'^minhas-empresas/$', login_required(MinhasEmpresas.as_view()), name = "Minhas empresas")
 ]
