@@ -25,8 +25,9 @@ class EnviarDocumento(View):
 
 
 
-# class VerDocumento(View):
-# 	def get(self, request, *args, **kwargs):
-# 		current_user = request.user
-# 		documento = current_user.usuario.usuario_organizador.empresa_set.all()
+class VerDocumento(View):
+	def get(self, request, *args, **kwargs):
+		# current_user = request.user
+		# documento = current_user.usuario.usuario_organizador.empresa_set.all()
+		return render(request, 'ver_documentos.html')
 
