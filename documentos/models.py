@@ -6,6 +6,7 @@ class Documento(models.Model):
 	arquivo = models.FileField(upload_to='documentos/files')
 	empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, null=False)
 	observacao = models.TextField('Observação', max_length=200)
+	data_envio = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
 		return self.empresa.usuario.user.username + ' - ' + self.nome
