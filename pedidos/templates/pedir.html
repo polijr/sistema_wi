@@ -1,0 +1,95 @@
+{% extends 'base_menus_empresa.html' %}
+{% block nomePagina %}Página de pedido{% endblock%}
+{% block conteudo %}
+
+            <main id="main-container">
+
+                    <!-- Register Forms -->
+                    <h2 class="content-heading "></h2>
+                    <div class="col-lg-4">
+
+                    </div>
+                        <div class="col-lg-4 ">
+                            <!-- Bootstrap Register -->
+                            <div class="block block-themed centered ">
+                                <div class="block-header" style="background-color: #FFAF00">
+                                    <ul class="block-options">
+                                        {{messages.0}}
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Página de pedido</h3>
+                                </div>
+                                <div class="block-content">
+                                    <form id="forms_pedido" class="form-horizontal push-5-t" action="" method="post">
+                                        {% csrf_token %}
+
+                                        <div class="form-group">
+                                        <div class="col-xs-10">
+                                                <label for="register4-lastname">O que necessita?</label>
+                                                <select class="form-control" id="tipo_de_pedido" name="tipo_de_pedido" size="1">
+                                                    {% for tipo in tipos %}
+                                                        <option value="{{tipo.pk}}">{{tipo.name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                            <div class="form-group col-xs-12">
+                                                    <label for="register4-lastname">Possui alguma observação?</label>
+                                                    <input class="form-control" type="text" id="obs" name="obs" placeholder="Digite sua observação (opcional)">
+                                                </div>
+                                                <div class="form-group">
+                                                        <div class="col-xs-12">
+                                                            <label for="register4-lastname">O organizador responsável é: {{organizador.nome}} {{organizador.sobrenome}}</label>
+                                                            <label for="register4-lastname">Caso necessite, entre em contato a partir do número: {{organizador.telefone}}</label>
+                                                        </div>
+                                                    </div>
+                                            <div class="form-group">
+                                            
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm bg-dark" type="submit"><i class="fa fa-plus push-5-r"></i> Registrar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Bootstrap Register -->
+                        </div>
+                    </div>
+                    <!-- END Register Forms -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+            <div class="modal fade" id="modal-popin" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-popin">
+                        <div class="modal-content">
+                            <div class="block block-themed block-transparent remove-margin-b">
+                                <div class="block-header bg-primary-dark">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Terms &amp; Conditions</h3>
+                                </div>
+                                <div class="block-content">
+                                    <p>Dolor posuere proin blandit accumsan senectus netus nullam curae, ornare laoreet adipiscing luctus mauris adipiscing pretium eget fermentum, tristique lobortis est ut metus lobortis tortor tincidunt himenaeos habitant quis dictumst proin odio sagittis purus mi, nec taciti vestibulum quis in sit varius lorem sit metus mi.</p>
+                                    <p>Dolor posuere proin blandit accumsan senectus netus nullam curae, ornare laoreet adipiscing luctus mauris adipiscing pretium eget fermentum, tristique lobortis est ut metus lobortis tortor tincidunt himenaeos habitant quis dictumst proin odio sagittis purus mi, nec taciti vestibulum quis in sit varius lorem sit metus mi.</p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Close</button>
+                                <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal"><i class="fa fa-check"></i> Ok</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+            <script>
+                    $("#forms_pedido").on('submit', function(event) {
+                         alert("Pedido enviado!");
+                    });
+            </script>
+{% endblock %}

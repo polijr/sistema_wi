@@ -23,7 +23,6 @@ class Pedido(models.Model):
 	organizador = models.ForeignKey(Organizador, on_delete=models.CASCADE, null=True)
 	pedinte = models.ForeignKey(Empresa, on_delete=models.CASCADE, null=False)
 	observacao = models.TextField("Observação", max_length=200, blank=True)
-
 	def __str__(self):
 		return self.tipo.name
 

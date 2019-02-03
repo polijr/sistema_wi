@@ -17,7 +17,9 @@ from django.contrib.auth import (login as auth_login,
 )
 from .models import *
 from django.http import HttpResponseRedirect
+
 # Create your views here.
+from pedidos.models import *
 
 
 
@@ -36,7 +38,8 @@ class DashboardAdmin(View):
 
 class DashboardOrganizador(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'dashboard_organizador.html')
+        pedidos = Pedido.objects.all().order_by("data")
+        return render(request, 'dashboard_organizador.html', {"pedidos":pedidos})
 
 class Redirecionar(View):
     def get(self, request, *args, **kwargs):
@@ -55,7 +58,6 @@ class CadastroEmpresa(View):
 
     def post(self, request, *args, **kwargs):
         form = CadastroEmpresaForm(request.POST)
-        print(form)
         if form.is_valid():
             user = User.objects.create_user(username= form.data['username'],
                                             email=form.data['email'],
@@ -107,3 +109,52 @@ class CadastroOrganizador(View):
             )
             return HttpResponseRedirect('/usuarios/admin')
         return render(request, 'cadastro_organizador.html', {'form': form})
+
+class EditarEmpresa(View):
+    def get(self, request, pk):
+        empresa = Empresa.objects.get(pk=pk)
+        organizadores = Organizador.objects.all()
+        return render(request, 'editar_empresa.html', {'empresa': empresa, 'organizadores': organizadores})
+
+    def post(self, request, pk, *args, **kwargs):
+        empresa = Empresa.objects.filter(pk=pk)
+        nome = request.POST["nome"]
+        stand = int(request.POST["stand"])
+        cnpj = request.POST["cnpj"]
+        organizador_resp = Organizador.objects.get(pk=request.POST["organizador_resp"])
+        tamanho = request.POST["tamanho"]
+        palestra = request.POST["palestra"]
+        empresa.update(
+            nome = nome,
+            stand = stand,
+            cnpj = cnpj,
+            organizador_resp = organizador_resp,
+            tamanho = tamanho,
+            palestra = palestra
+        )
+        return HttpResponseRedirect('/usuarios/minhas-empresas')
+
+class PerfilEmpresa(View):
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        user_empresa = user.usuario
+        empresa = Empresa.objects.get(usuario = user_empresa)
+        if  not empresa.palestra:
+            tem_palestra = "Não"
+        else:
+            tem_palestra = "Sim"
+        return render(request, 'perfil_empresa.html', {'empresa': empresa, 'user': user, 'tem_palestra': tem_palestra})
+
+class PerfilOrganizador(View):
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        user_organizador = user.usuario
+        organizador = Organizador.objects.get(usuario = user_organizador)
+        return render(request, 'perfil_organizador.html', {'organizador': organizador, 'user': user})
+
+class MinhasEmpresas(View):
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        user_organizador = user.usuario.usuario_organizador
+        empresa = Empresa.objects.filter(organizador_resp = user_organizador)
+        return render(request, 'empresas_do_organizador.html', {'empresa': empresa})
