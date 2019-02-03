@@ -650,5 +650,30 @@
     </div>
     <!-- END Page Content -->
 </main>
-<script type="text/javascript" src="{% static 'js/carregarajax.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript"">
+  $(document).ready(function() {    
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/pedidos/carregar_ajax/");
+        xhr.addEventListener("load", function() {
+            var resposta = JSON.parse(this.responseText);
+            var pedidos = resposta.genres;
+            console.log("-----------------_")
+            for(var i = 0; i < pedidos.length; i++) {
+                // tipo de pedido = pedidos[i].tipo-pedido
+                // nome da empresa = pedidos[i].empresa
+                // stand = pedidos[i].stand
+                // observação = pedidos[i].observacao
+                console.log(pedidos[i])
+            }
+        });
+        xhr.send();
+
+        setInterval(function() {
+            xhr.open("GET", "/pedidos/carregar_ajax/");
+            xhr.send();
+        }, 3000);
+  });
+</script>
+
 {% endblock %}
