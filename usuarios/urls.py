@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^editar-empresa/(?P<pk>\d+)$', login_required(EditarEmpresa.as_view()), name = 'EditarEmpresa'),
     url(r'^perfil-organizador/$', login_required(PerfilOrganizador.as_view()), name = 'Perfil organizador'),
     url(r'^minhas-empresas/$', login_required(MinhasEmpresas.as_view()), name = 'Minhas empresas'),
-    url(r'^perfil-empresa/$', login_required(PerfilEmpresa.as_view()), name = 'Perfil empresa')
+    url(r'^perfil-empresa/$', login_required(PerfilEmpresa.as_view()), name = 'Perfil empresa'),
+    url(r'^cadastro-caravaneiro/$', login_required(CadastroCaravaneiro.as_view()), name= 'Cadastro caravaneiro')
 ]

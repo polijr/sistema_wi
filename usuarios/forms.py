@@ -1,5 +1,5 @@
 from django import forms
-from .models import Usuario, Gerente, Organizador, Empresa
+from .models import Usuario, Gerente, Organizador, Empresa, Caravaneiro
 from django.contrib.auth.models import User
 
 
@@ -69,4 +69,33 @@ class CadastroOrganizadorForm(forms.Form):
     
     class Meta:
         model = Organizador
+        fields = ['nome', 'sobrenome', 'telefone', 'email']
+
+class CadastroCaravaneiroForm(forms.Form):
+    nome = forms.CharField(required = True)
+    sobrenome = forms.CharField(required = True)
+    telefone = forms.CharField(required = True)
+    email = forms.EmailField(required = True)
+    username = forms.CharField(min_length=4)
+    password = forms.CharField(min_length=4)
+    password2 = forms.CharField(min_length=4)	     
+           
+    def clean(self):
+        cleaned_data = super(CadastroCaravaneiroForm, self).clean()
+        username = cleaned_data.get('username')
+        # if username:
+        #     if User.objects.get(username=username):
+        #         raise forms.ValidationError("Username ja foi pego!")
+        #         return cleaned_data
+        password = cleaned_data.get('password')
+        password2 = cleaned_data.get('password2')
+
+        if password and password2:
+            if password != password2:
+                raise forms.ValidationError("Senhas diferentes!")
+        print(self)
+        return cleaned_data
+    
+    class Meta:
+        model = Caravaneiro
         fields = ['nome', 'sobrenome', 'telefone', 'email']

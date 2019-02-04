@@ -1,0 +1,89 @@
+{% extends 'base_menus_empresa.html' %}
+{% block nomePagina %}Cadastro de caravaneiro{% endblock%}
+{% block conteudo %}
+
+            <main id="main-container">
+
+                    <!-- Register Forms -->
+                    <h2 class="content-heading"></h2>
+                        <div class="col-lg-12">
+                            <!-- Bootstrap Register -->
+                            <div class="block block-themed">
+                                <div class="block-header bg-success">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Caravaneiro</h3>
+                                </div>
+                                <div class="block-content">
+                                    <form class="form-horizontal push-5-t" action="" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-firstname">Nome do Caravaneiro</label>
+                                                <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite o nome do caravaneiro..">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="register4-lastname">Sobrenome do Caravaneiro</label>
+                                                <input class="form-control" type="text" id="sobrenome" name="sobrenome" placeholder="Digite o sobrenome do caravaneiro..">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-firstname">Nome de usuário</label>
+                                                <input class="form-control" type="text" id="username" name="username" placeholder="Digite o username do caravaneiro..">
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label class="col-xs-12" for="register4-email">Email</label>
+                                                <div class="input-group">
+                                                    <input class="form-control" type="email" id="email" name="email" placeholder="Digite o email do caravaneiro..">
+                                                    <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-firstname">Telefone do Caravaneiro</label>
+                                                <input class="form-control" type="text" id="telefone" name="telefone" placeholder="Digite o num. de telefone do caravaneiro..">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="register4-password">Senha</label>
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <input class="form-control" type="password" id="register4-password" name="password" placeholder="Digite a senha..">
+                                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="register4-password2">Confirmar senha</label>
+                                            <div class="col-xs-12">
+                                                <div class="input-group">
+                                                    <input class="form-control" type="password" id="register4-password2" name="password2" placeholder="Digite a senha..">
+                                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm bg-dark" type="submit"><i class="fa fa-plus push-5-r"></i> Registrar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Bootstrap Register -->
+                        </div>
+                    </div>
+                    <!-- END Register Forms -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+
+{% endblock %}

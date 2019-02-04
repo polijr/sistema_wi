@@ -10,7 +10,8 @@ class Usuario(models.Model):
     CARGO_CHOICES = (
         (0, "Empresa"),
         (1, "Organizador"),
-        (2, "Gerente")
+        (2, "Gerente"),
+        (3, "Caravaneiro")
     )
     user = models.OneToOneField(User, on_delete = models.CASCADE, null = False, related_name = 'usuario')
     cargo = models.IntegerField(choices = CARGO_CHOICES, null = False, blank = False)
@@ -54,3 +55,11 @@ class Empresa(models.Model):
     def __str__(self):
         return self.usuario.user.username
 
+class Caravaneiro(models.Model):
+    usuario = models.OneToOneField(Usuario, on_delete = models.CASCADE, related_name = 'usuario_caravaneiro', null = False, blank = False)
+    nome = models.CharField(null = False, blank = False, max_length=100)
+    sobrenome = models.CharField(null = False, blank = False, max_length=100)
+    telefone = models.CharField(null = False, blank = False, max_length=100)
+    email = models.EmailField(null = False, blank = False, max_length=100)
+    def __str__(self):
+        return self.usuario.user.username

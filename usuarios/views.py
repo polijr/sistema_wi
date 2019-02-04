@@ -11,6 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
 from .forms import CadastroEmpresaForm
 from .forms import CadastroOrganizadorForm
+from .forms import CadastroCaravaneiroForm
 from django.contrib.auth.models import User
 from django.contrib.auth import (login as auth_login,
     logout as auth_logout,
@@ -158,3 +159,28 @@ class MinhasEmpresas(View):
         user_organizador = user.usuario.usuario_organizador
         empresa = Empresa.objects.filter(organizador_resp = user_organizador)
         return render(request, 'empresas_do_organizador.html', {'empresa': empresa})
+
+class CadastroCaravaneiro(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'cadastro_caravaneiro.html')
+
+    def post(self, request, *args, **kwargs):
+        form = CadastroCaravaneiroForm(request.POST)
+        if form.is_valid():
+            user = User.objects.create_user(username= form.data['username'],
+                                            email=form.data['email'],
+                                            password=form.data['password'],
+                                            first_name=form.data["nome"],
+                                            last_name=form.data["sobrenome"])
+            user.save()
+            usuario = Usuario.objects.create(user=user, cargo=3)
+            usuario.save()
+            caravaneiro = Caravaneiro.objects.create(
+                usuario = usuario,
+                nome = request.POST["nome"],
+                sobrenome = request.POST["sobrenome"],
+                telefone = request.POST["telefone"],
+                email = request.POST["email"],
+            )
+            return HttpResponseRedirect('/usuarios/admin')
+        return render(request, 'cadastro_caravaneiro.html', {'form': form})
