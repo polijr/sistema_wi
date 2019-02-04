@@ -9,16 +9,27 @@ import json
 
 class CarregarPedidos(View):
 	def get(self, request, *args, **kwargs):
-		if request.user.usuario.cargo == 1 or True:
+		if request.user.usuario.cargo == 1:
 			dados = []
 			for pedido in Pedido.objects.all().order_by("data"):
-				dados.append({
-					"tipo_pedido": pedido.tipo.name,
-					"empresa": pedido.pedinte.usuario.user.username,
-					"stand": pedido.pedinte.stand,
-					"observacao": pedido.observacao,
-					"pk": pedido.pk
-				})
+				if(pedido.pedinte.cargo == 3):
+					dados.append({
+						"tipo_pedido": pedido.tipo.name,
+						"nome": pedido.pedinte.user.username,
+						"tipo_pedinte": 'Caravaneiro',
+						"observacao": pedido.observacao,
+						"pk": pedido.pk
+					})
+			for pedido in Pedido.objects.all().order_by("data"):
+				if(pedido.pedinte.cargo == 0):
+					dados.append({
+						"tipo_pedido": pedido.tipo.name,
+						"nome": pedido.pedinte.user.username,
+						"tipo_pedinte": 'Empresa',
+						"stand": pedido.pedinte.usuario_empresa.stand,
+						"observacao": pedido.observacao,
+						"pk": pedido.pk
+					})
 			return JsonResponse(dados, safe=False)
 		else:
 			return HttpResponse("Você não tem acesso a essa página")
