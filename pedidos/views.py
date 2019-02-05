@@ -66,7 +66,7 @@ class Pedidos(View):
 		organizador = current_user.usuario.usuario_empresa.organizador_resp
 		pedido = Pedido.objects.create(tipo = Type.objects.get(pk=form.data['tipo_de_pedido']), 
 										observacao = form.data['obs'],
-										pedinte = current_user.usuario.usuario_empresa,
+										pedinte = current_user.usuario,
 										organizador = current_user.usuario.usuario_empresa.organizador_resp)
 		messages.success(request, 'Form submission successful')
 		pedido.save()

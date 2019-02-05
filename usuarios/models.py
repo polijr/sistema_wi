@@ -50,7 +50,7 @@ class Empresa(models.Model):
     stand = models.IntegerField(null = False, blank = False)
     tamanho = models.IntegerField(choices = TAMANHO_CHOICES, null = False, blank = False)
     palestra = models.BooleanField(default = False, null = False, blank = False)
-    organizador_resp = models.ForeignKey(Organizador, on_delete = models.CASCADE, null = False, blank = False)
+    organizador_resp = models.ForeignKey(Organizador,related_name="empresa_organizador", on_delete = models.CASCADE, null = False, blank = False)
     cnpj = models.CharField(max_length = 20, null = False, blank = False)
     def __str__(self):
         return self.usuario.user.username
