@@ -7,5 +7,6 @@ urlpatterns = [
 	#url(r'^pedir/$', login_required(LogoutView.as_view()), name = 'Pedir'),
 	url(r'^carregar-pedidos/$', CarregarPedidos.as_view(), name='Carregar'),
 	url(r'^deletar-pedidos/$', DeletarPedido.as_view(), name='Deletar'),
-	url(r'^pedidos/$', Pedidos.as_view(), name = 'Pedidos')
+	url(r'^pedidos/$', Pedidos.as_view(), name = 'Pedidos'),
+	url(r'^criar-pedidos/$', CriarPedido.as_view(), name = 'criarPedidos')
 ]

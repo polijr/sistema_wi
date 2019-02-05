@@ -3,7 +3,7 @@ from django.views.generic import View
 from .models import Type, Pedido
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from .forms import PedidosForm
+from .forms import PedidosForm, TypeForm
 from django.contrib import messages
 import json
 
@@ -71,3 +71,22 @@ class Pedidos(View):
 		messages.success(request, 'Form submission successful')
 		pedido.save()
 		return render(request, 'pedir.html', {'tipos':tipos_de_pedidos, 'form': form, 'organizador': organizador})
+
+
+
+class CriarPedido(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo == 2:
+			form = TypeForm()
+			return render(request, 'criar_pedidos.html', {'form': form, 'messages': messages, 'post': False})
+		else:
+			return HttpResponse('Você não tem acesso a essa página')
+
+	def post(self, request, *args, **kwargs):
+		form = TypeForm(request.POST, request.FILES)
+		enviou = False
+		if form.is_valid():
+			pedido = form.save()
+			enviou = True
+			messages.success(request, "Pedido criado com sucesso")
+		return render(request, 'criar_pedidos.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
