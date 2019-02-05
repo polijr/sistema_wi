@@ -1,9 +1,8 @@
 {% extends 'base_menus_empresa.html' %}
 {% block nomePagina %}Página de pedido{% endblock%}
 {% block conteudo %}
-
-            <main id="main-container">
-
+{% if dias_pro_workshop <= 0 %} 
+            <main id="main-container">             
                     <!-- Register Forms -->
                     <h2 class="content-heading "></h2>
                     <div class="col-lg-4">
@@ -92,4 +91,11 @@
                          alert("Pedido enviado!");
                     });
             </script>
+{% else %}
+<main id="main-container">
+    <div style="margin-left: 5%;">
+        <h1>Você ainda não tem acesso a essa feature! Espere até o início do Workshop!</h1>
+    </div>
+</main>
+{% endif %}
 {% endblock %}

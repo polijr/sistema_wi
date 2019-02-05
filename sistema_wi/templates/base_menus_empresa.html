@@ -461,8 +461,10 @@
                                 <li>
                                     <a class="active" href="/usuarios/empresa"><i class="si si-map"></i><span class="sidebar-mini-hide">Informes</span></a>
                                 </li>
+                                {% if dias_pro_workshop <= 0 %}
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Pedidos</span></li>
                                     <a href="/pedidos/pedidos"><i class="si si-list"></i>Realizar pedido</a>
+                                {% endif %}
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Meu perfil</span></li>
                                     <a href="/usuarios/perfil-empresa"><i class="si si-users"></i>Acessar</a>
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Documentos</span></li>
