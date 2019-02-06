@@ -30,7 +30,9 @@ urlpatterns = [
     url(r'^recuperar_senha/$', usuarios.views.EsqueciMinhaSenha.as_view()),
 	url(r'^usuarios/', include((usuarios.urls, "usuarios"), namespace='usuarios')),
     url(r'^pedidos/', include((pedidos.urls, "pedidos"), namespace='pedidos')),
-    url(r'^documentos/', include((documentos.urls, "documentos"), namespace='documentos'))
+    url(r'^documentos/', include((documentos.urls, "documentos"), namespace='documentos')),
+    url(r'^informes/', include((documentos.urls, "informes"), namespace='informes'))
+
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
