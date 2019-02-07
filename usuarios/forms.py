@@ -19,15 +19,10 @@ class CadastroEmpresaForm(forms.Form):
            
     def clean(self):
         cleaned_data = super(CadastroEmpresaForm, self).clean()
-        # username = cleaned_data.get('username')
-        # if username:
-        #     if User.objects.filter(username=username).count()>=0:
-        #         raise forms.ValidationError("Username ja foi pego!")
         username = cleaned_data.get('username')
-        # if username:
-        #     if User.objects.get(username=username):
-        #         raise forms.ValidationError("Username ja foi pego!")
-        #         return cleaned_data
+        if username:
+            if User.objects.filter(username=username).count()>0:
+                raise forms.ValidationError("Username ja foi pego!")
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
 
@@ -54,10 +49,9 @@ class CadastroOrganizadorForm(forms.Form):
     def clean(self):
         cleaned_data = super(CadastroOrganizadorForm, self).clean()
         username = cleaned_data.get('username')
-        # if username:
-        #     if User.objects.get(username=username):
-        #         raise forms.ValidationError("Username ja foi pego!")
-        #         return cleaned_data
+        if username:
+            if User.objects.filter(username=username).count()>0:
+                raise forms.ValidationError("Username ja foi pego!")
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
 
@@ -76,17 +70,17 @@ class CadastroCaravaneiroForm(forms.Form):
     sobrenome = forms.CharField(required = True)
     telefone = forms.CharField(required = True)
     email = forms.EmailField(required = True)
-    username = forms.CharField(min_length=4)
-    password = forms.CharField(min_length=4)
-    password2 = forms.CharField(min_length=4)	     
+    username = forms.CharField(min_length=4, required = True)
+    password = forms.CharField(min_length=4, required = True)
+    password2 = forms.CharField(min_length=4, required = True)	     
            
     def clean(self):
         cleaned_data = super(CadastroCaravaneiroForm, self).clean()
         username = cleaned_data.get('username')
-        # if username:
-        #     if User.objects.get(username=username):
-        #         raise forms.ValidationError("Username ja foi pego!")
-        #         return cleaned_data
+        if username:
+            if User.objects.filter(username=username).count()>0:
+                print("Nome ja foi pego")
+                raise forms.ValidationError("Username ja foi pego!")
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
 

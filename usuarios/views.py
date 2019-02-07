@@ -97,6 +97,7 @@ class CadastroOrganizador(View):
 
     def post(self, request, *args, **kwargs):
         form = CadastroOrganizadorForm(request.POST)
+        print(form)
         if form.is_valid():
             user = User.objects.create_user(username= form.data['username'],
                                             email=form.data['email'],

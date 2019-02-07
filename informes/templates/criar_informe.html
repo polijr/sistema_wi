@@ -27,11 +27,18 @@
                                                             <div class="form-group col-xs-12">
                                                                         <label for="id_nome">Digite o título do informe:</label>
                                                                         <input class="form-control" type="text" id="id_titulo" name="titulo" placeholder="Digite o título (obrigatório)"  maxlength="100" required>
+                                                                        {%if form.errors.texto %}
+                                                                            <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.texto}}</div>
+                                                                        {%endif%}
                                                                     </div>
-                                                            <div class="form-group col-xs-12">
+                                                                    
+                                                                    <div class="form-group col-xs-12">
                                                                         <label for="id_nome">Digite o texto do informe:</label>
                                                                         <input class="form-control" type="text" id="id_texto" name="texto" placeholder="Digite o texto (obrigatório)" required>
-                                                            </div>
+                                                                        {%if form.errors.texto %}
+                                                                        <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.texto}}</div>
+                                                                        {%endif%}
+                                                                    </div> 
                                                             <div class="col-xs-12">
                                                                 <button class="btn btn-sm bg-success" type="submit"><i class="fa fa-plus push-5-r"></i> Enviar</button>
                                                             </div>

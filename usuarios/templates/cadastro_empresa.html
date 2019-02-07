@@ -28,14 +28,14 @@
                                                 <label for="register4-firstname">Nome da empresa</label>
                                                 <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite o nome da empresa..">
                                                 {%if form.errors.nome %}
-                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.nome}}</div>
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.nome}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
                                                 <label for="register4-lastname">CNPJ</label>
                                                 <input class="form-control" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ da empresa..">
                                                 {%if form.errors.cnpj %}
-                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.cpnj}}</div>
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.cpnj}}</div>
                                                 {%endif%}
                                             </div>
                                         </div>
@@ -44,7 +44,7 @@
                                                 <label for="register4-firstname">Nome de usuário</label>
                                                 <input class="form-control" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
                                                 {%if form.errors.username %}
-                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.username}}</div>
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.username}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
@@ -54,7 +54,7 @@
                                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                                                 </div>
                                                 {%if form.errors.email %}
-                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.email}}</div>
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.email}}</div>
                                                 {%endif%}
                                             </div>
                                         </div>
@@ -63,7 +63,7 @@
                                                 <label for="register4-firstname">Número do stand</label>
                                                 <input class="form-control" type="text" id="stand" name="stand" placeholder="Digite o num. de stand da empresa..">
                                                 {%if form.errors.stand %}
-                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.stand}}</div>
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.stand}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
@@ -82,7 +82,7 @@
                                                     <option value="9">51,5 m²</option>
                                                 </select>
                                                 {%if form.errors.tamanho %}
-                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.tamanho}}</div>
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.tamanho}}</div>
                                                 {%endif%}
                                             </div>
                                         </div>
@@ -97,7 +97,7 @@
                                                     {% endfor %}
                                                 </select>
                                                 {%if form.errors.organizador_resp %}
-                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.organizador_resp}}</div>
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.organizador_resp}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
@@ -107,7 +107,7 @@
                                                     <option value="1">Sim</option>
                                                 </select>
                                                 {%if form.errors.palestra %}
-                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.palestra}}</div>
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.palestra}}</div>
                                                 {%endif%}
                                             </div>
                                         </div>
@@ -119,7 +119,7 @@
                                                     <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
                                                 </div>
                                                 {%if form.errors.password %}
-                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.password}}</div>
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.password}}</div>
                                                 {%endif%}
                                             </div>
                                         </div>
@@ -131,7 +131,7 @@
                                                     <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
                                                 </div>
                                                 {%if form.errors.password2 %}
-                                                    <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.password2}}</div>
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.password2}}</div>
                                                 {%endif%}
                                             </div>
                                         </div>
@@ -140,6 +140,9 @@
                                                 <button class="btn btn-sm bg-dark" type="submit"><i class="fa fa-plus push-5-r"></i>Registrar</button>
                                             </div>
                                         </div>
+                                        {% for error in form.non_field_errors %}
+                                            <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{error}}</div>
+                                        {% endfor %}
                                     </form>
                                 </div>
                             </div>
