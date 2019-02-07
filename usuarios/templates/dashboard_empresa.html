@@ -2,6 +2,7 @@
 {% block nomePagina %}Dashboard da Empresa{% endblock%}
 {% comment %} {%block descricao%} {%endblock%}
 {% block subnomePagina %}{% endblock%} {% endcomment %}
+{% load static %}
 
 
 {% block conteudo %}
@@ -26,6 +27,10 @@
             <div class="col-xs-6 col-sm-3">
                 <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Senha do WiFi</div>
                 <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.senha_wifi}}</a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Mapa do evento</div>
+                <img  src="/static/img/various/mapa_wi.png" onmouseover="bigImg(this)" onmouseout="normalImg(this)" width="160" height="160">
             </div>
         </div>
     </div>
@@ -368,4 +373,5 @@
     </div>
     <!-- END Page Content -->
 </main>
+<script src="{% static 'js/mostrarmapa.js' %}"></script>
 {% endblock %}
