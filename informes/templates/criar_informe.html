@@ -1,0 +1,73 @@
+{% extends 'base_menus_admin.html' %}
+{% block nomePagina %}Criar informe{% endblock%}
+{% block conteudo %}
+                                     <main id="main-container">
+
+                                        <!-- Register Forms -->
+                                        <h2 class="content-heading "></h2>
+                                        <div class="col-lg-4">
+                    
+                                        </div>
+                                            <div class="col-lg-4 ">
+                                                <!-- Bootstrap Register -->
+                                                <div class="block block-themed centered ">
+                                                    <div class="block-header bg-success">
+                                                        <ul class="block-options">
+                                                            {{messages.0}}
+                                                            <li>
+                                                                <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                                            </li>
+                                                        </ul>
+                                                        <h3 class="block-title">Criação de informe</h3>
+                                                    </div>
+                                                    <div class="block-content">
+                                                        <table class="table table-striped table-vcenter">
+                                                        <form id="forms_pedido" class="form-horizontal push-5-t" action="" method="post" enctype="multipart/form-data">
+                                                            {% csrf_token %}
+                                                            <div class="form-group col-xs-12">
+                                                                        <label for="id_nome">Digite o título do informe:</label>
+                                                                        <input class="form-control" type="text" id="id_titulo" name="titulo" placeholder="Digite o título (obrigatório)"  maxlength="100" required>
+                                                                    </div>
+                                                            <div class="form-group col-xs-12">
+                                                                        <label for="id_nome">Digite o texto do informe:</label>
+                                                                        <input class="form-control" type="text" id="id_texto" name="texto" placeholder="Digite o texto (obrigatório)" required>
+                                                            </div>
+                                                            <div class="col-xs-12">
+                                                                <button class="btn btn-sm bg-success" type="submit"><i class="fa fa-plus push-5-r"></i> Enviar</button>
+                                                            </div>
+                                                                
+                                                        </DIV>
+                                                        </form>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </table>
+                            <!-- END Bootstrap Register -->
+                    <!-- END Register Forms -->
+                <!-- END Page Content -->
+            </main>
+            <div class="modal fade" id="modal-popin" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-popin">
+                        <div class="modal-content">
+                            <div class="block block-themed block-transparent remove-margin-b">
+                                <div class="block-header bg-primary-dark">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Terms &amp; Conditions</h3>
+                                </div>
+                                <div class="block-content">
+                                    <p>Dolor posuere proin blandit accumsan senectus netus nullam curae, ornare laoreet adipiscing luctus mauris adipiscing pretium eget fermentum, tristique lobortis est ut metus lobortis tortor tincidunt himenaeos habitant quis dictumst proin odio sagittis purus mi, nec taciti vestibulum quis in sit varius lorem sit metus mi.</p>
+                                    <p>Dolor posuere proin blandit accumsan senectus netus nullam curae, ornare laoreet adipiscing luctus mauris adipiscing pretium eget fermentum, tristique lobortis est ut metus lobortis tortor tincidunt himenaeos habitant quis dictumst proin odio sagittis purus mi, nec taciti vestibulum quis in sit varius lorem sit metus mi.</p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Close</button>
+                                <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal"><i class="fa fa-check"></i> Ok</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endblock %}

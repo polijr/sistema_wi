@@ -18,6 +18,8 @@ from django.contrib.auth import (login as auth_login,
 )
 from .models import *
 from django.http import HttpResponseRedirect
+from informes.models import Informe
+from informes.forms import InformeForm
 
 # Create your views here.
 from pedidos.models import *
@@ -31,7 +33,8 @@ class EsqueciMinhaSenha(View):
 
 class DashboardEmpresa(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'dashboard_empresa.html')
+        informes = Informe.objects.all().order_by("data")
+        return render(request, 'dashboard_empresa.html', {'informes' : informes})
 
 class DashboardAdmin(View):
     def get(self, request, *args, **kwargs):
@@ -51,6 +54,8 @@ class Redirecionar(View):
                 return redirect('/usuarios/organizador')
             if request.user.usuario.cargo == 2:
                 return redirect('/usuarios/admin')  
+            else:
+               return redirect('/admin') 
 
 class CadastroEmpresa(View):
     def get(self, request, *args, **kwargs):

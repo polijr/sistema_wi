@@ -81,20 +81,7 @@
                                 <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
                             </li>
                         </ul>
-                        <h3 class="block-title">Latest Sales</h3>
-                    </div>
-                    <div class="block-content bg-gray-lighter">
-                        <div class="row items-push">
-                            <div class="col-xs-4">
-                                <div class="text-muted"><small><i class="si si-calendar"></i> 24 hrs</small></div>
-                                <div class="font-w600">18 Sales</div>
-                            </div>
-                            <div class="col-xs-4">
-                                <div class="text-muted"><small><i class="si si-calendar"></i> 7 days</small></div>
-                                <div class="font-w600">78 Sales</div>
-                            </div>
-                            <div class="col-xs-4 h1 font-w300 text-right">$769</div>
-                        </div>
+                        <h3 class="block-title">Ultimas notícias</h3>
                     </div>
                     <div class="block-content">
                         <div class="pull-t pull-r-l">
@@ -104,116 +91,18 @@
                                 <div>
                                     <table class="table remove-margin-b font-s13">
                                         <tbody>
+                                            {%for informe in informes %}
                                             <tr>
                                                 <td class="font-w600">
-                                                    <a href="javascript:void(0)">Admin Template</a>
+                                                    <a href="javascript:void(0)">{{informe.titulo}}</a>
                                                 </td>
-                                                <td class="hidden-xs text-muted text-right" style="width: 70px;">23:01</td>
-                                                <td class="font-w600 text-success text-right" style="width: 70px;">+ $21</td>
                                             </tr>
                                             <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                                <td class="hidden-xs text-muted text-right">22:15</td>
-                                                <td class="font-w600 text-success text-right">+ $52</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">HTML Template</a></td>
-                                                <td class="hidden-xs text-muted text-right">22:01</td>
-                                                <td class="font-w600 text-success text-right">+ $16</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                                <td class="hidden-xs text-muted text-right">21:45</td>
-                                                <td class="font-w600 text-success text-right">+ $23</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                                <td class="hidden-xs text-muted text-right">21:15</td>
-                                                <td class="font-w600 text-success text-right">+ $48</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                                <td class="hidden-xs text-muted text-right">20:11</td>
-                                                <td class="font-w600 text-success text-right">+ $23</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                                <td class="hidden-xs text-muted text-right">20:01</td>
-                                                <td class="font-w600 text-success text-right">+ $50</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">HTML Template</a></td>
-                                                <td class="hidden-xs text-muted text-right">19:35</td>
-                                                <td class="font-w600 text-success text-right">+ $16</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                                <td class="hidden-xs text-muted text-right">19:17</td>
-                                                <td class="font-w600 text-success text-right">+ $60</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                                <td class="hidden-xs text-muted text-right">17:49</td>
-                                                <td class="font-w600 text-success text-right">+ $59</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div>
-                                    <table class="table remove-margin-b font-s13">
-                                        <tbody>
-                                            <tr>
-                                                <td class="font-w600">
-                                                    <a href="javascript:void(0)">Admin Template</a>
-                                                </td>
-                                                <td class="hidden-xs text-muted text-right" style="width: 70px;">16:10</td>
-                                                <td class="font-w600 text-success text-right" style="width: 70px;">+ $21</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                                <td class="hidden-xs text-muted text-right">16:06</td>
-                                                <td class="font-w600 text-success text-right">+ $48</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                                <td class="hidden-xs text-muted text-right">15:21</td>
-                                                <td class="font-w600 text-success text-right">+ $52</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                                <td class="hidden-xs text-muted text-right">12:10</td>
-                                                <td class="font-w600 text-success text-right">+ $23</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                                <td class="hidden-xs text-muted text-right">12:09</td>
-                                                <td class="font-w600 text-success text-right">+ $23</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">HTML Template</a></td>
-                                                <td class="hidden-xs text-muted text-right">11:39</td>
-                                                <td class="font-w600 text-success text-right">+ $16</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                                <td class="hidden-xs text-muted text-right">11:33</td>
-                                                <td class="font-w600 text-success text-right">+ $23</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">Admin Template</a></td>
-                                                <td class="hidden-xs text-muted text-right">11:18</td>
-                                                <td class="font-w600 text-success text-right">+ $23</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">WP Theme</a></td>
-                                                <td class="hidden-xs text-muted text-right">09:49</td>
-                                                <td class="font-w600 text-success text-right">+ $50</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="font-w600"><a href="javascript:void(0)">HTML Template</a></td>
-                                                <td class="hidden-xs text-muted text-right">09:35</td>
-                                                <td class="font-w600 text-success text-right">+ $16</td>
-                                            </tr>
+                                                <td>{{informe.texto}}</td>
+                                                </tr>
+                                            <td><tr> </tr></td>
+                                            {%endfor%}
+
                                         </tbody>
                                     </table>
                                 </div>
