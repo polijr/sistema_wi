@@ -20,6 +20,7 @@ from .models import *
 from django.http import HttpResponseRedirect
 from informes.models import Informe
 from informes.forms import InformeForm
+from django.core.paginator import Paginator
 
 # Create your views here.
 from pedidos.models import *
@@ -33,7 +34,12 @@ class EsqueciMinhaSenha(View):
 
 class DashboardEmpresa(View):
     def get(self, request, *args, **kwargs):
-        informes = Informe.objects.all().order_by("data")
+        informes_list = Informe.objects.all().order_by("-data")
+
+        paginator = Paginator(informes_list, 3) # Show 25 contacts per page
+
+        page = request.GET.get('page')
+        informes = paginator.get_page(page)
         return render(request, 'dashboard_empresa.html', {'informes' : informes})
 
 class DashboardAdmin(View):
