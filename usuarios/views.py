@@ -118,28 +118,56 @@ class CadastroOrganizador(View):
         return render(request, 'cadastro_organizador.html', {'form': form})
 
 class EditarEmpresa(View):
-    def get(self, request, pk):
+    def get(self, request, pk, *args, **kwargs):
         empresa = Empresa.objects.get(pk=pk)
         organizadores = Organizador.objects.all()
-        return render(request, 'editar_empresa.html', {'empresa': empresa, 'organizadores': organizadores})
+        if request.user.usuario.cargo == 1:
+            template_base = 'base_menus_organizador.html'
+        elif request.user.usuario.cargo == 2:
+            template_base = 'base_menus_admin.html'
+        else:
+            return HttpResponse('Você não tem acesso a essa página')
+        return render(request, 'editar_empresa.html', {'empresa': empresa, 'organizadores': organizadores, 'template_base': template_base})
 
     def post(self, request, pk, *args, **kwargs):
-        empresa = Empresa.objects.filter(pk=pk)
-        nome = request.POST["nome"]
-        stand = int(request.POST["stand"])
-        cnpj = request.POST["cnpj"]
-        organizador_resp = Organizador.objects.get(pk=request.POST["organizador_resp"])
-        tamanho = request.POST["tamanho"]
-        palestra = request.POST["palestra"]
-        empresa.update(
-            nome = nome,
-            stand = stand,
-            cnpj = cnpj,
-            organizador_resp = organizador_resp,
-            tamanho = tamanho,
-            palestra = palestra
-        )
+        empresa = Empresa.objects.get(pk=pk)
+        empresa.nome = request.POST["nome"]
+        empresa.stand = int(request.POST["stand"])
+        empresa.cnpj = request.POST["cnpj"]
+        empresa.usuario.user.username = request.POST["username"]
+        empresa.organizador_resp = Organizador.objects.get(pk=request.POST["organizador_resp"])
+        empresa.tamanho = request.POST["tamanho"]
+        empresa.palestra = request.POST["palestra"]
+        # empresa.update(
+        #     nome = nome,
+        #     stand = stand,
+        #     cnpj = cnpj,
+        #     organizador_resp = organizador_resp,
+        #     tamanho = tamanho,
+        #     palestra = palestra
+        #)
+        empresa.save()
+        empresa.usuario.user.save()
         return HttpResponseRedirect('/usuarios/minhas-empresas')
+
+class EditarOrganizador(View):
+    def get(self, request, pk, *args, **kwargs):
+        if request.user.usuario.cargo == 2:
+            organizador = Organizador.objects.get(pk=pk)
+            return render(request, 'editar_organizador.html', {'organizador': organizador})
+        else:
+            return HttpResponse('Você não tem acesso a essa página')
+
+    def post(self, request, pk, *args, **kwargs):
+        organizador = Organizador.objects.get(pk=pk)
+        organizador.nome = request.POST["nome"]
+        organizador.sobrenome = request.POST["sobrenome"]
+        organizador.usuario.user.username = request.POST["username"]
+        organizador.email = request.POST["email"]
+        organizador.telefone = request.POST["telefone"]
+        organizador.save()
+        organizador.usuario.user.save()
+        return HttpResponseRedirect('/usuarios/meus-organizadores')
 
 class PerfilEmpresa(View):
     def get(self, request, *args, **kwargs):
@@ -161,10 +189,24 @@ class PerfilOrganizador(View):
 
 class MinhasEmpresas(View):
     def get(self, request, *args, **kwargs):
-        user = request.user
-        user_organizador = user.usuario.usuario_organizador
-        empresa = Empresa.objects.filter(organizador_resp = user_organizador)
-        return render(request, 'empresas_do_organizador.html', {'empresa': empresa})
+        if request.user.usuario.cargo == 1:
+            user_organizador = request.user.usuario.usuario_organizador
+            empresa = Empresa.objects.filter(organizador_resp = user_organizador)
+            template_base = 'base_menus_organizador.html'
+        elif request.user.usuario.cargo == 2:
+            empresa = Empresa.objects.all()
+            template_base = 'base_menus_admin.html'
+        else:
+            return HttpResponse('Você não tem acesso a essa página')
+        return render(request, 'empresas_do_organizador.html', {'empresa': empresa, 'template_base': template_base})
+
+class MeusOrganizadores(View):
+    def get(self, request, *args, **kwargs):
+        if request.user.usuario.cargo == 2:
+            organizadores = Organizador.objects.all()
+            return render(request, 'organizadores.html', {'organizadores': organizadores})
+        else:
+            return HttpResponse('Você não tem acesso a essa página')
 
 class CadastroCaravaneiro(View):
     def get(self, request, *args, **kwargs):

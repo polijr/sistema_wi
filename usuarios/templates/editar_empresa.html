@@ -1,4 +1,4 @@
-{% extends 'base_menus_organizador.html' %}
+{% extends template_base %}
 {% block nomePagina %}Editar Empresa{% endblock%}
 {% block conteudo %}
 
@@ -42,7 +42,7 @@
                                         <div class="form-group">
                                             <div class="col-xs-6">
                                                 <label for="register4-firstname">Nome de usuário</label>
-                                                <input class="form-control" value="{{empresa.usuario}}" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
+                                                <input class="form-control" value="{{empresa.usuario.user.username}}" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
                                                 {%if form.errors.username %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.username}}</div>
                                                 {%endif%}
@@ -93,7 +93,9 @@
                                                 <select class="form-control" id="organizador_resp" name="organizador_resp" size="1">
                                                     <option value="{{empresa.organizador_resp.pk}}">{{empresa.organizador_resp.nome}} {{empresa.organizador_resp.sobrenome}}</option>
                                                     {% for organizador in organizadores %}
-                                                        <option value="{{empresa.organizador_resp}}">{{organizador.nome}} {{organizador.sobrenome}}</option>
+                                                        {% if organizador.pk != empresa.organizador_resp.pk %}
+                                                        <option value="{{ organizador.pk }}">{{organizador.nome}} {{organizador.sobrenome}}</option>
+                                                        {% endif %}
                                                     {% endfor %}
                                                 </select>
                                                 {%if form.errors.organizador_resp %}

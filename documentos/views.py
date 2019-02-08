@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from django.http import HttpResponse
-from .models import Documento
+from .models import Documento, Empresa
 from .forms import DocumentoForm
 from django.contrib import messages
 
@@ -27,7 +27,14 @@ class EnviarDocumento(View):
 
 class VerDocumento(View):
 	def get(self, request, *args, **kwargs):
-		organizador = request.user.usuario.usuario_organizador 
-		empresas = organizador.empresa_organizador.all()
-		return render(request, 'ver_documentos.html', {'empresas':empresas})
+		if request.user.usuario.cargo == 1:
+			organizador = request.user.usuario.usuario_organizador 
+			empresas = organizador.empresa_organizador.all()
+			template_base = 'base_menus_organizador.html'
+		elif request.user.usuario.cargo == 2:
+			empresas = Empresa.objects.all()
+			template_base = 'base_menus_admin.html'
+		else:
+			return HttpResponse('Você não tem acesso a essa página')
+		return render(request, 'ver_documentos.html', {'empresas':empresas, 'template_base': template_base})
 
