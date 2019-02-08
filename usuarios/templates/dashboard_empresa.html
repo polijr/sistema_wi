@@ -109,7 +109,25 @@
                                             {%endfor%}
 
                                         </tbody>
+
                                     </table>
+                                    <div class="pagination">
+                                        <span class="step-links">
+                                            {% if informes.has_previous %}
+                                                <a href="?page=1">&laquo; Mais recentes &raquo;</a>
+                                                <a href="?page={{ informes.previous_page_number }}">   &laquo; Anterior &raquo;</a>
+                                            {% endif %}
+                                    
+                                            <span class="current">
+                                                Página {{ informes.number }} of {{ informes.paginator.num_pages }}.
+                                            </span>
+                                    
+                                            {% if informes.has_next %}
+                                                <a href="?page={{ informes.next_page_number }}">&laquo; Próximo &raquo;</a>
+                                                <a href="?page={{ informes.paginator.num_pages }}">   &laquo; Último &raquo;</a>
+                                            {% endif %}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                             <!-- END Slick slider -->
