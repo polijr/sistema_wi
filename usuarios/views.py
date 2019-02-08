@@ -20,6 +20,7 @@ from .models import *
 from django.http import HttpResponseRedirect
 from informes.models import Informe
 from informes.forms import InformeForm
+from django.core.paginator import Paginator
 
 # Create your views here.
 from pedidos.models import *
@@ -33,7 +34,12 @@ class EsqueciMinhaSenha(View):
 
 class DashboardEmpresa(View):
     def get(self, request, *args, **kwargs):
-        informes = Informe.objects.all().order_by("data")
+        informes_list = Informe.objects.all().order_by("-data")
+
+        paginator = Paginator(informes_list, 3) # Show 25 contacts per page
+
+        page = request.GET.get('page')
+        informes = paginator.get_page(page)
         return render(request, 'dashboard_empresa.html', {'informes' : informes})
 
 class DashboardAdmin(View):
@@ -45,6 +51,11 @@ class DashboardOrganizador(View):
         pedidos = Pedido.objects.all().order_by("data")
         return render(request, 'dashboard_organizador.html', {"pedidos":pedidos})
 
+class DashboardCaravaneiro(View):
+    def get(self, request, *args, **kwargs):
+        pedidos = Pedido.objects.all().order_by("data")
+        return render(request, 'dashboard_caravaneiro.html', {"pedidos":pedidos})
+
 class Redirecionar(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -53,7 +64,9 @@ class Redirecionar(View):
             if request.user.usuario.cargo == 1:
                 return redirect('/usuarios/organizador')
             if request.user.usuario.cargo == 2:
-                return redirect('/usuarios/admin')  
+                return redirect('/usuarios/admin')
+            if request.user.usuario.cargo == 3:
+                return redirect('/usuarios/caravaneiro')
             else:
                return redirect('/admin') 
 
@@ -167,7 +180,7 @@ class EditarOrganizador(View):
         organizador.telefone = request.POST["telefone"]
         organizador.save()
         organizador.usuario.user.save()
-        return HttpResponseRedirect('/usuarios/meus-organizadores')
+        return HttpResponseRedirect('/usuarios/todos-organizadores')
 
 class PerfilEmpresa(View):
     def get(self, request, *args, **kwargs):
@@ -200,11 +213,11 @@ class MinhasEmpresas(View):
             return HttpResponse('Você não tem acesso a essa página')
         return render(request, 'empresas_do_organizador.html', {'empresa': empresa, 'template_base': template_base})
 
-class MeusOrganizadores(View):
+class TodosOrganizadores(View):
     def get(self, request, *args, **kwargs):
         if request.user.usuario.cargo == 2:
             organizadores = Organizador.objects.all()
-            return render(request, 'organizadores.html', {'organizadores': organizadores})
+            return render(request, 'todos_organizadores.html', {'organizadores': organizadores})
         else:
             return HttpResponse('Você não tem acesso a essa página')
 
