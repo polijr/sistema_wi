@@ -1,0 +1,94 @@
+{% extends "base_menus_organizador.html" %}
+{% block nomePagina %}Dashboard do Caravaneiro{% endblock%}
+{% comment %} {%block descricao%} {%endblock%}
+{% block subnomePagina %}{% endblock%} {% endcomment %}
+{% load static %}
+
+
+{% block conteudo %}
+<link rel="stylesheet" href="{% static 'css/popup.css' %}">
+<main id="main-container">
+    <!-- Page Header -->
+    <div class="content bg-image overflow-hidden" style="background-image: url('/static/img/photos/banner_wi.png');">
+        <img class="image-wi-dash animated zoomIn" src="/static/img/various/logo_wi.png">
+        <div class="push-50-t push-15">
+            <h1 class="h2 text-orange animated zoomIn">Pedidos</h1>
+            <h2 class="h5 text-white-op animated zoomIn">Bem vindo {{request.user.username}}</h2>
+        </div>
+    </div>
+    <!-- END Page Header -->
+
+    <!-- Stats -->
+    <div class="content bg-white border-b">
+        <div class="row items-push text-uppercase">
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn">Product Sales</div>
+                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> Today</small></div>
+                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">300</a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn">Product Sales</div>
+                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> This Month</small></div>
+                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">8,790</a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn">Total Earnings</div>
+                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> All Time</small></div>
+                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">$ 93,880</a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn">Average Sale</div>
+                <div class="text-muted animated fadeIn"><small><i class="si si-calendar"></i> All Time</small></div>
+                <a class="h2 font-w300 text-primary animated flipInX" href="base_comp_charts.html">$ 270</a>
+            </div>
+        </div>
+    </div>
+    <!-- END Stats -->
+
+    <!-- Page Content -->
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Latest Sales Widget -->
+                    {% comment %} <div class="block-content bg-gray-lighter">
+                        <div class="row items-push">
+                            <div class="col-xs-4">
+                                <div class="text-muted"><small><i class="si si-calendar"></i> 24 hrs</small></div>
+                                <div class="font-w600">18 Sales</div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="text-muted"><small><i class="si si-calendar"></i> 7 days</small></div>
+                                <div class="font-w600">78 Sales</div>
+                            </div>
+                            <div class="col-xs-4 h1 font-w300 text-right">$769</div>
+                        </div>
+                    </div> {% endcomment %}
+                    <div class="block">
+                        <div class="block-header">
+                            <h3 class="block-title">Pedidos</h3>
+                        </div>
+                        <div class="block-content">
+                            <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/pages/base_tables_datatables.js -->
+                            <table class="table table-bordered table-striped js-dataTable-full">
+                                <thead>
+                                    <tr>
+                                        <th>Tipo</th>
+                                        <th class="text-center" style="width: 10%;">Pop-Up</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="corpo-pedidos">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Latest Sales Widget -->
+            </div>
+        </div>
+    </div>
+    <!-- END Page Content -->
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="{% static 'js/carregarpedidos.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/deletarpedido.js' %}"></script>
+{% endblock %}

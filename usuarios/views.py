@@ -45,6 +45,11 @@ class DashboardOrganizador(View):
         pedidos = Pedido.objects.all().order_by("data")
         return render(request, 'dashboard_organizador.html', {"pedidos":pedidos})
 
+class DashboardCaravaneiro(View):
+    def get(self, request, *args, **kwargs):
+        pedidos = Pedido.objects.all().order_by("data")
+        return render(request, 'dashboard_caravaneiro.html', {"pedidos":pedidos})
+
 class Redirecionar(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -53,7 +58,9 @@ class Redirecionar(View):
             if request.user.usuario.cargo == 1:
                 return redirect('/usuarios/organizador')
             if request.user.usuario.cargo == 2:
-                return redirect('/usuarios/admin')  
+                return redirect('/usuarios/admin')
+            if request.user.usuario.cargo == 3:
+                return redirect('/usuarios/caravaneiro')
             else:
                return redirect('/admin') 
 
@@ -165,6 +172,11 @@ class MinhasEmpresas(View):
         user_organizador = user.usuario.usuario_organizador
         empresa = Empresa.objects.filter(organizador_resp = user_organizador)
         return render(request, 'empresas_do_organizador.html', {'empresa': empresa})
+
+class TodosOrganizadores(View):
+    def get(self, request, *args, **kwargs):
+        organizadores = Organizador.objects.all()
+        return render(request, 'todos_organizadores.html', {'organizadores': organizadores})
 
 class CadastroCaravaneiro(View):
     def get(self, request, *args, **kwargs):
