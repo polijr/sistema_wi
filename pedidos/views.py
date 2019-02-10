@@ -53,7 +53,7 @@ class DeletarPedido(View):
 
 class Pedidos(View):
 	def get(self, request, *args, **kwargs):
-		if request.user.usuario.cargo != 1 or request.user.usuario.cargo != 2:
+		if request.user.usuario.cargo != 0:
 			return render(request, 'erro_403.html')
 		tipos_de_pedidos = Type.objects.all()
 		current_user = request.user

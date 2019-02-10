@@ -144,8 +144,6 @@ class CadastroOrganizador(View):
 
 class EditarEmpresa(View):
     def get(self, request, pk, *args, **kwargs):
-        if  request.user.usuario.cargo != 1 or request.user.usuario.cargo != 2:
-            return render(request, 'erro_403.html')
         empresa = Empresa.objects.get(pk=pk)
         organizadores = Organizador.objects.all()
         if request.user.usuario.cargo == 1:
