@@ -1,5 +1,5 @@
-{% extends 'base_menus_admin.html' %}
-{% block nomePagina %}Cadastro de caravaneiro{% endblock%}
+{% extends 'base_menus_caravaneiro.html' %}
+{% block nomePagina %}Editar caravaneiro{% endblock%}
 {% block conteudo %}
 
             <main id="main-container">
@@ -25,15 +25,15 @@
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <div class="col-xs-6">
-                                                <label for="register4-firstname">Nome do Caravaneiro</label>
-                                                <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite o nome do caravaneiro..">
+                                                <label for="register4-firstname">Nome do caravaneiro</label>
+                                                <input class="form-control" value="{{caravaneiro.nome}}" type="text" id="nome" name="nome" placeholder="Digite o nome do caravaneiro..">
                                                 {%if form.errors.nome %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.nome}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
-                                                <label for="register4-lastname">Sobrenome do Caravaneiro</label>
-                                                <input class="form-control" type="text" id="sobrenome" name="sobrenome" placeholder="Digite o sobrenome do caravaneiro..">
+                                                <label for="register4-lastname">Sobrenome do caravaneiro</label>
+                                                <input class="form-control" value="{{caravaneiro.sobrenome}}" type="text" id="sobrenome" name="sobrenome" placeholder="Digite o sobrenome do caravaneiro..">
                                                 {%if form.errors.sobrenome %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.sobrenome}}</div>
                                                 {%endif%}
@@ -42,7 +42,7 @@
                                         <div class="form-group">
                                             <div class="col-xs-6">
                                                 <label for="register4-firstname">Nome de usuário</label>
-                                                <input class="form-control" type="text" id="username" name="username" placeholder="Digite o username do caravaneiro..">
+                                                <input class="form-control" value="{{caravaneiro.usuario}}" type="text" id="username" name="username" placeholder="Digite o username do caravaneiro..">
                                                 {%if form.errors.username %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.username}}</div>
                                                 {%endif%}
@@ -50,7 +50,7 @@
                                             <div class="col-xs-6">
                                                 <label class="col-xs-12" for="register4-email">Email</label>
                                                 <div class="input-group">
-                                                    <input class="form-control" type="email" id="email" name="email" placeholder="Digite o email do caravaneiro..">
+                                                    <input class="form-control" value="{{caravaneiro.email}}" type="email" id="email" name="email" placeholder="Digite o email do caravaneiro..">
                                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                                                     {%if form.errors.email %}
                                                         <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.email}}</div>
@@ -60,42 +60,10 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-xs-6">
-                                                <label for="register4-firstname">Telefone do Caravaneiro</label>
-                                                <input class="form-control" type="text" id="telefone" name="telefone" placeholder="Digite o num. de telefone do caravaneiro..">
+                                                <label for="register4-firstname">Telefone do caravaneiro</label>
+                                                <input class="form-control" value="{{caravaneiro.telefone}}" type="text" id="telefone" name="telefone" placeholder="Digite o num. de telefone do caravaneiro..">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-12" for="register4-password">Senha</label>
-                                            <div class="col-xs-12">
-                                                <div class="input-group">
-                                                    <input class="form-control" type="password" id="register4-password" name="password" placeholder="Digite a senha..">
-                                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
-                                                    {%if form.errors.password %}
-                                                        <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.password}}</div>
-                                                    {%endif%}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-xs-12" for="register4-password2">Confirmar senha</label>
-                                            <div class="col-xs-12">
-                                                <div class="input-group">
-                                                    <input class="form-control" type="password" id="register4-password2" name="password2" placeholder="Digite a senha..">
-                                                    <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
-                                                    {%if form.errors.password %}
-                                                        <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.password}}</div>
-                                                    {%endif%}
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-xs-12">
-                                                <button class="btn btn-sm bg-dark" type="submit"><i class="fa fa-plus push-5-r"></i> Registrar</button>
-                                            </div>
-                                        </div>
-                                    {% for error in form.non_field_errors %}
-                                        <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{error}}</div>
-                                    {% endfor %}                                    
                                     </form>
                                 </div>
                             </div>

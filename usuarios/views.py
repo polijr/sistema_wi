@@ -59,7 +59,7 @@ class DashboardOrganizador(View):
 
 class DashboardCaravaneiro(View):
     def get(self, request, *args, **kwargs):
-        if  request.user.usuario.cargo != 4:
+        if  request.user.usuario.cargo != 3:
             return render(request, 'erro_403.html')
         pedidos = Pedido.objects.all().order_by("data")
         return render(request, 'dashboard_caravaneiro.html', {"pedidos":pedidos})
@@ -278,11 +278,36 @@ class PerfilGerente(View):
         return render(request, 'perfil_gerente.html', {'gerente': gerente, 'user': user})
 
     def post(self, request, *args, **kwargs):
-        gerente = Gerente.objects.all()
-        gerente[0].usuario.user.first_name = request.POST["nome"]
-        gerente[0].usuario.user.last_name = request.POST["sobrenome"]
-        gerente[0].usuario.user.username = request.POST["username"]
-        gerente[0].usuario.user.email = request.POST["email"]
-        gerente[0].save()
-        gerente[0].usuario.user.save()
+        gerente = Gerente.objects.filter()[0]
+        gerente.usuario.user.first_name = request.POST["nome"]
+        gerente.usuario.user.last_name = request.POST["sobrenome"]
+        gerente.usuario.user.username = request.POST["username"]
+        gerente.usuario.user.email = request.POST["email"]
+        gerente.save()
+        gerente.usuario.user.save()
         return HttpResponseRedirect('/usuarios/admin')
+
+class EditarCaravaneiro(View):
+    def get(self, request, pk, *args, **kwargs):
+        if request.user.usuario.cargo == 2:
+            caravaneiro = Caravaneiro.objects.get(pk=pk)
+            return render(request, 'editar_caravaneiro.html', {'caravaneiro': caravaneiro})
+        else:
+            return render(request, 'erro_403.html')
+    def post(self, request, pk, *args, **kwargs):
+        caravaneiro = Caravaneiro.objects.get(pk=pk)
+        caravaneiro.nome = request.POST["nome"]
+        caravaneiro.sobrenome = request.POST["sobrenome"]
+        caravaneiro.usuario.user.username = request.POST["username"]
+        caravaneiro.email = request.POST["email"]
+        caravaneiro.telefone = request.POST["telefone"]
+        caravaneiro.save()
+        caravaneiro.usuario.user.save()
+        return HttpResponseRedirect('/usuarios/todos-caravaneiros')
+
+class PerfilCaravaneiro(View):
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        user_caravaneiro = user.usuario
+        caravaneiro = Caravaneiro.objects.get(usuario = user_caravaneiro)
+        return render(request, 'perfil_caravaneiro.html', {'caravaneiro': caravaneiro})
