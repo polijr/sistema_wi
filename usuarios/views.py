@@ -163,6 +163,7 @@ class EditarEmpresa(View):
         empresa.organizador_resp = Organizador.objects.get(pk=request.POST["organizador_resp"])
         empresa.tamanho = request.POST["tamanho"]
         empresa.palestra = request.POST["palestra"]
+        
         # empresa.update(
         #     nome = nome,
         #     stand = stand,

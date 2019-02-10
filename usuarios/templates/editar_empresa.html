@@ -90,14 +90,19 @@
                                             <div class="col-xs-6">
                                                 <label for="register4-lastname">Organizador responsável
                                                 </label>
+                                                {% if user.usuario.cargo == 1 %}
+                                                <select class="form-control" id="organizador_resp" name="organizador_resp" size="1">
+                                                    <option value="{{empresa.organizador_resp.pk}}">{{empresa.organizador_resp.nome}} {{empresa.organizador_resp.sobrenome}}</option>
+                                                </select>
+                                                {% endif %}
+                                                {% if user.usuario.cargo == 2 %}
                                                 <select class="form-control" id="organizador_resp" name="organizador_resp" size="1">
                                                     <option value="{{empresa.organizador_resp.pk}}">{{empresa.organizador_resp.nome}} {{empresa.organizador_resp.sobrenome}}</option>
                                                     {% for organizador in organizadores %}
-                                                        {% if organizador.pk != empresa.organizador_resp.pk %}
-                                                        <option value="{{ organizador.pk }}">{{organizador.nome}} {{organizador.sobrenome}}</option>
-                                                        {% endif %}
+                                                        <option value="{{ organizador }}">{{organizador.nome}} {{organizador.sobrenome}}</option>                                              
                                                     {% endfor %}
                                                 </select>
+                                                {% endif %}
                                                 {%if form.errors.organizador_resp %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.organizador_resp}}</div>
                                                 {%endif%}
