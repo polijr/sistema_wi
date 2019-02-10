@@ -2,7 +2,7 @@
 
 from .settings import *
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -19,9 +19,9 @@ DATABASES = {
 
 # Static files
 STATICFILES_DIRS = (
-    '/home/polijr/webapps/sistema_wi/si_sistema_wi/static/',
+    '/home/polijr/webapps/sistema_wi/sistema_wi/static/',
 )
 
 STATIC_ROOT = '/home/polijr/webapps/sistema_wi_static/'
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = '/home/polijr/webapps/flexmedia_media/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/home/polijr/webapps/sistema_wi_media/'
