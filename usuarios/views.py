@@ -283,8 +283,14 @@ class PerfilGerente(View):
         gerente.usuario.user.last_name = request.POST["sobrenome"]
         gerente.usuario.user.username = request.POST["username"]
         gerente.usuario.user.email = request.POST["email"]
-        gerente.save()
-        gerente.usuario.user.save()
+        if request.POST["password"]!='':
+            if request.POST["password"]==request.POST["password2"]:
+                gerente.usuario.user.set_password(request.POST["password"])
+                gerente.save()
+                gerente.usuario.user.save()
+        else:
+            gerente.save()
+            gerente.usuario.user.save()
         return HttpResponseRedirect('/usuarios/admin')
 
 class EditarCaravaneiro(View):
