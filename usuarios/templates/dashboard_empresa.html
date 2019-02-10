@@ -28,10 +28,6 @@
                 <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Senha do WiFi</div>
                 <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.senha_wifi}}</a>
             </div>
-            <div class="col-xs-6 col-sm-3">
-                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Mapa do evento</div>
-                <img  src="/static/img/various/mapa_wi.png" onmouseover="bigImg(this)" onmouseout="normalImg(this)" width="160" height="160">
-            </div>
         </div>
     </div>
     <!-- END Stats -->
@@ -43,36 +39,10 @@
                 <!-- Main Dashboard Chart -->
                 <div class="block">
                     <div class="block-header">
-                        <ul class="block-options">
-                            <li>
-                                <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
-                            </li>
-                        </ul>
-                        <h3 class="block-title">Weekly Overview</h3>
+                        <h3 class="block-title">Mapa do evento</h3>
                     </div>
-                    <div class="block-content block-content-full bg-gray-lighter text-center">
-                        <!-- Chart.js Charts (initialized in js/pages/base_pages_dashboard.js), for more examples you can check out http://www.chartjs.org/docs/ -->
-                        <div style="height: 374px;"><canvas class="js-dash-chartjs-lines"></canvas></div>
-                    </div>
-                    <div class="block-content text-center">
-                        <div class="row items-push text-center">
-                            <div class="col-xs-6 col-lg-3">
-                                <div class="push-10"><i class="si si-graph fa-2x"></i></div>
-                                <div class="h5 font-w300 text-muted">+ 205 Sales</div>
-                            </div>
-                            <div class="col-xs-6 col-lg-3">
-                                <div class="push-10"><i class="si si-users fa-2x"></i></div>
-                                <div class="h5 font-w300 text-muted">+ 25% Clients</div>
-                            </div>
-                            <div class="col-xs-6 col-lg-3 visible-lg">
-                                <div class="push-10"><i class="si si-star fa-2x"></i></div>
-                                <div class="h5 font-w300 text-muted">+ 10 Ratings</div>
-                            </div>
-                            <div class="col-xs-6 col-lg-3 visible-lg">
-                                <div class="push-10"><i class="si si-share fa-2x"></i></div>
-                                <div class="h5 font-w300 text-muted">+ 35 Followers</div>
-                            </div>
-                        </div>
+                    <div class="block-content bg-gray-lighter">
+                        <img  src="/static/img/various/mapa_wi.png" width="600" height="450">
                     </div>
                 </div>
                 <!-- END Main Dashboard Chart -->

@@ -259,3 +259,30 @@ class CadastroCaravaneiro(View):
             )
             return HttpResponseRedirect('/usuarios/admin')
         return render(request, 'cadastro_caravaneiro.html', {'form': form})
+
+class TodasEmpresas(View):
+    def get(self, request, *args, **kwargs):
+        empresa = Empresa.objects.all()
+        return render(request, 'todas_empresas.html', {'empresa': empresa})
+
+class TodosCaravaneiros(View):
+    def get(self, request, *args, **kwargs):
+        caravaneiro = Caravaneiro.objects.all()
+        return render(request, 'todos_caravaneiros.html', {'caravaneiro': caravaneiro}) 
+
+class PerfilGerente(View):
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        user_gerente = user.usuario
+        gerente = Gerente.objects.get(usuario = user_gerente)
+        return render(request, 'perfil_gerente.html', {'gerente': gerente, 'user': user})
+
+    def post(self, request, *args, **kwargs):
+        gerente = Gerente.objects.all()
+        gerente[0].usuario.user.first_name = request.POST["nome"]
+        gerente[0].usuario.user.last_name = request.POST["sobrenome"]
+        gerente[0].usuario.user.username = request.POST["username"]
+        gerente[0].usuario.user.email = request.POST["email"]
+        gerente[0].save()
+        gerente[0].usuario.user.save()
+        return HttpResponseRedirect('/usuarios/admin')

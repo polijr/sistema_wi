@@ -25,5 +25,9 @@ urlpatterns = [
     url(r'^minhas-empresas/$', login_required(MinhasEmpresas.as_view()), name = 'Minhas empresas'),
     url(r'^todos-organizadores/$', login_required(TodosOrganizadores.as_view()), name = 'Index Organizadores'),
     url(r'^perfil-empresa/$', login_required(PerfilEmpresa.as_view()), name = 'Perfil empresa'),
-    url(r'^cadastro-caravaneiro/$', login_required(CadastroCaravaneiro.as_view()), name= 'Cadastro caravaneiro')
+    url(r'^cadastro-caravaneiro/$', login_required(CadastroCaravaneiro.as_view()), name= 'Cadastro caravaneiro'),
+    url(r'^todos-caravaneiros/$', login_required(TodosCaravaneiros.as_view()), name= 'Index Caravaneiros'),
+    url(r'^todas-empresas/$', login_required(TodasEmpresas.as_view()), name= 'Index Empresas'),
+    url(r'^perfil-gerente/$', login_required(PerfilGerente.as_view()), name= 'Perfil gerente'),
+    
 ]
