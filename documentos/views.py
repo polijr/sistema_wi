@@ -11,7 +11,7 @@ class EnviarDocumento(View):
 			form = DocumentoForm()
 			return render(request, 'enviar_documentos.html', {'form': form, 'messages': messages, 'post': False})
 		else:
-			return HttpResponse('Você não tem acesso a essa página')
+			return render(request, 'erro_403.html')
 
 	def post(self, request, *args, **kwargs):
 		form = DocumentoForm(request.POST, request.FILES)
@@ -35,6 +35,6 @@ class VerDocumento(View):
 			empresas = Empresa.objects.all()
 			template_base = 'base_menus_admin.html'
 		else:
-			return HttpResponse('Você não tem acesso a essa página')
+			return render(request, 'erro_403.html')
 		return render(request, 'ver_documentos.html', {'empresas':empresas, 'template_base': template_base})
 

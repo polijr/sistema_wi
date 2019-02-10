@@ -34,6 +34,8 @@ class EsqueciMinhaSenha(View):
 
 class DashboardEmpresa(View):
     def get(self, request, *args, **kwargs):
+        if  request.user.usuario.cargo != 0:
+            return render(request, 'erro_403.html')
         informes_list = Informe.objects.all().order_by("-data")
 
         paginator = Paginator(informes_list, 3) # Show 25 contacts per page
@@ -44,15 +46,21 @@ class DashboardEmpresa(View):
 
 class DashboardAdmin(View):
     def get(self, request, *args, **kwargs):
+        if  request.user.usuario.cargo != 2:
+            return render(request, 'erro_403.html')
         return render(request, 'dashboard_admin.html')
 
 class DashboardOrganizador(View):
     def get(self, request, *args, **kwargs):
+        if  request.user.usuario.cargo != 1:
+            return render(request, 'erro_403.html')
         pedidos = Pedido.objects.all().order_by("data")
         return render(request, 'dashboard_organizador.html', {"pedidos":pedidos})
 
 class DashboardCaravaneiro(View):
     def get(self, request, *args, **kwargs):
+        if  request.user.usuario.cargo != 4:
+            return render(request, 'erro_403.html')
         pedidos = Pedido.objects.all().order_by("data")
         return render(request, 'dashboard_caravaneiro.html', {"pedidos":pedidos})
 
@@ -72,6 +80,8 @@ class Redirecionar(View):
 
 class CadastroEmpresa(View):
     def get(self, request, *args, **kwargs):
+        if  request.user.usuario.cargo != 1 and request.user.usuario.cargo != 2:
+            return render(request, 'erro_403.html')
         organizadores = Organizador.objects.all()
         return render(request, 'cadastro_empresa.html', {'organizadores': organizadores})
 
@@ -106,6 +116,8 @@ class CadastroEmpresa(View):
 
 class CadastroOrganizador(View):
     def get(self, request, *args, **kwargs):
+        if  request.user.usuario.cargo != 2:
+            return render(request, 'erro_403.html')
         return render(request, 'cadastro_organizador.html')
 
     def post(self, request, *args, **kwargs):
@@ -132,6 +144,8 @@ class CadastroOrganizador(View):
 
 class EditarEmpresa(View):
     def get(self, request, pk, *args, **kwargs):
+        if  request.user.usuario.cargo != 1 or request.user.usuario.cargo != 2:
+            return render(request, 'erro_403.html')
         empresa = Empresa.objects.get(pk=pk)
         organizadores = Organizador.objects.all()
         if request.user.usuario.cargo == 1:
@@ -139,7 +153,7 @@ class EditarEmpresa(View):
         elif request.user.usuario.cargo == 2:
             template_base = 'base_menus_admin.html'
         else:
-            return HttpResponse('Você não tem acesso a essa página')
+            return render(request, 'erro_403.html')
         return render(request, 'editar_empresa.html', {'empresa': empresa, 'organizadores': organizadores, 'template_base': template_base})
 
     def post(self, request, pk, *args, **kwargs):
@@ -169,7 +183,7 @@ class EditarOrganizador(View):
             organizador = Organizador.objects.get(pk=pk)
             return render(request, 'editar_organizador.html', {'organizador': organizador})
         else:
-            return HttpResponse('Você não tem acesso a essa página')
+            return render(request, 'erro_403.html')
 
     def post(self, request, pk, *args, **kwargs):
         organizador = Organizador.objects.get(pk=pk)
@@ -210,7 +224,7 @@ class MinhasEmpresas(View):
             empresa = Empresa.objects.all()
             template_base = 'base_menus_admin.html'
         else:
-            return HttpResponse('Você não tem acesso a essa página')
+            return render(request, 'erro_403.html')
         return render(request, 'empresas_do_organizador.html', {'empresa': empresa, 'template_base': template_base})
 
 class TodosOrganizadores(View):
@@ -219,10 +233,12 @@ class TodosOrganizadores(View):
             organizadores = Organizador.objects.all()
             return render(request, 'todos_organizadores.html', {'organizadores': organizadores})
         else:
-            return HttpResponse('Você não tem acesso a essa página')
+            return render(request, 'erro_403.html')
 
 class CadastroCaravaneiro(View):
     def get(self, request, *args, **kwargs):
+        if request.user.usuario.cargo != 2:
+            return render(request, 'erro_403.html')
         return render(request, 'cadastro_caravaneiro.html')
 
     def post(self, request, *args, **kwargs):

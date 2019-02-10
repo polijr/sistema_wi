@@ -12,7 +12,7 @@ class CriarInfo(View):
 			form = InformeForm()
 			return render(request, 'criar_informe.html', {'form': form, 'messages': messages, 'post': False})
 		else:
-			return HttpResponse('Você não tem acesso a essa página')
+			return render(request, 'erro_403.html')
 
 	def post(self, request, *args, **kwargs):
 		form = InformeForm(request.POST, request.FILES)

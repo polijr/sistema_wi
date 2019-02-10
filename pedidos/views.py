@@ -48,11 +48,13 @@ class DeletarPedido(View):
 			}
 			return JsonResponse(data)
 		else:
-			return HttpResponse("Você não tem acesso a essa página", status=401)
+			return render(request, 'erro_403.html')
 
 
 class Pedidos(View):
 	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo != 1 or request.user.usuario.cargo != 2:
+			return render(request, 'erro_403.html')
 		tipos_de_pedidos = Type.objects.all()
 		current_user = request.user
 		empresa = current_user.usuario.usuario_empresa.organizador_resp
@@ -80,7 +82,7 @@ class CriarPedido(View):
 			form = TypeForm()
 			return render(request, 'criar_pedidos.html', {'form': form, 'messages': messages, 'post': False})
 		else:
-			return HttpResponse('Você não tem acesso a essa página')
+			return render(request, 'erro_403.html')
 
 	def post(self, request, *args, **kwargs):
 		form = TypeForm(request.POST, request.FILES)
