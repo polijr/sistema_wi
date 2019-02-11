@@ -31,8 +31,16 @@
                                                                 
                                                             <div class="form-group col-xs-12">
                                                             
-                                                                    <label for="id_arquivo">Escolha a Image:</label>
-                                                                    <input type="file" name="image" id="id_image" required>
+                                                                {% comment %}                                                               
+                                                                        <label for="id_arquivo">Escolha a Imagem:</label>
+                                                                        <input type="file" name="image" id="id_image" required> {% endcomment %}
+                                                            <label for="register4-lastname">Pedido de caravaneiro?</label>
+                                                            <select class="form-control" id="caravaneiro" name="caravaneiro" size="1">
+                                                                <option value="0">Não</option>
+                                                                <option value="1">Sim</option>
+                                                            </select>
+                                                            </div>
+
                                                                 <div class="col-xs-12">
                                                                     <button class="btn btn-sm bg-success" type="submit"><i class="fa fa-plus push-5-r"></i> Enviar</button>
                                                                 </div>

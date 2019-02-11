@@ -53,11 +53,17 @@ class DeletarPedido(View):
 
 class Pedidos(View):
 	def get(self, request, *args, **kwargs):
-		if request.user.usuario.cargo != 0:
+		cargo = request.user.usuario.cargo 
+		if cargo != 0 and cargo != 3:
 			return render(request, 'erro_403.html')
-		tipos_de_pedidos = Type.objects.all()
 		current_user = request.user
-		empresa = current_user.usuario.usuario_empresa.organizador_resp
+		empresa = None
+		if cargo == 0:
+			empresa = current_user.usuario.usuario_empresa.organizador_resp
+			tipos_de_pedidos = Type.objects.filter(caravaneiro=False)
+		if cargo == 3:
+			tipos_de_pedidos = Type.objects.filter(caravaneiro=True)
+		
 		return render(request, 'pedir.html', {'tipos':tipos_de_pedidos, 'organizador': empresa})
 
 
@@ -86,6 +92,7 @@ class CriarPedido(View):
 
 	def post(self, request, *args, **kwargs):
 		form = TypeForm(request.POST, request.FILES)
+		print(form)
 		enviou = False
 		if form.is_valid():
 			pedido = form.save()
