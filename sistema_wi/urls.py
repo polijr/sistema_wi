@@ -25,6 +25,7 @@ import usuarios.urls
 import pedidos.urls
 import documentos.urls
 import informes.urls
+import chat.urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -33,7 +34,8 @@ urlpatterns = [
 	url(r'^usuarios/', include((usuarios.urls, "usuarios"), namespace='usuarios')),
     url(r'^pedidos/', include((pedidos.urls, "pedidos"), namespace='pedidos')),
     url(r'^documentos/', include((documentos.urls, "documentos"), namespace='documentos')),
-    url(r'^informes/', include((informes.urls, "informes"), namespace='informes'))
+    url(r'^informes/', include((informes.urls, "informes"), namespace='informes')),
+    url(r'^chat/', include((chat.urls, "chat"), namespace='chat'))
 
 ]
 
