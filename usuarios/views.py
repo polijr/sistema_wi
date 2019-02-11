@@ -160,6 +160,7 @@ class EditarEmpresa(View):
         empresa.usuario.user.username = request.POST["username"]
         empresa.tamanho = request.POST["tamanho"]
         empresa.palestra = request.POST["palestra"]
+        empresa.usuario.user.email = request.POST["email"]
         empresa.organizador_resp = Organizador.objects.get(pk=request.POST["organizador_resp"])
         empresa.save()
         empresa.usuario.user.save()
