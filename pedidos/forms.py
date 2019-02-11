@@ -8,7 +8,8 @@ class PedidosForm(forms.Form):
 
 class TypeForm(forms.ModelForm):
     name = forms.CharField(max_length=100, required=True)
-    image = forms.ImageField()
+    image = forms.ImageField(required=False)
+    caravaneiro = forms.IntegerField(required=False)
     class Meta:
         model = Type
-        fields = ['name', 'image']
+        fields = ['name', 'image', 'caravaneiro']

@@ -81,7 +81,13 @@ class CadastroEmpresa(View):
         if  request.user.usuario.cargo != 1 and request.user.usuario.cargo != 2:
             return render(request, 'erro_403.html')
         organizadores = Organizador.objects.all()
-        return render(request, 'cadastro_empresa.html', {'organizadores': organizadores})
+        print(request.user.usuario.cargo)
+        if request.user.usuario.cargo == 1:
+            template_base = 'base_menus_organizador.html'
+        elif request.user.usuario.cargo == 2:
+            template_base = 'base_menus_admin.html'
+
+        return render(request, 'cadastro_empresa.html', {'organizadores': organizadores, 'template_base': template_base})
 
     def post(self, request, *args, **kwargs):
         form = CadastroEmpresaForm(request.POST)
@@ -152,22 +158,33 @@ class EditarEmpresa(View):
         return render(request, 'editar_empresa.html', {'empresa': empresa, 'organizadores': organizadores, 'template_base': template_base})
 
     def post(self, request, pk, *args, **kwargs):
-        
+        request.POST._mutable = True
+        request.POST['pk']=pk
+        form = EditarEmpresaForm(request.POST)
         empresa = Empresa.objects.get(pk=pk)
-        empresa.nome = request.POST["nome"]
-        empresa.stand = int(request.POST["stand"])
-        empresa.cnpj = request.POST["cnpj"]
-        empresa.usuario.user.username = request.POST["username"]
-        empresa.tamanho = request.POST["tamanho"]
-        empresa.palestra = request.POST["palestra"]
-        empresa.usuario.user.email = request.POST["email"]
-        empresa.organizador_resp = Organizador.objects.get(pk=request.POST["organizador_resp"])
-        empresa.save()
-        empresa.usuario.user.save()
+        organizadores = Organizador.objects.all()
         if request.user.usuario.cargo == 1:
-            return HttpResponseRedirect('/usuarios/minhas-empresas')
-        if request.user.usuario.cargo == 2:
-            return HttpResponseRedirect('/usuarios/todas-empresas')
+            template_base = 'base_menus_organizador.html'
+        elif request.user.usuario.cargo == 2:
+            template_base = 'base_menus_admin.html'
+
+        if form.is_valid():
+            empresa.nome = request.POST["nome"]
+            empresa.stand = int(request.POST["stand"])
+            empresa.cnpj = request.POST["cnpj"]
+            empresa.usuario.user.username = request.POST["username"]
+            empresa.tamanho = request.POST["tamanho"]
+            empresa.palestra = request.POST["palestra"]
+            empresa.usuario.user.email = request.POST["email"]
+            empresa.organizador_resp = Organizador.objects.get(pk=request.POST["organizador_resp"])
+            empresa.save()
+            empresa.usuario.user.save()
+            if request.user.usuario.cargo == 1:
+                return HttpResponseRedirect('/usuarios/minhas-empresas')
+            if request.user.usuario.cargo == 2:
+                return HttpResponseRedirect('/usuarios/todas-empresas')
+        return render(request, 'editar_empresa.html', {'form': form, 'empresa': empresa, 'organizadores': organizadores, 'template_base': template_base})
+
 
 class EditarOrganizador(View):
     def get(self, request, pk, *args, **kwargs):
