@@ -278,11 +278,13 @@ class PerfilGerente(View):
         return render(request, 'perfil_gerente.html', {'gerente': gerente, 'user': user})
 
     def post(self, request, *args, **kwargs):
-        gerente = Gerente.objects.all()
-        gerente[0].usuario.user.first_name = request.POST["nome"]
-        gerente[0].usuario.user.last_name = request.POST["sobrenome"]
-        gerente[0].usuario.user.username = request.POST["username"]
-        gerente[0].usuario.user.email = request.POST["email"]
-        gerente[0].save()
-        gerente[0].usuario.user.save()
+        gerente = Gerente.objects.all()[0]
+        print(request.POST["sobrenome"])
+        gerente.usuario.user.first_name = request.POST["nome"]
+        gerente.usuario.user.last_name = request.POST["sobrenome"]
+        gerente.usuario.user.username = request.POST["username"]
+        gerente.usuario.user.email = request.POST["email"]
+        print (gerente.usuario.user.last_name)
+        gerente.usuario.user.save()
+        print(gerente.usuario.user.last_name)
         return HttpResponseRedirect('/usuarios/admin')
