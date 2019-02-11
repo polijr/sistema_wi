@@ -42,14 +42,14 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-xs-6">
-                                                <label for="register4-firstname">Nome de usuário</label>
+                                                <label for="register4-firstname">Nome de Usuário</label>
                                                 <input class="form-control" type="text" id="username" name="username" placeholder="Digite o username do organizador.." value="{{organizador.usuario.user.username}}">
                                                 {%if form.errors.username %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.username}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
-                                                <label class="col-xs-12" for="register4-email">Email</label>
+                                                <label for="register4-email">Email</label>
                                                 <div class="input-group">
                                                     <input class="form-control" type="email" id="email" name="email" placeholder="Digite o email do organizador.." value="{{organizador.email}}">
                                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>

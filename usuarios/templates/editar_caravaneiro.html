@@ -25,14 +25,14 @@
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <div class="col-xs-6">
-                                                <label for="register4-firstname">Nome do caravaneiro</label>
+                                                <label for="register4-firstname">Nome do Caravaneiro</label>
                                                 <input class="form-control" value="{{caravaneiro.nome}}" type="text" id="nome" name="nome" placeholder="Digite o nome do caravaneiro..">
                                                 {%if form.errors.nome %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.nome}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
-                                                <label for="register4-lastname">Sobrenome do caravaneiro</label>
+                                                <label for="register4-lastname">Sobrenome do Caravaneiro</label>
                                                 <input class="form-control" value="{{caravaneiro.sobrenome}}" type="text" id="sobrenome" name="sobrenome" placeholder="Digite o sobrenome do caravaneiro..">
                                                 {%if form.errors.sobrenome %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.sobrenome}}</div>
@@ -41,14 +41,14 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-xs-6">
-                                                <label for="register4-firstname">Nome de usuário</label>
+                                                <label for="register4-firstname">Nome de Usuário</label>
                                                 <input class="form-control" value="{{caravaneiro.usuario}}" type="text" id="username" name="username" placeholder="Digite o username do caravaneiro..">
                                                 {%if form.errors.username %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.username}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
-                                                <label class="col-xs-12" for="register4-email">Email</label>
+                                                <label for="register4-email">Email</label>
                                                 <div class="input-group">
                                                     <input class="form-control" value="{{caravaneiro.email}}" type="email" id="email" name="email" placeholder="Digite o email do caravaneiro..">
                                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
@@ -60,7 +60,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-xs-6">
-                                                <label for="register4-firstname">Telefone do caravaneiro</label>
+                                                <label for="register4-firstname">Telefone do Caravaneiro</label>
                                                 <input class="form-control" value="{{caravaneiro.telefone}}" type="text" id="telefone" name="telefone" placeholder="Digite o num. de telefone do caravaneiro..">
                                             </div>
                                         </div>

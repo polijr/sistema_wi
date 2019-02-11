@@ -122,7 +122,6 @@ class CadastroOrganizador(View):
 
     def post(self, request, *args, **kwargs):
         form = CadastroOrganizadorForm(request.POST)
-        print(form)
         if form.is_valid():
             user = User.objects.create_user(username= form.data['username'],
                                             email=form.data['email'],
@@ -160,21 +159,15 @@ class EditarEmpresa(View):
         empresa.stand = int(request.POST["stand"])
         empresa.cnpj = request.POST["cnpj"]
         empresa.usuario.user.username = request.POST["username"]
-        empresa.organizador_resp = Organizador.objects.get(pk=request.POST["organizador_resp"])
         empresa.tamanho = request.POST["tamanho"]
         empresa.palestra = request.POST["palestra"]
-        
-        # empresa.update(
-        #     nome = nome,
-        #     stand = stand,
-        #     cnpj = cnpj,
-        #     organizador_resp = organizador_resp,
-        #     tamanho = tamanho,
-        #     palestra = palestra
-        #)
+        empresa.organizador_resp = Organizador.objects.get(pk=request.POST["organizador_resp"])
         empresa.save()
         empresa.usuario.user.save()
-        return HttpResponseRedirect('/usuarios/minhas-empresas')
+        if request.user.usuario.cargo == 1:
+            return HttpResponseRedirect('/usuarios/minhas-empresas')
+        if request.user.usuario.cargo == 2:
+            return HttpResponseRedirect('/usuarios/todas-empresas')
 
 class EditarOrganizador(View):
     def get(self, request, pk, *args, **kwargs):
