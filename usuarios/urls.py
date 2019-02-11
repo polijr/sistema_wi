@@ -29,5 +29,6 @@ urlpatterns = [
     url(r'^todos-caravaneiros/$', login_required(TodosCaravaneiros.as_view()), name= 'Index Caravaneiros'),
     url(r'^todas-empresas/$', login_required(TodasEmpresas.as_view()), name= 'Index Empresas'),
     url(r'^perfil-gerente/$', login_required(PerfilGerente.as_view()), name= 'Perfil gerente'),
-    
+    url(r'^editar-caravaneiro/(?P<pk>\d+)$', login_required(EditarCaravaneiro.as_view()), name= 'Editar Caravaneiro'),
+    url(r'^perfil-caravaneiro/$', login_required(PerfilCaravaneiro.as_view()), name= 'Perfil caravaneiro')
 ]

@@ -9,9 +9,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LoginView
-from .forms import CadastroEmpresaForm
-from .forms import CadastroOrganizadorForm
-from .forms import CadastroCaravaneiroForm
+from .forms import *
 from django.contrib.auth.models import User
 from django.contrib.auth import (login as auth_login,
     logout as auth_logout,
@@ -59,7 +57,7 @@ class DashboardOrganizador(View):
 
 class DashboardCaravaneiro(View):
     def get(self, request, *args, **kwargs):
-        if  request.user.usuario.cargo != 4:
+        if  request.user.usuario.cargo != 3:
             return render(request, 'erro_403.html')
         pedidos = Pedido.objects.all().order_by("data")
         return render(request, 'dashboard_caravaneiro.html', {"pedidos":pedidos})
@@ -122,7 +120,6 @@ class CadastroOrganizador(View):
 
     def post(self, request, *args, **kwargs):
         form = CadastroOrganizadorForm(request.POST)
-        print(form)
         if form.is_valid():
             user = User.objects.create_user(username= form.data['username'],
                                             email=form.data['email'],
@@ -155,25 +152,22 @@ class EditarEmpresa(View):
         return render(request, 'editar_empresa.html', {'empresa': empresa, 'organizadores': organizadores, 'template_base': template_base})
 
     def post(self, request, pk, *args, **kwargs):
+        
         empresa = Empresa.objects.get(pk=pk)
         empresa.nome = request.POST["nome"]
         empresa.stand = int(request.POST["stand"])
         empresa.cnpj = request.POST["cnpj"]
         empresa.usuario.user.username = request.POST["username"]
-        empresa.organizador_resp = Organizador.objects.get(pk=request.POST["organizador_resp"])
         empresa.tamanho = request.POST["tamanho"]
         empresa.palestra = request.POST["palestra"]
-        # empresa.update(
-        #     nome = nome,
-        #     stand = stand,
-        #     cnpj = cnpj,
-        #     organizador_resp = organizador_resp,
-        #     tamanho = tamanho,
-        #     palestra = palestra
-        #)
+        empresa.usuario.user.email = request.POST["email"]
+        empresa.organizador_resp = Organizador.objects.get(pk=request.POST["organizador_resp"])
         empresa.save()
         empresa.usuario.user.save()
-        return HttpResponseRedirect('/usuarios/minhas-empresas')
+        if request.user.usuario.cargo == 1:
+            return HttpResponseRedirect('/usuarios/minhas-empresas')
+        if request.user.usuario.cargo == 2:
+            return HttpResponseRedirect('/usuarios/todas-empresas')
 
 class EditarOrganizador(View):
     def get(self, request, pk, *args, **kwargs):
@@ -184,15 +178,22 @@ class EditarOrganizador(View):
             return render(request, 'erro_403.html')
 
     def post(self, request, pk, *args, **kwargs):
+        request.POST._mutable = True
+        request.POST['pk']=pk
+        form = EditarOrganizadorForm(request.POST)
+        print(form)
+        if form.is_valid():
+            organizador = Organizador.objects.get(pk=pk)
+            organizador.nome = request.POST["nome"]
+            organizador.sobrenome = request.POST["sobrenome"]
+            organizador.usuario.user.username = request.POST["username"]
+            organizador.email = request.POST["email"]
+            organizador.telefone = request.POST["telefone"]
+            organizador.save()
+            organizador.usuario.user.save()
+            return HttpResponseRedirect('/usuarios/todos-organizadores')
         organizador = Organizador.objects.get(pk=pk)
-        organizador.nome = request.POST["nome"]
-        organizador.sobrenome = request.POST["sobrenome"]
-        organizador.usuario.user.username = request.POST["username"]
-        organizador.email = request.POST["email"]
-        organizador.telefone = request.POST["telefone"]
-        organizador.save()
-        organizador.usuario.user.save()
-        return HttpResponseRedirect('/usuarios/todos-organizadores')
+        return render(request, 'editar_organizador.html', {'organizador': organizador, 'form': form})
 
 class PerfilEmpresa(View):
     def get(self, request, *args, **kwargs):
@@ -278,13 +279,59 @@ class PerfilGerente(View):
         return render(request, 'perfil_gerente.html', {'gerente': gerente, 'user': user})
 
     def post(self, request, *args, **kwargs):
-        gerente = Gerente.objects.all()[0]
-        print(request.POST["sobrenome"])
-        gerente.usuario.user.first_name = request.POST["nome"]
-        gerente.usuario.user.last_name = request.POST["sobrenome"]
-        gerente.usuario.user.username = request.POST["username"]
-        gerente.usuario.user.email = request.POST["email"]
-        print (gerente.usuario.user.last_name)
-        gerente.usuario.user.save()
-        print(gerente.usuario.user.last_name)
-        return HttpResponseRedirect('/usuarios/admin')
+        request.POST._mutable = True
+        request.POST['pk']=int(request.user.usuario.usuario_gerente.pk)
+        print(request.POST)
+        form = EditarGerenteForm(request.POST)
+        if form.is_valid():
+            gerente = Gerente.objects.filter()[0]
+            gerente.usuario.user.first_name = request.POST["nome"]
+            gerente.usuario.user.last_name = request.POST["sobrenome"]
+            gerente.usuario.user.username = request.POST["username"]
+            gerente.usuario.user.email = request.POST["email"]
+            if request.POST["password"]!='':
+                if request.POST["password"]==request.POST["password2"]:
+                    gerente.usuario.user.set_password(request.POST["password"])
+                    gerente.save()
+                    gerente.usuario.user.save()
+            else:
+                gerente.save()
+                gerente.usuario.user.save()
+            return HttpResponseRedirect('/usuarios/admin')
+        else:
+            user = request.user
+            user_gerente = user.usuario
+            gerente = Gerente.objects.get(usuario = user_gerente)
+            return render(request, 'perfil_gerente.html', {'form': form, 'gerente': gerente, 'user': user})
+
+class EditarCaravaneiro(View):
+    def get(self, request, pk, *args, **kwargs):
+        if request.user.usuario.cargo == 2:
+            caravaneiro = Caravaneiro.objects.get(pk=pk)
+            return render(request, 'editar_caravaneiro.html', {'caravaneiro': caravaneiro})
+        else:
+            return render(request, 'erro_403.html')
+    
+    def post(self, request, pk, *args, **kwargs):
+        request.POST._mutable = True
+        request.POST['pk']=pk
+        form = EditarCaravaneiroForm(request.POST)
+        if form.is_valid():
+            caravaneiro = Caravaneiro.objects.get(pk=pk)
+            caravaneiro.nome = request.POST["nome"]
+            caravaneiro.sobrenome = request.POST["sobrenome"]
+            caravaneiro.usuario.user.username = request.POST["username"]
+            caravaneiro.email = request.POST["email"]
+            caravaneiro.telefone = request.POST["telefone"]
+            caravaneiro.save()
+            caravaneiro.usuario.user.save()
+            return HttpResponseRedirect('/usuarios/todos-caravaneiros')
+        caravaneiro = Caravaneiro.objects.get(pk=pk)
+        return render(request, 'editar_caravaneiro.html', {'form' : form, 'caravaneiro': caravaneiro})
+
+class PerfilCaravaneiro(View):
+    def get(self, request, *args, **kwargs):
+        user = request.user
+        user_caravaneiro = user.usuario
+        caravaneiro = Caravaneiro.objects.get(usuario = user_caravaneiro)
+        return render(request, 'perfil_caravaneiro.html', {'caravaneiro': caravaneiro})

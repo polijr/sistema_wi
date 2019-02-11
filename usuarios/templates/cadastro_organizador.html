@@ -9,7 +9,7 @@
                         <div class="col-lg-12">
                             <!-- Bootstrap Register -->
                             <div class="block block-themed">
-                                <div class="block-header bg-success">
+                                <div class="block-header" style="background-color: #FFAF00">
                                     <ul class="block-options">
                                         <li>
                                             <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
@@ -41,14 +41,14 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-xs-6">
-                                                <label for="register4-firstname">Nome de usuário</label>
+                                                <label for="register4-firstname">Nome de Usuário</label>
                                                 <input class="form-control" type="text" id="username" name="username" placeholder="Digite o username do organizador..">
                                                 {%if form.errors.username %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.username}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
-                                                <label class="col-xs-12" for="register4-email">Email</label>
+                                                <label for="register4-email">Email</label>
                                                 <div class="input-group">
                                                     <input class="form-control" type="email" id="email" name="email" placeholder="Digite o email do organizador..">
                                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
@@ -80,7 +80,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-xs-12" for="register4-password2">Confirmar senha</label>
+                                            <label class="col-xs-12" for="register4-password2">Confirmar Senha</label>
                                             <div class="col-xs-12">
                                                 <div class="input-group">
                                                     <input class="form-control" type="password" id="register4-password2" name="password2" placeholder="Digite a senha..">

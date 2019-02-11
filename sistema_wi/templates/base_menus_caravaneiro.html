@@ -459,23 +459,12 @@
                         <div class="side-content">
                             <ul class="nav-main">
                                 <li>
-                                    <a class="active" href="/usuarios/admin"><i class="si si-map"></i><span class="sidebar-mini-hide">Informes</span></a>
+                                    <a class="active" href="/usuarios/caravaneiro"><i class="si si-map"></i><span class="sidebar-mini-hide">Informes</span></a>
                                 </li>
-                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Cadastrar</span></li>
-                                    <a href="/usuarios/cadastro-organizador"><i class="si si-grid"></i>Organizador</a>
-                                    <a href="/usuarios/cadastro-empresa"><i class="si si-grid"></i>Empresa</a>
-                                    <a href="/usuarios/cadastro-caravaneiro"><i class="si si-grid"></i>Caravaneiro</a>
-                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Perfis</span></li>
-                                    <a href="/usuarios/todos-organizadores"><i class="si si-grid"></i>Organizador</a>
-                                    <a href="/usuarios/todas-empresas"><i class="si si-grid"></i>Empresa</a>
-                                    <a href="/usuarios/todos-caravaneiros"><i class="si si-grid"></i>Caravaneiro</a>
-                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Documentos</span></li>
-                                <li>
-                                    <a href="/pedidos/pedidos"><i class="si si-grid"></i>Pendencias</a>
-                                </li>
-                                <li>
-                                    <a href="/pedidos/pedidos"><i class="si si-grid"></i>Enviados</a>
-                                </li>
+                                {% if dias_pro_workshop <= 0 %}
+                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Pedidos</span></li>
+                                    <a href="/pedidos/pedidos"><i class="si si-list"></i>Realizar pedido</a>
+                                {% endif %}
                             </ul>
                         </div>
                         <!-- END Side Content -->
@@ -499,7 +488,7 @@
                             <ul class="dropdown-menu dropdown-menu-right">
                                 <li class="dropdown-header">Perfil</li>
                                 <li>
-                                    <a tabindex="-1" href="/usuarios/perfil-gerente">
+                                    <a tabindex="-1" href="/usuarios/perfil-caravaneiro">
                                         <i class="si si-user pull-right"></i>
                                         {% comment %} <span class="badge badge-success pull-right">1</span> {% endcomment %}
                                         Meu Perfil
