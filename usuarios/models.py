@@ -15,6 +15,7 @@ class Usuario(models.Model):
     )
     user = models.OneToOneField(User, on_delete = models.CASCADE, null = False, related_name = 'usuario')
     cargo = models.IntegerField(choices = CARGO_CHOICES, null = False, blank = False)
+    recebeu_mensagem = models.BooleanField(default=False)
     def __str__(self):
         return self.user.username
 
@@ -31,6 +32,9 @@ class Organizador(models.Model):
     email = models.EmailField(null = False, blank = False, max_length=100)
     def __str__(self):
         return self.usuario.user.username
+    class Meta:
+        verbose_name = 'Organizador'
+        verbose_name_plural = 'Organizadores'
 
 class Empresa(models.Model):    
     TAMANHO_CHOICES = (
