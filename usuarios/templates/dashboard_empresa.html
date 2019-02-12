@@ -42,7 +42,11 @@
                         <h3 class="block-title">Mapa do evento</h3>
                     </div>
                     <div class="block-content bg-gray-lighter">
-                        <img  src="/static/img/various/mapa_wi.png" class="img-responsive" >
+                        {% if variaveis.mapa_wi %}
+                        <img  src="{{variaveis.mapa_wi.url}}" class="img-responsive" style="margin-bottom: 5%">
+                        {% else %}
+                        <img  src="static/img/various/mapa_wi.png" class="img-responsive" style="margin-bottom: 5%">
+                        {% endif %}
                     </div>
                 </div>
                 <!-- END Main Dashboard Chart -->
