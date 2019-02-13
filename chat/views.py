@@ -6,6 +6,19 @@ from django.http import JsonResponse
 from itertools import zip_longest
 
 class CarregarMensagens(View):
+
+	# recomendacao do gabs: 
+	# Adicionar no model de msg um atributo bool 'visualizada'
+	# Assim que abrir tela de chat, puxar todas as msgs
+	# Quando ja estiver aberta, puxar apenas os com atributo visualizada = false,
+	# e alterar pra true assim q for puxada (economiza dados e processamento)
+	# NECESSARIO:
+	# criar endpoint que recebe post e cria a msg no banco de dados, 
+	# enquanto altera o atributo recebeu mensagem de usuario pra true. Assim q todas as msgs forem puxadas,
+	# sempre lembrar de alterar atributo pra false (pode ser tbm quando acessar a pagina de msgs, melhor assim na vdd).
+	# Não precisa se preocupar no caso do organizador, em que mesmo que ele leia apenas de uma conversa,
+	# o atributo vai virar false. Já é suficiente
+
 	def get(self, request, *args, **kwargs):
 		usuario = request.user.usuario
 		intelocutor = Usuario.objects.get(pk=request.GET['pk'])
