@@ -6,4 +6,5 @@ app_name = 'chat'
 urlpatterns = [
 
 	url(r'^carregar-mensagens/$', login_required(CarregarMensagens.as_view()), name='Carregar Mensagens'),
+	url(r'^$', login_required(Chat.as_view()), name=' Chat')
 ]
