@@ -6,6 +6,7 @@ from django.conf.urls import url, include
 from .views import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LogoutView
+from django.urls import path
 
 app_name = 'usuarios'
 
@@ -24,5 +25,6 @@ urlpatterns = [
     url(r'^minhas-empresas/$', login_required(MinhasEmpresas.as_view()), name = 'Minhas empresas'),
     url(r'^todos-organizadores/$', login_required(TodosOrganizadores.as_view()), name = 'Index Organizadores'),
     url(r'^perfil-empresa/$', login_required(PerfilEmpresa.as_view()), name = 'Perfil empresa'),
-    url(r'^cadastro-caravaneiro/$', login_required(CadastroCaravaneiro.as_view()), name= 'Cadastro caravaneiro')
+    url(r'^cadastro-caravaneiro/$', login_required(CadastroCaravaneiro.as_view()), name= 'Cadastro caravaneiro'),
+    url(r'^deletar-organizador/$', DeletarOrganizador.as_view(), name='Deletar'),
 ]

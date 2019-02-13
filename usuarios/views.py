@@ -21,6 +21,7 @@ from django.http import HttpResponseRedirect
 from informes.models import Informe
 from informes.forms import InformeForm
 from django.core.paginator import Paginator
+from django.http import JsonResponse, HttpResponse
 
 # Create your views here.
 from pedidos.models import *
@@ -208,3 +209,21 @@ class CadastroCaravaneiro(View):
             )
             return HttpResponseRedirect('/usuarios/admin')
         return render(request, 'cadastro_caravaneiro.html', {'form': form})
+
+
+class DeletarOrganizador(View):
+    def get(self, request, *args, **kwargs):
+        if request.user.usuario.cargo == 2:
+            pk=request.GET.get("pk")
+            print(Organizador.objects.filter(pk=pk).count())
+            if Organizador.objects.filter(pk=pk).count() == 0:
+                return HttpResponse("Organizador invalido", status=400)
+            organizador = Organizador.objects.get(pk=pk)
+            organizador.delete()
+            data = {
+                'deletou': True
+            }
+            return JsonResponse(data)
+        else:
+            return HttpResponse("Você não tem acesso a essa página", status=401)
+
