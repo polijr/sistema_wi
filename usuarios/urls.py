@@ -6,6 +6,7 @@ from django.conf.urls import url, include
 from .views import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import LogoutView
+from django.urls import path
 
 app_name = 'usuarios'
 
@@ -31,5 +32,5 @@ urlpatterns = [
     url(r'^perfil-gerente/$', login_required(PerfilGerente.as_view()), name= 'Perfil gerente'),
     url(r'^editar-caravaneiro/(?P<pk>\d+)$', login_required(EditarCaravaneiro.as_view()), name= 'Editar Caravaneiro'),
     url(r'^perfil-caravaneiro/$', login_required(PerfilCaravaneiro.as_view()), name= 'Perfil caravaneiro'),
-    
-]
+    url(r'^deletar-organizador/$', DeletarOrganizador.as_view(), name='Deletar Organizador'),
+    ]

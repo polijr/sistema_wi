@@ -30,7 +30,7 @@
                     </td>
                     <td class="text-center">
                         <div class="btn-group btn-group-xs">
-                            <a href="{% url 'usuarios:Index Organizadores' %}" data-toggle="tooltip" title="Excluir" class="btn btn-default"><i class="fa fa-eraser"></i></a>
+                            <a onclick="Deletar( {{i.pk}} )" data-toggle="tooltip" title="Excluir" class="btn btn-default"><i class="fa fa-eraser"></i></a>
                         </div>
                     </td>
                 </tr>
@@ -39,4 +39,5 @@
         </table>
     </div>
 </main>
+<script type="text/javascript" src="{% static 'js/deletarorganizador.js' %}"></script>
 {% endblock %}
