@@ -14,12 +14,13 @@ class CarregarMensagens(View):
 		dados_recebidas = []
 		dados_enviadas = []
 		for mensagem_recebida, mensagem_enviada in zip_longest(mensagens_recebidas, mensagens_enviadas):
-			if mensagem_recebida != None:
+			if mensagem_recebida != None and (not mensagem_recebida.recebeu or request.GET["primeira_vez"]):
+				mensagem_recebida.recebeu = True
 				dados_recebidas.append({
 					'texto': mensagem_recebida.texto,
 					'data': mensagem_recebida.data
 				})
-			if mensagem_enviada != None:
+			if mensagem_enviada != None and (not mensagem_enviada.recebeu or request.GET["primeira_vez"]):
 				dados_enviadas.append({
 					'texto': mensagem_enviada.texto,
 					'data': mensagem_enviada.data

@@ -6,6 +6,7 @@ class Mensagem(models.Model):
 	data = models.DateTimeField(auto_now_add=True, null=False)
 	emissor = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False, related_name='mensagens_emitidas')
 	receptor = models.ForeignKey(Usuario, on_delete=models.CASCADE, null=False, related_name='mensagens_recebidas')
+	recebeu = models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.emissor.user.username + ' - ' + self.data.strftime('%d/%m/%Y às %Hh%Mmin')
