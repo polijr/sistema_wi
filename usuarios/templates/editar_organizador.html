@@ -1,0 +1,90 @@
+{% extends 'base_menus_admin.html' %}
+{% block nomePagina %}Editar Organizador{% endblock %}
+{% block conteudo %}
+
+            <main id="main-container">
+
+                    <!-- Register Forms -->
+                    <h2 class="content-heading"></h2>
+                        <div class="col-lg-12">
+                            <!-- Bootstrap Register -->
+                            <div class="block block-themed">
+                                <div class="block-header" style="background-color: #FFAF00">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Organizador</h3>
+                                </div>
+                                <div class="block-content">
+                                    <form class="form-horizontal push-5-t" action="" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-firstname">Nome do Organizador</label>
+                                                <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite o nome do organizador.."
+                                                value="{{organizador.nome}}">
+                                                {%if form.errors.nome %}
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.nome}}</div>
+                                                {%endif%}
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="register4-lastname">Sobrenome do Organizador</label>
+                                                <input class="form-control" type="text" id="sobrenome" name="sobrenome" placeholder="Digite o sobrenome do organizador.." value="{{organizador.sobrenome}}">
+                                                {%if form.errors.sobrenome %}
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.sobrenome}}</div>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-firstname">Nome de Usuário</label>
+                                                <input class="form-control" type="text" id="username" name="username" placeholder="Digite o username do organizador.." value="{{organizador.usuario.user.username}}">
+                                                {%if form.errors.username %}
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.username}}</div>
+                                                {%endif%}
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <label for="register4-email">Email</label>
+                                                <div class="input-group">
+                                                    <input class="form-control" type="email" id="email" name="email" placeholder="Digite o email do organizador.." value="{{organizador.email}}">
+                                                    <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
+                                                    {%if form.errors.email %}
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.email}}</div>
+                                                {%endif%}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-6">
+                                                <label for="register4-firstname">Telefone do Organizador</label>
+                                                <input class="form-control" type="text" id="telefone" name="telefone" placeholder="Digite o num. de telefone do organizador.." value="{{organizador.telefone}}">
+                                                {%if form.errors.telefone %}
+                                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.telefone}}</div>
+                                                {%endif%}
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm bg-dark" type="submit"><i class="fa fa-plus push-5-r"></i> Editar</button>
+                                            </div>
+                                        </div>
+                                        {% for error in form.non_field_errors %}
+                                            <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{error}}</div>
+                                        {% endfor %}
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Bootstrap Register -->
+                        </div>
+                    </div>
+                    <!-- END Register Forms -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+
+{% endblock %}

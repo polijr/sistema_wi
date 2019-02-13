@@ -11,10 +11,11 @@ class ValoresEstaticos(models.Model):
     nome_wifi = models.CharField(null = False, default="polijunior", blank = False, max_length=100)
     senha_wifi = models.CharField(null = False, default="polijunior", blank = False, max_length=100)
     data_de_inicio = models.DateField(null=False, blank=False, default=None)
+    mapa_wi = models.ImageField(null = True, blank = True, upload_to = 'sistema_wi/fotos')
 
     def __str__(self):
         return "APENAS ALTERAR, NÃO CRIAR!"
 
     class Meta:
     	verbose_name = 'Valores Estaticos'
-    	verbose_name_plural = 'Valores Estaticos'
+    	verbose_name_plural = 'Valores Estaticos'    

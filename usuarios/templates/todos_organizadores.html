@@ -6,7 +6,7 @@
     <h2 class="content-heading"></h2>
     <div class="col-lg-12">
         <div class="block-header" style="background-color: #FFAF00">
-            <h3 class="block-title" style="color: #FFFFFF">Organizadores</h3>
+            <h3 class="block-title" style="color: #FFFFFF">Organizadores do sistema</h3>
         </div>
     </div>
 
@@ -25,7 +25,7 @@
                     <td class="text-center">{{i.nome}}</td>
                     <td class="text-center">
                         <div class="btn-group btn-group-xs">
-                            <a href="{% url 'usuarios:Index Organizadores' %}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                            <a href="{% url 'usuarios:Editar Organizador' pk=i.pk%}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-pencil"></i></a>
                         </div>
                     </td>
                     <td class="text-center">

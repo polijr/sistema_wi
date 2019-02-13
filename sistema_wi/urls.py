@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth.views import LoginView
+from .views import *
 
 import usuarios.views
 import usuarios.urls
 import pedidos.urls
 import documentos.urls
 import informes.urls
+import chat.urls
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -32,9 +34,15 @@ urlpatterns = [
 	url(r'^usuarios/', include((usuarios.urls, "usuarios"), namespace='usuarios')),
     url(r'^pedidos/', include((pedidos.urls, "pedidos"), namespace='pedidos')),
     url(r'^documentos/', include((documentos.urls, "documentos"), namespace='documentos')),
-    url(r'^informes/', include((informes.urls, "informes"), namespace='informes'))
+    url(r'^informes/', include((informes.urls, "informes"), namespace='informes')),
+    url(r'^chat/', include((chat.urls, "chat"), namespace='chat'))
 
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'sistema_wi.views.handler404'
+handler500 = 'sistema_wi.views.handler500'
+handler403 = 'sistema_wi.views.handler403'
+handler400 = 'sistema_wi.views.handler400'

@@ -1,4 +1,4 @@
-{% extends 'base_menus_organizador.html' %}
+{% extends template_base %}
 {% block nomePagina %}Cadastro de Empresa{% endblock%}
 {% block conteudo %}
 
@@ -25,7 +25,7 @@
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <div class="col-xs-6" >
-                                                <label for="register4-firstname">Nome da empresa</label>
+                                                <label for="register4-firstname">Nome da Empresa</label>
                                                 <input class="form-control" type="text" id="nome" name="nome" placeholder="Digite o nome da empresa..">
                                                 {%if form.errors.nome %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.nome}}</div>
@@ -41,14 +41,14 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-xs-6">
-                                                <label for="register4-firstname">Nome de usuário</label>
+                                                <label for="register4-firstname">Nome de Usuário</label>
                                                 <input class="form-control" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
                                                 {%if form.errors.username %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.username}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
-                                                <label class="col-xs-12" for="register4-email">Email</label>
+                                                <label  for="register4-email">Email</label>
                                                 <div class="input-group">
                                                     <input class="form-control" type="email" id="email" name="email" placeholder="Digite o email da empresa..">
                                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
@@ -60,14 +60,14 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-xs-6">
-                                                <label for="register4-firstname">Número do stand</label>
+                                                <label for="register4-firstname">Número do Stand</label>
                                                 <input class="form-control" type="text" id="stand" name="stand" placeholder="Digite o num. de stand da empresa..">
                                                 {%if form.errors.stand %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.stand}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
-                                                <label for="register4-lastname">Tamanho do stand</label>
+                                                <label for="register4-lastname">Tamanho do Stand</label>
                                                 <select class="form-control" id="tamanho" name="tamanho" size="1">
                                                     <option value="-1">Por favor selecione</option>
                                                     <option value="0">9 m²</option>
@@ -88,7 +88,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-xs-6">
-                                                <label for="register4-lastname">Organizador responsável
+                                                <label for="register4-lastname">Organizador Responsável
                                                 </label>
                                                 <select class="form-control" id="organizador_resp" name="organizador_resp" size="1">
                                                     <option value="-1">Por favor selecione  {{meunome}}</option>
@@ -101,7 +101,7 @@
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
-                                                <label for="register4-lastname">Tem palestra?</label>
+                                                <label for="register4-lastname">Tem Palestra?</label>
                                                 <select class="form-control" id="palestra" name="palestra" size="1">
                                                     <option value="0">Não</option>
                                                     <option value="1">Sim</option>
@@ -124,7 +124,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-xs-12" for="register4-password2">Confirmar senha</label>
+                                            <label class="col-xs-12" for="register4-password2">Confirmar Senha</label>
                                             <div class="col-xs-12">
                                                 <div class="input-group">
                                                     <input class="form-control" type="password" id="register4-password2" name="password2" placeholder="Digite a senha..">
