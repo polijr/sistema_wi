@@ -5,6 +5,12 @@ from .models import Mensagem
 from django.http import JsonResponse
 from itertools import zip_longest
 
+class CriarMensagem(View):
+	def post(self, request, *args, **kwargs):
+		mensagem = Mensagem(texto=request.POST["texto"], emissor=request.user.usuario, receptor=Usuario.objects.get(pk=request.POST["pk"]))
+		mensagem.save()
+		return JsonResponse({'criou': True})
+
 class CarregarMensagens(View):
 
 	# recomendacao do gabs: 
@@ -27,13 +33,16 @@ class CarregarMensagens(View):
 		dados_recebidas = []
 		dados_enviadas = []
 		for mensagem_recebida, mensagem_enviada in zip_longest(mensagens_recebidas, mensagens_enviadas):
-			if mensagem_recebida != None and (not mensagem_recebida.recebeu or request.GET["primeira_vez"]):
+			if mensagem_recebida != None and ((not mensagem_recebida.recebeu) or request.GET["primeira_vez"] == 'Sim'):
 				mensagem_recebida.recebeu = True
+				mensagem_recebida.save()
 				dados_recebidas.append({
 					'texto': mensagem_recebida.texto,
 					'data': mensagem_recebida.data
 				})
-			if mensagem_enviada != None and (not mensagem_enviada.recebeu or request.GET["primeira_vez"]):
+			if mensagem_enviada != None and (not mensagem_enviada.recebeu or request.GET["primeira_vez"] == 'Sim'):
+				mensagem_enviada.recebeu = True
+				mensagem_enviada.save()
 				dados_enviadas.append({
 					'texto': mensagem_enviada.texto,
 					'data': mensagem_enviada.data
@@ -43,5 +52,9 @@ class CarregarMensagens(View):
 			'dados_enviadas': dados_enviadas
 		}
 		return JsonResponse(dados)
+
+class RecebeuMensagem(View):
+	def get(self, request, *args, **kwargs):
+		return JsonResponse({'recebeu': Mensagem.objects.filter(receptor=request.user.usuario, recebeu=False).exists()})
 
 

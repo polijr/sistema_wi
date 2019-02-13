@@ -43,9 +43,9 @@
                     </div>
                     <div class="block-content bg-gray-lighter">
                         {% if variaveis.mapa_wi %}
-                        <img  src="{{variaveis.mapa_wi.url}}" class="img-responsive" style="margin-bottom: 5%">
+                        <img  src="{{variaveis.mapa_wi.url}}" class="img-responsive" style="margin-bottom: 5%;">
                         {% else %}
-                        <img  src="static/img/various/mapa_wi.png" class="img-responsive" style="margin-bottom: 5%">
+                        <img  src="{% static 'img/various/mapa_wi.png' %}" class="img-responsive" style="margin-bottom: 5%;">
                         {% endif %}
                     </div>
                 </div>
