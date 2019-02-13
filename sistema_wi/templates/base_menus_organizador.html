@@ -469,7 +469,13 @@
                                     <a href="/usuarios/minhas-empresas"><i class="si si-grid"></i>Minhas empresas</a>
                                 {% if dias_pro_workshop <= 0 %}
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Comunicação</span></li>
-                                    <a href="/usuarios/chat"><i class="si si-list"></i>Chat</a>
+                                <a class="nav-submenu" data-toggle="nav-submenu"><i class="si si-grid"></i>Chat
+                                    {% for i in empresa %}
+                                    <li>
+                                        <a href="{% url 'chat' pk=i.pk %}">{{i.nome}}</a>
+                                    </li>
+                                    {% endfor %}
+                                </a>
                                 {% endif %}
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Documentos</span></li>
                                 <li>

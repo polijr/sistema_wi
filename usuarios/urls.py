@@ -31,5 +31,5 @@ urlpatterns = [
     url(r'^perfil-gerente/$', login_required(PerfilGerente.as_view()), name= 'Perfil gerente'),
     url(r'^editar-caravaneiro/(?P<pk>\d+)$', login_required(EditarCaravaneiro.as_view()), name= 'Editar Caravaneiro'),
     url(r'^perfil-caravaneiro/$', login_required(PerfilCaravaneiro.as_view()), name= 'Perfil caravaneiro'),
-    url(r'^chat/$', login_required(Chat.as_view()), name=' Chat')
+    
 ]

@@ -352,13 +352,3 @@ class PerfilCaravaneiro(View):
         user_caravaneiro = user.usuario
         caravaneiro = Caravaneiro.objects.get(usuario = user_caravaneiro)
         return render(request, 'perfil_caravaneiro.html', {'caravaneiro': caravaneiro})
-
-class Chat(View):
-    def get(self, request, *args, **kwargs):
-        if request.user.usuario.cargo == 1:
-            template_base = 'base_menus_organizador.html'
-        elif request.user.usuario.cargo == 0:
-            template_base = 'base_menus_empresa.html'
-        else:
-            return render(request, 'erro_403.html')
-        return render(request, 'chat.html', {'template_base': template_base})
