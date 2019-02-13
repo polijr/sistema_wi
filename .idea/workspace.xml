@@ -2,166 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6751dc3d-140d-449b-b22b-f86d19a1a3f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/chat/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat/migrations/0002_mensagem_recebeu.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat/templates/chat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/chat/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pedidos/migrations/0002_pedido_caravaneiro.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pedidos/migrations/0003_auto_20190211_1859.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pedidos/migrations/0004_auto_20190211_1911.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sistema_wi/migrations/0004_valoresestaticos_mapa_wi.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_caravaneiro.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sistema_wi/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/carregarmensagens.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/recebeumensagem.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/migrations/0003_auto_20190211_1807.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/migrations/0004_auto_20190213_1046.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/templates/editar_caravaneiro.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/templates/editar_organizador.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/templates/perfil_caravaneiro.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/templates/perfil_gerente.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/templates/todas_empresas.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_animations.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_animations.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_calendar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_charts.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_charts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_gallery_advanced.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_gallery_advanced.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_gallery_simple.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_gallery_simple.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_images.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_images.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_maps.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_maps.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_maps_full.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_maps_full.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_maps_vector.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_maps_vector.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_rating.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_rating.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_scrolling.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_scrolling.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_sliders.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_sliders.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_syntax_highlighting.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_syntax_highlighting.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_treeview.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_comp_treeview.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_editors.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_editors.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_elements.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_elements.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_pickers_more.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_pickers_more.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_premade.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_premade.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_validation.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_validation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_wizard.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_forms_wizard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_api.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_api.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_default.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_default.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_default_flipped.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_default_flipped.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_header_static.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_header_static.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_side_native_scrolling.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_side_native_scrolling.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_side_overlay_hoverable.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_side_overlay_hoverable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_side_overlay_open.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_side_overlay_open.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_sidebar_hidden.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_sidebar_hidden.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_sidebar_mini_hoverable.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_layouts_sidebar_mini_hoverable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_blank.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_blank.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_customer.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_customer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_order.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_order.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_orders.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_product_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_product_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_ecom_products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_files.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_files.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_forum_categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_forum_categories.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_forum_discussion.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_forum_discussion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_forum_new_topic.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_forum_new_topic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_forum_topics.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_forum_topics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_inbox.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_inbox.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_invoice.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_invoice.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_profile_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_profile_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_profile_v2.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_profile_v2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_tickets.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_pages_tickets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_tables_datatables.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_tables_datatables.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_tables_pricing.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_tables_pricing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_tables_responsive.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_tables_responsive.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_tables_styles.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_tables_styles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_tables_tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_tables_tools.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_activity.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_blocks.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_blocks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_blocks_api.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_blocks_api.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_blocks_draggable.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_blocks_draggable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_buttons.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_buttons.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_cards.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_cards.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_chat_fixed.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_chat_fixed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_chat_full.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_chat_full.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_chat_popup.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_chat_popup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_color_themes.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_color_themes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_grid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_icons.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_icons.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_modals_tooltips.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_modals_tooltips.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_navigation.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_navigation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_ribbons.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_ribbons.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_tabs.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_tabs.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_tiles.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_tiles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_timeline.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_timeline.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_timeline_social.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_timeline_social.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_typography.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_typography.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_widgets.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_widgets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_about.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_blog_classic.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_blog_classic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_blog_grid.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_blog_grid.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_blog_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_blog_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_blog_story.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_blog_story.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_blog_story_cover.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_blog_story_cover.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_contact.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_ecom_checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_ecom_checkout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_ecom_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_ecom_home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_ecom_product.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_ecom_product.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_ecom_products.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_ecom_products.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_ecom_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_ecom_search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_elearning_course.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_elearning_course.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_elearning_courses.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_elearning_courses.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_elearning_lesson.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_elearning_lesson.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_features.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_features.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_home.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_home_header_nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_home_header_nav.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_pricing.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_pricing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_support.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_support.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_team.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/frontend_team.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentos/templates/ver_documentos.html" beforeDir="false" afterPath="$PROJECT_DIR$/documentos/templates/ver_documentos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/documentos/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/informes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/informes/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/templates/criar_pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/templates/criar_pedidos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/production.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/base_menus_empresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_empresa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/base_menus_organizador.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_organizador.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/erro_403.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/erro_403.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/erro_404.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/erro_404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/erro_500.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/erro_500.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/mostrarmapa.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/cadastro_caravaneiro.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/cadastro_caravaneiro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/cadastro_organizador.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/cadastro_organizador.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/dashboard_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/dashboard_admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/dashboard_caravaneiro.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/dashboard_caravaneiro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/dashboard_empresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/dashboard_empresa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/editar_empresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/editar_empresa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/deletarorganizador.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/deletarorganizador.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -189,20 +30,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/js/deletarorganizador.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+            <state relative-caret-position="153">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/usuarios/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="356" column="4" selection-start-line="356" selection-start-column="4" selection-end-line="356" selection-end-column="4" />
+            <state relative-caret-position="4">
+              <caret line="356" selection-start-line="356" selection-end-line="356" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -239,9 +80,9 @@
         <option value="$PROJECT_DIR$/usuarios/templates/Organizador_Delete_Confirm.html" />
         <option value="$PROJECT_DIR$/pedidos/views.py" />
         <option value="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" />
-        <option value="$PROJECT_DIR$/static/js/deletarorganizador.js" />
         <option value="$PROJECT_DIR$/usuarios/urls.py" />
         <option value="$PROJECT_DIR$/usuarios/views.py" />
+        <option value="$PROJECT_DIR$/static/js/deletarorganizador.js" />
       </list>
     </option>
   </component>
@@ -320,7 +161,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -331,7 +172,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.29800308" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.29800308" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -506,13 +347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/deletarorganizador.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -525,11 +359,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="356" column="4" selection-start-line="356" selection-start-column="4" selection-end-line="356" selection-end-column="4" />
+        <state relative-caret-position="4">
+          <caret line="356" selection-start-line="356" selection-end-line="356" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/deletarorganizador.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
         </state>
       </provider>
     </entry>
