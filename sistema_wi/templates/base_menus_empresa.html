@@ -465,18 +465,14 @@
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Pedidos</span></li>
                                     <a href="/pedidos/pedidos"><i class="si si-list"></i>Realizar pedido</a>
                                 {% endif %}
-                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Meu perfil</span></li>
-                                    <a href="/usuarios/perfil-empresa"><i class="si si-users"></i>Acessar</a>
+                                {% if dias_pro_workshop <= 0 %}
+                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Comunicação</span></li>
+                                    <a href="/usuarios/chat"><i class="si si-list"></i>Chat</a>
+                                {% endif %}
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Documentos</span></li>
                                 <li>
                                     <a href="/documentos/enviar"><i class="si si-cloud-upload"></i>Enviar</a>
                                 </li>
-<!--                                 <li>
-                                    <a href="/pedidos/pedidos"><i class="fa fa-exclamation-triangle"></i>Pendencias</a>
-                                </li>
-                                <li>
-                                    <a href=""><i class="glyphicon glyphicon-check"></i>Enviados</a>
-                                </li> -->
                             </ul>
                         </div>
                         <!-- END Side Content -->
