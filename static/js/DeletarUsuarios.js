@@ -42,3 +42,48 @@ function DeletarCaravaneiro(pk) {
 	    location.reload();
 	}
 }
+
+function DeletarOrganizadores(){
+    var xhr = new XMLHttpRequest();
+	var conf = confirm("Deseja mesmo excluir todos organizadores?")
+	if (conf==true){
+	    xhr.open('GET', '/usuarios/deletar-organizadores');
+	    xhr.addEventListener("load", function() {
+	});
+	xhr.send();
+	location.reload();
+	}
+	else{
+	    location.reload();
+	}
+}
+
+function DeletarEmpresas(){
+    var xhr = new XMLHttpRequest();
+	var conf = confirm("Deseja mesmo excluir todas empresas?")
+	if (conf==true){
+	    xhr.open('GET', '/usuarios/deletar-empresas');
+	    xhr.addEventListener("load", function() {
+	});
+	xhr.send();
+	location.reload();
+	}
+	else{
+	    location.reload();
+	}
+}
+
+function DeletarCaravaneiros(){
+    var xhr = new XMLHttpRequest();
+	var conf = confirm("Deseja mesmo excluir todos caravaneiros?")
+	if (conf==true){
+	    xhr.open('GET', '/usuarios/deletar-caravaneiros');
+	    xhr.addEventListener("load", function() {
+	});
+	xhr.send();
+	location.reload();
+	}
+	else{
+	    location.reload();
+	}
+}

@@ -35,4 +35,7 @@ urlpatterns = [
     url(r'^deletar-organizador/$', DeletarOrganizador.as_view(), name='Deletar Organizador'),
     url(r'^deletar-empresa/$', DeletarEmpresa.as_view(), name='Deletar Empresa'),
     url(r'^deletar-caravaneiro/$', DeletarCaravaneiro.as_view(), name='Deletar Caravaneiro'),
+    url(r'^deletar-organizadores/$', DeletarOrganizadores.as_view(), name='Deletar Organizadores'),
+    url(r'^deletar-empresas/$', DeletarEmpresas.as_view(), name='Deletar Empresas'),
+    url(r'^deletar-caravaneiros/$', DeletarCaravaneiros.as_view(), name='Deletar Caravaneiros'),
     ]
