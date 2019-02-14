@@ -364,7 +364,7 @@ class DeletarOrganizador(View):
             if Organizador.objects.filter(pk=pk).count() == 0:
                 return HttpResponse("Organizador invalido", status=400)
             organizador = Organizador.objects.get(pk=pk)
-            organizador.delete()
+            organizador.usuario.user.delete()
             data = {
                 'deletou': True
             }
@@ -381,7 +381,7 @@ class DeletarEmpresa(View):
             if Empresa.objects.filter(pk=pk).count() == 0:
                 return HttpResponse("Empresa inválida", status=400)
             empresa = Empresa.objects.get(pk=pk)
-            empresa.delete()
+            empresa.usuario.user.delete()
             data = {
                 'deletou': True
             }
@@ -398,7 +398,7 @@ class DeletarCaravaneiro(View):
             if Caravaneiro.objects.filter(pk=pk).count() == 0:
                 return HttpResponse("Caravaneiro inválido", status=400)
             caravaneiro = Caravaneiro.objects.get(pk=pk)
-            caravaneiro.delete()
+            caravaneiro.usuario.user.delete()
             data = {
                 'deletou': True
             }
