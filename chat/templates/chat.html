@@ -23,7 +23,12 @@
             <ul class="js-chat-head nav nav-tabs" data-toggle="tabs">
                 <li class="active">
                     <a href="#chat-window1">
-                        <span class="push-5-l">Evylin</span>
+                        {% if user.usuario.cargo == 0 %}
+                        <span class="push-5-l">{{user.usuario.usuario_empresa.organizador_resp.nome}} {{user.usuario.usuario_empresa.organizador_resp.sobrenome}}</span>
+                        {% endif %}
+                        {% if user.usuario.cargo == 1 %}
+                        <span class="push-5-l">{{empresa.nome}}</span>
+                        {% endif %}
                     </a>
                 </li>   
             </ul>
