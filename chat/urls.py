@@ -8,5 +8,5 @@ urlpatterns = [
 	url(r'^criar-mensagem/$', login_required(CriarMensagem.as_view()), name='Criar Mensagens'),
 	url(r'^carregar-mensagens/$', login_required(CarregarMensagens.as_view()), name='Carregar Mensagens'),
 	url(r'^recebeu-mensagem/$', login_required(RecebeuMensagem.as_view()), name='Recebeu Mensagem'),
-	url(r'^$', login_required(Chat.as_view()), name=' Chat')
+	url(r'^chat/(?P<pk>\d+)$', login_required(Chat.as_view()), name='Chat')
 ]
