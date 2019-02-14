@@ -371,3 +371,37 @@ class DeletarOrganizador(View):
             return JsonResponse(data)
         else:
             return HttpResponse("Você não tem acesso a essa página", status=401)
+
+
+class DeletarEmpresa(View):
+    def get(self, request, *args, **kwargs):
+        if request.user.usuario.cargo == 2 or request.user.usuario.cargo == 1:
+            pk=request.GET.get("pk")
+            print(Empresa.objects.filter(pk=pk).count())
+            if Empresa.objects.filter(pk=pk).count() == 0:
+                return HttpResponse("Empresa inválida", status=400)
+            empresa = Empresa.objects.get(pk=pk)
+            empresa.delete()
+            data = {
+                'deletou': True
+            }
+            return JsonResponse(data)
+        else:
+            return HttpResponse("Você não tem acesso a essa página", status=401)
+
+
+class DeletarCaravaneiro(View):
+    def get(self, request, *args, **kwargs):
+        if request.user.usuario.cargo == 2:
+            pk=request.GET.get("pk")
+            print(Caravaneiro.objects.filter(pk=pk).count())
+            if Caravaneiro.objects.filter(pk=pk).count() == 0:
+                return HttpResponse("Caravaneiro inválido", status=400)
+            caravaneiro = Caravaneiro.objects.get(pk=pk)
+            caravaneiro.delete()
+            data = {
+                'deletou': True
+            }
+            return JsonResponse(data)
+        else:
+            return HttpResponse("Você não tem acesso a essa página", status=401)

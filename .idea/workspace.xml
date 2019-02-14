@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6751dc3d-140d-449b-b22b-f86d19a1a3f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/static/js/deletarorganizador.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/deletarorganizador.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/deletarorganizador.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/DeletarUsuarios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/todas_empresas.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/todas_empresas.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,42 +18,48 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/deletarpedido.js">
+        <entry file="file://$PROJECT_DIR$/usuarios/templates/todos_organizadores.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+            <state relative-caret-position="290">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" selection-end-column="83" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/templates/todos_organizadores.html">
+        <entry file="file://$PROJECT_DIR$/static/js/DeletarUsuarios.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+            <state relative-caret-position="578">
+              <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/js/deletarorganizador.js">
+        <entry file="file://$PROJECT_DIR$/usuarios/templates/todas_empresas.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4">
-              <caret line="356" selection-start-line="356" selection-end-line="356" />
-              <folding>
-                <element signature="e#24#63#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="123">
+              <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -60,6 +73,7 @@
       <find>popo</find>
       <find>pos</find>
       <find>corpo</find>
+      <find>empresas</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -79,10 +93,14 @@
         <option value="$PROJECT_DIR$/usuarios/templates/dashboard_caravaneiro.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/Organizador_Delete_Confirm.html" />
         <option value="$PROJECT_DIR$/pedidos/views.py" />
-        <option value="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" />
+        <option value="$PROJECT_DIR$/static/js/deletarorganizador.js" />
         <option value="$PROJECT_DIR$/usuarios/urls.py" />
         <option value="$PROJECT_DIR$/usuarios/views.py" />
-        <option value="$PROJECT_DIR$/static/js/deletarorganizador.js" />
+        <option value="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" />
+        <option value="$PROJECT_DIR$/static/js/DeletarUsuarios.js" />
+        <option value="$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html" />
+        <option value="$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html" />
+        <option value="$PROJECT_DIR$/usuarios/templates/todas_empresas.html" />
       </list>
     </option>
   </component>
@@ -97,17 +115,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="pedidos" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
@@ -129,7 +143,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="RunDashboard">
@@ -261,9 +274,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/templates/dashboard_admin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -299,16 +309,7 @@
     <entry file="file://$PROJECT_DIR$/pedidos/templates/criar_pedidos.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/mostrarmapa.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/carregarpedidos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="53" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/mostrarmapa.js" />
     <entry file="file://$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
@@ -340,17 +341,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/todos_organizadores.html">
+    <entry file="file://$PROJECT_DIR$/static/js/carregarpedidos.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="35" column="21" selection-start-line="35" selection-start-column="21" selection-end-line="35" selection-end-column="21" />
+        <state relative-caret-position="340">
+          <caret line="20" column="53" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="53" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="34" column="90" selection-start-line="34" selection-start-column="90" selection-end-line="34" selection-end-column="90" />
+        <state relative-caret-position="330">
+          <caret line="36" column="90" selection-start-line="36" selection-start-column="90" selection-end-line="36" selection-end-column="90" />
           <folding>
             <element signature="e#2#43#0" expanded="true" />
           </folding>
@@ -359,18 +360,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="356" selection-start-line="356" selection-end-line="356" />
+        <state relative-caret-position="392">
+          <caret line="400" column="23" selection-start-line="400" selection-start-column="23" selection-end-line="400" selection-end-column="23" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/deletarorganizador.js">
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/todos_organizadores.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        <state relative-caret-position="290">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/DeletarUsuarios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="45" column="54" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="34" column="58" selection-start-line="34" selection-start-column="58" selection-end-line="34" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/todas_empresas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
         </state>
       </provider>
     </entry>

@@ -33,4 +33,6 @@ urlpatterns = [
     url(r'^editar-caravaneiro/(?P<pk>\d+)$', login_required(EditarCaravaneiro.as_view()), name= 'Editar Caravaneiro'),
     url(r'^perfil-caravaneiro/$', login_required(PerfilCaravaneiro.as_view()), name= 'Perfil caravaneiro'),
     url(r'^deletar-organizador/$', DeletarOrganizador.as_view(), name='Deletar Organizador'),
+    url(r'^deletar-empresa/$', DeletarEmpresa.as_view(), name='Deletar Empresa'),
+    url(r'^deletar-caravaneiro/$', DeletarCaravaneiro.as_view(), name='Deletar Caravaneiro'),
     ]

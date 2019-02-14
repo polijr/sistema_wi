@@ -1,5 +1,6 @@
 {% extends 'base_menus_admin.html' %}
 {% block nomePagina %}Perfil Admin{% endblock%}
+{% load static %}
 {% block conteudo %}
 <main id="main-container">
     <h2 class="content-heading"></h2>
@@ -18,6 +19,7 @@
                 <tr>
                     <th class="hidden-xs text-center">Nome da empresa</th>
                     <th class="hidden-xs text-center">Editar</th>
+                    <th class="hidden-xs text-center">Excluir</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,10 +31,16 @@
                             <a href="{% url 'usuarios:Editar Empresa' pk=i.pk %}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-pencil"></i></a>                       
                         </div>
                     </td>
+                    <td class="text-center">
+                        <div class="btn-group btn-group-xs">
+                            <a onclick="DeletarEmpresa( {{i.pk}} )" data-toggle="tooltip" title="Excluir" class="btn btn-default"><i class="fa fa-eraser"></i></a>
+                        </div>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
 </main>
+<script type="text/javascript" src="{% static 'js/DeletarUsuarios.js' %}"></script>
 {% endblock %}
