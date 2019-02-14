@@ -8,11 +8,16 @@ def add_variable_to_context(request):
         if request.user.usuario.cargo == 1:
             user_organizador = request.user.usuario.usuario_organizador
             empresageral = Empresa.objects.filter(organizador_resp = user_organizador)
-        return {
-        'variaveis':  variaveis,
-        'dias_pro_workshop': dias_pro_workshop,
-        'empresageral': empresageral
-        }
+            return {
+            'variaveis':  variaveis,
+            'dias_pro_workshop': dias_pro_workshop,
+            'empresageral': empresageral
+            }
+        else:
+            return {
+            'variaveis':  variaveis,
+            'dias_pro_workshop': dias_pro_workshop
+            }
     except:
         print("Sem valores estaticos no sistema")
     return {
