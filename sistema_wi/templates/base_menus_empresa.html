@@ -14,7 +14,7 @@
         <!-- Icons -->
         <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
         <link rel="shortcut icon" href="/static/img/favicons/favicon.png">
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         {% comment %} <link rel="icon" type="image/png" href="/static/img/favicons/favicon-16x16.png" sizes="16x16">
         <link rel="icon" type="image/png" href="/static/img/favicons/favicon-32x32.png" sizes="32x32">
         <link rel="icon" type="image/png" href="/static/img/favicons/favicon-96x96.png" sizes="96x96">
@@ -467,7 +467,7 @@
                                 {% endif %}
                                 {% if dias_pro_workshop <= 0 %}
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Comunicação</span></li>
-                                    <a href="{% url 'chat:Chat' pk=request.user.usuario.usuario_empresa.organizador_resp.pk %}"><i class="si si-list"></i>Chat</a>
+                                    <a href="{% url 'chat:Chat' pk=request.user.usuario.usuario_empresa.organizador_resp.usuario.pk %}"><i class="si si-list"></i>Chat</a>
                                 {% endif %}
                                 <li class="nav-main-heading"><span class="sidebar-mini-hide">Documentos</span></li>
                                 <li>

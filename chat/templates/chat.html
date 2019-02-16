@@ -17,9 +17,10 @@
         $chatMsg        : the message you would like to add
         $chatMsgLevel   : 'self' the user sends the message, '' empty if the user receives the message (changes its style)
     -->
+
     <div class="js-chat-container content content-full" data-chat-mode="full">
         <!-- Full Chat -->
-        <div class="block remove-margin-b">
+        <div class="block remove-margin-b ">
             <ul class="js-chat-head nav nav-tabs" data-toggle="tabs">
                 <li class="active">
                     <a href="#chat-window1">
@@ -27,7 +28,7 @@
                         <span class="push-5-l">{{user.usuario.usuario_empresa.organizador_resp.nome}} {{user.usuario.usuario_empresa.organizador_resp.sobrenome}}</span>
                         {% endif %}
                         {% if user.usuario.cargo == 1 %}
-                        <span class="push-5-l">{{empresa.nome}}</span>
+                        <span class="push-5-l">{{receptor.usuario_empresa.nome}}</span>
                         {% endif %}
                     </a>
                 </li>   
@@ -35,42 +36,97 @@
             <div class="tab-content overflow-hidden">
                 <!-- Chat Window 1 -->
                 <div class="tab-pane fade in active" id="chat-window1">
-                    
-                    
+                    <div class="js-chat-talk overflow-y-auto block-content block-content-full" data-chat-id="1">
+                    </div>
+                    <form action="" method="post" id="submit">
+                        <input id="chat-out" class="js-chat-input form-control" type="text" data-target-chat-id="1" placeholder="Escreva uma mensagem e aperte enter..">
+                    </form>
                 </div>
+                
                 <!-- END Chat Window 1 -->
 
-                <!-- Chat Window 2 -->
-                <div class="tab-pane fade" id="chat-window2">
-                    <div class="js-chat-talk overflow-y-auto block-content block-content-full" data-chat-id="2">
-                        <!-- Messages -->
-                        <div class="font-s12 text-muted text-center push-20-t push-15"><em>3 hours ago</em></div>
-                        <div class="block block-rounded block-transparent push-15 push-50-l">
-                            <div class="block-content block-content-full block-content-mini bg-gray-lighter">Hi Admin!</div>
-                        </div>
-                        <div class="block block-rounded block-transparent push-15 push-50-l">
-                            <div class="block-content block-content-full block-content-mini bg-gray-lighter">Can you help me out?</div>
-                        </div>
-                        <div class="block block-rounded block-transparent push-15 push-50-l">
-                            <div class="block-content block-content-full block-content-mini bg-gray-lighter">I'm building a new app and I would like your opinion!</div>
-                        </div>
-                        <div class="font-s12 text-muted text-center push-20-t push-10"><em>1 hour ago</em></div>
-                        <div class="block block-rounded block-transparent push-15 push-50-r">
-                            <div class="block-content block-content-full block-content-mini bg-gray-light">Hey John, sure thing, feel free to let me know!</div>
-                        </div>
-                        <!-- END Messages -->
-                    </div>
-                    <div class="js-chat-form block-content block-content-full block-content-mini">
-                        <form action="base_ui_chat.html" method="post">
-                            <input class="js-chat-input form-control" type="text" data-target-chat-id="2" placeholder="Type a message and hit enter..">
-                        </form>
-                    </div>
-                </div>
-                <!-- END Chat Window 2 -->
             </div>
         </div>
         <!-- END Full Chat -->
     </div>
+    <script src="/static/js/pages/base_ui_chat.js"></script>
+    <script>
+        var mensagens;
+        $(document).ready(function(){
+            var $chatWindow = jQuery('.js-chat-talk[data-chat-id="1"');
+            $.get( "/chat/carregar-mensagens/{{receptor.pk}}", function( data ) {
+                $.each(data, function() {
+                    var $chatBlockClasses = 'animated fadeIn push-50-l';
+                    var $chatMsgClasses   = 'bg-gray-lighter';
+                    if (this.emissor_id == {{user.usuario.id}}) {
+                    $chatBlockClasses   = 'animated fadeInUp push-50-r';
+                    $chatMsgClasses     = 'bg-gray-light';
+                    }
+
+                    $chatWindow.append('<div class="block block-rounded block-transparent push-15 ' + $chatBlockClasses + '">'
+                        + '<div class="block-content block-content-full block-content-mini ' + $chatMsgClasses + '">'
+                        + jQuery('<div />').text(this.texto).html()
+                        + '</div>'
+                        + '</div>');
+                });
+                mensagens = data;
+            });
+            var $chatWindow = jQuery('.js-chat-talk[data-chat-id="1"');
+            $chatWindow.animate({ scrollTop: $chatWindow[0].scrollHeight }, 150);
+        
+        })
+
+        var verificaMensagens = function(){
+            var $chatWindow = jQuery('.js-chat-talk[data-chat-id="1"');
+            $.get( "/chat/carregar-mensagens/{{receptor.pk}}", function( data ) {
+                if(data.length != mensagens.length){
+                    console.log(data)
+                    delta = data.length - mensagens.length
+                    for (let i = (data.length-1); i>=mensagens.length ; i--){
+                        var $chatBlockClasses = 'animated fadeIn push-50-l';
+                        var $chatMsgClasses   = 'bg-gray-lighter';
+                        if (data[i].emissor_id == {{user.usuario.id}}) {
+                        $chatBlockClasses   = 'animated fadeInUp push-50-r';
+                        $chatMsgClasses     = 'bg-gray-light';
+                        }
+
+                        $chatWindow.append('<div class="block block-rounded block-transparent push-15 ' + $chatBlockClasses + '">'
+                            + '<div class="block-content block-content-full block-content-mini ' + $chatMsgClasses + '">'
+                            + jQuery('<div />').text(data[i].texto).html()
+                            + '</div>'
+                            + '</div>');
+                        $chatWindow.animate({ scrollTop: $chatWindow[0].scrollHeight }, 150);
+                    }
+                }
+                mensagens = data;
+            });
+        }
+
+        window.setInterval(function(){
+            verificaMensagens()
+        }, 750);
+
+        jQuery('#submit').on('submit', function(e){
+            // Stop form submission
+            e.preventDefault();
+            if($("#chat-out").val()==""){
+                $("#chat-out").val('')
+                return;
+            }
+            $.ajax({
+            url:"/chat/criar-mensagem/",
+            type:"POST",
+            data:{
+                "csrfmiddlewaretoken":"{{csrf_token}}",
+                "texto":$("#chat-out").val(),
+                "pk":"{{receptor.pk}}"
+            },
+            success:function(response) {
+                $("#chat-out").val('')
+            }
+            });
+        });
+    </script>
     <!-- END Page Content -->
 </main>
 {% endblock %}

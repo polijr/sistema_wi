@@ -34,28 +34,6 @@ var BaseUIChat = function() {
                         initChatWindows();
                     }, 150);
                 });
-                break;
-            case 'fixed':
-                // Init chat windows' height with a specific height
-                initChatWindows($cContainer.data('chat-height'));
-                break;
-            case 'popup':
-                // Init chat windows' height with a specific height
-                initChatWindows($cContainer.data('chat-height'));
-
-                // Adjust chat container
-                $cContainer.css({
-                   'position': 'fixed',
-                   'right': '10px',
-                   'bottom': 0,
-                   'display': 'inline-block',
-                   'padding': 0,
-                   'width': '70%',
-                   'max-width': '420px',
-                   'min-width': '300px',
-                   'z-index': '1031'
-                });
-                break;
             default:
                 return false;
         }
