@@ -1,17 +1,18 @@
 from django.shortcuts import render
 from django.views.generic import View
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect, JsonResponse
 from .models import Documento, Empresa
 from .forms import DocumentoForm
 from django.contrib import messages
 
 class EnviarDocumento(View):
 	def get(self, request, *args, **kwargs):
-		if request.user.usuario.cargo == 0:
-			form = DocumentoForm()
-			return render(request, 'enviar_documentos.html', {'form': form, 'messages': messages, 'post': False})
-		else:
+		if request.user.usuario.cargo != 0:
 			return render(request, 'erro_403.html')
+		form = DocumentoForm()
+		return render(request, 'enviar_documentos.html', {'form': form, 'messages': messages, 'post': False})
+		
+			
 
 	def post(self, request, *args, **kwargs):
 		form = DocumentoForm(request.POST, request.FILES)
@@ -23,7 +24,37 @@ class EnviarDocumento(View):
 		return render(request, 'enviar_documentos.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
 
 
+class Enviados(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo != 0:
+			return render(request, 'erro_403.html')
+		arquivos = request.user.usuario.usuario_empresa.arquivo_empresa.all()
+		return render(request, 'enviados.html', {'arquivos': arquivos})
 
+class EditarDocumento(View):
+	def get(self, request, pk, *args, **kwargs):
+		if not (request.user.usuario.cargo == 0 and Documento.objects.filter(pk=pk, empresa=request.user.usuario.usuario_empresa).exists()):
+			return render(request, 'erro_403.html')
+		form = DocumentoForm()
+		documento = Documento.objects.get(pk=pk)
+		return render(request, 'editar_documento.html', {'form': form, 'messages': messages, 'documento': documento })
+
+	def post(self, request, pk, *args, **kwargs):
+		documento = Documento.objects.get(pk=pk)
+		documento.nome = request.POST['nome']
+		documento.arquivo = request.FILES['arquivo']
+		documento.observacao = request.POST['observacao']
+		documento.save()
+		return HttpResponseRedirect('/documentos/enviados')
+
+class DeletarDocumento(View):
+	def get(self, request, *args, **kwargs):
+		if not (request.user.usuario.cargo == 0 and Documento.objects.filter(pk=request.GET['pk'], empresa=request.user.usuario.usuario_empresa).exists()):
+			return render(request, 'erro_403.html')
+		documento = Documento.objects.get(pk=request.GET['pk'])
+		documento.delete()
+		return JsonResponse({'deletou': True})
+			
 
 class VerDocumento(View):
 	def get(self, request, *args, **kwargs):

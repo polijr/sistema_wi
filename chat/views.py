@@ -40,7 +40,21 @@ class MensagensNaoVisualizadas(View):
 
 class RecebeuMensagem(View):
 	def get(self, request, *args, **kwargs):
-		return JsonResponse({'recebeu': Mensagem.objects.filter(receptor=request.user.usuario, recebeu=False).exists()})
+		if request.user.usuario.cargo != 0 and request.user.usuario.cargo != 1:
+			return render(request, 'erro_403.html')
+		if request.user.usuario.cargo == 0:
+			interlocutores = [request.user.usuario.usuario_empresa.organizador_resp]
+		else:
+			interlocutores = Empresa.objects.filter(organizador_resp=request.user.usuario.usuario_organizador)
+		recebeu = []
+		if Mensagem.objects.filter(receptor=request.user.usuario, recebeu=False).exists():
+			recebeu.append(True)
+		else: recebeu.append(False)
+		for interlocutor in interlocutores:
+			if Mensagem.objects.filter(emissor=interlocutor.usuario, receptor=request.user.usuario, recebeu=False).exists():
+				recebeu.append(True)
+			else: recebeu.append(False)
+		return JsonResponse(recebeu, safe=False)
 
 
 
