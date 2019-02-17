@@ -27,7 +27,7 @@
                         <span class="push-5-l">{{user.usuario.usuario_empresa.organizador_resp.nome}} {{user.usuario.usuario_empresa.organizador_resp.sobrenome}}</span>
                         {% endif %}
                         {% if user.usuario.cargo == 1 %}
-                        <span class="push-5-l">{{empresa.nome}}</span>
+                        <span class="push-5-l">{{user.usuario.usuario_empresa.nome}}</span>
                         {% endif %}
                     </a>
                 </li>   
@@ -39,34 +39,6 @@
                     
                 </div>
                 <!-- END Chat Window 1 -->
-
-                <!-- Chat Window 2 -->
-                <div class="tab-pane fade" id="chat-window2">
-                    <div class="js-chat-talk overflow-y-auto block-content block-content-full" data-chat-id="2">
-                        <!-- Messages -->
-                        <div class="font-s12 text-muted text-center push-20-t push-15"><em>3 hours ago</em></div>
-                        <div class="block block-rounded block-transparent push-15 push-50-l">
-                            <div class="block-content block-content-full block-content-mini bg-gray-lighter">Hi Admin!</div>
-                        </div>
-                        <div class="block block-rounded block-transparent push-15 push-50-l">
-                            <div class="block-content block-content-full block-content-mini bg-gray-lighter">Can you help me out?</div>
-                        </div>
-                        <div class="block block-rounded block-transparent push-15 push-50-l">
-                            <div class="block-content block-content-full block-content-mini bg-gray-lighter">I'm building a new app and I would like your opinion!</div>
-                        </div>
-                        <div class="font-s12 text-muted text-center push-20-t push-10"><em>1 hour ago</em></div>
-                        <div class="block block-rounded block-transparent push-15 push-50-r">
-                            <div class="block-content block-content-full block-content-mini bg-gray-light">Hey John, sure thing, feel free to let me know!</div>
-                        </div>
-                        <!-- END Messages -->
-                    </div>
-                    <div class="js-chat-form block-content block-content-full block-content-mini">
-                        <form action="base_ui_chat.html" method="post">
-                            <input class="js-chat-input form-control" type="text" data-target-chat-id="2" placeholder="Type a message and hit enter..">
-                        </form>
-                    </div>
-                </div>
-                <!-- END Chat Window 2 -->
             </div>
         </div>
         <!-- END Full Chat -->

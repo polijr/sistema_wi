@@ -5,6 +5,8 @@ from .models import Mensagem
 from django.http import JsonResponse
 from itertools import zip_longest
 
+
+
 class CriarMensagem(View):
 	def post(self, request, *args, **kwargs):
 		mensagem = Mensagem(texto=request.POST["texto"], emissor=request.user.usuario, receptor=Usuario.objects.get(pk=request.POST["pk"]))
