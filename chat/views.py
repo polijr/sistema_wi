@@ -9,6 +9,8 @@ from itertools import chain
 from django.db.models import Q
 
 
+
+
 class CriarMensagem(View):
 	def post(self, request, *args, **kwargs):
 		mensagem = Mensagem(texto=request.POST["texto"], emissor=request.user.usuario, receptor=Usuario.objects.get(pk=request.POST["pk"]))
