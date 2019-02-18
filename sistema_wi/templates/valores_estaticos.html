@@ -1,0 +1,80 @@
+{% extends "base_menus_admin.html" %}
+{% block nomePagina %}Valores Estaticos{% endblock%}
+{% comment %} {%block descricao%} {%endblock%}
+{% block subnomePagina %}{% endblock%} {% endcomment %}
+{% load static %}
+
+{% block conteudo %}
+<main id="main-container">
+    <!-- Register Forms -->
+    <h2 class="content-heading"></h2>
+        <div class="col-lg-12">
+            <!-- Bootstrap Register -->
+            <div class="block block-themed">
+                <div class="block-header" style="background-color: #FFAF00">
+                    <ul class="block-options">
+                        <li>
+                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                        </li>
+                        <li>
+                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                        </li>
+                    </ul>
+                    <h3 class="block-title">Valores de Sistema</h3>
+                    
+                </div>
+                <div class="block-content">
+                    <form class="form-horizontal push-5-t" action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="col-xs-6" >
+                                <label for="register4-firstname">Ano WI</label>
+                                <input class="form-control" value="{{variaveis.ano_wi}}" type="text" id="ano" name="ano" placeholder="Digite o ano do WI..">
+                                {%if form.errors.nome %}
+                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.nome}}</div>
+                                {%endif%}
+                            </div>
+                            <div class="col-xs-6">
+                                <label for="register4-lastname">Data de Início</label>
+                                <input class="form-control" value="{{variaveis.data_de_inicio}}" type="text" id="data_de_inicio" name="data_de_inicio" placeholder="Digite o nome wifi..">
+                                {%if form.errors.cnpj %}
+                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.cpnj}}</div>
+                                {%endif%}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6" >
+                                <label for="register4-firstname">Nome wifi</label>
+                                <input class="form-control" value="{{variaveis.nome_wifi}}" type="text" id="nome_wifi" name="nome_wifi" placeholder="Digite a senha wifi..">
+                                {%if form.errors.nome %}
+                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.nome}}</div>
+                                {%endif%}
+                            </div>
+                            <div class="col-xs-6">
+                                <label for="register4-lastname">Senha wifi</label>
+                                <input class="form-control" value="{{variaveis.senha_wifi}}" type="text" id="senha_wifi" name="senha_wifi" placeholder="Digite a data de início..">
+                                {%if form.errors.cnpj %}
+                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.cpnj}}</div>
+                                {%endif%}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-6" >
+                                <label for="register4-firstname">Mapa WI</label>
+                                <input class="form-control" value="{{variaveis.mapa_wi}}" type="text" id="mapa_wi" name="mapa_wi" placeholder="Digite o ano do WI..">
+                                {%if form.errors.nome %}
+                                    <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.nome}}</div>
+                                {%endif%}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <button class="btn btn-sm bg-dark" type="submit"><i class="fa fa-plus push-5-r"></i>Editar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</main> 
+{% endblock %}
