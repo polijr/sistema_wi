@@ -16,6 +16,7 @@ from django.contrib.auth import (login as auth_login,
 )
 from .models import *
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 from informes.models import Informe
 from informes.forms import InformeForm
 from django.core.paginator import Paginator
@@ -357,54 +358,61 @@ class PerfilCaravaneiro(View):
 
 
 class DeletarOrganizador(View):
-    def get(self, request, *args, **kwargs):
+    def get(self, request, pk, *args, **kwargs):
         if request.user.usuario.cargo == 2:
-            pk=request.GET.get("pk")
-            print(Organizador.objects.filter(pk=pk).count())
-            if Organizador.objects.filter(pk=pk).count() == 0:
-                return HttpResponse("Organizador invalido", status=400)
             organizador = Organizador.objects.get(pk=pk)
-            organizador.usuario.user.delete()
-            data = {
-                'deletou': True
-            }
-            return JsonResponse(data)
+            return render(request, 'deletar_organizador.html', {'organizador': organizador})
         else:
-            return HttpResponse("Você não tem acesso a essa página", status=401)
+            return render(request, 'erro_403.html')
+
+    def post(self, request, pk, *args, **kwargs):
+        request.POST._mutable = True
+        request.POST['pk']=pk
+        organizador = Organizador.objects.get(pk=pk)
+        form = EditarOrganizadorForm(request.POST)
+        print(form)
+        if form.is_valid():
+            organizador.usuario.user.delete()
+        return redirect("/usuarios/todos-organizadores")
+
 
 
 class DeletarEmpresa(View):
-    def get(self, request, *args, **kwargs):
-        if request.user.usuario.cargo == 2 or request.user.usuario.cargo == 1:
-            pk=request.GET.get("pk")
-            print(Empresa.objects.filter(pk=pk).count())
-            if Empresa.objects.filter(pk=pk).count() == 0:
-                return HttpResponse("Empresa inválida", status=400)
+    def get(self, request, pk, *args, **kwargs):
+        if request.user.usuario.cargo == 2:
             empresa = Empresa.objects.get(pk=pk)
-            empresa.usuario.user.delete()
-            data = {
-                'deletou': True
-            }
-            return JsonResponse(data)
+            return render(request, 'deletar_empresa.html', {'empresa': empresa})
         else:
-            return HttpResponse("Você não tem acesso a essa página", status=401)
+            return render(request, 'erro_403.html')
+
+    def post(self, request, pk, *args, **kwargs):
+        request.POST._mutable = True
+        request.POST['pk'] = pk
+        empresa = Empresa.objects.get(pk=pk)
+        form = EditarEmpresaForm(request.POST)
+        print(form)
+        if form.is_valid():
+            empresa.usuario.user.delete()
+        return redirect("/usuarios/todas-empresas")
 
 
 class DeletarCaravaneiro(View):
-    def get(self, request, *args, **kwargs):
+    def get(self, request, pk, *args, **kwargs):
         if request.user.usuario.cargo == 2:
-            pk=request.GET.get("pk")
-            print(Caravaneiro.objects.filter(pk=pk).count())
-            if Caravaneiro.objects.filter(pk=pk).count() == 0:
-                return HttpResponse("Caravaneiro inválido", status=400)
             caravaneiro = Caravaneiro.objects.get(pk=pk)
-            caravaneiro.usuario.user.delete()
-            data = {
-                'deletou': True
-            }
-            return JsonResponse(data)
+            return render(request, 'deletar_caravaneiro.html', {'caravaneiro': caravaneiro})
         else:
-            return HttpResponse("Você não tem acesso a essa página", status=401)
+            return render(request, 'erro_403.html')
+
+    def post(self, request, pk, *args, **kwargs):
+        request.POST._mutable = True
+        request.POST['pk'] = pk
+        caravaneiro = Caravaneiro.objects.get(pk=pk)
+        form = EditarCaravaneiroForm(request.POST)
+        print(form)
+        if form.is_valid():
+            caravaneiro.usuario.user.delete()
+        return redirect("/usuarios/todos-caravaneiros")
 
 
 class DeletarOrganizadores(View):
