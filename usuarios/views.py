@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+
 from django.shortcuts import render, redirect
 from django.shortcuts import render_to_response
 from django.http import JsonResponse
@@ -20,10 +21,11 @@ from informes.models import Informe
 from informes.forms import InformeForm
 from django.core.paginator import Paginator
 from django.http import JsonResponse, HttpResponse
-
+from sistema_wi.models import *
+import datetime
 # Create your views here.
 from pedidos.models import *
-
+from datetime import date
 
 
 class EsqueciMinhaSenha(View):
@@ -35,26 +37,29 @@ class DashboardEmpresa(View):
     def get(self, request, *args, **kwargs):
         if  request.user.usuario.cargo != 0:
             return render(request, 'erro_403.html')
+        qs = dataFeed.objects.all().order_by('-data')
         informes_list = Informe.objects.all().order_by("-data")
 
         paginator = Paginator(informes_list, 3) # Show 25 contacts per page
 
         page = request.GET.get('page')
         informes = paginator.get_page(page)
-        return render(request, 'dashboard_empresa.html', {'informes' : informes})
+        return render(request, 'dashboard_empresa.html', {'informes' : informes}, {'qs': qs},)
 
 class DashboardAdmin(View):
     def get(self, request, *args, **kwargs):
+        variaveis = ValoresEstaticos.objects.all()[0]
         if  request.user.usuario.cargo != 2:
             return render(request, 'erro_403.html')
-        return render(request, 'dashboard_admin.html')
+        return render(request, 'dashboard_admin.html', {"variaveis":variaveis})
 
 class DashboardOrganizador(View):
     def get(self, request, *args, **kwargs):
         if  request.user.usuario.cargo != 1:
             return render(request, 'erro_403.html')
         pedidos = Pedido.objects.all().order_by("data")
-        return render(request, 'dashboard_organizador.html', {"pedidos":pedidos})
+        variaveis = ValoresEstaticos.objects.all()[0]
+        return render(request, 'dashboard_organizador.html', {"pedidos":pedidos}, {"variaveis":variaveis})
 
 class DashboardCaravaneiro(View):
     def get(self, request, *args, **kwargs):

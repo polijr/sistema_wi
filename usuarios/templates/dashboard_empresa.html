@@ -20,14 +20,21 @@
     <!-- Stats -->
     <div class="content bg-white border-b">
         <div class="row items-push">
+            {% if date_now > feedback.data %}
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Deixe o feedback no link a seguir</div>
+                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{qs.0.link}}</a>
+            </div>
+            {% else %}
             <div class="col-xs-6 col-sm-3">
                 <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Nome do WiFi</div>
-                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.nome_wifi}}</a>
+                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.nome_wifi}} {{date_now}}</a>
             </div>
             <div class="col-xs-6 col-sm-3">
                 <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Senha do WiFi</div>
-                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.senha_wifi}}</a>
+                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.senha_wifi}} {{qs.0.link}}</a>
             </div>
+            {% endif %}
         </div>
     </div>
     <!-- END Stats -->
@@ -110,4 +117,6 @@
     <!-- END Page Content -->
 </main>
 <script src="{% static 'js/mostrarmapa.js' %}"></script>
+<link rel="stylesheet" href="assets/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+
 {% endblock %}
