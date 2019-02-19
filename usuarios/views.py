@@ -50,13 +50,13 @@ class DashboardEmpresa(View):
 class DashboardAdmin(View):
     def get(self, request, *args, **kwargs):
         variaveis = ValoresEstaticos.objects.all()[0]
-        if  request.user.usuario.cargo != 2:
+        if request.user.usuario.cargo != 2:
             return render(request, 'erro_403.html')
         return render(request, 'dashboard_admin.html', {"variaveis":variaveis})
 
 class DashboardOrganizador(View):
     def get(self, request, *args, **kwargs):
-        if  request.user.usuario.cargo != 1:
+        if request.user.usuario.cargo != 1:
             return render(request, 'erro_403.html')
         pedidos = Pedido.objects.all().order_by("data")
         variaveis = ValoresEstaticos.objects.all()[0]
@@ -64,7 +64,7 @@ class DashboardOrganizador(View):
 
 class DashboardCaravaneiro(View):
     def get(self, request, *args, **kwargs):
-        if  request.user.usuario.cargo != 3:
+        if request.user.usuario.cargo != 3:
             return render(request, 'erro_403.html')
         pedidos = Pedido.objects.all().order_by("data")
         return render(request, 'dashboard_caravaneiro.html', {"pedidos":pedidos})
@@ -85,7 +85,7 @@ class Redirecionar(View):
 
 class CadastroEmpresa(View):
     def get(self, request, *args, **kwargs):
-        if  request.user.usuario.cargo != 1 and request.user.usuario.cargo != 2:
+        if request.user.usuario.cargo != 1 and request.user.usuario.cargo != 2:
             return render(request, 'erro_403.html')
         organizadores = Organizador.objects.all()
         print(request.user.usuario.cargo)
@@ -423,7 +423,14 @@ class DeletarCaravaneiro(View):
 class DeletarOrganizadores(View):
     def get(self, request, *args, **kwargs):
         if request.user.usuario.cargo == 2:
-            organizadores=Organizador.objects.all()
+            return render(request, 'deletar_organizadores.html')
+        else:
+            return render(request, 'erro_403.html')
+
+    def post(self, request, *args, **kwargs):
+        request.POST._mutable = True
+        if request.user.usuario.cargo == 2:
+            organizadores = Organizador.objects.all()
             for organizador in organizadores:
                 organizador.usuario.user.delete()
             return redirect("/usuarios/todos-organizadores")
@@ -435,7 +442,14 @@ class DeletarOrganizadores(View):
 class DeletarEmpresas(View):
     def get(self, request, *args, **kwargs):
         if request.user.usuario.cargo == 2:
-            empresas=Empresa.objects.all()
+            return render(request, 'deletar_empresas.html')
+        else:
+            return render(request, 'erro_403.html')
+
+    def post(self, request, *args, **kwargs):
+        request.POST._mutable = True
+        if request.user.usuario.cargo == 2:
+            empresas = Empresa.objects.all()
             for empresa in empresas:
                 empresa.usuario.user.delete()
             return redirect("/usuarios/todas-empresas")
@@ -446,7 +460,14 @@ class DeletarEmpresas(View):
 class DeletarCaravaneiros(View):
     def get(self, request, *args, **kwargs):
         if request.user.usuario.cargo == 2:
-            caravaneiros=Caravaneiro.objects.all()
+            return render(request, 'deletar_caravaneiros.html')
+        else:
+            return render(request, 'erro_403.html')
+
+    def post(self, request, *args, **kwargs):
+        request.POST._mutable = True
+        if request.user.usuario.cargo == 2:
+            caravaneiros = Caravaneiro.objects.all()
             for caravaneiro in caravaneiros:
                 caravaneiro.usuario.user.delete()
             return redirect("/usuarios/todos-caravaneiros")
