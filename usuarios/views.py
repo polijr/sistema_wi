@@ -421,12 +421,10 @@ class DeletarOrganizadores(View):
             organizadores=Organizador.objects.all()
             for organizador in organizadores:
                 organizador.usuario.user.delete()
-            data = {
-                'deletou': True
-            }
-            return JsonResponse(data)
+            return redirect("/usuarios/todos-organizadores")
         else:
-            return HttpResponse("Você não tem acesso a essa página", status=401)
+            return render(request, 'erro_403.html')
+
 
 
 class DeletarEmpresas(View):
@@ -435,12 +433,9 @@ class DeletarEmpresas(View):
             empresas=Empresa.objects.all()
             for empresa in empresas:
                 empresa.usuario.user.delete()
-            data = {
-                'deletou': True
-            }
-            return JsonResponse(data)
+            return redirect("/usuarios/todas-empresas")
         else:
-            return HttpResponse("Você não tem acesso a essa página", status=401)
+            return render(request, 'erro_403.html')
 
 
 class DeletarCaravaneiros(View):
@@ -449,9 +444,6 @@ class DeletarCaravaneiros(View):
             caravaneiros=Caravaneiro.objects.all()
             for caravaneiro in caravaneiros:
                 caravaneiro.usuario.user.delete()
-            data = {
-                'deletou': True
-            }
-            return JsonResponse(data)
+            return redirect("/usuarios/todos-caravaneiros")
         else:
-            return HttpResponse("Você não tem acesso a essa página", status=401)
+            return render(request, 'erro_403.html')
