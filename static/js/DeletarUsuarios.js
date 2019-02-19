@@ -6,11 +6,8 @@ function DeletarOrganizador(pk) {
 	xhr.addEventListener("load", function() {
 	});
 	xhr.send();
-	location.reload();
 	}
-	else{
-	    location.reload();
-	}
+    location.reload();
 }
 
 function DeletarEmpresa(pk) {
@@ -21,11 +18,8 @@ function DeletarEmpresa(pk) {
 	xhr.addEventListener("load", function() {
 	});
 	xhr.send();
+	}
 	location.reload();
-	}
-	else{
-	    location.reload();
-	}
 }
 
 function DeletarCaravaneiro(pk) {
@@ -36,11 +30,8 @@ function DeletarCaravaneiro(pk) {
 	xhr.addEventListener("load", function() {
 	});
 	xhr.send();
-	location.reload();
 	}
-	else{
-	    location.reload();
-	}
+    location.reload();
 }
 
 function DeletarOrganizadores(){
@@ -51,11 +42,8 @@ function DeletarOrganizadores(){
 	    xhr.addEventListener("load", function() {
 	});
 	xhr.send();
-	location.reload();
 	}
-	else{
-	    location.reload();
-	}
+    location.reload();
 }
 
 function DeletarEmpresas(){
@@ -66,11 +54,8 @@ function DeletarEmpresas(){
 	    xhr.addEventListener("load", function() {
 	});
 	xhr.send();
-	location.reload();
 	}
-	else{
-	    location.reload();
-	}
+    location.reload();
 }
 
 function DeletarCaravaneiros(){
@@ -81,9 +66,6 @@ function DeletarCaravaneiros(){
 	    xhr.addEventListener("load", function() {
 	});
 	xhr.send();
-	location.reload();
 	}
-	else{
-	    location.reload();
-	}
+    location.reload();
 }

@@ -7,7 +7,7 @@
     <div class="col-lg-12">
         <div class="block-header" style="background-color: #FFAF00">
             <h3 class="block-title" style="color: #FFFFFF">
-            Caravaneiros do Sistema   <button class="btn-group btn-group-xs" type="button" onclick="DeletarCaravaneiros()" data-toggle="tooltip" title="Apagar Todos"><i class="fa fa-times"></i> Deletar Todos</button>
+            Caravaneiros do Sistema   <a class="btn-group btn-success" type="button" href="{% url 'usuarios:Deletar Caravaneiros' %}" data-toggle="tooltip" title="Apagar Todos"><i class="fa fa-times"></i> Deletar Todos</a>
             </h3>
         </div>
     </div>
@@ -32,7 +32,7 @@
                     </td>
                     <td class="text-center">
                         <div class="btn-group btn-group-xs">
-                            <a onclick="DeletarCaravaneiro( {{i.pk}} )" data-toggle="tooltip" title="Excluir" class="btn btn-default"><i class="fa fa-eraser"></i></a>
+                            <a href="{% url 'usuarios:Deletar Caravaneiro' pk=i.pk %}" data-toggle="tooltip" title="Excluir" class="btn btn-default"><i class="fa fa-eraser"></i></a>
                         </div>
                     </td>
                 </tr>

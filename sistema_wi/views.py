@@ -4,8 +4,15 @@ from django.shortcuts import render_to_response
 from django.http import JsonResponse
 from django.views.generic import View, TemplateView
 from django.http import HttpResponse
+<<<<<<< HEAD
 from .models import dataFeed
 from .forms import DataForm
+=======
+from sistema_wi.forms import ValoresEstaticosForm
+from django.http import HttpResponseRedirect
+from sistema_wi.models import ValoresEstaticos
+
+>>>>>>> baf139ee0c9fb32312fc37f08b34647f21423dca
 
 def handler404(request, exception, template_name="erro_404.html"):
     response = render_to_response("erro_404.html")
@@ -21,11 +28,13 @@ def handler500(request, exception, template_name="erro_500.html"):
     response = render_to_response("erro_500.html")
     response.status_code = 500
     return response
+
 def handler400(request, exception, template_name="erro_400.html"):
     response = render_to_response("erro_400.html")
     response.status_code = 400
     return response
 
+<<<<<<< HEAD
 
 
 class DefinirDataFeed(View):
@@ -39,3 +48,21 @@ class DefinirDataFeed(View):
             if form.is_valid():
                   form.save()
             return render(request, 'definir_data_feed.html', {'form' : form, 'post': True})
+=======
+class ValoresSistema(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "valores_estaticos.html")
+    
+    def post(self, request, *args, **kwargs):
+        form = ValoresEstaticosForm(request.POST)
+        variaveis = ValoresEstaticos.objects.all()[0]
+        if form.is_valid():
+            variaveis.ano_wi = request.POST["ano_wi"]
+            variaveis.nome_wifi = request.POST["nome_wifi"]
+            variaveis.senha_wifi = request.POST["senha_wifi"]
+            variaveis.data_de_inicio = request.POST["data_de_inicio"]
+            variaveis.mapa_wi = request.POST["mapa_wi"]
+            variaveis.save()
+            return HttpResponseRedirect('/usuarios/admin')
+        return render(request, "valores_estaticos.html", {'variaveis': variaveis})            
+>>>>>>> baf139ee0c9fb32312fc37f08b34647f21423dca
