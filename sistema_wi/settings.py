@@ -69,6 +69,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'sistema_wi.context_processors.add_variable_to_context',
+                'sistema_wi.context_processors.date_now',
             ],
         },
     },

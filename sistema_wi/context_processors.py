@@ -1,4 +1,4 @@
-from .models import ValoresEstaticos
+from .models import ValoresEstaticos, dataFeed
 from usuarios.models import Empresa
 import datetime
 def add_variable_to_context(request):
@@ -23,3 +23,7 @@ def add_variable_to_context(request):
     return {
         'variaveis':  "Vazio"
     }
+
+
+def date_now(request):
+    return {'date_now':datetime.date.today()}

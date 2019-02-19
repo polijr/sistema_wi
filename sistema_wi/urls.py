@@ -35,7 +35,9 @@ urlpatterns = [
     url(r'^pedidos/', include((pedidos.urls, "pedidos"), namespace='pedidos')),
     url(r'^documentos/', include((documentos.urls, "documentos"), namespace='documentos')),
     url(r'^informes/', include((informes.urls, "informes"), namespace='informes')),
-    url(r'^chat/', include((chat.urls, "chat"), namespace='chat'))
+    url(r'^chat/', include((chat.urls, "chat"), namespace='chat')),
+    url(r'^definir_feed/$', DefinirDataFeed.as_view())
+    
 
 ]
 
