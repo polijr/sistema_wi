@@ -4,15 +4,12 @@ from django.shortcuts import render_to_response
 from django.http import JsonResponse
 from django.views.generic import View, TemplateView
 from django.http import HttpResponse
-<<<<<<< HEAD
 from .models import dataFeed
 from .forms import DataForm
-=======
 from sistema_wi.forms import ValoresEstaticosForm
 from django.http import HttpResponseRedirect
 from sistema_wi.models import ValoresEstaticos
 
->>>>>>> baf139ee0c9fb32312fc37f08b34647f21423dca
 
 def handler404(request, exception, template_name="erro_404.html"):
     response = render_to_response("erro_404.html")
@@ -34,7 +31,6 @@ def handler400(request, exception, template_name="erro_400.html"):
     response.status_code = 400
     return response
 
-<<<<<<< HEAD
 
 
 class DefinirDataFeed(View):
@@ -48,7 +44,6 @@ class DefinirDataFeed(View):
             if form.is_valid():
                   form.save()
             return render(request, 'definir_data_feed.html', {'form' : form, 'post': True})
-=======
 class ValoresSistema(View):
     def get(self, request, *args, **kwargs):
         return render(request, "valores_estaticos.html")
@@ -65,4 +60,3 @@ class ValoresSistema(View):
             variaveis.save()
             return HttpResponseRedirect('/usuarios/admin')
         return render(request, "valores_estaticos.html", {'variaveis': variaveis})            
->>>>>>> baf139ee0c9fb32312fc37f08b34647f21423dca
