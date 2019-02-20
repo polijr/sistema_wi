@@ -16,3 +16,4 @@ class ValoresEstaticosForm(forms.Form):
     senha_wifi = forms.CharField(required = True)
     data = forms.DateField(required = True)
     mapa_wi = forms.ImageField(required = True)
+

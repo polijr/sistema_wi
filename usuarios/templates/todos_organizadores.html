@@ -6,10 +6,11 @@
     <h2 class="content-heading"></h2>
     <div class="col-lg-12">
         <div class="block-header" style="background-color: #FFAF00">
-            <h3 class="block-title" style="color: #FFFFFF">Organizadores do sistema   <a class="btn-group btn-success" type="button" href="{% url 'usuarios:Deletar Organizadores' %}" data-toggle="tooltip" title="Apagar Todos"><i class="fa fa-times"></i> Deletar Todos</a></h3>
+            <h3 class="block-title" style="color: #FFFFFF">Organizadores do sistema  </h3>
         </div>
     </div>
     <div class="block-content">
+        <a href="{% url 'usuarios:Deletar Organizadores' %}"><button class="btn btn-group btn-warning" type="button" data-toggle="tooltip" title="Apagar Todos"><i class="fa fa-times"></i> Deletar Todos</button></a>
         <table class="table table-borderless table-striped table-vcenter">
             <thead>
                 <tr>

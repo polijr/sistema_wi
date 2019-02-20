@@ -44,6 +44,8 @@ class DefinirDataFeed(View):
             if form.is_valid():
                   form.save()
             return render(request, 'definir_data_feed.html', {'form' : form, 'post': True})
+
+
 class ValoresSistema(View):
     def get(self, request, *args, **kwargs):
         return render(request, "valores_estaticos.html")
@@ -60,3 +62,4 @@ class ValoresSistema(View):
             variaveis.save()
             return HttpResponseRedirect('/usuarios/admin')
         return render(request, "valores_estaticos.html", {'variaveis': variaveis})            
+

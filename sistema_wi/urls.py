@@ -38,10 +38,9 @@ urlpatterns = [
     url(r'^informes/', include((informes.urls, "informes"), namespace='informes')),
     url(r'^chat/', include((chat.urls, "chat"), namespace='chat')),
     url(r'^definir_feed/$', DefinirDataFeed.as_view()),
-    
-
-    url(r'^valores-sistema/$', sistema_wi.views.ValoresSistema.as_view())
+    url(r'^valores-sistema/$', sistema_wi.views.ValoresSistema.as_view()),
 ]
+
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
