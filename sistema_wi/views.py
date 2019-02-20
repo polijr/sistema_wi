@@ -32,6 +32,7 @@ def handler400(request, exception, template_name="erro_400.html"):
     return response
 
 
+
 class DefinirDataFeed(View):
  def get(self, request, *args, **kwargs):
             if request.user.usuario.cargo == 2:
@@ -52,6 +53,7 @@ class ValoresSistema(View):
     def post(self, request, *args, **kwargs):
         form = ValoresEstaticosForm(request.POST)
         variaveis = ValoresEstaticos.objects.all()[0]
+        print (form)
         if form.is_valid():
             variaveis.ano_wi = request.POST["ano_wi"]
             variaveis.nome_wifi = request.POST["nome_wifi"]

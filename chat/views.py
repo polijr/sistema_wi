@@ -23,6 +23,11 @@ class CarregarMensagens(View):
 		intelocutor = Usuario.objects.get(pk=pk)
 		mensagens = Mensagem.objects.filter(Q(emissor=usuario, receptor=intelocutor) | Q(emissor=intelocutor, receptor=usuario)).order_by("data").values()
 		mensagens_json = list(mensagens)
+		for mensagem in mensagens_json:
+			m = Mensagem.objects.get(pk=mensagem['id'])
+			if m.receptor == request.user.usuario:
+				m.recebeu = True
+				m.save()
 		return JsonResponse(mensagens_json, safe=False)
 
 		
@@ -34,8 +39,9 @@ class MensagensNaoVisualizadas(View):
 		mensagens_json = list(mensagens)
 		for mensagem in mensagens_json:
 			m = Mensagem.objects.get(pk=mensagem['id'])
-			m.recebeu = True
-			m.save()
+			if m.receptor == request.user.usuario:
+				m.recebeu = True
+				m.save()
 		return JsonResponse(mensagens_json, safe=False)
 
 

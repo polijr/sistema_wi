@@ -28,6 +28,7 @@
                             <td class="hidden-xs hidden-sm">
                                 <span class="label label-success">Enviado</span>
                             </td>
+                            <td class="hidden-xs"> {% if not arquivo.observacao == "" %}Observação: {{arquivo.observacao}}{% endif %}</td>
                             <td class="hidden-xs">{{arquivo.arquivo}}</td>
                             <td class="text-center">
                                 <div class="btn-group"  href="media/{{arquivo.arquivo}}">

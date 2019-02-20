@@ -38,14 +38,18 @@ class DashboardEmpresa(View):
     def get(self, request, *args, **kwargs):
         if  request.user.usuario.cargo != 0:
             return render(request, 'erro_403.html')
-        qs = dataFeed.objects.all().order_by('-data')
+        qs = dataFeed.objects.all().order_by('-dataCriado')[0]
         informes_list = Informe.objects.all().order_by("-data")
+        hoje = datetime.date.today()
+        passou = False
+        if hoje > qs.data :
+            passou = True
 
         paginator = Paginator(informes_list, 3) # Show 25 contacts per page
 
         page = request.GET.get('page')
         informes = paginator.get_page(page)
-        return render(request, 'dashboard_empresa.html', {'informes' : informes}, {'qs': qs},)
+        return render(request, 'dashboard_empresa.html', {'informes' : informes , 'qs': qs, 'passou' : passou})
 
 class DashboardAdmin(View):
     def get(self, request, *args, **kwargs):
@@ -60,7 +64,7 @@ class DashboardOrganizador(View):
             return render(request, 'erro_403.html')
         pedidos = Pedido.objects.all().order_by("data")
         variaveis = ValoresEstaticos.objects.all()[0]
-        return render(request, 'dashboard_organizador.html', {"pedidos":pedidos}, {"variaveis":variaveis})
+        return render(request, 'dashboard_organizador.html', {"pedidos":pedidos , "variaveis":variaveis})
 
 class DashboardCaravaneiro(View):
     def get(self, request, *args, **kwargs):
