@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from .models import Documento, Empresa
 from .forms import DocumentoForm
 from django.contrib import messages
-
+from django.db.models.functions import Length
 class EnviarDocumento(View):
 	def get(self, request, *args, **kwargs):
 		if request.user.usuario.cargo != 0:
