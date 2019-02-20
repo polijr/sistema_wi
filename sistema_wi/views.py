@@ -32,6 +32,7 @@ def handler400(request, exception, template_name="erro_400.html"):
     return response
 
 
+
 class DefinirDataFeed(View):
  def get(self, request, *args, **kwargs):
             if request.user.usuario.cargo == 2:
