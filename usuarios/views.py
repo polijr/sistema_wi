@@ -107,6 +107,7 @@ class CadastroEmpresa(View):
                 user=user,
                 cargo=0)
             usuario.save()
+            messages.success(request, "Empresa criada com sucesso!")
             organizador = Organizador.objects.get(pk=request.POST["organizador_resp"])
             empresa = Empresa.objects.create(
                 usuario = usuario,
@@ -118,7 +119,7 @@ class CadastroEmpresa(View):
                 cnpj = request.POST["cnpj"],
             )
             empresa.save()
-            return HttpResponseRedirect('/usuarios/admin')
+            return redirect("/usuarios/cadastro-empresa")
 
         organizadores = Organizador.objects.all()
         return render(request, 'cadastro_empresa.html', {'form': form, 'organizadores': organizadores})
@@ -140,6 +141,7 @@ class CadastroOrganizador(View):
                                             first_name=form.data["nome"],
                                             last_name=form.data["sobrenome"])
             user.save()
+            messages.success(request, "Organizador criado com sucesso!")
             usuario = Usuario.objects.create(user=user, cargo=1)
             usuario.save()
             organizador = Organizador.objects.create(
@@ -149,7 +151,7 @@ class CadastroOrganizador(View):
                 telefone = request.POST["telefone"],
                 email = request.POST["email"],
             )
-            return HttpResponseRedirect('/usuarios/admin')
+            return redirect("/usuarios/cadastro-organizador")
         return render(request, 'cadastro_organizador.html', {'form': form})
 
 class EditarEmpresa(View):
@@ -275,6 +277,7 @@ class CadastroCaravaneiro(View):
             user.save()
             usuario = Usuario.objects.create(user=user, cargo=3)
             usuario.save()
+            messages.success(request, "Caravaneiro criado com sucesso!")
             caravaneiro = Caravaneiro.objects.create(
                 usuario = usuario,
                 nome = request.POST["nome"],
@@ -282,7 +285,7 @@ class CadastroCaravaneiro(View):
                 telefone = request.POST["telefone"],
                 email = request.POST["email"],
             )
-            return HttpResponseRedirect('/usuarios/admin')
+            return redirect("/usuarios/cadastro-caravaneiro")
         return render(request, 'cadastro_caravaneiro.html', {'form': form})
 
 
@@ -378,27 +381,35 @@ class DeletarOrganizador(View):
         print(form)
         if form.is_valid():
             organizador.usuario.user.delete()
+            messages.success(request, "Organizador deletado com sucesso!")
         return redirect("/usuarios/todos-organizadores")
 
 
 
 class DeletarEmpresa(View):
     def get(self, request, pk, *args, **kwargs):
-        if request.user.usuario.cargo == 2:
+        if request.user.usuario.cargo == 2 or request.user.usuario.cargo == 1:
             empresa = Empresa.objects.get(pk=pk)
             return render(request, 'deletar_empresa.html', {'empresa': empresa})
         else:
             return render(request, 'erro_403.html')
 
     def post(self, request, pk, *args, **kwargs):
-        request.POST._mutable = True
-        request.POST['pk'] = pk
-        empresa = Empresa.objects.get(pk=pk)
-        form = EditarEmpresaForm(request.POST)
-        print(form)
-        if form.is_valid():
-            empresa.usuario.user.delete()
-        return redirect("/usuarios/todas-empresas")
+        if request.user.usuario.cargo == 2 or request.user.usuario.cargo == 1:
+            request.POST._mutable = True
+            request.POST['pk'] = pk
+            empresa = Empresa.objects.get(pk=pk)
+            form = EditarEmpresaForm(request.POST)
+            print(form)
+            if form.is_valid():
+                empresa.usuario.user.delete()
+                messages.success(request, "Empresa deletada com sucesso!")
+            if request.user.usuario.cargo == 2:
+                return redirect("/usuarios/todas-empresas")
+            else:
+                return redirect("/usuarios/minhas-empresas")
+        else:
+            return render(request, 'erro_403.html')
 
 
 class DeletarCaravaneiro(View):
@@ -410,14 +421,18 @@ class DeletarCaravaneiro(View):
             return render(request, 'erro_403.html')
 
     def post(self, request, pk, *args, **kwargs):
-        request.POST._mutable = True
-        request.POST['pk'] = pk
-        caravaneiro = Caravaneiro.objects.get(pk=pk)
-        form = EditarCaravaneiroForm(request.POST)
-        print(form)
-        if form.is_valid():
-            caravaneiro.usuario.user.delete()
-        return redirect("/usuarios/todos-caravaneiros")
+        if request.user.usuario.cargo == 2:
+            request.POST._mutable = True
+            request.POST['pk'] = pk
+            caravaneiro = Caravaneiro.objects.get(pk=pk)
+            form = EditarCaravaneiroForm(request.POST)
+            print(form)
+            if form.is_valid():
+                caravaneiro.usuario.user.delete()
+                messages.success(request, "Caravaneiro deletado com sucesso!")
+            return redirect("/usuarios/todos-caravaneiros")
+        else:
+            return render(request, 'erro_403.html')
 
 
 class DeletarOrganizadores(View):
@@ -433,6 +448,7 @@ class DeletarOrganizadores(View):
             organizadores = Organizador.objects.all()
             for organizador in organizadores:
                 organizador.usuario.user.delete()
+            messages.success(request, "Todos organizadores deletados com sucesso!")
             return redirect("/usuarios/todos-organizadores")
         else:
             return render(request, 'erro_403.html')
@@ -441,7 +457,7 @@ class DeletarOrganizadores(View):
 
 class DeletarEmpresas(View):
     def get(self, request, *args, **kwargs):
-        if request.user.usuario.cargo == 2:
+        if request.user.usuario.cargo == 2 or request.user.usuario.cargo == 1:
             return render(request, 'deletar_empresas.html')
         else:
             return render(request, 'erro_403.html')
@@ -452,6 +468,7 @@ class DeletarEmpresas(View):
             empresas = Empresa.objects.all()
             for empresa in empresas:
                 empresa.usuario.user.delete()
+            messages.success(request, "Todas empresas deletadas com sucesso!")
             return redirect("/usuarios/todas-empresas")
         else:
             return render(request, 'erro_403.html')
@@ -470,6 +487,7 @@ class DeletarCaravaneiros(View):
             caravaneiros = Caravaneiro.objects.all()
             for caravaneiro in caravaneiros:
                 caravaneiro.usuario.user.delete()
+            messages.success(request, "Todos caravaneiros deletados com sucesso!")
             return redirect("/usuarios/todos-caravaneiros")
         else:
             return render(request, 'erro_403.html')

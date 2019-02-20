@@ -91,7 +91,7 @@
                                                 <label for="register4-lastname">Organizador Responsável
                                                 </label>
                                                 {% if user.usuario.cargo == 1 %}
-                                                <select class="form-control" id="organizador_resp" name="organizador_resp" size="1">
+                                                <select readonly="true" class="form-control" id="organizador_resp" name="organizador_resp" size="1">
                                                     <option value="{{empresa.organizador_resp.pk}}">{{empresa.organizador_resp.nome}} {{empresa.organizador_resp.sobrenome}}</option>
                                                 </select>
                                                 {% endif %}

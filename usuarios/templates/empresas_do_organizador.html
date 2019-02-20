@@ -23,6 +23,13 @@ Empresas do Sistema
     </div>
 
     <div class="block-content">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         <table class="table table-borderless table-striped table-vcenter">
             <thead>
                 <tr>
@@ -43,7 +50,7 @@ Empresas do Sistema
                     </td>
                     <td class="text-center">
                         <div class="btn-group btn-group-xs">
-                            <a onclick="DeletarEmpresa( {{i.pk}} )" data-toggle="tooltip" title="Excluir" class="btn btn-default"><i class="fa fa-eraser"></i></a>
+                            <a href="{% url 'usuarios:Deletar Empresa' pk=i.pk %}" data-toggle="tooltip" title="Excluir" class="btn btn-default"><i class="fa fa-eraser"></i></a>
                         </div>
                     </td>
                 </tr>
