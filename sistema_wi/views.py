@@ -53,6 +53,7 @@ class ValoresSistema(View):
     def post(self, request, *args, **kwargs):
         form = ValoresEstaticosForm(request.POST)
         variaveis = ValoresEstaticos.objects.all()[0]
+        print (form)
         if form.is_valid():
             variaveis.ano_wi = request.POST["ano_wi"]
             variaveis.nome_wifi = request.POST["nome_wifi"]
