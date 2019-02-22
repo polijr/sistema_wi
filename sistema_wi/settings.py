@@ -142,3 +142,10 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media")
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = "/usuarios/redirecionar/"
 LOGOUT_REDIRECT_URL = "/"
+
+#Email
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sistema.wi.polijunior@gmail.com'
+EMAIL_HOST_PASSWORD = 'k]yT!!>6]#dF'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

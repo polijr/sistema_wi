@@ -15,6 +15,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import (login as auth_login,
     logout as auth_logout,
 )
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
 from .models import *
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -23,6 +25,7 @@ from informes.forms import InformeForm
 from django.core.paginator import Paginator
 from django.http import JsonResponse, HttpResponse
 from sistema_wi.models import *
+from sistema_wi.settings import EMAIL_HOST_USER
 import datetime
 # Create your views here.
 from pedidos.models import *
@@ -123,10 +126,24 @@ class CadastroEmpresa(View):
                 cnpj = request.POST["cnpj"],
             )
             empresa.save()
+            msg = EmailMultiAlternatives(
+                'Workshop Integrativo - Sua conta foi criada!', 
+                get_template("email_conta_criada.txt").render({'username': form.data["username"], 'senha': form.data["password"]}),
+                EMAIL_HOST_USER,
+                [form.data['email']])
+            msg.attach_alternative(
+                get_template("email_conta_criada.html").render({'username': form.data["username"], 'senha': form.data["password"]}), 
+                "text/html")
+            msg.send()
             return redirect("/usuarios/cadastro-empresa")
 
         organizadores = Organizador.objects.all()
-        return render(request, 'cadastro_empresa.html', {'form': form, 'organizadores': organizadores})
+        if request.user.usuario.cargo == 1:
+            template_base = 'base_menus_organizador.html'
+        elif request.user.usuario.cargo == 2:
+            template_base = 'base_menus_admin.html'
+
+        return render(request, 'cadastro_empresa.html', {'form': form, 'organizadores': organizadores, 'template_base': template_base})
 
 
 
@@ -155,6 +172,15 @@ class CadastroOrganizador(View):
                 telefone = request.POST["telefone"],
                 email = request.POST["email"],
             )
+            msg = EmailMultiAlternatives(
+                'Workshop Integrativo - Sua conta foi criada!', 
+                get_template("email_conta_criada.txt").render({'username': form.data["username"], 'senha': form.data["password"]}),
+                EMAIL_HOST_USER,
+                [form.data['email']])
+            msg.attach_alternative(
+                get_template("email_conta_criada.html").render({'username': form.data["username"], 'senha': form.data["password"]}), 
+                "text/html")
+            msg.send()
             return redirect("/usuarios/cadastro-organizador")
         return render(request, 'cadastro_organizador.html', {'form': form})
 
@@ -289,6 +315,15 @@ class CadastroCaravaneiro(View):
                 telefone = request.POST["telefone"],
                 email = request.POST["email"],
             )
+            msg = EmailMultiAlternatives(
+                'Workshop Integrativo - Sua conta foi criada!', 
+                get_template("email_conta_criada.txt").render({'username': form.data["username"], 'senha': form.data["password"]}),
+                EMAIL_HOST_USER,
+                [form.data['email']])
+            msg.attach_alternative(
+                get_template("email_conta_criada.html").render({'username': form.data["username"], 'senha': form.data["password"]}), 
+                "text/html")
+            msg.send()
             return redirect("/usuarios/cadastro-caravaneiro")
         return render(request, 'cadastro_caravaneiro.html', {'form': form})
 

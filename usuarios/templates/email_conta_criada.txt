@@ -1,0 +1,6 @@
+Sua conta para o evento Workshop Integrativo foi criada!
+
+Abaixo estão o seu Username e Senha para o evento do Workshop Integrativo, acesse o site aqui!
+
+Username: {{username}}
+Senha: {{senha}}
