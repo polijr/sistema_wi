@@ -42,7 +42,11 @@ class EsqueciMinhaSenha(View):
             return render(request, 'esqueci_minha_senha.html', {'post': True, 'enviou': False})
         user = User.objects.get(email=request.POST["reminder-email"])
         chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_'
-        chave = get_random_string(12, chars)
+        chave_unica = False
+        while not chave_unica:
+            chave = get_random_string(12, chars)
+            if not ResetSenha.objects.filter(chave=chave).exists():
+                chave_unica = True
         reset = ResetSenha(user=user, chave=chave)
         reset.save()
         link = 'http://127.0.0.1:8000/nova-senha/' + chave
