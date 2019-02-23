@@ -22,7 +22,11 @@ class CadastroEmpresaForm(forms.Form):
         username = cleaned_data.get('username')
         if username:
             if User.objects.filter(username=username).count()>0:
-                raise forms.ValidationError("Username ja foi pego!")
+                raise forms.ValidationError("Username já foi pego!")
+        email = cleaned_data.get('email')
+        if email:
+            if User.objects.filter(email=email) > 0:
+                raise forms.ValidationError("Esse email já foi usado em outra conta!")   
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
 
@@ -220,3 +224,22 @@ class EditarEmpresaForm(forms.Form):
     class Meta:
         model = Empresa
         fields = ['usuario', 'nome', 'stand', 'tamanho', 'palestra', 'organizador_resp', 'cnpj']
+
+class ResetSenhaForm(forms.Form):
+    password = forms.CharField(min_length=4, required=True)
+    password2 = forms.CharField(min_length=4, required=True)
+
+    def clean(self):
+        cleaned_data = super(ResetSenhaForm, self).clean()
+        password = cleaned_data.get('password')
+        password2 = cleaned_data.get('password2')
+
+        if password and password2:
+            if password != password2:
+                raise forms.ValidationError("Senhas diferentes!")
+        return cleaned_data
+
+    class Meta:
+        model = User
+        fields = ['password', 'password2']
+            

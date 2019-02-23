@@ -55,20 +55,31 @@
                             <!-- Reminder Title -->
                             <div class="text-center">
                                 <img src="/static/img/various/logo_wi.png" width="30%" height="30%" class="fa fa-circle-o-notch text-primary">
-                                <p class="text-muted push-15-t">Não se preocupe! Vamos mandar um link para resetar sua senha.</p>
+                                <p class="text-muted push-15-t">Crie sua nova senha abaixo!</p>
                             </div>
                             <!-- END Reminder Title -->
-
+                            {% if existe %}
+                            {% if valido %}
                             <!-- Reminder Form -->
                             <!-- jQuery Validation (.js-validation-reminder class is initialized in js/pages/base_pages_reminder.js) -->
                             <!-- For more examples you can check out https://github.com/jzaefferer/jquery-validation -->
-                            <form class="form-horizontal push-30-t" method="post">
+                            <form class="js-validation-reminder form-horizontal push-30-t" method="post">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <div class="col-xs-12">
                                         <div class="form-material form-material-primary floating">
-                                            <input class="form-control" type="email" id="reminder-email" name="reminder-email" required>
-                                            <label for="reminder-email">Digite seu email</label>
+                                            <input class="form-control" type="password" id="id_password" name="password" minlength="4" required>
+                                            <label for="id_password">Digite sua nova senha:</label>
+                                            {{form.errors.password}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <div class="form-material form-material-primary floating">
+                                            <input class="form-control" type="password" id="id_password2" name="password2" minlength="4" required>
+                                            <label for="id_password2">Repita a senha:</label>
+                                            {{form.errors.password2}}
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +89,14 @@
                                     </div>
                                 </div>
                             </form>
+                            {{form.non_field_errors}}
                             <!-- END Reminder Form -->
+                            {% else %}
+                            <p>O tempo para resetar sua senha expirou! Faça a requisição novamente <a href="/resetar-senha">aqui!</a></p>
+                            {% endif %}
+                            {% else %}
+                            <p>Essa requisição não é válida, tem certeza que você usou o endereço certo?</p>
+                            {% endif %}
 
                             <!-- Extra Links -->
                             <div class="text-center push-50-t">
@@ -117,11 +135,8 @@
         {% if post %}
         {% if enviou %}
         <script type="text/javascript">
-            alert('Uma mensagem foi enviada para seu email!');
-        </script>
-        {% else %}
-        <script type="text/javascript">
-            alert('Não encontramos um usuário com seu email!')
+            alert('Sua senha foi resetada com sucesso!');
+            window.location.href = '/'
         </script>
         {% endif %}
         {% endif %}

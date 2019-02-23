@@ -30,12 +30,55 @@ import datetime
 # Create your views here.
 from pedidos.models import *
 from datetime import date
+from django.utils.crypto import get_random_string
 
 
 class EsqueciMinhaSenha(View):
     def get(self, request, *args, **kwargs):
-        return render(request, 'esqueci_minha_senha.html')
+        return render(request, 'esqueci_minha_senha.html', {'post': False})
 
+    def post(self, request, *args, **kwargs):
+        if  not User.objects.filter(email=request.POST["reminder-email"]).exists():
+            return render(request, 'esqueci_minha_senha.html', {'post': True, 'enviou': False})
+        user = User.objects.get(email=request.POST["reminder-email"])
+        chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_'
+        chave = get_random_string(12, chars)
+        reset = ResetSenha(user=user, chave=chave)
+        reset.save()
+        link = 'http://127.0.0.1:8000/nova-senha/' + chave
+        msg = EmailMultiAlternatives(
+                'Workshop Integrativo - Esqueceu sua Senha?', 
+                get_template("email_esqueceu_senha.txt").render({'link': link}),
+                EMAIL_HOST_USER,
+                [request.POST['reminder-email']])
+        msg.attach_alternative(
+                get_template("email_esqueceu_senha.html").render({'link': link}), 
+                "text/html")
+        msg.send()
+        return render(request, 'esqueci_minha_senha.html', {'post': True, 'enviou': True})
+
+class NovaSenha(View):
+    def get(self, request, chave, *args, **kwargs):
+        if not ResetSenha.objects.filter(chave=chave).exists():
+            return render(request, 'nova_senha.html', {'post': False, 'existe': False})
+        reset = ResetSenha.objects.get(chave=chave)
+        if datetime.datetime.now() - reset.data > datetime.timedelta(hours=2):
+            reset.delete()
+            return render(request, 'nova_senha.html', {'post': False, 'existe': True, 'valido': False})
+        form = ResetSenhaForm()
+        return render(request, 'nova_senha.html', {'post': False, 'existe': True, 'valido': True, 'form': form})
+
+    def post(self, request, chave, *args, **kwargs):
+        form = ResetSenhaForm(request.POST)
+        reset = ResetSenha.objects.get(chave=chave)
+        user = reset.user
+        enviou = False
+        if form.is_valid():
+            user.set_password(form.data['password'])
+            user.save()
+            reset.delete()
+            enviou = True
+        return render(request, 'nova_senha.html', {'post': True, 'existe': True, 'valido': True, 'form': form, 'enviou': enviou})
 
 class DashboardEmpresa(View):
     def get(self, request, *args, **kwargs):

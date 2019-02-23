@@ -1,0 +1,2 @@
+Esqueceu sua Senha?
+Para resetar sua senha, use esse link: {{link}}
