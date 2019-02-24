@@ -458,6 +458,16 @@
                         <!-- Side Content -->
                         <div class="side-content">
                             <ul class="nav-main">
+                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Documentos</span></li>
+                                <li>
+                                    <a href="/documentos/enviar"><i class="si si-cloud-upload"></i>Enviar</a>
+                                </li>
+                                <li>
+                                    <a href="/documentos/enviados"><i class="si si-grid"></i>Enviados</a>
+                                </li>
+                                <li>
+                                    <a href="/documentos/ver-nota"><i class="si si-grid"></i>Nota Fiscal</a>
+                                </li>
                                 <li>
                                     <a class="active" href="/usuarios/empresa"><i class="si si-map"></i><span class="sidebar-mini-hide">Informes</span></a>
                                 </li>
@@ -468,13 +478,6 @@
                                     <li><a class="nav-submenu" data-toggle="nav-submenu"><i class="si si-grid"></i>Chat <i class="notificacao fa" style="margin-left: 10%;"></i></a>
                                         <ul><a href="{% url 'chat:Chat' pk=request.user.usuario.usuario_empresa.organizador_resp.usuario.pk %}">{{request.user.usuario.usuario_empresa.organizador_resp.nome}}  {{request.user.usuario.usuario_empresa.organizador_resp.sobrenome}}<i class="notificacao fa" style="margin-left: 10%;"></i></a></ul>
                                 {% endif %}
-                                <li class="nav-main-heading"><span class="sidebar-mini-hide">Documentos</span></li>
-                                <li>
-                                    <a href="/documentos/enviar"><i class="si si-cloud-upload"></i>Enviar</a>
-                                </li>
-                                <li>
-                                    <a href="/documentos/enviados"><i class="si si-grid"></i>Enviados</a>
-                                </li>
                             </ul>
                         </div>
                         <!-- END Side Content -->

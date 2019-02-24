@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import View
 from django.http import HttpResponseRedirect, JsonResponse
-from .models import Documento, Empresa
-from .forms import DocumentoForm
+from .models import Documento, Empresa, NotaFiscal
+from usuarios.models import *
+from .forms import DocumentoForm, NotaForm
 from django.contrib import messages
 from django.db.models.functions import Length
 class EnviarDocumento(View):
@@ -68,4 +69,53 @@ class VerDocumento(View):
 		else:
 			return render(request, 'erro_403.html')
 		return render(request, 'ver_documentos.html', {'empresas':empresas, 'template_base': template_base})
+
+
+class VerNota(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo == 1:
+			organizador = request.user.usuario.usuario_organizador 
+			empresas = organizador.empresa_organizador.all()
+			template_base = 'base_menus_organizador.html'
+		if request.user.usuario.cargo == 2:
+			empresas = Empresa.objects.all()
+			template_base = 'base_menus_admin.html'
+		if request.user.usuario.cargo == 0:
+			empresas = request.user.usuario.usuario_empresa
+			template_base = 'base_menus_empresa.html'
+		else:
+			return render(request, 'erro_403.html')
+		return render(request, 'ver_documentos.html', {'empresas':empresas, 'template_base': template_base})
+
+
+
+
+class EnviarNota(View):
+	def get(self, request, *args, **kwargs):
+			organizador = request.user.usuario.usuario_organizador 
+			empresas = organizador.empresa_organizador.all()
+			if request.user.usuario.cargo != 1:
+				return render(request, 'erro_403.html')
+			form = NotaForm()
+			return render(request, 'enviar_nota.html', {'form': form, 'messages': messages, 'post': False, 'empresas':empresas})
+		
+			
+
+	def post(self, request, *args, **kwargs):
+		organizador = request.user.usuario.usuario_organizador 
+		empresas = organizador.empresa_organizador.all()
+		form = NotaForm(request.POST, request.FILES)
+		enviou = False
+		if form.is_valid():
+			empresa = empresas.get(pk=request.POST["empresa"])
+			nota = NotaFiscal.objects.create(
+            nome = request.POST["nome"],
+            arquivo = request.POST.get('arquivo', False),
+            observacao = request.POST["observacao"],
+            empresa = empresa,
+            )
+			nota.save()
+			enviou = True
+		messages.success(request, "Nota submetida com sucesso")
+		return render(request, 'enviar_nota.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
 
