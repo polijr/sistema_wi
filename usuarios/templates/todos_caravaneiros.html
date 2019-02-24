@@ -13,7 +13,6 @@
     </div>
 
     <div class="block-content">
-        <a href="{% url 'usuarios:Deletar Caravaneiros' %}"><button class="btn btn-group btn-warning" type="button" data-toggle="tooltip" title="Apagar Todos"><i class="fa fa-times"></i> Deletar Todos</button></a>
         {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -47,6 +46,7 @@
                 {% endfor %}
             </tbody>
         </table>
+        <a href="{% url 'usuarios:Deletar Caravaneiros' %}"><button class="btn btn-group pull-right btn-sm" style="background-color: #FFAF00; color: #FFFFFF;" type="button" data-toggle="tooltip" title="Apagar todos"><i class="fa fa-times"></i> Deletar todos</button></a>
     </div>
     
 </main>

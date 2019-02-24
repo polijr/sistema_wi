@@ -1,0 +1,3 @@
+Esqueceu sua Senha?
+Olá, {{user.username}}, se você fez uma requisição para resetar sua senha do Sistema WI há menos de 2 horas, use este link: {{link}}
+Caso você tenha feito a requisição há mais de duas horas, ela já expirou! Faça a requisição novamente no sistema!

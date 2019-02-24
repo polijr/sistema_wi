@@ -1,0 +1,74 @@
+{% extends template_base %}
+{% block nomePagina %}Calendário do Evento{% endblock%}
+{% comment %} {%block descricao%} {%endblock%}
+{% block subnomePagina %}{% endblock%} {% endcomment %}
+{% load static %}
+
+
+{% block conteudo %}
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<link rel="stylesheet" id="css-main" href="assets/css/oneui.css">
+<link rel="stylesheet" href="assets/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+<main id="main-container">
+    <!-- Page Header -->
+    <div class="content bg-image overflow-hidden" style="background-image: url('/static/img/photos/banner_wi.png');">
+        <img class="image-wi-dash animated zoomIn" src="/static/img/various/logo_wi.png">
+        <div class="push-50-t push-15">
+            <h1 class="h2 text-orange animated zoomIn">Calendário</h1>
+        </div>
+    </div>
+    <!-- END Page Header -->
+
+    <!-- Page Content -->
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-7">
+                <!-- Main Dashboard Chart -->
+                <div class="block">
+                    <div class="block-content bg-gray-lighter">
+                        {% if variaveis.calendario_wi %}
+                        <img  src="{{variaveis.calendario_wi.url}}" class="img-responsive" data-toggle="modal" data-target="#modal-large" >
+                        {% else %}
+                        <img  src="{% static 'img/various/mapa_wi.png' %}" class="img-responsive" data-toggle="modal" data-target="#modal-large" >
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- END Main Dashboard Chart -->
+        </div>
+    </div>
+        <div class="modal" id="modal-large" tabindex="-1" role="dialog" aria-hidden="true" >
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="block block-themed block-transparent remove-margin-b">
+                        <div class="block-header bg-primary-dark">
+                            <ul class="block-options">
+                                <li>
+                                    <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                                </li>
+                            </ul>
+                            <h3 class="block-title">Calendário</h3>
+                        </div>
+                        <div class="block-content">
+                            {% if variaveis.calendario_wi %}
+                            <img  src="{{variaveis.calendario_wi.url}}" class="img-responsive" data-toggle="modal" data-target="#modal-normal" >
+                            {% else %}
+                            <img  src="{% static 'img/various/calendario_wi.png' %}" class="img-responsive" data-toggle="modal" data-target="#modal-normal" >
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-sm btn-default" type="button" data-dismiss="modal">Close</button>
+                        <button class="btn btn-sm btn-primary" type="button" data-dismiss="modal"><i class="fa fa-check"></i> Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+    <!-- END Page Content -->
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="assets/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+
+{% endblock %}

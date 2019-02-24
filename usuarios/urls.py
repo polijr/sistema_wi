@@ -38,4 +38,6 @@ urlpatterns = [
     url(r'^deletar-organizadores/$', DeletarOrganizadores.as_view(), name='Deletar Organizadores'),
     url(r'^deletar-empresas/$', DeletarEmpresas.as_view(), name='Deletar Empresas'),
     url(r'^deletar-caravaneiros/$', DeletarCaravaneiros.as_view(), name='Deletar Caravaneiros'),
-]
+    url(r'^calendario/$', Calendario.as_view(), name='Calendário'),
+    ]
+
