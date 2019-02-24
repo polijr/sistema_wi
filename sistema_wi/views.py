@@ -60,6 +60,7 @@ class ValoresSistema(View):
             variaveis.senha_wifi = request.POST["senha_wifi"]
             variaveis.data_de_inicio = request.POST["data_de_inicio"]
             variaveis.mapa_wi = request.POST["mapa_wi"]
+            variaveis.calendario_wi = request.POST["calendario_wi"]
             variaveis.save()
             return HttpResponseRedirect('/usuarios/admin')
         return render(request, "valores_estaticos.html", {'variaveis': variaveis})            

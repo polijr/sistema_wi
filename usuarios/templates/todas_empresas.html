@@ -14,7 +14,6 @@
 
     
     <div class="block-content">
-        <a href="{% url 'usuarios:Deletar Empresas' %}"><button class="btn btn-group btn-warning" type="button" data-toggle="tooltip" title="Apagar Todas"><i class="fa fa-times"></i> Deletar Todos</button></a>
         {% if messages %}
             <ul class="messages">
                 {% for message in messages %}
@@ -48,6 +47,7 @@
                 {% endfor %}
             </tbody>
         </table>
+        <a href="{% url 'usuarios:Deletar Empresas' %}"><button class="btn btn-group pull-right btn-sm" style="background-color: #FFAF00; color: #FFFFFF;"  type="button" data-toggle="tooltip" title="Apagar todas"><i class="fa fa-times"></i> Deletar todas</button></a>
     </div>
 </main>
 <script type="text/javascript" src="{% static 'js/DeletarUsuarios.js' %}"></script>
