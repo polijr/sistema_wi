@@ -67,3 +67,8 @@ class Caravaneiro(models.Model):
     email = models.EmailField(null = False, blank = False, max_length=100)
     def __str__(self):
         return self.usuario.user.username
+
+class ResetSenha(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
+    chave = models.CharField(max_length=12, blank=False, null=False, unique=True)
+    data = models.DateTimeField(auto_now_add=True)

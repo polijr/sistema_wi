@@ -5,23 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6751dc3d-140d-449b-b22b-f86d19a1a3f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documentos/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documentos/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuarios/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuarios/migrations/0002_resetsenha.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuarios/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuarios/templates/email_conta_criada.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuarios/templates/email_conta_criada.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuarios/templates/email_esqueceu_senha.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuarios/templates/email_esqueceu_senha.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/usuarios/templates/nova_senha.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/chat/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat/migrations/0002_mensagem_recebeu.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/informes/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/informes/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/informes/migrations/0002_auto_20190206_2055.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/informes/templates/criar_informe.html" beforeDir="false" afterPath="$PROJECT_DIR$/informes/templates/criar_informe.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pedidos/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/migrations/0002_pedido_caravaneiro.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/migrations/0003_auto_20190211_1859.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/migrations/0004_auto_20190211_1911.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/migrations/0003_auto_20190219_1606.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pedidos/templates/criar_pedidos.html" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/templates/criar_pedidos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_wi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sistema_wi/templates/base_menus_caravaneiro.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_caravaneiro.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sistema_wi/templates/base_menus_empresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_empresa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/valores_estaticos.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/valores_estaticos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/oneui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/oneui.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/base_menus_organizador.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_organizador.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/definir_data_feed.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/definir_data_feed.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_wi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/dashboard_empresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/dashboard_empresa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/esqueci_minha_senha.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/esqueci_minha_senha.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
     </list>
@@ -34,40 +44,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/templates/calendário.html">
+        <entry file="file://$PROJECT_DIR$/usuarios/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="71" column="106" selection-start-line="71" selection-start-column="106" selection-end-line="71" selection-end-column="106" />
+            <state relative-caret-position="3621">
+              <caret line="213" column="19" selection-start-line="213" selection-start-column="19" selection-end-line="213" selection-end-column="19" />
               <folding>
-                <element signature="n#div#0;n#main#0;n#!!top" />
+                <element signature="e#24#63#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/css/oneui.css">
+        <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="11436" column="1" selection-start-line="11436" selection-start-column="1" selection-end-line="11436" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_modals_tooltips.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="1155" column="55" lean-forward="true" selection-start-line="1155" selection-start-column="55" selection-end-line="1155" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-643">
-              <caret line="8" column="59" lean-forward="true" selection-start-line="8" selection-end-line="9" />
+            <state relative-caret-position="190">
+              <caret line="414" column="37" selection-start-line="414" selection-start-column="37" selection-end-line="414" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -103,9 +95,9 @@
       <find>normal modal</find>
       <find>large modal</find>
       <find>modal-large</find>
-      <find>modal</find>
       <find>modal-conte</find>
       <find>close</find>
+      <find>modal</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,17 +136,17 @@
         <option value="$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/deletar_empresa.html" />
-        <option value="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" />
-        <option value="$PROJECT_DIR$/sistema_wi/templates/base_menus_caravaneiro.html" />
-        <option value="$PROJECT_DIR$/usuarios/urls.py" />
         <option value="$PROJECT_DIR$/sistema_wi/templates/base_menus_empresa.html" />
-        <option value="$PROJECT_DIR$/usuarios/views.py" />
         <option value="$PROJECT_DIR$/sistema_wi/models.py" />
         <option value="$PROJECT_DIR$/sistema_wi/templates/valores_estaticos.html" />
         <option value="$PROJECT_DIR$/static/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/static/css/popup.css" />
         <option value="$PROJECT_DIR$/usuarios/templates/calendário.html" />
         <option value="$PROJECT_DIR$/static/css/oneui.css" />
+        <option value="$PROJECT_DIR$/usuarios/views.py" />
+        <option value="$PROJECT_DIR$/usuarios/urls.py" />
+        <option value="$PROJECT_DIR$/sistema_wi/templates/base_menus_caravaneiro.html" />
+        <option value="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" />
       </list>
     </option>
   </component>
@@ -190,18 +182,13 @@
             <path>
               <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="usuarios" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -238,7 +225,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -249,7 +236,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.26881722" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.26881722" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -458,20 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="453" column="74" selection-start-line="453" selection-start-column="74" selection-end-line="453" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_caravaneiro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1252">
-          <caret line="451" column="74" selection-start-line="451" selection-start-column="74" selection-end-line="451" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/templates/deletar_empresa.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -499,26 +472,6 @@
     <entry file="file://$PROJECT_DIR$/static/fonts/Simple-Line-Icons.eot">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-6273" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
-          <folding>
-            <element signature="e#2#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2397">
-          <caret line="213" column="19" lean-forward="true" selection-start-line="213" selection-start-column="19" selection-end-line="213" selection-end-column="19" />
-          <folding>
-            <element signature="e#24#63#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_empresa.html">
@@ -596,8 +549,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/oneui.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="11436" column="1" selection-start-line="11436" selection-start-column="1" selection-end-line="11436" selection-end-column="1" />
+        <state relative-caret-position="140">
+          <caret line="1890" column="6" selection-start-line="1890" selection-start-column="1" selection-end-line="1890" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="41" column="5" lean-forward="true" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding>
+            <element signature="e#2#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3621">
+          <caret line="213" column="19" selection-start-line="213" selection-start-column="19" selection-end-line="213" selection-end-column="19" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_caravaneiro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="412" column="37" selection-start-line="412" selection-start-column="37" selection-end-line="412" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="414" column="37" selection-start-line="414" selection-start-column="37" selection-end-line="414" selection-end-column="37" />
         </state>
       </provider>
     </entry>

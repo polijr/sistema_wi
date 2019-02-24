@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+</head>
+<body>
+	<header style="background-color: black; padding: 10px;">
+		<img src="http://sistemawi.polijunior.com.br/static/img/favicons/favicon.png">
+	</header>
+	<main>
+		<h1>Esqueceu sua Senha?</h1>
+		<p style="font-weight: bold;">Olá, {{user.username}}, se você fez uma requisição para resetar sua senha do Sistema WI há menos de 2 horas, clique <a href="{{link}}">aqui!</a></p>
+		<p style="font-weight: bold;">Caso você fez a requisição há mais de duas horas, ela já expirou! Faça a requisição novamente no sistema!</p>
+	</main>
+</body>
+</html>

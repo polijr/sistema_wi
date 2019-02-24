@@ -100,7 +100,7 @@
                                                 <select class="form-control" id="organizador_resp" name="organizador_resp" size="1">
                                                     <option value="-1">Por favor selecione  {{meunome}}</option>
                                                     {% for organizador in organizadores %}
-                                                        <option value="{{organizador.pk}}">{{organizador.usuario.user.first_name}} {{organizador.usuario.user.last_name}}</option>
+                                                        <option value="{{organizador.pk}}">{{organizador.nome}} {{organizador.sobrenome}}</option>
                                                     {% endfor %}
                                                 </select>
                                                 {%if form.errors.organizador_resp %}

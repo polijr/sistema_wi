@@ -40,3 +40,4 @@ urlpatterns = [
     url(r'^deletar-caravaneiros/$', DeletarCaravaneiros.as_view(), name='Deletar Caravaneiros'),
     url(r'^calendario/$', Calendario.as_view(), name='Calendário'),
     ]
+
