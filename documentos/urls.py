@@ -12,5 +12,7 @@ urlpatterns = [
 	url(r'^deletar-documento/$', login_required(DeletarDocumento.as_view()), name='Deletar Documento'),
 	url(r'^ver-documentos/$', login_required(VerDocumento.as_view()), name='Ver Documentos'),
 	url(r'^ver-nota/$', login_required(VerNota.as_view()), name='Ver Nota'),
-	url(r'^enviar-nota/$', login_required(EnviarNota.as_view()), name='Enviar Nota')
+	url(r'^ver-nota-empresa/$', login_required(VerNotaEmp.as_view()), name='Ver Nota Empresa'),
+	url(r'^enviar-nota/$', login_required(EnviarNota.as_view()), name='Enviar Nota'),
+	url(r'^deletar-nota/$', login_required(DeletarNota.as_view()), name='Deletar Nota')
 ]
