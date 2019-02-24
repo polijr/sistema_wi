@@ -25,7 +25,7 @@ class CadastroEmpresaForm(forms.Form):
                 raise forms.ValidationError("Username já foi pego!")
         email = cleaned_data.get('email')
         if email:
-            if User.objects.filter(email=email) > 0:
+            if User.objects.filter(email=email).count() > 0:
                 raise forms.ValidationError("Esse email já foi usado em outra conta!")   
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
@@ -58,7 +58,7 @@ class CadastroOrganizadorForm(forms.Form):
                 raise forms.ValidationError("Username ja foi pego!")
         email = cleaned_data.get('email')
         if email:
-            if User.objects.filter(email=email) > 0:
+            if User.objects.filter(email=email).count() > 0:
                 raise forms.ValidationError("Esse email já foi usado em outra conta!")   
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
@@ -91,7 +91,7 @@ class CadastroCaravaneiroForm(forms.Form):
                 raise forms.ValidationError("Username ja foi pego!")
         email = cleaned_data.get('email')
         if email:
-            if User.objects.filter(email=email) > 0:
+            if User.objects.filter(email=email).count() > 0:
                 raise forms.ValidationError("Esse email já foi usado em outra conta!")   
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
@@ -129,7 +129,7 @@ class EditarGerenteForm(forms.Form):
                     raise forms.ValidationError("Username ja foi pego!")
         email = cleaned_data.get('email')
         if email:
-            if User.objects.filter(email=email) > 0:
+            if User.objects.filter(email=email).count() > 0:
                 raise forms.ValidationError("Esse email já foi usado em outra conta!")   
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
@@ -162,7 +162,7 @@ class EditarCaravaneiroForm(forms.Form):
                     raise forms.ValidationError("Username ja foi pego!")
         email = cleaned_data.get('email')
         if email:
-            if User.objects.filter(email=email) > 0:
+            if User.objects.filter(email=email).count() > 0:
                 raise forms.ValidationError("Esse email já foi usado em outra conta!")   
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
@@ -195,7 +195,7 @@ class EditarOrganizadorForm(forms.Form):
                     raise forms.ValidationError("Username ja foi pego!")
         email = cleaned_data.get('email')
         if email:
-            if User.objects.filter(email=email) > 0:
+            if User.objects.filter(email=email).count() > 0:
                 raise forms.ValidationError("Esse email já foi usado em outra conta!")   
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
@@ -235,7 +235,7 @@ class EditarEmpresaForm(forms.Form):
                     raise forms.ValidationError("Username ja foi pego!")
         email = cleaned_data.get('email')
         if email:
-            if User.objects.filter(email=email) > 0:
+            if User.objects.filter(email=email).count() > 0:
                 raise forms.ValidationError("Esse email já foi usado em outra conta!")   
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
