@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/usuarios/templates/calendário.html" description="&lt;main id=&quot;main-container&quot;&gt;" line="11" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="6751dc3d-140d-449b-b22b-f86d19a1a3f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/cadastro_caravaneiro.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/cadastro_caravaneiro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/migrations/0002_mensagem_recebeu.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/informes/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/informes/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/informes/migrations/0002_auto_20190206_2055.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pedidos/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pedidos/migrations/0002_pedido_caravaneiro.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pedidos/migrations/0003_auto_20190211_1859.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pedidos/migrations/0004_auto_20190211_1911.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_wi/migrations/0003_auto_20190219_1606.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_wi/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/base_menus_caravaneiro.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_caravaneiro.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/base_menus_empresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_empresa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/valores_estaticos.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/valores_estaticos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/oneui.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/oneui.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/cadastro_organizador.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/cadastro_organizador.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/deletar_empresa.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/deletar_empresa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/todas_empresas.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/todas_empresas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,52 +34,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/views.py">
+        <entry file="file://$PROJECT_DIR$/usuarios/templates/calendário.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="390" column="77" selection-start-line="390" selection-start-column="77" selection-end-line="390" selection-end-column="77" />
+            <state relative-caret-position="502">
+              <caret line="71" column="106" selection-start-line="71" selection-start-column="106" selection-end-line="71" selection-end-column="106" />
               <folding>
-                <element signature="e#24#63#0" expanded="true" />
+                <element signature="n#div#0;n#main#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/usuarios/templates/deletar_empresa.html">
+        <entry file="file://$PROJECT_DIR$/static/css/oneui.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="93" column="71" selection-start-line="93" selection-start-column="71" selection-end-line="93" selection-end-column="71" />
+            <state relative-caret-position="287">
+              <caret line="11436" column="1" selection-start-line="11436" selection-start-column="1" selection-end-line="11436" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html">
+        <entry file="file://$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_modals_tooltips.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+            <state relative-caret-position="217">
+              <caret line="1155" column="55" lean-forward="true" selection-start-line="1155" selection-start-column="55" selection-end-line="1155" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/templates/todas_empresas.html">
+        <entry file="file://$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="44" column="30" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="44" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-              <folding>
-                <element signature="e#2#43#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-643">
+              <caret line="8" column="59" lean-forward="true" selection-start-line="8" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -76,8 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>popover</find>
-      <find>btn-suc</find>
       <find>popo</find>
       <find>pos</find>
       <find>corpo</find>
@@ -87,6 +85,27 @@
       <find>btn</find>
       <find>btn-group</find>
       <find>redirect</find>
+      <find>organiza</find>
+      <find>admi</find>
+      <find>fav</find>
+      <find>admin</find>
+      <find>side</find>
+      <find>image-re</find>
+      <find>img-respo</find>
+      <find>responsive</find>
+      <find>img-responsive</find>
+      <find>mapa</find>
+      <find>bootstrap</find>
+      <find>bootstrap mo</find>
+      <find>img</find>
+      <find>#modal-norma</find>
+      <find>#modal-normal</find>
+      <find>normal modal</find>
+      <find>large modal</find>
+      <find>modal-large</find>
+      <find>modal</find>
+      <find>modal-conte</find>
+      <find>close</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -106,9 +125,7 @@
         <option value="$PROJECT_DIR$/usuarios/templates/Organizador_Delete_Confirm.html" />
         <option value="$PROJECT_DIR$/pedidos/views.py" />
         <option value="$PROJECT_DIR$/static/js/deletarorganizador.js" />
-        <option value="$PROJECT_DIR$/static/css/oneui.css" />
         <option value="$PROJECT_DIR$/static/js/DeletarUsuarios.js" />
-        <option value="$PROJECT_DIR$/usuarios/urls.py" />
         <option value="$PROJECT_DIR$/usuarios/templates/deletar_organizador.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/deletar_caravaneiro.html" />
         <option value="$PROJECT_DIR$/sistema_wi/urls.py" />
@@ -120,22 +137,31 @@
         <option value="$PROJECT_DIR$/usuarios/templates/deletar_empresas.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/deletar_caravaneiros.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/cadastro_caravaneiro.html" />
-        <option value="$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/cadastro_organizador.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/todas_empresas.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html" />
-        <option value="$PROJECT_DIR$/usuarios/views.py" />
+        <option value="$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/deletar_empresa.html" />
+        <option value="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" />
+        <option value="$PROJECT_DIR$/sistema_wi/templates/base_menus_caravaneiro.html" />
+        <option value="$PROJECT_DIR$/usuarios/urls.py" />
+        <option value="$PROJECT_DIR$/sistema_wi/templates/base_menus_empresa.html" />
+        <option value="$PROJECT_DIR$/usuarios/views.py" />
+        <option value="$PROJECT_DIR$/sistema_wi/models.py" />
+        <option value="$PROJECT_DIR$/sistema_wi/templates/valores_estaticos.html" />
+        <option value="$PROJECT_DIR$/static/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/static/css/popup.css" />
+        <option value="$PROJECT_DIR$/usuarios/templates/calendário.html" />
+        <option value="$PROJECT_DIR$/static/css/oneui.css" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="357" />
-    <option name="y" value="-1" />
-    <option name="width" value="1015" />
-    <option name="height" value="721" />
+    <option name="x" value="676" />
+    <option name="width" value="697" />
+    <option name="height" value="775" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -153,13 +179,29 @@
             <path>
               <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="usuarios" type="462c0819:PsiDirectoryNode" />
+              <item name="arquivos_extras" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
+              <item name="arquivos_extras" type="462c0819:PsiDirectoryNode" />
+              <item name="02 - OneUI Source (HTML)" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
               <item name="usuarios" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -196,7 +238,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -207,7 +249,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.26881722" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.26881722" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -235,87 +277,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/editar_empresa.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="23" column="96" selection-start-line="23" selection-start-column="93" selection-end-line="23" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pedidos/templates/pedir.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pedidos/templates/criar_pedidos.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/mostrarmapa.js" />
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="92" column="62" selection-start-line="92" selection-start-column="62" selection-end-line="92" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pedidos/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="50" column="80" lean-forward="true" selection-start-line="50" selection-start-column="80" selection-end-line="50" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pedidos/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="6" selection-start-column="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/deletarpedido.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/carregarpedidos.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="43" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/adicional.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15048" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/DeletarUsuarios.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="69" column="22" selection-start-line="69" selection-start-column="22" selection-end-line="69" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/templates/deletar_organizador.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -333,13 +294,6 @@
     <entry file="file://$PROJECT_DIR$/usuarios/templates/editar_organizador.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-306" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sistema_wi/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sistema_wi/views.py">
@@ -362,12 +316,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sistema_wi/migrations/0002_auto_20190219_0254.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sistema_wi/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema_wi/migrations/0002_auto_20190219_0254.py" />
+    <entry file="file://$PROJECT_DIR$/sistema_wi/migrations/0001_initial.py" />
     <entry file="file://$PROJECT_DIR$/pedidos/migrations/0004_auto_20190211_1911.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -392,9 +342,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/migrations/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/migrations/__init__.py" />
     <entry file="file://$PROJECT_DIR$/sistema_wi/migrations/0003_auto_20190219_1606.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -424,12 +372,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/valores_estaticos.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sistema_wi/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Backup/Delete com get/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
@@ -441,13 +383,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="43" selection-start-line="1" selection-start-column="43" selection-end-line="1" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/deletar_empresas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="20" column="89" selection-start-line="20" selection-start-column="89" selection-end-line="20" selection-end-column="89" />
         </state>
       </provider>
     </entry>
@@ -465,16 +400,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/oneui.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22117">
-          <caret line="1301" column="41" selection-start-line="1301" selection-start-column="32" selection-end-line="1301" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/migrations/0001_initial.py" />
     <entry file="file://$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -489,47 +415,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_caravaneiro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="48" lean-forward="true" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sistema_wi/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-918" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="37" column="33" selection-start-line="37" selection-start-column="33" selection-end-line="37" selection-end-column="33" />
-          <folding>
-            <element signature="e#2#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_organizador.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/todas_empresas.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="44" column="30" lean-forward="true" selection-start-line="42" selection-start-column="24" selection-end-line="44" selection-end-column="30" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/templates/empresas_do_organizador.html">
@@ -539,20 +427,177 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_organizador.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_caravaneiro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="48" lean-forward="true" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/deletar_empresas.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/todas_empresas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" column="44" lean-forward="true" selection-start-line="41" selection-start-column="44" selection-end-line="41" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" selection-start-column="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="453" column="74" selection-start-line="453" selection-start-column="74" selection-end-line="453" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_caravaneiro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1252">
+          <caret line="451" column="74" selection-start-line="451" selection-start-column="74" selection-end-line="451" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/deletar_empresa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" selection-start-column="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/perfil_empresa.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema_wi/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_organizador.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="124" column="91" selection-start-line="124" selection-start-column="86" selection-end-line="124" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/fonts/Simple-Line-Icons.eot">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6273" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="40" column="18" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
+          <folding>
+            <element signature="e#2#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="390" column="77" selection-start-line="390" selection-start-column="77" selection-end-line="390" selection-end-column="77" />
+        <state relative-caret-position="2397">
+          <caret line="213" column="19" lean-forward="true" selection-start-line="213" selection-start-column="19" selection-end-line="213" selection-end-column="19" />
           <folding>
             <element signature="e#24#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/deletar_empresa.html">
+    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_empresa.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="93" column="71" selection-start-line="93" selection-start-column="71" selection-end-line="93" selection-end-column="71" />
+        <state relative-caret-position="17">
+          <caret line="452" column="57" selection-start-line="452" selection-start-column="54" selection-end-line="452" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/valores_estaticos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="57" column="122" selection-start-line="57" selection-start-column="122" selection-end-line="57" selection-end-column="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema_wi/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="90" lean-forward="true" selection-start-line="28" selection-start-column="90" selection-end-line="28" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="4" column="15871" selection-start-line="4" selection-start-column="15871" selection-end-line="4" selection-end-column="15871" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/dashboard_empresa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="54" column="123" lean-forward="true" selection-start-line="54" selection-start-column="123" selection-end-line="54" selection-end-column="123" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#main#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/adicional.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/popup.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-643">
+          <caret line="8" column="59" lean-forward="true" selection-start-line="8" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/arquivos_extras/02 - OneUI Source (HTML)/src/base_ui_modals_tooltips.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="1155" column="55" lean-forward="true" selection-start-line="1155" selection-start-column="55" selection-end-line="1155" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/calendário.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="71" column="106" selection-start-line="71" selection-start-column="106" selection-end-line="71" selection-end-column="106" />
+          <folding>
+            <element signature="n#div#0;n#main#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/oneui.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="11436" column="1" selection-start-line="11436" selection-start-column="1" selection-end-line="11436" selection-end-column="1" />
         </state>
       </provider>
     </entry>

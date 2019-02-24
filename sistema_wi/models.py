@@ -26,6 +26,7 @@ class ValoresEstaticos(models.Model):
     senha_wifi = models.CharField(null = False, default="polijunior", blank = False, max_length=100)
     data_de_inicio = models.DateField(null=False, blank=False, default=None)
     mapa_wi = models.ImageField(null = True, blank = True, upload_to = 'sistema_wi/fotos')
+    calendario_wi = models.ImageField(null=True, blank=True, upload_to='sistema_wi/fotos')
 
     def __str__(self):
         return "APENAS ALTERAR, NÃO CRIAR!"
