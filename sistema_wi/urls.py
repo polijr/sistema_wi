@@ -40,6 +40,7 @@ urlpatterns = [
     url(r'^chat/', include((chat.urls, "chat"), namespace='chat')),
     url(r'^definir_feed/$', DefinirDataFeed.as_view()),
     url(r'^valores-sistema/$', sistema_wi.views.ValoresSistema.as_view()),
+    url(r'^seleção-wi/$', sistema_wi.views.SeleçãoWI.as_view())
 ]
 
 

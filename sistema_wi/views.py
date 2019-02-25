@@ -63,5 +63,8 @@ class ValoresSistema(View):
             variaveis.calendario_wi = request.POST["calendario_wi"]
             variaveis.save()
             return HttpResponseRedirect('/usuarios/admin')
-        return render(request, "valores_estaticos.html", {'variaveis': variaveis})            
+        return render(request, "valores_estaticos.html", {'variaveis': variaveis})       
 
+class SeleçãoWI(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, "seleção_wi.html")
