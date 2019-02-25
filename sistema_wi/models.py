@@ -27,6 +27,9 @@ class ValoresEstaticos(models.Model):
     data_de_inicio = models.DateField(null=False, blank=False, default=None)
     mapa_wi = models.ImageField(null = True, blank = True, upload_to = 'sistema_wi/fotos')
     calendario_wi = models.ImageField(null=True, blank=True, upload_to='sistema_wi/fotos')
+    horario_massagem_inicio = models.DateTimeField(null=False)
+    horario_massagem_fim = models.DateTimeField(null=False)
+    intervalo_massagem = models.IntegerField()
 
     def __str__(self):
         return "APENAS ALTERAR, NÃO CRIAR!"

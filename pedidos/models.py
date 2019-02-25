@@ -30,3 +30,7 @@ class Pedido(models.Model):
 	class Meta:
 		verbose_name = "Pedido"
 		verbose_name_plural = "Pedidos"
+
+class Agendamento(models.Model):
+	horario = models.DateTimeField(null=False)
+	cliente = models.ForeignKey(Usuario ,null=False, on_delete=models.CASCADE)
