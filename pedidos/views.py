@@ -3,7 +3,7 @@ from django.views.generic import View
 from .models import Type, Pedido
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from .forms import PedidosForm, TypeForm
+from .forms import *
 from django.contrib import messages
 import json
 import datetime
@@ -100,6 +100,24 @@ class CriarPedido(View):
 			enviou = True
 			messages.success(request, "Pedido criado com sucesso")
 		return render(request, 'criar_pedidos.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
+
+class DefinirHorarios(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo != 2:
+			return render(request, 'erro_403.html')
+		form = ValoresMassagemForm()
+		return render(request, 'definir_horarios.html', {'form': form})
+	
+	def post(self, request, *args, **kwargs):
+		form = ValoresMassagemForm(request.POST)
+		if form.is_valid:
+			valores = ValoresEstaticos.objects.all()[0]
+			valores.horario_massagem_inicio = form.data['horario_massagem_inicio']
+			valores.horario_massagem_fim = form.data['horario_massagem_fim']
+			valores.intervalo_massagem = form.data['intervalo_massagem']
+			valores.n_salas = form.data['n_salas']
+			valores.save()
+		return render(request, 'definir_horarios.html', {'form': form})
 
 
 def CriarLista(inicio, fim, intervalo):
