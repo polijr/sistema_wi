@@ -55,14 +55,14 @@
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
-                                                <label for="register4-email">Email</label>
+                                                <label  for="register4-email">Email</label>
                                                 <div class="input-group">
                                                     <input class="form-control" type="email" id="email" name="email" placeholder="Digite o email do organizador..">
                                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-                                                    {%if form.errors.email %}
+                                                </div>
+                                                {%if form.errors.email %}
                                                     <div id="val-username2-error" class="help-block text-left animated fadeInDown">{{form.errors.email}}</div>
                                                 {%endif%}
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
