@@ -6,6 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .forms import PedidosForm, TypeForm
 from django.contrib import messages
 import json
+import datetime
 
 class CarregarPedidos(View):
 	def get(self, request, *args, **kwargs):
@@ -99,3 +100,12 @@ class CriarPedido(View):
 			enviou = True
 			messages.success(request, "Pedido criado com sucesso")
 		return render(request, 'criar_pedidos.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
+
+
+def CriarLista(inicio, fim, intervalo):
+	lista = []
+	element = inicio
+	while element <= fim:
+		lista.append(element)
+		element += intervalo
+	return lista
