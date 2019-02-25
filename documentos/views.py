@@ -129,7 +129,7 @@ class DeletarNota(View):
 	def get(self, request, *args, **kwargs):
 		if not (request.user.usuario.cargo == 1 and NotaFiscal.objects.filter(pk=request.GET['pk'], organizador=request.user.usuario.usuario_organizador).exists()):
 			return render(request, 'erro_403.html')
-		documento = NotaFiscal.get(pk=request.GET['pk'])
+		documento = NotaFiscal.objects.get(pk=request.GET['pk'])
 		documento.delete()
 		return JsonResponse({'deletou': True})
 			
