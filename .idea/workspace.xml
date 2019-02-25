@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6751dc3d-140d-449b-b22b-f86d19a1a3f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/chat/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentos/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/documentos/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/informes/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/informes/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/todas_empresas.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/todas_empresas.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/todos_caravaneiros.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/todos_organizadores.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/informes/templates/criar_informe.html" beforeDir="false" afterPath="$PROJECT_DIR$/informes/templates/criar_informe.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/informes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/informes/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/usuarios/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="394">
-              <caret line="592" column="106" selection-start-line="592" selection-start-column="106" selection-end-line="592" selection-end-column="106" />
+            <state relative-caret-position="499">
+              <caret line="374" column="75" lean-forward="true" selection-start-line="374" selection-start-column="9" selection-end-line="374" selection-end-column="75" />
               <folding>
                 <element signature="e#24#63#0" expanded="true" />
               </folding>
@@ -36,32 +29,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="472" column="111" selection-start-line="472" selection-start-column="111" selection-end-line="472" selection-end-column="111" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_empresa.html">
+        <entry file="file://$PROJECT_DIR$/informes/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/templates/calendário.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="27" selection-start-column="27" selection-end-column="27" />
+            <state relative-caret-position="340">
+              <caret line="21" column="67" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
               <folding>
-                <element signature="n#div#0;n#main#0;n#!!top" />
+                <element signature="e#0#35#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/informes/templates/criar_informe.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#main#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_caravaneiro.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="32" column="55" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="32" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -70,11 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>redirect</find>
-      <find>organiza</find>
-      <find>admi</find>
-      <find>fav</find>
-      <find>admin</find>
       <find>side</find>
       <find>image-re</find>
       <find>img-respo</find>
@@ -97,9 +88,14 @@
       <find>chat</find>
       <find>calenda</find>
       <find>redirecio</find>
-      <find>Cada</find>
       <find>calend</find>
       <find>orga</find>
+      <find>inform</find>
+      <find>moda</find>
+      <find>Cada</find>
+      <find>post</find>
+      <find>messages</find>
+      <find>enviou</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -151,6 +147,8 @@
         <option value="$PROJECT_DIR$/usuarios/templates/calendário.html" />
         <option value="$PROJECT_DIR$/usuarios/views.py" />
         <option value="$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html" />
+        <option value="$PROJECT_DIR$/informes/views.py" />
+        <option value="$PROJECT_DIR$/informes/templates/criar_informe.html" />
       </list>
     </option>
   </component>
@@ -175,13 +173,18 @@
             <path>
               <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
+              <item name="informes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
+              <item name="informes" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
+              <item name="usuarios" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -218,7 +221,7 @@
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18080357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -229,7 +232,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.4608295" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.22119816" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -257,8 +260,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sistema_wi/migrations/0002_auto_20190219_0254.py" />
-    <entry file="file://$PROJECT_DIR$/sistema_wi/migrations/0001_initial.py" />
     <entry file="file://$PROJECT_DIR$/pedidos/migrations/0004_auto_20190211_1911.py" />
     <entry file="file://$PROJECT_DIR$/../venv_WI/Lib/site-packages/django/db/migrations/graph.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -293,9 +294,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/admin.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/models.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../venv_WI/Lib/site-packages/django/db/models/query.py">
@@ -367,13 +365,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_caravaneiro.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="48" lean-forward="true" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/templates/deletar_empresas.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -434,16 +425,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="412" column="37" selection-start-line="412" selection-start-column="37" selection-end-line="412" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="40" column="67" selection-start-line="40" selection-start-column="67" selection-end-line="40" selection-end-column="67" />
-          <folding>
-            <element signature="e#2#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -527,12 +508,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/templates/calendárioOrg.html" />
     <entry file="file://$PROJECT_DIR$/usuarios/templates/calendárioAdmin.html" />
-    <entry file="file://$PROJECT_DIR$/usuarios/views.py">
+    <entry file="file://$PROJECT_DIR$/usuarios/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="592" column="106" selection-start-line="592" selection-start-column="106" selection-end-line="592" selection-end-column="106" />
+        <state relative-caret-position="-583" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="482" column="52" selection-start-line="482" selection-start-column="46" selection-end-line="482" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
           <folding>
-            <element signature="e#24#63#0" expanded="true" />
+            <element signature="e#2#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -554,10 +547,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sistema_wi/templates/base_menus_admin.html">
+    <entry file="file://$PROJECT_DIR$/usuarios/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="472" column="111" selection-start-line="472" selection-start-column="111" selection-end-line="472" selection-end-column="111" />
+        <state relative-caret-position="499">
+          <caret line="374" column="75" lean-forward="true" selection-start-line="374" selection-start-column="9" selection-end-line="374" selection-end-column="75" />
+          <folding>
+            <element signature="e#24#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_caravaneiro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="32" column="55" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="32" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/informes/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" column="67" selection-start-line="21" selection-start-column="67" selection-end-line="21" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/informes/templates/criar_informe.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#main#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
