@@ -9,7 +9,7 @@ xhr.addEventListener("load", function() {
 		for(var i = 0; i < pedidos.length; i++) {
 			tabela_nova += '<tr><td class="font-w600">' + pedidos[i].tipo_pedido + '</td><td class="text-center">'+
 			'<div class="btn-group"><div class="block-content block-content-full">'+ '<div class="popup">' +
-			'<button class="btn btn-success btn-popup" onclick="MostrarPopUp('+ i +')" type = "button">+</button><span class="popuptext">Nome: ' 
+			'<button class="btn btn-warning btn-popup" onclick="MostrarPopUp('+ i +')" type = "button">+</button><span class="popuptext">Nome: '
 			+ pedidos[i].nome;
 			if (pedidos[i].tipo_pedinte == 'Caravaneiro')
 				tabela_nova += '<br><span style="color: yellow;">Caravaneiro</span>';
@@ -17,8 +17,8 @@ xhr.addEventListener("load", function() {
 				tabela_nova += '<br><span style="color: red">Empresa</span><br>Stand: ' + pedidos[i].stand;
 			}
 			tabela_nova += '<br>Observação: '+ pedidos[i].observacao +'</span></div>'+
-			'</div><button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Remove Client"'+
-			' onclick="Deletar('+ pedidos[i].pk + ')"><i class="fa fa-times"></i></button></div></td></tr>';
+			'</div></div></td><td class="text-center"><div class="btn-group"><div class="block-content block-content-full"><button class="btn btn-xs btn-default" type="button" data-toggle="tooltip" title="Remove Client"'+
+			' onclick="Deletar('+ pedidos[i].pk + ')"><i class="fa fa-times"></i></button></div></div></td></tr>';
 		}
 		var tabela_atual = document.querySelector(".corpo-pedidos");
 		tabela_atual.innerHTML = tabela_nova;

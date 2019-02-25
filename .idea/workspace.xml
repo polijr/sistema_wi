@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6751dc3d-140d-449b-b22b-f86d19a1a3f3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chat/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentos/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/documentos/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/informes/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/informes/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pedidos/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pedidos/migrations/0002_agendamento.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sistema_wi/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/carregarpedidos.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/carregarpedidos.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,12 +24,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/js/carregarpedidos.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pedidos/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="427">
-              <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
+              <caret line="111" selection-start-line="111" selection-end-line="111" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="65" column="83" selection-start-line="65" selection-start-column="83" selection-end-line="65" selection-end-column="83" />
+              <folding>
+                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#2;n#main#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#2;n#main#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -32,7 +61,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>side</find>
       <find>image-re</find>
       <find>img-respo</find>
       <find>responsive</find>
@@ -62,6 +90,7 @@
       <find>post</find>
       <find>messages</find>
       <find>enviou</find>
+      <find>pedidos</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -74,7 +103,6 @@
         <option value="$PROJECT_DIR$/static/js/carregarajax.js" />
         <option value="$PROJECT_DIR$/static/js/deletarpedido.js" />
         <option value="$PROJECT_DIR$/pedidos/urls.py" />
-        <option value="$PROJECT_DIR$/static/js/carregarpedidos.js" />
         <option value="$PROJECT_DIR$/usuarios/templates/dashboard_caravaneiro.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/Organizador_Delete_Confirm.html" />
         <option value="$PROJECT_DIR$/static/js/deletarorganizador.js" />
@@ -104,7 +132,6 @@
         <option value="$PROJECT_DIR$/usuarios/urls.py" />
         <option value="$PROJECT_DIR$/sistema_wi/templates/base_menus_empresa.html" />
         <option value="$PROJECT_DIR$/sistema_wi/views.py" />
-        <option value="$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html" />
         <option value="$PROJECT_DIR$/sistema_wi/templates/base_menus_organizador.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/calendárioAdmin.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/calendárioOrg.html" />
@@ -115,6 +142,8 @@
         <option value="$PROJECT_DIR$/informes/views.py" />
         <option value="$PROJECT_DIR$/informes/templates/criar_informe.html" />
         <option value="$PROJECT_DIR$/pedidos/views.py" />
+        <option value="$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html" />
+        <option value="$PROJECT_DIR$/static/js/carregarpedidos.js" />
       </list>
     </option>
   </component>
@@ -144,13 +173,13 @@
             <path>
               <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="usuarios" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
               <item name="usuarios" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -186,8 +215,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16294643" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16294643" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -198,7 +228,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.21812595" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.11367127" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -226,20 +256,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../venv_WI/Lib/site-packages/django/db/migrations/graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4408">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pedidos/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../venv_WI/Lib/site-packages/django/db/models/fields/related.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -320,13 +336,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
           <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_organizador.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -417,18 +426,6 @@
           <folding>
             <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#main#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#main#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-          <folding>
-            <element signature="n#div#2;n#main#0;n#!!top" />
-            <element signature="n#div#0;n#div#2;n#main#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#div#2;n#main#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -549,13 +546,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/cadastro_organizador.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="55" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pedidos/templates/criar_pedidos.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="65" column="83" selection-start-line="65" selection-start-column="83" selection-end-line="65" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#2;n#main#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#2;n#main#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pedidos/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
-          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/carregarpedidos.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
         </state>
       </provider>
     </entry>
