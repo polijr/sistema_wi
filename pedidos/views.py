@@ -62,10 +62,11 @@ class Pedidos(View):
 		if cargo == 0:
 			empresa = current_user.usuario.usuario_empresa.organizador_resp
 			tipos_de_pedidos = Type.objects.filter(caravaneiro=False)
+			template_base = 'base_menus_empresa.html'
 		if cargo == 3:
 			tipos_de_pedidos = Type.objects.filter(caravaneiro=True)
-		
-		return render(request, 'pedir.html', {'tipos':tipos_de_pedidos, 'organizador': empresa})
+			template_base = 'base_menus_caravaneiro.html'
+		return render(request, 'pedir.html', {'tipos':tipos_de_pedidos, 'organizador': empresa, 'template_base': template_base})
 
 
 	def post(self, request, *args, **kwargs):
