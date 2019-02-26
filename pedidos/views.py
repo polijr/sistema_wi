@@ -101,6 +101,18 @@ class CriarPedido(View):
 			messages.success(request, "Pedido criado com sucesso")
 		return render(request, 'criar_pedidos.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
 
+class Agendamento(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo == 0 or request.user.usuario.cargo == 2:
+			salas=CriarListaSalas(ValoresEstaticos.objects.all()[0].n_salas)
+			horarios=CriarLista(ValoresEstaticos.objects.all()[0].horario_massagem_inicio, ValoresEstaticos.objects.all()[0].horario_massagem_fim, ValoresEstaticos.objects.all()[0].intervalo_massagem)
+			return render(request, 'realizar_agendamento.html', {'salas': salas, 'horarios':horarios})
+		else:
+			return render(request, 'erro_403.html')
+
+	def post(self, request, *args, **kwargs):
+		Agendamento.objects.create()
+
 
 def CriarLista(inicio, fim, intervalo):
 	lista = []
@@ -108,4 +120,10 @@ def CriarLista(inicio, fim, intervalo):
 	while element <= fim:
 		lista.append(element)
 		element += intervalo
+	return lista
+
+def CriarListaSalas(num_salas):
+	lista=[]
+	while i < num_salas:
+		lista.append("Sala" + (i+1))
 	return lista

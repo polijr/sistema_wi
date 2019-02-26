@@ -1,0 +1,52 @@
+{% extends template_base %}
+{% block nomePagina %}Agendamento Massagem{% endblock%}
+{% block conteudo %}
+
+            <main id="main-container">
+                    {% for sala in salas %}
+                    <!-- Register Forms -->
+                    <h2 class="content-heading"></h2>
+                        <div class="col-lg-12">
+                            <!-- Bootstrap Register -->
+                            <div class="block block-themed">
+                                <div class="block-header bg-info">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Bootstrap</h3>
+                                </div>
+                                <div class="block-content">
+                                    <form class="form-horizontal push-5-t" action="base_forms_premade.html" method="post" onsubmit="return false;">
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="contact1-subject">Where?</label>
+                                            <div class="col-xs-12">
+                                                <select class="form-control" id="contact1-subject" name="contact1-subject" size="1">
+                                                    {% for horario in horarios %}
+                                                    <option value="1">{horario}</option>
+                                                    {endfor}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm btn-info" type="submit"><i class="fa fa-send push-5-r"></i> Send Message</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!-- END Bootstrap Register -->
+                        </div>
+                    </div>
+                    <!-- END Register Forms -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+
+{% endblock %}
