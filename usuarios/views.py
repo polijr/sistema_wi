@@ -142,7 +142,6 @@ class CadastroEmpresa(View):
         if request.user.usuario.cargo != 1 and request.user.usuario.cargo != 2:
             return render(request, 'erro_403.html')
         organizadores = Organizador.objects.all()
-        print(request.user.usuario.cargo)
         if request.user.usuario.cargo == 1:
             template_base = 'base_menus_organizador.html'
         elif request.user.usuario.cargo == 2:
