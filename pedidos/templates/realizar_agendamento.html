@@ -18,14 +18,30 @@
                                             <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
                                         </li>
                                     </ul>
-                                    <h3 class="block-title">Bootstrap</h3>
+                                    <h3 class="block-title">{{ sala }}</h3>
                                 </div>
                                 <div class="block-content">
+                                    {% if messages %}
+                                        <ul class="messages">
+                                            {% for message in messages %}
+                                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
                                     <form class="form-horizontal push-5-t" action="base_forms_premade.html" method="post" onsubmit="return false;">
+                                        {% csrf_token %}
                                         <div class="form-group">
-                                            <label class="col-xs-12" for="contact1-subject">Where?</label>
+                                            <label class="col-xs-12" for="sala">Sala</label>
                                             <div class="col-xs-12">
-                                                <select class="form-control" id="contact1-subject" name="contact1-subject" size="1">
+                                                <div class="input-group">
+                                                    <input readonly="true" class="form-control" id="sala" name="sala" value="{{sala}}" placeholder="{{sala}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-xs-12" for="horario">Qual horário deseja?</label>
+                                            <div class="col-xs-12">
+                                                <select class="form-control" id="horario" name="horario" size="1">
                                                     {% for horario in horarios %}
                                                     <option value="1">{horario}</option>
                                                     {endfor}

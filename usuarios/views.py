@@ -203,7 +203,7 @@ class CadastroOrganizador(View):
     def post(self, request, *args, **kwargs):
         form = CadastroOrganizadorForm(request.POST)
         if form.is_valid():
-            user = User.objects.create_user(username= form.data['username'],
+            user = User.objects.create_user(username=form.data['username'],
                                             email=form.data['email'],
                                             password=form.data['password'],
                                             first_name=form.data["nome"],
@@ -581,9 +581,9 @@ class DeletarCaravaneiros(View):
 
 class Calendario(View):
     def get(self, request, *args, **kwargs):
-        if request.user.usuario.cargo == 3:
-            return render(request, 'erro_403.html')
         variaveis = ValoresEstaticos.objects.all()[0]
+        if request.user.usuario.cargo == 3:
+            template_base = 'base_menus_caravaneiro.html'
         if request.user.usuario.cargo == 0:
             template_base = 'base_menus_empresa.html'
         elif request.user.usuario.cargo == 1:

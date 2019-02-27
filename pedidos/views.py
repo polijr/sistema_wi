@@ -3,7 +3,7 @@ from django.views.generic import View
 from .models import Type, Pedido
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from .forms import PedidosForm, TypeForm
+from .forms import *
 from django.contrib import messages
 import json
 import datetime
@@ -62,10 +62,11 @@ class Pedidos(View):
 		if cargo == 0:
 			empresa = current_user.usuario.usuario_empresa.organizador_resp
 			tipos_de_pedidos = Type.objects.filter(caravaneiro=False)
+			template_base = 'base_menus_empresa.html'
 		if cargo == 3:
 			tipos_de_pedidos = Type.objects.filter(caravaneiro=True)
-		
-		return render(request, 'pedir.html', {'tipos':tipos_de_pedidos, 'organizador': empresa})
+			template_base = 'base_menus_caravaneiro.html'
+		return render(request, 'pedir.html', {'tipos':tipos_de_pedidos, 'organizador': empresa, 'template_base': template_base})
 
 
 	def post(self, request, *args, **kwargs):
@@ -101,6 +102,7 @@ class CriarPedido(View):
 			messages.success(request, "Pedido criado com sucesso")
 		return render(request, 'criar_pedidos.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
 
+
 class Agendamento(View):
 	def get(self, request, *args, **kwargs):
 		if request.user.usuario.cargo == 0 or request.user.usuario.cargo == 2:
@@ -111,19 +113,44 @@ class Agendamento(View):
 			return render(request, 'erro_403.html')
 
 	def post(self, request, *args, **kwargs):
-		Agendamento.objects.create()
+		form = AgendamentoForm(request.POST)
+		if form.is_valid:
+			reserva = Agendamento.objects.create(horario=form.data["horario"], cliente=request.user.usuario, sala=form.data["sala"])
+			reserva.save()
+			messages.success(request, "Horário reservado com sucesso!")
+
+class DefinirHorarios(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo != 2:
+			return render(request, 'erro_403.html')
+		form = ValoresMassagemForm()
+		return render(request, 'definir_horarios.html', {'form': form})
+	
+	def post(self, request, *args, **kwargs):
+		form = ValoresMassagemForm(request.POST)
+		if form.is_valid:
+			valores = ValoresEstaticos.objects.all()[0]
+			valores.horario_massagem_inicio = form.data['horario_massagem_inicio']
+			valores.horario_massagem_fim = form.data['horario_massagem_fim']
+			valores.intervalo_massagem = form.data['intervalo_massagem']
+			valores.n_salas = form.data['n_salas']
+			valores.save()
+		return render(request, 'definir_horarios.html', {'form': form})
 
 
 def CriarLista(inicio, fim, intervalo):
 	lista = []
 	element = inicio
+	delta = datetime.timedelta(minutes=intervalo)
 	while element <= fim:
 		lista.append(element)
-		element += intervalo
+		element += delta
 	return lista
 
+
 def CriarListaSalas(num_salas):
-	lista=[]
+	lista = []
+	i = 0
 	while i < num_salas:
-		lista.append("Sala" + (i+1))
-	return lista
+		lista.append("Sala %d" %(i+1))
+		return lista

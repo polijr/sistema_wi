@@ -7,4 +7,5 @@ class PedidoAdmin(admin.ModelAdmin):
 
 admin.site.register(Type)
 admin.site.register(Pedido, PedidoAdmin)
+admin.site.register(Agendamento)
 
