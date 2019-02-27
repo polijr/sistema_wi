@@ -38,19 +38,3 @@ class ValoresMassagemForm(forms.Form):
     class Meta:
         model = ValoresEstaticos
         fields = ['horario_massagem_inicio', 'horario_massagem_fim', 'intervalo_massagem', 'n_salas']
-
-
-class AgendamentoForm(forms.Form):
-    sala = forms.CharField(required=True, max_length=6)
-    horario = forms.DateTimeField(required=True)
-
-    def clean(self):
-        cleaned_data = super(AgendamentoForm, self).clean()
-        sala = cleaned_data.get('sala')
-        horario = cleaned_data.get('horario')
-        if Agendamento.objects.filter(sala=sala, horario=horario).exists():
-            raise forms.ValidationError('Horário indisponível')
-
-    class Meta:
-        model = Agendamento
-        fields = ['sala', 'horario']

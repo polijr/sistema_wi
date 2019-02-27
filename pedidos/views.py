@@ -178,19 +178,19 @@ class FazerAgendamento(View):
 			return render(request, 'erro_403.html')
 
 	def post(self, request, *args, **kwargs):
+		if not Agendamento.objects.filter(horario=request.POST["horario"], sala=request.POST["sala"]).exists():
+			reserva = Agendamento.objects.create(horario=request.POST["horario"], cliente=request.user.usuario, sala=request.POST["sala"])
+			reserva.save()
+			messages.success(request, "Horário reservado com sucesso!")
+		if request.user.usuario.cargo == 0:
+			template_base = 'base_menus_empresa.html'
+		else:
+			template_base = 'base_menus_admin.html'
 		salas = CriarListaSalas(ValoresEstaticos.objects.all()[0].n_salas)
 		horarios = CriarLista(ValoresEstaticos.objects.all()[0].horario_massagem_inicio, 
 			ValoresEstaticos.objects.all()[0].horario_massagem_fim,
 			ValoresEstaticos.objects.all()[0].intervalo_massagem,
 			salas)
-		form = AgendamentoForm(request.POST)
-		reserva = Agendamento.objects.create(horario=form.data["horario"], cliente=request.user.usuario, sala=form.data["sala"])
-		reserva.save()
-		messages.success(request, "Horário reservado com sucesso!")
-		if request.user.usuario.cargo == 0:
-			template_base = 'base_menus_empresa.html'
-		else:
-			template_base = 'base_menus_admin.html'
 		return render(request, 'realizar_agendamento.html', {'salas': salas, 'horarios':horarios, 'template_base': template_base})
 
 
@@ -249,7 +249,10 @@ def CriarLista(inicio, fim, intervalo, salas):
 		element = datetime.datetime.combine(dia, hora);
 		delta = datetime.timedelta(minutes=intervalo)
 		while element.time() <= fim:
-			lista.append({'sala': sala, 'datetime': element,'time': element.time(), 'reservado': Agendamento.objects.filter(horario=element, sala=sala).exists()})
+			lista.append({'sala': sala, 
+				'datetime': element.strftime('%Y-%m-%d %H:%M:%S'),
+				'time': element.time(), 
+				'reservado': Agendamento.objects.filter(horario=element, sala=sala).exists()})
 			element += delta
 	return lista
 
