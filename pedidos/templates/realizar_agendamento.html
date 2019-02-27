@@ -26,13 +26,13 @@
                                     <h3 class="block-title">Agendamento de Massagem</h3>
                                 </div>
                                 <div class="block-content">
-                                    <!-- {% if messages %}
+                                    {% if messages %}
                                         <ul class="messages">
                                             {% for message in messages %}
                                             <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                                             {% endfor %}
                                         </ul>
-                                    {% endif %} -->
+                                    {% endif %}
                                     <form class="form-horizontal push-5-t" method="post">
                                         {% csrf_token %}
                                         <div class="form-group">

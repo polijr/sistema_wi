@@ -1,0 +1,53 @@
+{% extends 'base_menus_admin.html' %}
+{% block nomePagina %}Tipos de Pedidos{% endblock%}
+{% load static %}
+{% block conteudo %}
+<main id="main-container">
+    <h2 class="content-heading"></h2>
+    <div class="col-lg-12">
+        <div class="block-header" style="background-color: #FFAF00">
+            <h3 class="block-title" style="color: #FFFFFF">
+            Tipos de Pedidos
+            </h3>
+        </div>
+    </div>
+
+    <div class="block-content">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <table class="table table-borderless table-striped table-vcenter">
+            <thead>
+                <tr>
+                    <th class="hidden-xs text-center">Tipo de Pedido</th>
+                    <th class="hidden-xs text-center">Editar</th>
+                    <th class="hidden-xs text-center">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in tipos %}
+                <tr>
+                    <td class="text-center">{{i.name}}</td>
+                    <td class="text-center">
+                        <div class="btn-group btn-group-xs">
+                            <a href="{% url 'pedidos:Editar Tipo' pk=i.pk %}" data-toggle="tooltip" title="Editar" class="btn btn-default"><i class="fa fa-pencil"></i></a>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="btn-group btn-group-xs">
+                            <a href="{% url 'pedidos:Deletar Tipo' pk=i.pk %}" data-toggle="tooltip" title="Excluir" class="btn btn-default"><i class="fa fa-eraser"></i></a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</main>
+<script type="text/javascript" src="{% static 'js/DeletarUsuarios.js' %}"></script>
+{% endblock %}

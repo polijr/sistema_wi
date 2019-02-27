@@ -1,0 +1,46 @@
+{% extends 'base_menus_admin.html' %}
+{% block nomePagina %}Agendamentos{% endblock%}
+{% load static %}
+{% block conteudo %}
+<main id="main-container">
+    <h2 class="content-heading"></h2>
+    <div class="col-lg-12">
+        <div class="block-header" style="background-color: #FFAF00">
+            <h3 class="block-title" style="color: #FFFFFF">
+            Todos agendamentos
+            </h3>
+        </div>
+    </div>
+
+    <div class="block-content">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <table class="table table-borderless table-striped table-vcenter">
+            <thead>
+                <tr>
+                    <th class="hidden-xs text-center">Cliente</th>
+                    <th class="hidden-xs text-center">Sala</th>
+                    <th class="hidden-xs text-center">Horário</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in agendamentos %}
+                <tr>
+                    <td class="text-center">{{i.cliente}}</td>
+                    <td class="text-center">{{i.sala}}</td>
+                    <td class="text-center">{{i.horario}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'pedidos:Deletar Agendamentos' %}"><button class="btn btn-group pull-right btn-sm" style="background-color: red; color: #FFFFFF; width: auto; font-size: 70%"  type="button" data-toggle="tooltip" title="Apagar todos"><i class="fa fa-times"></i> Deletar todos</button></a>
+    </div>
+    
+</main>
+<script type="text/javascript" src="{% static 'js/DeletarUsuarios.js' %}"></script>
+{% endblock %}

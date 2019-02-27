@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import View
 from .models import *
 from django.http import JsonResponse, HttpResponse
@@ -91,7 +91,7 @@ class CriarPedido(View):
 	def get(self, request, *args, **kwargs):
 		if request.user.usuario.cargo == 2:
 			form = TypeForm()
-			return render(request, 'criar_pedidos.html', {'form': form, 'messages': messages, 'post': False})
+			return render(request, 'criar_pedidos.html', {'form': form, 'post': False})
 		else:
 			return render(request, 'erro_403.html')
 
@@ -103,7 +103,62 @@ class CriarPedido(View):
 			pedido = form.save()
 			enviou = True
 			messages.success(request, "Pedido criado com sucesso")
-		return render(request, 'criar_pedidos.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
+		return render(request, 'criar_pedidos.html', {'form' : form, 'post': True, 'enviou': enviou})
+
+
+class TiposDePedidos(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo == 2:
+			tipos = Type.objects.all()
+			return render(request, 'tipos_de_pedidos.html', {'tipos': tipos})
+		return render(request, 'erro_403.html')
+
+
+class EditarTipo(View):
+	def get(self, request, pk, *args, **kwargs):
+		if request.user.usuario.cargo == 2:
+			tipo = Type.objects.get(pk=pk)
+			return render(request, 'editar_tipo.html', {'tipo': tipo})
+		else:
+			return render(request, 'erro_403.html')
+
+	def post(self, request, pk, *args, **kwargs):
+		request.POST._mutable = True
+		request.POST['pk'] = pk
+		form = TypeForm(request.POST)
+		if form.is_valid():
+			tipo = Type.objects.get(pk=pk)
+			tipo.name = request.POST["name"]
+			tipo.caravaneiro = request.POST["caravaneiro"]
+			tipo.save()
+			messages.success(request, 'Pedido editado com sucesso')
+			return redirect('/pedidos/tipos-de-pedidos')
+		tipo = Type.objects.get(pk=pk)
+		return render(request, 'editar_tipo.html', {'form': form, 'tipo': tipo})
+
+
+class DeletarTipo(View):
+	def get(self, request, pk, *args, **kwargs):
+		if request.user.usuario.cargo == 2:
+			tipo = Type.objects.get(pk=pk)
+			return render(request, 'deletar_tipo.html', {'tipo': tipo})
+		else:
+			return render(request, 'erro_403.html')
+
+	def post(self, request, pk, *args, **kwargs):
+		if request.user.usuario.cargo == 2:
+			request.POST._mutable = True
+			request.POST['pk'] = pk
+			tipo = Type.objects.get(pk=pk)
+			form = TypeForm(request.POST)
+			print(form)
+			if form.is_valid():
+				tipo.delete()
+				messages.success(request, "Tipo de pedido deletado com sucesso!")
+			return redirect("pedidos/tipos-de-pedidos")
+		else:
+			return render(request, 'erro_403.html')
+
 
 
 class FazerAgendamento(View):
@@ -129,10 +184,9 @@ class FazerAgendamento(View):
 			ValoresEstaticos.objects.all()[0].intervalo_massagem,
 			salas)
 		form = AgendamentoForm(request.POST)
-		if form.is_valid():
-			reserva = Agendamento.objects.create(horario=form.data["horario"], cliente=request.user.usuario, sala=form.data["sala"])
-			reserva.save()
-			messages.success(request, "Horário reservado com sucesso!")
+		reserva = Agendamento.objects.create(horario=form.data["horario"], cliente=request.user.usuario, sala=form.data["sala"])
+		reserva.save()
+		messages.success(request, "Horário reservado com sucesso!")
 		if request.user.usuario.cargo == 0:
 			template_base = 'base_menus_empresa.html'
 		else:
@@ -157,6 +211,34 @@ class DefinirHorarios(View):
 			valores.n_salas = form.data['n_salas']
 			valores.save()
 		return render(request, 'definir_horarios.html', {'form': form})
+
+
+class Agendamentos(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo == 2:
+			agendamentos = Agendamento.objects.all()
+			return render(request, 'agendamentos.html', {'agendamentos': agendamentos})
+		else:
+			return render(request, 'erro_403.html')
+
+
+class DeletarAgendamentos(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo == 2:
+			return render(request, 'deletar_agendamentos.html')
+		else:
+			return render(request, 'erro_403.html')
+
+	def post(self, request, *args, **kwargs):
+		request.POST._mutable = True
+		if request.user.usuario.cargo == 2:
+			agendamentos = Agendamento.objects.all()
+			for agendamento in agendamentos:
+				agendamento.delete()
+			messages.success(request, "Todos agendamentos deletados com sucesso!")
+			return redirect("/pedidos/agendamentos")
+		else:
+			return render(request, 'erro_403.html')
 
 
 def CriarLista(inicio, fim, intervalo, salas):

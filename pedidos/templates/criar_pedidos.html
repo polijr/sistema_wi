@@ -13,7 +13,6 @@
                                                 <div class="block block-themed centered ">
                                                     <div class="block-header" style="background-color: #FFAF00">
                                                         <ul class="block-options">
-                                                            {{messages.0}}
                                                             <li>
                                                                 <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
                                                             </li>
@@ -21,6 +20,13 @@
                                                         <h3 class="block-title">Página de pedido</h3>
                                                     </div>
                                                     <div class="block-content">
+                                                        {% if messages %}
+                                                        <ul class="messages">
+                                                            {% for message in messages %}
+                                                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                        {% endif %}
                                                         <table class="table table-striped table-vcenter">
                                                         <form id="forms_pedido" class="form-horizontal push-5-t" action="" method="post" enctype="multipart/form-data">
                                                             {% csrf_token %}

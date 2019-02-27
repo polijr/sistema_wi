@@ -1,0 +1,55 @@
+{% extends 'base_menus_admin.html' %}
+{% block nomePagina %}Editar Tipo de Pedido{% endblock%}
+{% block conteudo %}
+
+            <main id="main-container">
+
+                    <!-- Register Forms -->
+                    <h2 class="content-heading"></h2>
+                        <div class="col-lg-12">
+                            <!-- Bootstrap Register -->
+                            <div class="block block-themed">
+                                <div class="block-header" style="background-color: #FFAF00">
+                                    <ul class="block-options">
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+                                        </li>
+                                        <li>
+                                            <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                                        </li>
+                                    </ul>
+                                    <h3 class="block-title">Caravaneiro</h3>
+                                </div>
+                                <div class="block-content">
+                                    <form class="form-horizontal push-5-t" action="" method="post">
+                                        {% csrf_token %}
+                                            <div class="form-group col-xs-12">
+                                                <label for="id_nome">Nome do pedido:</label>
+                                                    <input value="{{tipo.name}}" class="form-control" type="text" id="id_name" name="name" placeholder="Digite um nome (obrigatório)"  maxlength="100" required>
+                                            </div>
+                                            <div class="form-group col-xs-12">
+                                                {% comment %}
+                                                <label for="id_arquivo">Escolha a Imagem:</label>
+                                                <input value="{{tipo.image}}" type="file" name="image" id="id_image" required> {% endcomment %}
+                                                <label for="register4-lastname">Pedido de caravaneiro?</label>
+                                                <select value="{{tipo.caravaneiro}}"class="form-control" id="caravaneiro" name="caravaneiro" size="1">
+                                                    <option value="0">Não</option>
+                                                    <option value="1">Sim</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-12">
+                                                <button class="btn btn-sm bg-dark" type="submit"><i class="fa fa-plus push-5-r"></i> Enviar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END Bootstrap Register -->
+                        </div>
+                    </div>
+                    <!-- END Register Forms -->
+                </div>
+                <!-- END Page Content -->
+            </main>
+
+{% endblock %}
