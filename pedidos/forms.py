@@ -40,6 +40,3 @@ class ValoresMassagemForm(forms.Form):
         fields = ['horario_massagem_inicio', 'horario_massagem_fim', 'intervalo_massagem', 'n_salas']
 
 
-class AgendamentoForm(forms.Form):
-    sala=forms.CharField(required=True)
-    horario=forms.ChoiceField(required=True)

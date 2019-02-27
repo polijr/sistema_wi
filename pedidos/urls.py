@@ -9,6 +9,6 @@ urlpatterns = [
 	url(r'^deletar-pedidos/$', DeletarPedido.as_view(), name='Deletar'),
 	url(r'^pedidos/$', Pedidos.as_view(), name = 'Pedidos'),
 	url(r'^criar-pedidos/$', CriarPedido.as_view(), name = 'criarPedidos'),
-	url(r'^agendar-massagem/$', Agendamento.as_view(), name = 'agendarMassagem'),
+	url(r'^agendar-massagem/$', FazerAgendamento.as_view(), name = 'agendarMassagem'),
 	url(r'^definir-horarios/$', login_required(DefinirHorarios.as_view()), name='Definir Horarios')
 ]
