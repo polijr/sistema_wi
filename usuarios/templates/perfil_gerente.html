@@ -26,14 +26,14 @@
                                         <div class="form-group">
                                             <div class="col-xs-6" >
                                                 <label for="register4-firstname">Nome do gerente</label>
-                                                <input class="form-control" value="{{gerente.usuario.user.first_name}}" type="text" id="nome" name="nome" placeholder="Digite o nome da empresa..">
+                                                <input class="form-control" value="{{gerente.usuario.user.first_name}}" type="text" id="nome" name="nome" placeholder="Digite o nome do gerente..">
                                                 {%if form.errors.nome %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.nome}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6">
                                                 <label for="register4-lastname">Sobrenome do gerente</label>
-                                                <input class="form-control" value="{{gerente.usuario.user.last_name}}" type="text" id="sobrenome" name="sobrenome" placeholder="Digite o CNPJ da empresa..">
+                                                <input class="form-control" value="{{gerente.usuario.user.last_name}}" type="text" id="sobrenome" name="sobrenome" placeholder="Digite o sobrenome do gerente..">
                                                 {%if form.errors.cnpj %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.cpnj}}</div>
                                                 {%endif%}
@@ -42,7 +42,7 @@
                                         <div class="form-group">
                                             <div class="col-xs-6">
                                                 <label for="register4-firstname">Nome de usuário</label>
-                                                <input class="form-control" value="{{gerente.usuario.user.username}}" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
+                                                <input class="form-control" value="{{gerente.usuario.user.username}}" type="text" id="username" name="username" placeholder="Digite o username do gerente..">
                                                 {%if form.errors.username %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.username}}</div>
                                                 {%endif%}
@@ -50,7 +50,7 @@
                                             <div class="col-xs-6">
                                                 <label for="register4-email">Email</label>
                                                 <div class="input-group">
-                                                    <input class="form-control" value="{{gerente.usuario.user.email}}" type="email" id="email" name="email" placeholder="Digite o email da empresa..">
+                                                    <input class="form-control" value="{{gerente.usuario.user.email}}" type="email" id="email" name="email" placeholder="Digite o email do gerente..">
                                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                                                 </div>
                                                 {%if form.errors.email %}

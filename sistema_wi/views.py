@@ -51,12 +51,8 @@ class ValoresSistema(View):
         return render(request, "valores_estaticos.html")
     
     def post(self, request, *args, **kwargs):
-        form = ValoresEstaticosForm(request.POST)
+        form = ValoresEstaticosForm(request.POST, request.FILES)
         variaveis = ValoresEstaticos.objects.all()[0]
-        variaveis.mapa_wi = request.POST["mapa_wi"]
-        variaveis.calendario_wi = request.POST["calendario_wi"]
-        print (variaveis.mapa_wi)
-        variaveis.save()
         if form.is_valid():
             variaveis.ano_wi = request.POST["ano_wi"]
             variaveis.nome_wifi = request.POST["nome_wifi"]
