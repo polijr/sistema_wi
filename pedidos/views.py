@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import View
-from .models import Type, Pedido
+from .models import *
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .forms import *
@@ -38,8 +38,7 @@ class CarregarPedidos(View):
 class DeletarPedido(View):
 	def get(self, request, *args, **kwargs):
 		if request.user.usuario.cargo == 1 or request.user.usuario.cargo == 2:
-			pk=request.GET.get("pk")
-			print(Pedido.objects.filter(pk=pk).count())
+			pk  = request.GET["pk"]
 			if Pedido.objects.filter(pk=pk).count() == 0:
 				return HttpResponse("Pedido invalido", status=400)
 			pedido = Pedido.objects.get(pk=pk)
@@ -80,7 +79,11 @@ class Pedidos(View):
 										organizador = current_user.usuario.usuario_empresa.organizador_resp)
 		messages.success(request, 'Form submission successful')
 		pedido.save()
-		return render(request, 'pedir.html', {'tipos':tipos_de_pedidos, 'form': form, 'organizador': organizador})
+		if request.user.usuario.cargo == 0:
+			template_base = 'base_menus_empresa.html'
+		else:
+			template_base = 'base_menus_caravaneiro.html'
+		return render(request, 'pedir.html', {'tipos':tipos_de_pedidos, 'form': form, 'organizador': organizador, 'template_base': template_base})
 
 
 
@@ -103,21 +106,39 @@ class CriarPedido(View):
 		return render(request, 'criar_pedidos.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
 
 
-class Agendamento(View):
+class FazerAgendamento(View):
 	def get(self, request, *args, **kwargs):
 		if request.user.usuario.cargo == 0 or request.user.usuario.cargo == 2:
-			salas=CriarListaSalas(ValoresEstaticos.objects.all()[0].n_salas)
-			horarios=CriarLista(ValoresEstaticos.objects.all()[0].horario_massagem_inicio, ValoresEstaticos.objects.all()[0].horario_massagem_fim, ValoresEstaticos.objects.all()[0].intervalo_massagem)
-			return render(request, 'realizar_agendamento.html', {'salas': salas, 'horarios':horarios})
+			salas = CriarListaSalas(ValoresEstaticos.objects.all()[0].n_salas)
+			horarios = CriarLista(ValoresEstaticos.objects.all()[0].horario_massagem_inicio, 
+				ValoresEstaticos.objects.all()[0].horario_massagem_fim,
+				 ValoresEstaticos.objects.all()[0].intervalo_massagem,
+				 salas)
+			if request.user.usuario.cargo == 0:
+				template_base = 'base_menus_empresa.html'
+			else:
+				template_base = 'base_menus_admin.html'
+			return render(request, 'realizar_agendamento.html', {'salas': salas, 'horarios':horarios, 'template_base': template_base})
 		else:
 			return render(request, 'erro_403.html')
 
 	def post(self, request, *args, **kwargs):
+		salas = CriarListaSalas(ValoresEstaticos.objects.all()[0].n_salas)
+		horarios = CriarLista(ValoresEstaticos.objects.all()[0].horario_massagem_inicio, 
+			ValoresEstaticos.objects.all()[0].horario_massagem_fim,
+			ValoresEstaticos.objects.all()[0].intervalo_massagem,
+			salas)
 		form = AgendamentoForm(request.POST)
-		if form.is_valid:
+		if form.is_valid():
 			reserva = Agendamento.objects.create(horario=form.data["horario"], cliente=request.user.usuario, sala=form.data["sala"])
 			reserva.save()
 			messages.success(request, "Horário reservado com sucesso!")
+		if request.user.usuario.cargo == 0:
+			template_base = 'base_menus_empresa.html'
+		else:
+			template_base = 'base_menus_admin.html'
+		return render(request, 'realizar_agendamento.html', {'salas': salas, 'horarios':horarios, 'template_base': template_base})
+
 
 class DefinirHorarios(View):
 	def get(self, request, *args, **kwargs):
@@ -138,19 +159,23 @@ class DefinirHorarios(View):
 		return render(request, 'definir_horarios.html', {'form': form})
 
 
-def CriarLista(inicio, fim, intervalo):
+def CriarLista(inicio, fim, intervalo, salas):
 	lista = []
-	element = inicio
-	delta = datetime.timedelta(minutes=intervalo)
-	while element <= fim:
-		lista.append(element)
-		element += delta
+	for sala in salas:
+		dia = datetime.datetime.now().date()
+		hora = inicio
+		element = datetime.datetime.combine(dia, hora);
+		delta = datetime.timedelta(minutes=intervalo)
+		while element.time() <= fim:
+			lista.append({'sala': sala, 'datetime': element,'time': element.time(), 'reservado': Agendamento.objects.filter(horario=element, sala=sala).exists()})
+			element += delta
 	return lista
 
 
 def CriarListaSalas(num_salas):
 	lista = []
-	i = 0
-	while i < num_salas:
-		lista.append("Sala %d" %(i+1))
-		return lista
+	i = 1
+	while i <= num_salas:
+		lista.append("Sala %d" %i)
+		i = i + 1
+	return lista

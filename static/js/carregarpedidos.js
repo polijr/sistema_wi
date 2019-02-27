@@ -30,7 +30,7 @@ xhr.send();
 setInterval(function() {
 	xhr.open("GET", "/pedidos/carregar-pedidos/");
 	xhr.send();
-}, 3000);
+}, 10000);
 
 function ComparaPedidos(pedidos, pedidos_anteriores) {
 	if(pedidos.length != pedidos_anteriores.length) {
