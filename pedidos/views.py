@@ -100,7 +100,8 @@ class CriarPedido(View):
 		print(form)
 		enviou = False
 		if form.is_valid():
-			pedido = form.save()
+			tipo=Type.objects.create(name=request.POST["name"], caravaneiro=request.POST["caravaneiro"])
+			tipo.save()
 			enviou = True
 			messages.success(request, "Pedido criado com sucesso")
 		return render(request, 'criar_pedidos.html', {'form' : form, 'post': True, 'enviou': enviou})
@@ -155,7 +156,7 @@ class DeletarTipo(View):
 			if form.is_valid():
 				tipo.delete()
 				messages.success(request, "Tipo de pedido deletado com sucesso!")
-			return redirect("pedidos/tipos-de-pedidos")
+			return redirect("../tipos-de-pedidos")
 		else:
 			return render(request, 'erro_403.html')
 

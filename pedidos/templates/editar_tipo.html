@@ -32,9 +32,16 @@
                                                 <label for="id_arquivo">Escolha a Imagem:</label>
                                                 <input value="{{tipo.image}}" type="file" name="image" id="id_image" required> {% endcomment %}
                                                 <label for="register4-lastname">Pedido de caravaneiro?</label>
-                                                <select value="{{tipo.caravaneiro}}"class="form-control" id="caravaneiro" name="caravaneiro" size="1">
+                                                <select class="form-control" id="caravaneiro" name="caravaneiro" size="1">
+                                                    {% if tipo.caravaneiro %}
+                                                    <option value="1">Sim</option>
+                                                    <option value="0">Não</option>
+
+                                                    {% else %}
                                                     <option value="0">Não</option>
                                                     <option value="1">Sim</option>
+
+                                                    {% endif %}
                                                 </select>
                                             </div>
                                             <div class="col-xs-12">

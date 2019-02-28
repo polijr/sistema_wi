@@ -11,7 +11,7 @@ class PedidosForm(forms.Form):
 class TypeForm(forms.ModelForm):
     name = forms.CharField(max_length=100, required=True)
     image = forms.ImageField(required=False)
-    caravaneiro = forms.IntegerField(required=False)
+    caravaneiro = forms.BooleanField(required=False)
     class Meta:
         model = Type
         fields = ['name', 'image', 'caravaneiro']
