@@ -6,6 +6,7 @@ from usuarios.models import *
 from .forms import DocumentoForm, NotaForm
 from django.contrib import messages
 from django.db.models.functions import Length
+
 class EnviarDocumento(View):
 	def get(self, request, *args, **kwargs):
 		if request.user.usuario.cargo != 0:
