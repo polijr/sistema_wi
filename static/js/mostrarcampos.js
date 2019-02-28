@@ -1,24 +1,29 @@
 var selectSala = document.querySelector('#sala');
+var selectHorario = document.querySelector('#horario');
+var divHorario = document.querySelector('.div-horario');
+var divBotao = document.querySelector('.div-botao');
+
 selectSala.addEventListener("change", function() {
-	var divHorario = document.querySelector('.div-horario');
+	var optionsHorario = document.querySelectorAll(".option-horario");
 	divHorario.classList.remove('invisivel');
-	var optionsHorario = document.querySelectorAll('.option-horario');
+	divBotao.classList.add('invisivel');	
 	optionsHorario.forEach(function(optionHorario) {
-		if (optionHorario.classList.contains(selectSala.selectedIndex))
+		if (optionHorario.classList.contains(selectSala.selectedIndex)) {
 			optionHorario.classList.remove('invisivel');
+			selectHorario.selectedIndex = 0;
+		}
 		else optionHorario.classList.add('invisivel');
 	});
 });
 
-var selectHorario = document.querySelector('#horario');
 selectHorario.addEventListener("change", function() {
 	var opcaoSelecionada = this.options[this.selectedIndex];
 	if (opcaoSelecionada.classList.contains('btn-danger')) {
-		opcaoSelecionada.removeAttr("selected");
+		selectHorario.selectedIndex = 0;
 		alert('Esse horario já está reservado');
+		divBotao.classList.add('invisivel');
 	}
 	else {
-		var divBotao = document.querySelector('.div-botao');
 		divBotao.classList.remove('invisivel');
 	}
 })
