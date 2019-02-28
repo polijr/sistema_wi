@@ -12,18 +12,16 @@ class EnviarDocumento(View):
 		if request.user.usuario.cargo != 0:
 			return render(request, 'erro_403.html')
 		form = DocumentoForm()
-		return render(request, 'enviar_documentos.html', {'form': form, 'messages': messages, 'post': False})
+		return render(request, 'enviar_documentos.html', {'form': form})
 		
 			
 
 	def post(self, request, *args, **kwargs):
 		form = DocumentoForm(request.POST, request.FILES)
-		enviou = False
 		if form.is_valid():
 			documento = form.save(empresa=request.user.usuario.usuario_empresa)
-			enviou = True
 		messages.success(request, "Documento submetido com sucesso")
-		return render(request, 'enviar_documentos.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
+		return render(request, 'enviar_documentos.html', {'form': form})
 
 
 class Enviados(View):
@@ -39,7 +37,7 @@ class EditarDocumento(View):
 			return render(request, 'erro_403.html')
 		form = DocumentoForm()
 		documento = Documento.objects.get(pk=pk)
-		return render(request, 'editar_documento.html', {'form': form, 'messages': messages, 'documento': documento })
+		return render(request, 'editar_documento.html', {'form': form, 'documento': documento})
 
 	def post(self, request, pk, *args, **kwargs):
 		documento = Documento.objects.get(pk=pk)

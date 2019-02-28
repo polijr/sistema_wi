@@ -1,4 +1,4 @@
-{% extends 'base_menus_admin.html' %}
+{% extends template_base %}
 {% block nomePagina %}Agendamentos{% endblock%}
 {% load static %}
 {% block conteudo %}
@@ -26,6 +26,7 @@
                     <th class="hidden-xs text-center">Cliente</th>
                     <th class="hidden-xs text-center">Sala</th>
                     <th class="hidden-xs text-center">Horário</th>
+                    <th class="hidden-xs text-center">Excluir</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,6 +35,11 @@
                     <td class="text-center">{{i.cliente}}</td>
                     <td class="text-center">{{i.sala}}</td>
                     <td class="text-center">{{i.horario}}</td>
+                    <td class="text-center">
+                        <div class="btn-group btn-group-xs">
+                            <a href="{% url 'pedidos:Deletar Agendamento' pk=i.pk %}" data-toggle="tooltip" title="Excluir" class="btn btn-default"><i class="fa fa-eraser"></i></a>
+                        </div>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

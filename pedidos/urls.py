@@ -15,6 +15,7 @@ urlpatterns = [
 	url(r'^agendar-massagem/$', FazerAgendamento.as_view(), name = 'agendarMassagem'),
 	url(r'^definir-horarios/$', login_required(DefinirHorarios.as_view()), name='Definir Horarios'),
 	url(r'^agendamentos/$', login_required(Agendamentos.as_view()), name='Deletar Agendamentos'),
+	url(r'^deletar-agendamento/(?P<pk>\d+)$', DeletarAgendamento.as_view(), name = 'Deletar Agendamento'),
 	url(r'^deletar-agendamentos/$', login_required(DeletarAgendamentos.as_view()), name='Deletar Agendamentos'),
 
 ]

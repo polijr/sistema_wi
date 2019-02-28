@@ -217,23 +217,59 @@ class DefinirHorarios(View):
 class Agendamentos(View):
 	def get(self, request, *args, **kwargs):
 		if request.user.usuario.cargo == 2:
+			template_base = 'base_menus_admin.html'
 			agendamentos = Agendamento.objects.all()
-			return render(request, 'agendamentos.html', {'agendamentos': agendamentos})
+			return render(request, 'agendamentos.html', {'agendamentos': agendamentos, 'template_base': template_base})
+		elif request.user.usuario.cargo == 0:
+			template_base = 'base_menus_empresa.html'
+			agendamentos = Agendamento.objects.filter(cliente=request.user.usuario)
+			return render(request, 'agendamentos.html', {'agendamentos': agendamentos, 'template_base': template_base})
+		else:
+			return render(request, 'erro_403.html')
+
+
+class DeletarAgendamento(View):
+	def get(self, request, pk, *args, **kwargs):
+		if request.user.usuario.cargo == 2 or request.user.usuario.cargo == 0:
+			agendamento = Agendamento.objects.get(pk=pk)
+			if request.user.usuario.cargo == 0:
+				template_base = 'base_menus_empresa.html'
+			else:
+				template_base = 'base_menus_admin.html'
+			return render(request, 'deletar_agendamento.html', {'agendamento': agendamento, 'template_base': template_base})
+		else:
+			return render(request, 'erro_403.html')
+
+	def post(self, request, pk, *args, **kwargs):
+		if request.user.usuario.cargo == 2 or request.user.usuario.cargo == 0:
+			request.POST._mutable = True
+			request.POST['pk'] = pk
+			agendamento = Agendamento.objects.get(pk=pk)
+			agendamento.delete()
+			messages.success(request, "Agendamento cancelado com sucesso!")
+			return redirect("../agendamentos")
 		else:
 			return render(request, 'erro_403.html')
 
 
 class DeletarAgendamentos(View):
 	def get(self, request, *args, **kwargs):
-		if request.user.usuario.cargo == 2:
-			return render(request, 'deletar_agendamentos.html')
+		if request.user.usuario.cargo == 2 or request.user.usuario.cargo == 0:
+			if request.user.usuario.cargo == 2:
+				template_base = 'base_menus_admin.html'
+			if request.user.usuario.cargo == 0:
+				template_base = 'base_menus_empresa.html'
+			return render(request, 'deletar_agendamentos.html', {'template_base': template_base})
 		else:
 			return render(request, 'erro_403.html')
 
 	def post(self, request, *args, **kwargs):
 		request.POST._mutable = True
-		if request.user.usuario.cargo == 2:
-			agendamentos = Agendamento.objects.all()
+		if request.user.usuario.cargo == 2 or request.user.usuario.cargo == 0:
+			if request.user.usuario.cargo == 2:
+				agendamentos = Agendamento.objects.all()
+			if request.user.usuario.cargo == 0:
+				agendamentos = Agendamento.objects.filter(cliente=request.user.usuario)
 			for agendamento in agendamentos:
 				agendamento.delete()
 			messages.success(request, "Todos agendamentos deletados com sucesso!")
