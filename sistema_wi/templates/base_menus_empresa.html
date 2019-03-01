@@ -91,14 +91,13 @@ Rafael Araripe
                     </div>
                 </aside>
             <nav id="sidebar">
-                <!-- Sidebar Scroll Container -->
+            
                 <div id="sidebar-scroll">
-                    <!-- Sidebar Content -->
-                    <!-- Adding .sidebar-mini-hide to an element will hide it when the sidebar is in mini mode -->
+                  
                     <div class="sidebar-content">
-                        <!-- Side Header -->
+                        
                         <div class="side-header side-content bg-white-op">
-                            <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                            
                             <button class="btn btn-link text-gray pull-right hidden-md hidden-lg" type="button" data-toggle="layout" data-action="sidebar_close">
                                 <i class="fa fa-times"></i>
                             </button>
@@ -106,9 +105,7 @@ Rafael Araripe
                                 <img src="/static/img/favicons/favicon.png" class="fa fa-circle-o-notch text-primary" style="margin-left: -13%"></i> <span class="h4 font-w600 sidebar-mini-hide"> {{variaveis.ano_wi}}</span>
                             </a>
                         </div>
-                        <!-- END Side Header -->
 
-                        <!-- Side Content -->
                         <div class="side-content">
                             <ul class="nav-main">
                                 <li>
@@ -139,17 +136,15 @@ Rafael Araripe
                                 {% endif %}
                             </ul>
                         </div>
-                        <!-- END Side Content -->
+                        
                     </div>
-                    <!-- Sidebar Content -->
+                    
                 </div>
-                <!-- END Sidebar Scroll Container -->
+                
             </nav>
-            <!-- END Sidebar -->
 
-            <!-- Header -->
             <header id="header-navbar" class="content-mini content-mini-full">
-                <!-- Header Navigation Right -->
+                
                 <ul class="nav-header pull-right">
                     <li>
                         <div class="btn-group">
@@ -177,42 +172,39 @@ Rafael Araripe
                         </div>
                     </li>
                     <li>
-                        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                        
                     </li>
                 </ul>
-                <!-- END Header Navigation Right -->
-
-                <!-- Header Navigation Left -->
+                
+                
                 <ul class="nav-header pull-left">
                     <li class="hidden-md hidden-lg">
-                        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                        
                         <button class="btn btn-default" data-toggle="layout" data-action="sidebar_toggle" type="button">
                             <i class="fa fa-navicon"></i>
                         </button>
                     </li>
                     <li class="hidden-xs hidden-sm">
-                        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+                        
                         <button class="btn btn-default" data-toggle="layout" data-action="sidebar_mini_toggle" type="button">
                             <i class="fa fa-ellipsis-v"></i>
                         </button>
                     </li>
                     <li class="visible-xs">
-                        <!-- Toggle class helper (for .js-header-search below), functionality initialized in App() -> uiToggleClass() -->
+                        
                         <button class="btn btn-default" data-toggle="class-toggle" data-target=".js-header-search" data-class="header-search-xs-visible" type="button">
                             <i class="fa fa-search"></i>
                         </button>
                     </li>
                 </ul>
-                <!-- END Header Navigation Left -->
+               
             </header>
-            <!-- END Header -->
+            
 
-            <!-- Main Container -->
+            
             {% block conteudo %}
             {% endblock %}
-            <!-- END Main Container -->
 
-            <!-- Footer -->
             <footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
                 <div class="pull-right">
                     Criado com <i class="fa fa-heart text-city"></i> pelo <a class="font-w600" href="http://www.polijunior.com.br" target="_blank">NTec - Poli Júnior</a>
