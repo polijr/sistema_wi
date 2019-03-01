@@ -1,13 +1,22 @@
 from django import forms
-from .models import dataFeed
+from .models import *
 
 class DataForm(forms.ModelForm):
     data = forms.DateField()
-    link = forms.CharField(max_length=100, required=True)
 	    
     class Meta:
         model = dataFeed
-        fields = ['data', 'link']
+        fields = ['data']
+
+
+
+class LinkForm(forms.ModelForm):
+    nome = forms.CharField(max_length=300, required=True)
+    link = forms.CharField(required=True, max_length=1000)
+    class Meta:
+        model = LinkFeed
+        fields = ['nome', 'link']
+
 
 
 class ValoresEstaticosForm(forms.Form):

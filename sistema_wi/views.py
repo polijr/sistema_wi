@@ -4,12 +4,13 @@ from django.shortcuts import render_to_response
 from django.http import JsonResponse
 from django.views.generic import View, TemplateView
 from django.http import HttpResponse
-from .models import dataFeed
-from .forms import DataForm
+from django.http import HttpResponseRedirect, JsonResponse
+from .models import dataFeed, LinkFeed
+from .forms import DataForm, LinkForm
 from sistema_wi.forms import ValoresEstaticosForm
 from django.http import HttpResponseRedirect
 from sistema_wi.models import ValoresEstaticos
-
+from django.contrib import messages
 
 def handler404(request, exception, template_name="erro_404.html"):
     response = render_to_response("erro_404.html")
@@ -67,3 +68,70 @@ class ValoresSistema(View):
 class SeleçãoWI(View):
     def get(self, request, *args, **kwargs):
         return render(request, "seleção_wi.html")
+
+
+
+class CriarLink(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo == 2:
+			form = LinkForm()
+			return render(request, 'criar_link.html', {'form': form})
+		else:
+			return render(request, 'erro_403.html')
+
+	def post(self, request, *args, **kwargs):
+		form = LinkForm(request.POST, request.FILES)
+		enviou = False
+		if form.is_valid():
+			form.save()
+			messages.success(request, "Link criado com sucesso")
+		return render(request, 'criar_link.html', {'form': form})
+
+
+
+class ListaFeedbackAdm(View):
+ def get(self, request, *args, **kwargs):
+            if request.user.usuario.cargo == 2:
+                lista = LinkFeed.objects.all()
+                return render(request, 'lista_feedbacks_adm.html', {'lista': lista})
+            
+            else:
+                return render(request, "erro_403.html")
+
+class DeletarLink(View):
+	def get(self, request, *args, **kwargs):
+		if not (request.user.usuario.cargo == 2 and LinkFeed.objects.filter(pk=request.GET['pk']).exists()):
+			return render(request, 'erro_403.html')
+		link = LinkFeed.objects.get(pk=request.GET['pk'])
+		link.delete()
+		return JsonResponse({'deletou': True})
+
+
+
+class EditarLink(View):
+	def get(self, request, pk, *args, **kwargs):
+		if not (request.user.usuario.cargo == 2 and LinkFeed.objects.filter(pk=pk).exists()):
+			return render(request, 'erro_403.html')
+		form = LinkForm()
+		objeto = LinkFeed.objects.get(pk=pk)
+		return render(request, 'editar_link.html', {'form': form, 'objeto': objeto })
+
+	def post(self, request, pk, *args, **kwargs):
+		objeto = LinkFeed.objects.get(pk=pk)
+		objeto.nome = request.POST['nome']
+		objeto.link = request.POST['link']
+		objeto.save()
+		return HttpResponseRedirect('/lista-feedback-admin')
+
+
+
+class ListaFeedback(View):
+ def get(self, request, *args, **kwargs):
+            if request.user.usuario.cargo == 0:
+                lista = LinkFeed.objects.all()
+                return render(request, 'lista_feedbacks.html', {'lista': lista})
+            
+            else:
+                return render(request, "erro_403.html")
+
+			
