@@ -36,9 +36,8 @@
                                                 </div>
                                             
                                         <div class="form-group col-xs-12">
-                                        
-                                                <label for="id_arquivo">Escolha o Documento:</label>
-                                                <input value="documento.arquivo" type="file" name="arquivo" id="id_arquivo" required>
+                                                <label for="id_arquivo">O documento enviado é: <a href="{{documento.arquivo.url}}">{{documento.filename}}</a><br>Caso você não queira alterar o documento, deixe o campo abaixo em branco</label>
+                                                <input value="documento.arquivo" type="file" name="arquivo" id="id_arquivo">
                                                 {{ form.arquivo.errors }}
                                         </div>
                                             <div class="form-group col-xs-12">

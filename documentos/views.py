@@ -42,7 +42,8 @@ class EditarDocumento(View):
 	def post(self, request, pk, *args, **kwargs):
 		documento = Documento.objects.get(pk=pk)
 		documento.nome = request.POST['nome']
-		documento.arquivo = request.FILES['arquivo']
+		if request.FILES.get('arquivo'):
+			documento.arquivo = request.FILES['arquivo']
 		documento.observacao = request.POST['observacao']
 		documento.save()
 		return HttpResponseRedirect('/documentos/enviados')

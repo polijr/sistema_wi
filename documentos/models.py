@@ -1,5 +1,6 @@
 from django.db import models
 from usuarios.models import Empresa
+import os
 
 
 class Documento(models.Model):
@@ -11,6 +12,9 @@ class Documento(models.Model):
 
 	def __str__(self):
 		return self.empresa.usuario.user.username + ' - ' + self.nome
+
+	def filename(self):
+		return os.path.basename(self.arquivo.name)
 
 
 
