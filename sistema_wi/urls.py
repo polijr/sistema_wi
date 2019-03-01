@@ -19,6 +19,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib.auth.views import LoginView
 from .views import *
+from django.contrib.auth.decorators import login_required
 
 import usuarios.views
 import usuarios.urls
@@ -27,6 +28,7 @@ import documentos.urls
 import informes.urls
 import chat.urls
 import sistema_wi.views
+app_name = 'sistema_wi'
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -40,7 +42,12 @@ urlpatterns = [
     url(r'^chat/', include((chat.urls, "chat"), namespace='chat')),
     url(r'^definir_feed/$', DefinirDataFeed.as_view()),
     url(r'^valores-sistema/$', sistema_wi.views.ValoresSistema.as_view()),
-    url(r'^seleção-wi/$', sistema_wi.views.SeleçãoWI.as_view())
+    url(r'^seleção-wi/$', sistema_wi.views.SeleçãoWI.as_view()),
+    url(r'^criar-link/$', CriarLink.as_view()),
+    url(r'^lista-feedback-admin/$', ListaFeedbackAdm.as_view()),
+    url(r'^editar-link/(?P<pk>\d+)$', login_required(EditarLink.as_view()), name='Editar Link'),
+    url(r'^feedbacks/$', ListaFeedback.as_view()),
+    url(r'^deletar-link/$', login_required(DeletarLink.as_view()), name='Deletar Link'),
 ]
 
 

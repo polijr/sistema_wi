@@ -1,0 +1,27 @@
+{% extends 'base_menus_empresa.html' %}
+{% block nomePagina %}Feedbacks{% endblock%}
+{% load static %}
+{% block conteudo %}
+<main id="main-container">
+        <div class="block-content">
+            <div class="block block-themed">
+                <div class="block-header bg-primary">
+
+                    <h3 class="block-title">Feedbacks</h3>
+                </div>
+                <div class="block-content">
+                <table class="table table-striped table-vcenter">
+                   {%for elemento in lista %}
+                        <tr>
+                            <td class="text-center">
+                            </td>
+                            <td class="font-w600">{{elemento.nome}}</td>
+                            <td class="hidden-xs"><a href="{{elemento.link}}">{{elemento.link}}</a></td>
+                        </tr>
+                    {%endfor%}
+                </table>
+            </div>
+         </div>    
+         
+        </main>
+{% endblock %}

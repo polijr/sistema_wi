@@ -1,0 +1,46 @@
+{% extends 'base_menus_admin.html' %}
+{% block nomePagina %}Editar Link de Feedback{% endblock%}
+{% block conteudo %}
+                                     <main id="main-container">
+
+                                        <!-- Register Forms -->
+                                        <h2 class="content-heading "></h2>
+                                        <div class="col-lg-4">
+                    
+                                        </div>
+                                            <div class="col-lg-4 ">
+                                                <!-- Bootstrap Register -->
+                                                <div class="block block-themed centered ">
+                                                    <div class="block-header" style="background-color: #FFAF00">
+                                                        <ul class="block-options">
+                                                        </ul>
+                                                        <h3 class="block-title">Editar Feedback</h3>
+                                                    </div>
+                                                    <div class="block-content">
+                                                        <table class="table table-striped table-vcenter">
+                                                        <form id="forms_feedback" class="form-horizontal push-5-t" action="" method="post" enctype="multipart/form-data">
+                                                            {% csrf_token %}
+                                                            <div class="form-group col-xs-12">
+                                                                <label for="id_nome">Dê um nome ao link:</label>
+                                                                <input class="form-control" type="text" id="id_nome" name="nome" placeholder="Digite um nome (obrigatório)"  maxlength="1000" required value="{{objeto.nome}}">
+                                                                {{ form.nome.errors }}
+                                                            </div>
+                                                            <div class="form-group col-xs-12">
+                                                                <label for="id_nome">Digite o link do Feedback:</label>
+                                                                <input class="form-control" type="text" id="id_name" name="link" placeholder="Digite o link (obrigatório)"  maxlength="1000" required value="{{objeto.link}}">
+                                                                {{ form.link.errors }}
+                                                            </div>
+                                                                
+
+                                                                <div class="col-xs-12">
+                                                                    <button class="btn btn-sm bg-dark" type="submit"><i class="fa fa-plus push-5-r"></i> Editar</button>
+                                                                </div>
+                                                            </div>
+                                                        </DIV>
+                                                        </form>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </table>
+            </main>
+{% endblock %}
