@@ -1,8 +1,8 @@
 var marcadores = document.querySelectorAll(".notificacao");
 
-var xhr = new XMLHttpRequest();
-xhr.open("GET", '/chat/recebeu-mensagem/');
-xhr.addEventListener("load", function() {
+var recebeuMensagemXhr = new XMLHttpRequest();
+recebeuMensagemXhr.open("GET", '/chat/recebeu-mensagem/');
+recebeuMensagemXhr.addEventListener("load", function() {
 	var recebeu = JSON.parse(this.responseText);
 	for (var i = 0; i < recebeu.length; i++) {
 		if (recebeu[i]) {
@@ -13,9 +13,9 @@ xhr.addEventListener("load", function() {
 		}
 	}
 });
-xhr.send();
+recebeuMensagemXhr.send();
 
 setInterval( function() {
-	xhr.open("GET", '/chat/recebeu-mensagem/');
-	xhr.send();
+	recebeuMensagemXhr.open("GET", '/chat/recebeu-mensagem/');
+	recebeuMensagemXhr.send();
 }, 3000);

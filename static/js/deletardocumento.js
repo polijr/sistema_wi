@@ -1,9 +1,9 @@
 function Deletar(pk) {
-	var xhr = new XMLHttpRequest();
-	xhr.open("GET", '/documentos/deletar-documento?pk=' + pk);
-	xhr.addEventListener("load", function() {
+	var deletarDocumentoXhr = new XMLHttpRequest();
+	deletarDocumentoXhr.open("GET", '/documentos/deletar-documento?pk=' + pk);
+	deletarDocumentoXhr.addEventListener("load", function() {
 		window.location.reload();
 	})
-	xhr.send();
+	deletarDocumentoXhr.send();
 }
 

@@ -1,7 +1,7 @@
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "/pedidos/carregar-pedidos/");
+var carregarPedidosXhr = new XMLHttpRequest();
+carregarPedidosXhr.open("GET", "/pedidos/carregar-pedidos/");
 var pedidos_anteriores = [];
-xhr.addEventListener("load", function() {
+carregarPedidosXhr.addEventListener("load", function() {
 	var pedidos = JSON.parse(this.responseText);
 	if (!ComparaPedidos(pedidos, pedidos_anteriores)) {
 		pedidos_anteriores = pedidos;
@@ -25,11 +25,11 @@ xhr.addEventListener("load", function() {
 	}
 	
 });
-xhr.send();
+carregarPedidosXhr.send();
 
 setInterval(function() {
-	xhr.open("GET", "/pedidos/carregar-pedidos/");
-	xhr.send();
+	carregarPedidosXhr.open("GET", "/pedidos/carregar-pedidos/");
+	carregarPedidosXhr.send();
 }, 10000);
 
 function ComparaPedidos(pedidos, pedidos_anteriores) {

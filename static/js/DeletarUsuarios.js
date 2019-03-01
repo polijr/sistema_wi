@@ -1,71 +1,71 @@
 function DeletarOrganizador(pk) {
-	var xhr = new XMLHttpRequest();
+	var deletarOrganizadorXhr = new XMLHttpRequest();
 	var conf = confirm("Deseja mesmo excluir este organizador?")
 	if (conf==true){
-	xhr.open('GET', '/usuarios/deletar-organizador?pk=' + pk);
-	xhr.addEventListener("load", function() {
+	deletarOrganizadorXhr.open('GET', '/usuarios/deletar-organizador?pk=' + pk);
+	deletarOrganizadorXhr.addEventListener("load", function() {
 	});
-	xhr.send();
+	deletarOrganizadorXhr.send();
 	}
     location.reload();
 }
 
 function DeletarEmpresa(pk) {
-	var xhr = new XMLHttpRequest();
+	var deletarEmpresaXhr = new XMLHttpRequest();
 	var conf = confirm("Deseja mesmo excluir esta empresa?")
 	if (conf==true){
-	xhr.open('GET', '/usuarios/deletar-empresa?pk=' + pk);
-	xhr.addEventListener("load", function() {
+	deletarEmpresaXhr.open('GET', '/usuarios/deletar-empresa?pk=' + pk);
+	deletarEmpresaXhr.addEventListener("load", function() {
 	});
-	xhr.send();
+	deletarEmpresaXhr.send();
 	}
 	location.reload();
 }
 
 function DeletarCaravaneiro(pk) {
-	var xhr = new XMLHttpRequest();
+	var deletarCaravaneiroXhr = new XMLHttpRequest();
 	var conf = confirm("Deseja mesmo excluir este caravaneiro?")
 	if (conf==true){
-	xhr.open('GET', '/usuarios/deletar-caravaneiro?pk=' + pk);
-	xhr.addEventListener("load", function() {
+	deletarCaravaneiroXhr.open('GET', '/usuarios/deletar-caravaneiro?pk=' + pk);
+	deletarCaravaneiroXhr.addEventListener("load", function() {
 	});
-	xhr.send();
+	deletarCaravaneiroXhr.send();
 	}
     location.reload();
 }
 
 function DeletarOrganizadores(){
-    var xhr = new XMLHttpRequest();
+    var deletarOrganizadoresXhr = new XMLHttpRequest();
 	var conf = confirm("Deseja mesmo excluir todos organizadores?")
 	if (conf==true){
-	    xhr.open('GET', '/usuarios/deletar-organizadores');
-	    xhr.addEventListener("load", function() {
+	    deletarOrganizadoresXhr.open('GET', '/usuarios/deletar-organizadores');
+	    deletarOrganizadoresXhr.addEventListener("load", function() {
 	});
-	xhr.send();
+	deletarOrganizadoresXhr.send();
 	}
     location.reload();
 }
 
 function DeletarEmpresas(){
-    var xhr = new XMLHttpRequest();
+    var deletarEmpresasXhr = new XMLHttpRequest();
 	var conf = confirm("Deseja mesmo excluir todas empresas?")
 	if (conf==true){
-	    xhr.open('GET', '/usuarios/deletar-empresas');
-	    xhr.addEventListener("load", function() {
+	    deletarEmpresasXhr.open('GET', '/usuarios/deletar-empresas');
+	    deletarEmpresasXhr.addEventListener("load", function() {
 	});
-	xhr.send();
+	deletarEmpresasXhr.send();
 	}
     location.reload();
 }
 
 function DeletarCaravaneiros(){
-    var xhr = new XMLHttpRequest();
+    var deletarCaravaneirosXhr = new XMLHttpRequest();
 	var conf = confirm("Deseja mesmo excluir todos caravaneiros?")
 	if (conf==true){
-	    xhr.open('GET', '/usuarios/deletar-caravaneiros');
-	    xhr.addEventListener("load", function() {
+	    deletarCaravaneirosXhr.open('GET', '/usuarios/deletar-caravaneiros');
+	    deletarCaravaneirosXhr.addEventListener("load", function() {
 	});
-	xhr.send();
+	deletarCaravaneirosXhr.send();
 	}
     location.reload();
 }

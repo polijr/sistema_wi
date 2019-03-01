@@ -1,5 +1,5 @@
 function Deletar(pk) {
-	var xhr = new XMLHttpRequest();
-	xhr.open('GET', '/pedidos/deletar-pedidos?pk=' + pk);
-	xhr.send();
+	var deletarPedidoXhr = new XMLHttpRequest();
+	deletarPedidoXhr.open('GET', '/pedidos/deletar-pedidos?pk=' + pk);
+	deletarPedidoXhr.send();
 }
