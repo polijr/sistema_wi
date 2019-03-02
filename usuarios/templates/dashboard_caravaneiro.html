@@ -36,47 +36,76 @@
     <!-- Page Content -->
     <div class="content">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-7">
+                <!-- Main Dashboard Chart -->
+                <div class="block">
+                    <div class="block-header">
+                        <h3 class="block-title">Mapa do evento</h3>
+                    </div>
+                    <div class="block-content bg-gray-lighter">
+                        {% if variaveis.mapa_wi %}
+                        <img  src="{{variaveis.mapa_wi.url}}" class="img-responsive" style="margin-bottom: 4%">
+                        {% else %}
+                        <img  src="{% static 'img/various/mapa_wi.png' %}" class="img-responsive" style="margin-bottom: 4%">
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- END Main Dashboard Chart -->
+            </div>
+            <div class="col-lg-4">
                 <!-- Latest Sales Widget -->
-                    {% comment %} <div class="block-content bg-gray-lighter">
-                        <div class="row items-push">
-                            <div class="col-xs-4">
-                                <div class="text-muted"><small><i class="si si-calendar"></i> 24 hrs</small></div>
-                                <div class="font-w600">18 Sales</div>
+                <div class="block">
+                    <div class="block-header">
+                        <h3 class="block-title">Ultimas notícias</h3>
+                    </div>
+                    <div class="block-content">
+                        <div class="pull-t pull-r-l">
+                            <!-- Slick slider (.js-slider class is initialized in App() -> uiHelperSlick()) -->
+                            <!-- For more info and examples you can check out http://kenwheeler.github.io/slick/ -->
+                            <div class="js-slider remove-margin-b" data-slider-autoplay="true" data-slider-autoplay-speed="2500">
+                                <div>
+                                            {%for informe in informes %}
+                                            <a class="block block-link-hover1" href="javascript:void(0)">
+                                                <div class="block-content block-content-full clearfix">
+                                                    <div class="h6 font-w700">{{informe.titulo}}</div>
+                                                    <span class="h7 text-muted ">{{informe.texto}}</span>
+                                                </div>
+                                            </a>
+                                            {%endfor%}
+
+
+                                    
+                                    {% comment %} <div class="pagination">
+                                        <span class="step-links">
+                                            {% if informes.has_previous %}
+                                                <a href="?page=1">&laquo; Mais recentes &raquo;</a>
+                                                <a href="?page={{ informes.previous_page_number }}">   &laquo; Anterior &raquo;</a>
+                                            {% endif %}
+                                    
+                                            <span class="current">
+                                                Página {{ informes.number }} de {{ informes.paginator.num_pages }}.
+                                            </span>
+                                    
+                                            {% if informes.has_next %}
+                                                <a href="?page={{ informes.next_page_number }}">&laquo; Próximo &raquo;</a>
+                                                <a href="?page={{ informes.paginator.num_pages }}">   &laquo; Último &raquo;</a>
+                                            {% endif %}
+                                        </span>
+                                    </div> {% endcomment %}
+                                </div>
                             </div>
-                            <div class="col-xs-4">
-                                <div class="text-muted"><small><i class="si si-calendar"></i> 7 days</small></div>
-                                <div class="font-w600">78 Sales</div>
-                            </div>
-                            <div class="col-xs-4 h1 font-w300 text-right">$769</div>
-                        </div>
-                    </div> {% endcomment %}
-                    <div class="block">
-                        <div class="block-header">
-                            <h3 class="block-title">Pedidos</h3>
-                        </div>
-                        <div class="block-content">
-                            <!-- DataTables init on table by adding .js-dataTable-full class, functionality initialized in js/pages/base_tables_datatables.js -->
-                            <table class="table table-bordered table-striped js-dataTable-full">
-                                <thead>
-                                    <tr>
-                                        <th>Tipo</th>
-                                        <th class="text-center" style="width: 10%;">Pop-Up</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="corpo-pedidos">
-                                </tbody>
-                            </table>
+                            <!-- END Slick slider -->
                         </div>
                     </div>
                 </div>
                 <!-- END Latest Sales Widget -->
             </div>
         </div>
+
     </div>
     <!-- END Page Content -->
 </main>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="{% static 'js/carregarpedidos.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/deletarpedido.js' %}"></script>
+<script src="{% static 'js/mostrarmapa.js' %}"></script>
+<link rel="stylesheet" href="assets/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+
 {% endblock %}

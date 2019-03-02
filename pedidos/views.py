@@ -69,21 +69,29 @@ class Pedidos(View):
 
 
 	def post(self, request, *args, **kwargs):
-		tipos_de_pedidos = Type.objects.all()
 		form = PedidosForm(request.POST)
 		current_user = request.user
-		organizador = current_user.usuario.usuario_empresa.organizador_resp
-		pedido = Pedido.objects.create(tipo = Type.objects.get(pk=form.data['tipo_de_pedido']), 
-										observacao = form.data['obs'],
-										pedinte = current_user.usuario,
-										organizador = current_user.usuario.usuario_empresa.organizador_resp)
+		empresa = None
 		messages.success(request, 'Form submission successful')
-		pedido.save()
 		if request.user.usuario.cargo == 0:
+			pedido = Pedido.objects.create(tipo = Type.objects.get(pk=form.data['tipo_de_pedido']), 
+								observacao = form.data['obs'],
+								pedinte = current_user.usuario,
+								organizador = current_user.usuario.usuario_empresa.organizador_resp)
+			empresa = current_user.usuario.usuario_empresa.organizador_resp
+			tipos_de_pedidos = Type.objects.filter(caravaneiro=False)
+			pedido.save()
 			template_base = 'base_menus_empresa.html'
 		else:
+			pedido = Pedido.objects.create(tipo = Type.objects.get(pk=form.data['tipo_de_pedido']), 
+								observacao = form.data['obs'],
+								pedinte = current_user.usuario,
+								organizador = None)
+			tipos_de_pedidos = Type.objects.filter(caravaneiro=True)
+			pedido.save()
 			template_base = 'base_menus_caravaneiro.html'
-		return render(request, 'pedir.html', {'tipos':tipos_de_pedidos, 'form': form, 'organizador': organizador, 'template_base': template_base})
+			
+		return render(request, 'pedir.html', {'tipos':tipos_de_pedidos, 'form': form, 'organizador': empresa, 'template_base': template_base})
 
 
 
