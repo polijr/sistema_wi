@@ -26,18 +26,18 @@
                                         {% csrf_token %}
                                         <div class="form-group col-xs-12">
                                                     <label for="id_nome">Dê um nome ao arquivo:</label>
-                                                    <input class="form-control" type="text" id="id_nome" name="nome" placeholder="Digite um nome (obrigatório)"  maxlength="100" required value="{{documento.nome}}">
+                                                    <input class="form-control" type="text" id="id_nome" name="nome" placeholder="Digite um nome (obrigatório)"  maxlength="100" required="true" value="{{documento.nome}}">
                                                     {{ form.nome.errors }}
                                                 </div>
                                             
                                         <div class="form-group col-xs-12">
                                         
                                                 <label for="id_arquivo">Escolha o Documento:</label>
-                                                <input value="documento.arquivo" type="file" name="arquivo" id="id_arquivo" required>
+                                                <input type="file" name="arquivo" id="id_arquivo" required value="documento.arquivo.url">
                                                 {{ form.arquivo.errors }}
                                         </div>
                                             <div class="form-group col-xs-12">
-                                                    <label for="register4-lastname">Possui alguma observação?</label>
+                                                    <label for="id_observacao">Possui alguma observação?</label>
                                                     <input class="form-control" type="text" id="id_observacao" name="observacao" placeholder="Digite sua observação (opcional)" maxlength="200" value="{{documento.observacao}}">
                                                     {{ form.observacao.errors}}
                                                 </div>
