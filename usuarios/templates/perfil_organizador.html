@@ -26,14 +26,14 @@
                                         <div class="form-group">
                                             <div class="col-xs-6" >
                                                 <label for="register4-firstname">Nome</label>
-                                                <input class="form-control" value="{{organizador.nome}}" type="text" id="nome" name="nome" placeholder="Digite o nome da empresa..">
+                                                <input class="form-control" value="{{organizador.nome}}" type="text" id="nome" name="nome" placeholder="Digite o nome do organizador (Exemplo: {{nome_aleatorio}})">
                                                 {%if form.errors.nome %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.nome}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6" >
                                                     <label for="register4-firstname">Sobrenome</label>
-                                                    <input class="form-control" value="{{organizador.sobrenome}}" type="text" id="nome" name="nome" placeholder="Digite o nome da empresa..">
+                                                    <input class="form-control" value="{{organizador.sobrenome}}" type="text" id="nome" name="nome" placeholder="Digite o sobrenomenome do organizador (Exemplo: {{sobrenome_aleatorio}})">
                                                     {%if form.errors.nome %}
                                                         <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.nome}}</div>
                                                     {%endif%}

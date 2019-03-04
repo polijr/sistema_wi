@@ -1,6 +1,7 @@
 from .models import ValoresEstaticos, dataFeed
 from usuarios.models import Empresa
 import datetime
+import random
 def add_variable_to_context(request):
     try:
         variaveis = ValoresEstaticos.objects.all()[0]
@@ -27,3 +28,10 @@ def add_variable_to_context(request):
 
 def date_now(request):
     return {'date_now':datetime.date.today()}
+
+
+def nome_aleatorio(request):
+    return {'nome_aleatorio': random.choice(["Barbara", "Gabriel", "Eduardo", "Ilton", "Pedro", "Rafael"])}
+
+def sobrenome_aleatorio(request):
+    return {'sobrenome_aleatorio': random.choice(["Beltrami", "dos Anjos", "Motta", "Andrew", "Kassardjian", "Araripe"])}

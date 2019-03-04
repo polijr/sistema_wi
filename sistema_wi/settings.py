@@ -70,6 +70,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'sistema_wi.context_processors.add_variable_to_context',
                 'sistema_wi.context_processors.date_now',
+                'sistema_wi.context_processors.nome_aleatorio',
+                'sistema_wi.context_processors.sobrenome_aleatorio'
             ],
         },
     },
