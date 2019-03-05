@@ -2,6 +2,7 @@ from .models import ValoresEstaticos, dataFeed
 from usuarios.models import Empresa
 import datetime
 import random
+import math
 def add_variable_to_context(request):
     try:
         variaveis = ValoresEstaticos.objects.all()[0]
@@ -31,7 +32,25 @@ def date_now(request):
 
 
 def nome_aleatorio(request):
-    return {'nome_aleatorio': random.choice(["Barbara", "Gabriel", "Eduardo", "Ilton", "Pedro", "Rafael"])}
-
-def sobrenome_aleatorio(request):
-    return {'sobrenome_aleatorio': random.choice(["Beltrami", "dos Anjos", "Motta", "Andrew", "Kassardjian", "Araripe"])}
+    init = (math.ceil(12 * random.random()))
+    num = (init % 6)
+    if(num == 0):
+        nome = "Barbara"
+        sobrenome = "Beltrami"
+    if (num == 1):
+        nome = "Gabriel"
+        sobrenome = "dos Anjos"
+    if (num == 2):
+        nome = "Eduardo"
+        sobrenome = "Motta"
+    if (num == 3):
+        nome = "Ilton"
+        sobrenome = "Andrew"
+    if (num == 4):
+        nome = "Pedro"
+        sobrenome = "Kassardjian"
+    if (num == 5):
+        nome = "Rafael"
+        sobrenome = "Araripe"
+    
+    return {'nome_aleatorio': nome, 'sobrenome_aleatorio': sobrenome}
