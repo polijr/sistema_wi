@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db import models
 from datetime import date
+from usuarios.models import *
 
 class dataFeed(models.Model):
     data = models.DateField('data', null =  True, blank = True)
@@ -32,9 +33,9 @@ class LinkFeed(models.Model):
         verbose_name = 'Link de Feedback'
         verbose_name_plural = 'Links de Feedback'
 
-
-
-
+class CheckFeed (models.Model): 
+    empresa= models.ForeignKey(Empresa,related_name="feedback_empresa", on_delete = models.CASCADE, null = False, blank = False)
+    feedback= models.ForeignKey(LinkFeed,related_name="feedback", on_delete = models.CASCADE, null = False, blank = False)
 
 class ValoresEstaticos(models.Model):
     ano_wi = models.CharField(null = False, default="29", blank = False, max_length=5)

@@ -18,12 +18,21 @@
                     {%for elemento in lista %}
                             <tr>
                                 
-                                <td class="font-w600 text-center"><a href="{{elemento.link}}">{{elemento.nome}}</td>
+                                <td class="font-w600 text-center"><a href="{{elemento.link}}">{{elemento.nome}}</a></td>
+                                <td class="font-w600 text-center"><input type="checkbox" id="checkbox"></td>
                             </tr>
                         {%endfor%}
                     </table>
                 </div>
             </div>    
         </div>
-        </main>
+<script>
+$(document).ready(function() {
+
+            $("#checkbox").click(function(){
+                
+            });
+        });
+</script>
+</main>
 {% endblock %}

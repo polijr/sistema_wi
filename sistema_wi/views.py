@@ -126,12 +126,15 @@ class EditarLink(View):
 
 
 class ListaFeedback(View):
- def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
             if request.user.usuario.cargo == 0:
                 lista = LinkFeed.objects.all()
                 return render(request, 'lista_feedbacks.html', {'lista': lista})
             
             else:
                 return render(request, "erro_403.html")
+
+
+
 
 			

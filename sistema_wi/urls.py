@@ -47,6 +47,7 @@ urlpatterns = [
     url(r'^lista-feedback-admin/$', ListaFeedbackAdm.as_view()),
     url(r'^editar-link/(?P<pk>\d+)$', login_required(EditarLink.as_view()), name='Editar Link'),
     url(r'^feedbacks/$', ListaFeedback.as_view()),
+    url(r'^check_feedback/$', views.check, name='feed_check'),
     url(r'^deletar-link/$', login_required(DeletarLink.as_view()), name='Deletar Link'),
 ]
 
