@@ -252,7 +252,7 @@ class EditarEmpresa(View):
             template_base = 'base_menus_organizador.html'
         elif request.user.usuario.cargo == 2:
             template_base = 'base_menus_admin.html'
-
+        print(form)
         if form.is_valid():
             empresa.nome = request.POST["nome"]
             empresa.stand = int(request.POST["stand"])

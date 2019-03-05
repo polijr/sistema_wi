@@ -55,12 +55,14 @@ class ValoresSistema(View):
         form = ValoresEstaticosForm(request.POST, request.FILES)
         variaveis = ValoresEstaticos.objects.all()[0]
         if form.is_valid():
-            variaveis.ano_wi = request.POST["ano_wi"]
-            variaveis.nome_wifi = request.POST["nome_wifi"]
-            variaveis.senha_wifi = request.POST["senha_wifi"]
-            variaveis.data_de_inicio = request.POST["data_de_inicio"]
-            variaveis.mapa_wi = request.FILES["mapa_wi"]
-            variaveis.calendario_wi = request.FILES["calendario_wi"]
+            variaveis.ano_wi = request.POST.get('ano_wi', False)
+            variaveis.nome_wifi = request.POST.get('nome_wifi', False)
+            variaveis.senha_wifi = request.POST.get('senha_wifi', False)
+            variaveis.data_de_inicio = request.POST.get('data_de_inicio', False)
+            if request.FILES.get('calendario_wi', False)!=False:
+                variaveis.calendario_wi = request.FILES.get('calendario_wi', False)
+            if request.FILES.get('mapa_wi', False) != False:
+                variaveis.mapa_wi = request.FILES.get('mapa_wi', False)
             variaveis.save()
             return HttpResponseRedirect('/usuarios/admin')
         return render(request, "valores_estaticos.html", {'variaveis': variaveis})       
