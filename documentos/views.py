@@ -116,7 +116,7 @@ class EnviarNota(View):
 			empresa = empresas.get(pk=request.POST["empresa"])
 			nota = NotaFiscal.objects.create(
             nome = request.POST["nome"],
-            arquivo = request.POST.get('arquivo', False),
+            arquivo = request.FILES.get('arquivo', False),
             observacao = request.POST["observacao"],
             empresa = empresa,
             )
