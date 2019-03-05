@@ -18,6 +18,7 @@ class EnviarDocumento(View):
 
 	def post(self, request, *args, **kwargs):
 		form = DocumentoForm(request.POST, request.FILES)
+		print(form)
 		if form.is_valid():
 			documento = form.save(empresa=request.user.usuario.usuario_empresa)
 		messages.success(request, "Documento submetido com sucesso")

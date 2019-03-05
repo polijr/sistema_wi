@@ -122,10 +122,7 @@ class EditarGerenteForm(forms.Form):
         pk = int(cleaned_data.get('pk'))
         if username:
             if User.objects.filter(username=username).count()>0:
-                print(User.objects.filter(username=username)[0])
-                print(Gerente.objects.get(pk=pk).usuario.user)
                 if not Gerente.objects.get(pk=pk).usuario.user ==  User.objects.filter(username=username)[0]:
-                    print("Nome ja foi pego")
                     raise forms.ValidationError("Username ja foi pego!")
         email = cleaned_data.get('email')
         if email:
@@ -158,12 +155,12 @@ class EditarCaravaneiroForm(forms.Form):
         if username:
             if User.objects.filter(username=username).count()>0:
                 if not Caravaneiro.objects.get(pk=pk).usuario.user ==  User.objects.filter(username=username)[0]:
-                    print("Nome ja foi pego")
                     raise forms.ValidationError("Username ja foi pego!")
         email = cleaned_data.get('email')
         if email:
-            if User.objects.filter(email=email).count() > 0:
-                raise forms.ValidationError("Esse email já foi usado em outra conta!")   
+            if not User.objects.get(email=email) ==  User.objects.filter(username=username)[0]:
+                if User.objects.filter(email=email).count() > 0:
+                    raise forms.ValidationError("Esse email já foi usado em outra conta!")   
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
 
@@ -191,12 +188,12 @@ class EditarOrganizadorForm(forms.Form):
         if username:
             if User.objects.filter(username=username).count()>0:
                 if not Organizador.objects.get(pk=pk).usuario.user ==  User.objects.filter(username=username)[0]:
-                    print("Nome ja foi pego")
                     raise forms.ValidationError("Username ja foi pego!")
         email = cleaned_data.get('email')
         if email:
             if User.objects.filter(email=email).count() > 0:
-                raise forms.ValidationError("Esse email já foi usado em outra conta!")   
+                if not User.objects.get(email=email) ==  User.objects.filter(username=username)[0]:
+                    raise forms.ValidationError("Esse email já foi usado em outra conta!")   
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
 
@@ -236,7 +233,8 @@ class EditarEmpresaForm(forms.Form):
         email = cleaned_data.get('email')
         if email:
             if User.objects.filter(email=email).count() > 0:
-                raise forms.ValidationError("Esse email já foi usado em outra conta!")   
+                if not User.objects.get(email=email) ==  User.objects.filter(username=username)[0]:
+                    raise forms.ValidationError("Esse email já foi usado em outra conta!")   
         password = cleaned_data.get('password')
         password2 = cleaned_data.get('password2')
 
