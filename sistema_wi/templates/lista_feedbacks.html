@@ -5,13 +5,13 @@
 <main id="main-container">
 
         <div class="block-content">
-         <div class="col-lg-4"/>
+         <div class="col-lg-3"/>
          </div>
-            <div class="col-lg-4 ">
+            <div class="col-lg-6 ">
                 <div class="block block-themed">
                     <div class="block-header bg-primary">
 
-                        <h3 class="block-title">Feedbacks</h3>
+                        <h3 class="block-title">Feedbacks (se já respondeu, marque a caixa)</h3>
                     </div>
                     <div class="block-content">
                     <table class="table table-striped table-vcenter">
@@ -19,7 +19,7 @@
                             <tr>
                                 
                                 <td class="font-w600 text-center"><a href="{{elemento.link}}">{{elemento.nome}}</a></td>
-                                <td class="font-w600 text-center"><input type="checkbox" id="checkbox"></td>
+                                <td class="font-w600 text-center"><input type="checkbox" class="checkbox-sq" id="{{elemento.toggle_id}}" {%if elemento.toggle_status is True%} checked {%endif%}></td>
                             </tr>
                         {%endfor%}
                     </table>
@@ -29,8 +29,14 @@
 <script>
 $(document).ready(function() {
 
-            $("#checkbox").click(function(){
-                
+            $(".checkbox-sq").click(function(){
+                let bool = this.checked;
+                $.ajax({
+                type: "POST",
+                url: "/check-feedback/",
+                data: JSON.stringify({ pk: this.id, status : bool}) ,
+                contentType: 'application/json; charset=utf-8'
+                });
             });
         });
 </script>

@@ -36,6 +36,7 @@ class LinkFeed(models.Model):
 class CheckFeed (models.Model): 
     empresa= models.ForeignKey(Empresa,related_name="feedback_empresa", on_delete = models.CASCADE, null = False, blank = False)
     feedback= models.ForeignKey(LinkFeed,related_name="feedback", on_delete = models.CASCADE, null = False, blank = False)
+    status = models.BooleanField(default=False)
 
 class ValoresEstaticos(models.Model):
     ano_wi = models.CharField(null = False, default="29", blank = False, max_length=5)

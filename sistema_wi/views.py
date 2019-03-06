@@ -5,12 +5,13 @@ from django.http import JsonResponse
 from django.views.generic import View, TemplateView
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect, JsonResponse
-from .models import dataFeed, LinkFeed
+from .models import dataFeed, LinkFeed, CheckFeed
 from .forms import DataForm, LinkForm
 from sistema_wi.forms import ValoresEstaticosForm
 from django.http import HttpResponseRedirect
 from sistema_wi.models import ValoresEstaticos
 from django.contrib import messages
+import json
 
 def handler404(request, exception, template_name="erro_404.html"):
     response = render_to_response("erro_404.html")
@@ -130,13 +131,34 @@ class EditarLink(View):
 class ListaFeedback(View):
     def get(self, request, *args, **kwargs):
             if request.user.usuario.cargo == 0:
-                lista = LinkFeed.objects.all()
+                lista = list(LinkFeed.objects.all().values())
+                for i,el  in enumerate(LinkFeed.objects.all()):
+                    try:
+                        objs = CheckFeed.objects.filter(feedback=el, empresa=request.user.usuario.usuario_empresa)
+                        lista[i]["toggle_id"]=objs[0].pk
+                        lista[i]["toggle_status"]=objs[0].status
+                    except:
+                        obj = CheckFeed.objects.create(
+                            feedback=el,
+                            empresa=request.user.usuario.usuario_empresa,
+                            status=False
+                        )
+                        obj.save()
+                        lista[i]["toggle_id"]=obj.pk
+                        lista[i]["toggle_status"]=obj.status
                 return render(request, 'lista_feedbacks.html', {'lista': lista})
-            
             else:
                 return render(request, "erro_403.html")
 
-
+class CheckFeedView(View):
+    def post(self, request, *args, **kwargs):
+        body= json.loads(request.body.decode('utf-8'))
+        if CheckFeed.objects.filter(pk=int(body['pk'])).exists():
+            obj = CheckFeed.objects.filter(pk=body['pk'])[0]
+            obj.status = body['status']
+            obj.save()
+            return HttpResponse(status=200)
+        return HttpResponse(status=500)
 
 
 			
