@@ -37,15 +37,23 @@ def handler400(request, exception, template_name="erro_400.html"):
 
 class DefinirDataFeed(View):
  def get(self, request, *args, **kwargs):
-            if request.user.usuario.cargo == 2:
-                  form = DataForm()
-                  return render(request, 'definir_data_feed.html', {'form': form, 'post': False})
-			
+    if request.user.usuario.cargo == 2:
+        form = DataForm()
+        existe = 0
+        if dataFeed.objects.all().order_by('-dataCriado').exists():
+            data = dataFeed.objects.all().order_by('-dataCriado')[0]
+            existe = 1
+            return render(request, 'definir_data_feed.html', {'form': form, 'post': False, 'existe':existe , 'data':data})
+        else:
+            return render(request, 'definir_data_feed.html', {'form': form, 'post': False, 'existe':existe})
+
  def post(self, request, *args, **kwargs):
             form = DataForm(request.POST)
             if form.is_valid():
                   form.save()
-            return render(request, 'definir_data_feed.html', {'form' : form, 'post': True})
+                  existe = 1
+                  data = dataFeed.objects.all().order_by('-dataCriado')[0]
+            return render(request, 'definir_data_feed.html', {'form' : form, 'post': True, 'existe':existe , 'data':data})
 
 
 class ValoresSistema(View):
