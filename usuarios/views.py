@@ -49,7 +49,7 @@ class EsqueciMinhaSenha(View):
                 chave_unica = True
         reset = ResetSenha(user=user, chave=chave)
         reset.save()
-        link = 'http://127.0.0.1:8000/nova-senha/' + chave
+        link = 'http://sistemawi.polijunior.com.br/nova-senha/' + chave
         msg = EmailMultiAlternatives(
                 'Workshop Integrativo - Esqueceu sua Senha?', 
                 get_template("email_esqueceu_senha.txt").render({'link': link}),
