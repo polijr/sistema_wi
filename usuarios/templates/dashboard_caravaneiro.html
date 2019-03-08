@@ -52,56 +52,7 @@
                 </div>
                 <!-- END Main Dashboard Chart -->
             </div>
-            <div class="col-lg-4">
-                <!-- Latest Sales Widget -->
-                <div class="block">
-                    <div class="block-header">
-                        <h3 class="block-title">Ultimas notícias</h3>
-                    </div>
-                    <div class="block-content">
-                        <div class="pull-t pull-r-l">
-                            <!-- Slick slider (.js-slider class is initialized in App() -> uiHelperSlick()) -->
-                            <!-- For more info and examples you can check out http://kenwheeler.github.io/slick/ -->
-                            <div class="js-slider remove-margin-b" data-slider-autoplay="true" data-slider-autoplay-speed="2500">
-                                <div>
-                                            {%for informe in informes %}
-                                            <a class="block block-link-hover1" href="javascript:void(0)">
-                                                <div class="block-content block-content-full clearfix">
-                                                    <div class="h6 font-w700">{{informe.titulo}}</div>
-                                                    <span class="h7 text-muted ">{{informe.texto}}</span>
-                                                </div>
-                                            </a>
-                                            {%endfor%}
-
-
-                                    
-                                    {% comment %} <div class="pagination">
-                                        <span class="step-links">
-                                            {% if informes.has_previous %}
-                                                <a href="?page=1">&laquo; Mais recentes &raquo;</a>
-                                                <a href="?page={{ informes.previous_page_number }}">   &laquo; Anterior &raquo;</a>
-                                            {% endif %}
-                                    
-                                            <span class="current">
-                                                Página {{ informes.number }} de {{ informes.paginator.num_pages }}.
-                                            </span>
-                                    
-                                            {% if informes.has_next %}
-                                                <a href="?page={{ informes.next_page_number }}">&laquo; Próximo &raquo;</a>
-                                                <a href="?page={{ informes.paginator.num_pages }}">   &laquo; Último &raquo;</a>
-                                            {% endif %}
-                                        </span>
-                                    </div> {% endcomment %}
-                                </div>
-                            </div>
-                            <!-- END Slick slider -->
-                        </div>
-                    </div>
-                </div>
-                <!-- END Latest Sales Widget -->
-            </div>
         </div>
-
     </div>
     <!-- END Page Content -->
 </main>
