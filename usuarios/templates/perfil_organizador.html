@@ -26,14 +26,14 @@
                                         <div class="form-group">
                                             <div class="col-xs-6" >
                                                 <label for="register4-firstname">Nome</label>
-                                                <input class="form-control" value="{{organizador.nome}}" type="text" id="nome" name="nome" placeholder="Digite o nome do organizador (Exemplo: {{nome_aleatorio}})">
+                                                <input class="form-control" disabled value="{{organizador.nome}}" type="text" id="nome" name="nome" placeholder="Digite o nome do organizador (Exemplo: {{nome_aleatorio}})">
                                                 {%if form.errors.nome %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.nome}}</div>
                                                 {%endif%}
                                             </div>
                                             <div class="col-xs-6" >
                                                     <label for="register4-firstname">Sobrenome</label>
-                                                    <input class="form-control" value="{{organizador.sobrenome}}" type="text" id="nome" name="nome" placeholder="Digite o sobrenomenome do organizador (Exemplo: {{sobrenome_aleatorio}})">
+                                                    <input class="form-control" disabled value="{{organizador.sobrenome}}" type="text" id="nome" name="nome" placeholder="Digite o sobrenomenome do organizador (Exemplo: {{sobrenome_aleatorio}})">
                                                     {%if form.errors.nome %}
                                                         <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.nome}}</div>
                                                     {%endif%}
@@ -42,7 +42,7 @@
                                         <div class="form-group">
                                             <div class="col-xs-6">
                                                 <label for="register4-firstname">Nome de usuário</label>
-                                                <input class="form-control" value="{{user}}" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
+                                                <input class="form-control" disabled value="{{user}}" type="text" id="username" name="username" placeholder="Digite o username da empresa..">
                                                 {%if form.errors.username %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.username}}</div>
                                                 {%endif%}
@@ -50,7 +50,7 @@
                                             <div class="col-xs-6">
                                                 <label for="register4-email">Email</label>
                                                 <div class="input-group">
-                                                    <input class="form-control" value="{{organizador.email}}" type="email" id="email" name="email" placeholder="Digite o email da empresa..">
+                                                    <input class="form-control" disabled value="{{organizador.email}}" type="email" id="email" name="email" placeholder="Digite o email da empresa..">
                                                     <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                                                 </div>
                                                 {%if form.errors.email %}
@@ -61,7 +61,7 @@
                                         <div class="form-group">
                                             <div class="col-xs-6">
                                                 <label for="register4-lastname">Telefone</label>
-                                                <input class="form-control" value="{{organizador.telefone}}" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ da empresa..">
+                                                <input class="form-control" disabled value="{{organizador.telefone}}" type="text" id="cnpj" name="cnpj" placeholder="Digite o CNPJ da empresa..">
                                                 {%if form.errors.cnpj %}
                                                     <div id="val-username2-error" class="help-block text-right animated fadeInDown">{{form.errors.cpnj}}</div>
                                                 {%endif%}
