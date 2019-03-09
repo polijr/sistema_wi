@@ -85,6 +85,15 @@ class VerNota(View):
 			return render(request, 'erro_403.html')
 		return render(request, 'ver_nota.html', {'empresas':empresas, 'template_base': template_base})
 
+class VerNotaAdmin(View):
+	def get(self, request, *args, **kwargs):
+		if request.user.usuario.cargo == 2:
+			empresas = Empresa.objects.all()
+			template_base = 'base_menus_admin.html'
+		else:
+			return render(request, 'erro_403.html')
+		return render(request, 'ver_nota_admin.html', {'empresas':empresas, 'template_base': template_base})
+
 class VerNotaEmp(View):
 	def get(self, request, *args, **kwargs):
 		if request.user.usuario.cargo == 0:
@@ -134,4 +143,11 @@ class DeletarNota(View):
 		documento.delete()
 		return JsonResponse({'deletou': True})
 			
+class DeletarNotaAdmin(View):
+	def get(self, request, *args, **kwargs):
+		if not (request.user.usuario.cargo == 2 and NotaFiscal.objects.filter(pk=request.GET['pk']).exists()):
+			return render(request, 'erro_403.html')
+		documento = NotaFiscal.objects.get(pk=request.GET['pk'])
+		documento.delete()
+		return JsonResponse({'deletou': True})
 
