@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+ <html class="no-focus">
+    <head>
+        <meta charset="utf-8">
+
+        <title>{%block nomePagina%} {%endblock%} - Sistema WI</title>
+
+        <meta name="description" content="{%block descricao%} {%endblock%}">
+        <meta name="author" content="Poli Júnior">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
+
+
+        <link rel="shortcut icon" href="/static/img/favicons/favicon.png">
+
+        {% comment %} <link rel="icon" type="image/png" href="/static/img/favicons/favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="/static/img/favicons/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/static/img/favicons/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="/static/img/favicons/favicon-160x160.png" sizes="160x160">
+        <link rel="icon" type="image/png" href="/static/img/favicons/favicon-192x192.png" sizes="192x192">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/static/img/favicons/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/static/img/favicons/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/static/img/favicons/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/static/img/favicons/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/static/img/favicons/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/static/img/favicons/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/static/img/favicons/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/static/img/favicons/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicons/apple-touch-icon-180x180.png"> {% endcomment %}
+
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+
+        
+        <link rel="stylesheet" href="/static/js/plugins/slick/slick.min.css">
+        <link rel="stylesheet" href="/static/js/plugins/slick/slick-theme.min.css">
+
+        
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" id="css-main" href="/static/css/oneui.css">
+        <link rel="stylesheet" href="/static/css/adicional.css">
+        <script src="/static/js/core/moment.js"></script>
+        <link rel="stylesheet" href="/static/js/plugins/bootstrap-datepicker/bootstrap-datepicker3.min.css">
+        <link rel="stylesheet" href="/static/js/plugins/bootstrap-datepicker/bootstrap-datepicker3.min.css">
+        <link rel="stylesheet" href="/static/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+
+
+    </head>
+    <body>
+        <!--
+
+    █▀▀█  █▀▀▀█  █    ▀█▀ 
+    █▄▄█  █   █  █     █ 
+    █     █▄▄▄█  █▄▄█ ▄█▄ 
+
+    █  █  █  █▄  █ ▀█▀  █▀▀▀█  █▀▀█ 
+ ▄  █  █  █  █ █ █  █   █   █  █▄▄▀ 
+ █▄▄█  ▀▄▄▀  █  ▀█ ▄█▄  █▄▄▄█  █  █ 
+
+Feito com carinho por:
+Barbara Beltrami
+Gabriel Dos Anjos
+Eduardo Motta
+Ilton Andrew
+Pedro Kassardjian
+Rafael Araripe
+        -->
+
+
+
+<main id="main-container">
+    <!-- Page Header -->
+    <div class="content bg-image overflow-hidden" style="background-image: url('/static/img/photos/banner_wi.png');">
+        <img class="image-wi-dash animated zoomIn" src="/static/img/various/logo_wi.png">
+        <div class="push-50-t push-15">
+            <h1 class="h2 text-orange animated zoomIn">Informes</h1>
+            <h2 class="h5 text-white-op animated zoomIn">Bem vindo ao Workshop Integrativo!</h2>
+        </div>
+    </div>
+    <!-- END Page Header -->
+
+    <!-- Stats -->
+    <div class="content bg-white border-b">
+        <div class="row items-push">
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Nome do WiFi</div>
+                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.nome_wifi}}</a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Senha do WiFi</div>
+                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.senha_wifi}}</a>
+            </div>
+        </div>
+    </div>
+    <!-- END Stats -->
+
+    <!-- Page Content -->
+    <div class="content">
+            {%for sala in salas%}
+            <div class="block block-themed">
+                    <div class="block-header bg-primary">
+                        <ul class="block-options">
+                            <li>
+                                <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+                            </li>
+                        </ul>
+                        <h3 class="block-title">{{sala}}</h3>
+                    </div>
+                    <div class="block-content">
+                        {% for agendamento in agendamentos%}
+                        {% ifequal sala agendamento.sala%}
+                        <table class="table table-striped table-vcenter">
+                            <thead>
+                                        <tr>
+                                            <th class="hidden-xs text-center">Cliente</th>
+                                            <th class="hidden-xs text-center">Sala</th>
+                                            <th class="hidden-xs text-center">Horário</th>
+                                        </tr>
+                            </thead>
+                            <tr class="text-center">
+                                <td class="text-center">{{agendamento.cliente}}</td>
+                                <td class="text-center">{{agendamento.sala}}</td>
+                                <td class="text-center">{{agendamento.horario}}</td>
+                            </tr>
+                        </table>
+                        {% endifequal %}
+                        {% endfor %}
+                </div>
+             </div> 
+             {%endfor%}
+    </div>
+    <!-- END Page Content -->
+</main>
+<footer id="page-footer" class="content-mini content-mini-full font-s12 bg-gray-lighter clearfix">
+    <div class="pull-right">
+        Criado com <i class="fa fa-heart text-city"></i> pelo <a class="font-w600" href="http://www.polijunior.com.br" target="_blank">NTec - Poli Júnior</a>
+    </div>
+    <div class="pull-left">
+        
+    </div>
+</footer>
+
+
+
+<div class="modal fade" id="apps-modal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal-sm modal-dialog modal-dialog-top">
+    <div class="modal-content">
+        <div class="block block-themed block-transparent">
+            <div class="block-header bg-primary-dark">
+                <ul class="block-options">
+                    <li>
+                        <button data-dismiss="modal" type="button"><i class="si si-close"></i></button>
+                    </li>
+                </ul>
+                <h3 class="block-title">Apps</h3>
+            </div>
+            <div class="block-content">
+                <div class="row text-center">
+                    <div class="col-xs-6">
+                        <a class="block block-rounded" href="/usuarios/admin">
+                            <div class="block-content text-white bg-default">
+                                <i class="si si-speedometer fa-2x"></i>
+                                <div class="font-w600 push-15-t push-15">Backend</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xs-6">
+                        <a class="block block-rounded" href="frontend_home.html">
+                            <div class="block-content text-white bg-modern">
+                                <i class="si si-rocket fa-2x"></i>
+                                <div class="font-w600 push-15-t push-15">Frontend</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<script src="/static/js/core/jquery.min.js"></script>
+<script src="/static/js/core/bootstrap.min.js"></script>
+<script src="/static/js/core/jquery.slimscroll.min.js"></script>
+<script src="/static/js/core/jquery.scrollLock.min.js"></script>
+<script src="/static/js/core/jquery.appear.min.js"></script>
+<script src="/static/js/core/jquery.countTo.min.js"></script>
+<script src="/static/js/core/jquery.placeholder.min.js"></script>
+<script src="/static/js/core/js.cookie.min.js"></script>
+<script src="/static/js/app.js"></script>
+
+
+<script src="/static/js/plugins/slick/slick.min.js"></script>
+<script src="/static/js/plugins/chartjs/Chart.min.js"></script>
+<script src="/static/js/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="/static/js/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>  
+
+
+<script src="/static/js/pages/base_pages_dashboard.js"></script>
+<script>
+jQuery(function () {
+    App.initHelpers('slick');
+});
+</script>
+</body>
+</html>

@@ -285,6 +285,14 @@ class DeletarAgendamentos(View):
 		else:
 			return render(request, 'erro_403.html')
 
+class VerMassagens(View):
+	def get(self, request, *args, **kwargs):
+		variaveis = ValoresEstaticos.objects.all()[0]
+		salas = CriarListaSalas(ValoresEstaticos.objects.all()[0].n_salas)
+		agendamentos = Agendamento.objects.all()
+		return render(request, 'massagista.html', {"variaveis":variaveis,"salas":salas, "agendamentos":agendamentos})
+
+
 
 def CriarLista(inicio, fim, intervalo, salas):
 	lista = []
