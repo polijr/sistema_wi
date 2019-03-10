@@ -110,16 +110,14 @@ Rafael Araripe
                             <thead>
                                     <tr>
                                         <th class="text-center">Cliente</th>
-                                        <th class="text-center">Sala</th>
                                         <th class="text-center">Horário</th>
                                     </tr>
                             </thead>
                         <tbody>
                         {% for agendamento in agendamentos%}
                         {% ifequal sala agendamento.sala%}
-                            <tr class="text-center">
+                            <tr>
                                 <td class="text-center">{{agendamento.cliente}}</td>
-                                <td class="text-center">{{agendamento.sala}}</td>
                                 <td class="text-center">{{agendamento.horario}}</td>
                             </tr>
                         {% endifequal %}
