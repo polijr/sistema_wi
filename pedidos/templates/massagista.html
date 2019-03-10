@@ -4,14 +4,14 @@
     <head>
         <meta charset="utf-8">
 
-        <title>{%block nomePagina%} {%endblock%} - Sistema WI</title>
+        <title>{%block nomePagina%} {%endblock%}Painel de massagens - Sistema WI</title>
 
         <meta name="description" content="{%block descricao%} {%endblock%}">
         <meta name="author" content="Poli Júnior">
         <meta name="robots" content="noindex, nofollow">
         <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0">
 
-
+        <meta http-equiv="refresh" content="60" />
         <link rel="shortcut icon" href="/static/img/favicons/favicon.png">
 
         {% comment %} <link rel="icon" type="image/png" href="/static/img/favicons/favicon-16x16.png" sizes="16x16">
@@ -81,12 +81,8 @@ Rafael Araripe
     <div class="content bg-white border-b">
         <div class="row items-push">
             <div class="col-xs-6 col-sm-3">
-                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Nome do WiFi</div>
-                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.nome_wifi}}</a>
-            </div>
-            <div class="col-xs-6 col-sm-3">
-                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Senha do WiFi</div>
-                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.senha_wifi}}</a>
+                <div class="font-w700 text-gray-darker animated fadeIn text-uppercase">Tempo reservado por massagem:</div>
+                <a class="h3 font-w300 text-primary animated flipInX" href="base_comp_charts.html">{{variaveis.intervalo_massagem}} minutos</a>
             </div>
         </div>
     </div>
@@ -118,9 +114,14 @@ Rafael Araripe
                         {% for agendamento in agendamentos%}
                         {% ifequal sala agendamento.sala%}
                             <tr class="text-center">
-                                <td class="text-center">{{agendamento.cliente}}</td>
+                                {%if agendamento.cliente.cargo != 2%}
+                                    <td class="text-center">{{agendamento.cliente}}</td>
+                                    
+                                {% else %}
+                                    <td class="text-center" style="color:red">Indisponível</td>
+                                {% endif %}
                                 <td class="text-center">{{agendamento.sala}}</td>
-                                <td class="text-center">{{agendamento.horario}}</td>
+                                <td class="text-center">{{agendamento.horario|date:"H:m"}}</td>
                             </tr>
                         {% endifequal %}
 

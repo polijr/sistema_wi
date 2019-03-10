@@ -1,5 +1,6 @@
 from .models import ValoresEstaticos, dataFeed
 from usuarios.models import Empresa
+from django.shortcuts import render, redirect
 import datetime
 import random
 import math
@@ -7,11 +8,8 @@ def add_variable_to_context(request):
     try:
         variaveis = ValoresEstaticos.objects.all()[0]
         dias_pro_workshop = (variaveis.data_de_inicio - datetime.datetime.now().date()).days
-        print("1")
         if request.user.usuario.cargo == 1:
-            print("2")
             user_organizador = request.user.usuario.usuario_organizador
-            print("3")
             empresageral = Empresa.objects.filter(organizador_resp = user_organizador)
             return {
             'variaveis':  variaveis,

@@ -294,7 +294,8 @@ class VerMassagens(View):
 		for agendamento in agendamentos:
 			if agendamento.sala not in salas_preenchidas:
 				salas_preenchidas.append(agendamento.sala)
-		print(salas_preenchidas)
+		var = ValoresEstaticos.objects.all()[0]
+		print (var.intervalo_massagem)
 		return render(request, 'massagista.html', {"variaveis":variaveis,"salas":salas, "agendamentos":agendamentos, "salas_com_horario":salas_preenchidas})
 
 

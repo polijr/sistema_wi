@@ -125,6 +125,7 @@ class DashboardCaravaneiro(View):
 
 class Redirecionar(View):
     def get(self, request, *args, **kwargs):
+        print("aaaaaaa")
         if request.user.is_authenticated:
             if request.user.usuario.cargo == 0:
                 return redirect('/usuarios/empresa')
@@ -252,7 +253,6 @@ class EditarEmpresa(View):
             template_base = 'base_menus_organizador.html'
         elif request.user.usuario.cargo == 2:
             template_base = 'base_menus_admin.html'
-        print(form)
         if form.is_valid():
             empresa.nome = request.POST["nome"]
             empresa.stand = int(request.POST["stand"])
@@ -283,7 +283,6 @@ class EditarOrganizador(View):
         request.POST._mutable = True
         request.POST['pk']=pk
         form = EditarOrganizadorForm(request.POST)
-        print(form)
         if form.is_valid():
             organizador = Organizador.objects.get(pk=pk)
             organizador.nome = request.POST["nome"]
@@ -394,7 +393,6 @@ class PerfilGerente(View):
     def post(self, request, *args, **kwargs):
         request.POST._mutable = True
         request.POST['pk']=int(request.user.usuario.usuario_gerente.pk)
-        print(request.POST)
         form = EditarGerenteForm(request.POST)
         if form.is_valid():
             gerente = Gerente.objects.filter()[0]
@@ -463,7 +461,6 @@ class DeletarOrganizador(View):
         request.POST['pk']=pk
         organizador = Organizador.objects.get(pk=pk)
         form = EditarOrganizadorForm(request.POST)
-        print(form)
         if form.is_valid():
             organizador.usuario.user.delete()
             messages.success(request, "Organizador deletado com sucesso!")
@@ -485,7 +482,6 @@ class DeletarEmpresa(View):
             request.POST['pk'] = pk
             empresa = Empresa.objects.get(pk=pk)
             form = EditarEmpresaForm(request.POST)
-            print(form)
             if form.is_valid():
                 empresa.usuario.user.delete()
                 messages.success(request, "Empresa deletada com sucesso!")
@@ -511,7 +507,6 @@ class DeletarCaravaneiro(View):
             request.POST['pk'] = pk
             caravaneiro = Caravaneiro.objects.get(pk=pk)
             form = EditarCaravaneiroForm(request.POST)
-            print(form)
             if form.is_valid():
                 caravaneiro.usuario.user.delete()
                 messages.success(request, "Caravaneiro deletado com sucesso!")
