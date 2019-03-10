@@ -106,6 +106,7 @@ Rafael Araripe
                             <thead>
                                     <tr>
                                         <th class="text-center">Cliente</th>
+                                        <th class="text-center">Sala</th>
                                         <th class="text-center">Horário</th>
                                     </tr>
                             </thead>
@@ -120,7 +121,7 @@ Rafael Araripe
                                     <td class="text-center" style="color:red">Indisponível</td>
                                 {% endif %}
                                 <td class="text-center">{{agendamento.sala}}</td>
-                                <td class="text-center">{{agendamento.horario|date:"H:m"}}</td>
+                                <td class="text-center">{{agendamento.horario|date:"H:m"}}</td>                                
                             </tr>
                         {% endifequal %}
 
