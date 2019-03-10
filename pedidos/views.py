@@ -290,7 +290,12 @@ class VerMassagens(View):
 		variaveis = ValoresEstaticos.objects.all()[0]
 		salas = CriarListaSalas(ValoresEstaticos.objects.all()[0].n_salas)
 		agendamentos = Agendamento.objects.all()
-		return render(request, 'massagista.html', {"variaveis":variaveis,"salas":salas, "agendamentos":agendamentos})
+		salas_preenchidas=[]
+		for agendamento in agendamentos:
+			if agendamento.sala not in salas_preenchidas:
+				salas_preenchidas.append(agendamento.sala)
+		print(salas_preenchidas)
+		return render(request, 'massagista.html', {"variaveis":variaveis,"salas":salas, "agendamentos":agendamentos, "salas_com_horario":salas_preenchidas})
 
 
 
