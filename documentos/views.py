@@ -13,8 +13,6 @@ class EnviarDocumento(View):
 			return render(request, 'erro_403.html')
 		form = DocumentoForm()
 		return render(request, 'enviar_documentos.html', {'form': form})
-		
-			
 
 	def post(self, request, *args, **kwargs):
 		form = DocumentoForm(request.POST, request.FILES)
@@ -112,9 +110,7 @@ class EnviarNota(View):
 			if request.user.usuario.cargo != 1:
 				return render(request, 'erro_403.html')
 			form = NotaForm()
-			return render(request, 'enviar_nota.html', {'form': form, 'messages': messages, 'post': False, 'empresas':empresas})
-		
-			
+			return render(request, 'enviar_nota.html', {'form': form, 'post': False, 'empresas':empresas})
 
 	def post(self, request, *args, **kwargs):
 		organizador = request.user.usuario.usuario_organizador 
@@ -132,7 +128,7 @@ class EnviarNota(View):
 			nota.save()
 			enviou = True
 		messages.success(request, "Nota submetida com sucesso")
-		return render(request, 'enviar_nota.html', {'form' : form, 'messages': messages, 'post': True, 'enviou': enviou})
+		return render(request, 'enviar_nota.html', {'form' : form, 'post': True, 'enviou': enviou})
 
 
 class DeletarNota(View):

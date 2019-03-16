@@ -48,7 +48,7 @@ class EditarInforme(View):
 			return render(request, 'erro_403.html')
 		form = InformeForm()
 		objeto = Informe.objects.get(pk=pk)
-		return render(request, 'editar_informe.html', {'form': form, 'messages': messages, 'objeto': objeto })
+		return render(request, 'editar_informe.html', {'form': form, 'objeto': objeto})
 
 	def post(self, request, pk, *args, **kwargs):
 		objeto = Informe.objects.get(pk=pk)

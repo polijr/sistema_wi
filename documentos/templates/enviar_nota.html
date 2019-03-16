@@ -13,11 +13,17 @@
                             <div class="block block-themed centered ">
                                 <div class="block-header " style="background-color: #FFAF00">
                                     <ul class="block-options">
-                                        {{messages.0}}
                                     </ul>
                                     <h3 class="block-title">Envio de Notas </h3>
                                 </div>
                                 <div class="block-content">
+                                    {% if messages %}
+                                        <ul class="messages">
+                                            {% for message in messages %}
+                                                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
                                     <form id="forms_pedido" class="form-horizontal push-5-t" action="" method="post" enctype="multipart/form-data">
                                         {% csrf_token %}
                                         <div class="form-group col-xs-12">
@@ -61,21 +67,4 @@
                         </div>
             </main>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-            <script>
-                    $("#forms_pedido").on('submit', function(event) {
-                         alert("Documento enviado!");
-                    });
-            </script>
-            {% if post %}
-            {% if enviou %}
-                <script>
-                    alert("Documento enviado com sucesso!")
-                </script>
-            {% else %}
-                <script>
-                    alert("Houve um erro no envio do seu documento!")
-                </script>
-            {% endif %}
-            {% endif %}
 {% endblock %}

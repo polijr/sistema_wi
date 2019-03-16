@@ -83,57 +83,53 @@ class SeleçãoWI(View):
 
 
 class CriarLink(View):
-	def get(self, request, *args, **kwargs):
-		if request.user.usuario.cargo == 2:
-			form = LinkForm()
-			return render(request, 'criar_link.html', {'form': form})
-		else:
-			return render(request, 'erro_403.html')
+    def get(self, request, *args, **kwargs):
+        if request.user.usuario.cargo == 2:
+            form = LinkForm()
+            return render(request, 'criar_link.html', {'form': form})
+        else:
+            return render(request, 'erro_403.html')
 
-	def post(self, request, *args, **kwargs):
-		form = LinkForm(request.POST, request.FILES)
-		enviou = False
-		if form.is_valid():
-			form.save()
-			messages.success(request, "Link criado com sucesso")
-		return render(request, 'criar_link.html', {'form': form})
-
+    def post(self, request, *args, **kwargs):
+        form = LinkForm(request.POST, request.FILES)
+        enviou = False
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Link criado com sucesso")
+        return render(request, 'criar_link.html', {'form': form})
 
 
 class ListaFeedbackAdm(View):
- def get(self, request, *args, **kwargs):
-            if request.user.usuario.cargo == 2:
-                lista = LinkFeed.objects.all()
-                return render(request, 'lista_feedbacks_adm.html', {'lista': lista})
-            
-            else:
-                return render(request, "erro_403.html")
+    def get(self, request, *args, **kwargs):
+        if request.user.usuario.cargo == 2:
+            lista = LinkFeed.objects.all()
+            return render(request, 'lista_feedbacks_adm.html', {'lista': lista})
+        else:
+            return render(request, "erro_403.html")
 
 class DeletarLink(View):
-	def get(self, request, *args, **kwargs):
-		if not (request.user.usuario.cargo == 2 and LinkFeed.objects.filter(pk=request.GET['pk']).exists()):
-			return render(request, 'erro_403.html')
-		link = LinkFeed.objects.get(pk=request.GET['pk'])
-		link.delete()
-		return JsonResponse({'deletou': True})
-
+    def get(self, request, *args, **kwargs):
+        if not (request.user.usuario.cargo == 2 and LinkFeed.objects.filter(pk=request.GET['pk']).exists()):
+            return render(request, 'erro_403.html')
+        link = LinkFeed.objects.get(pk=request.GET['pk'])
+        link.delete()
+        return JsonResponse({'deletou': True})
 
 
 class EditarLink(View):
-	def get(self, request, pk, *args, **kwargs):
-		if not (request.user.usuario.cargo == 2 and LinkFeed.objects.filter(pk=pk).exists()):
-			return render(request, 'erro_403.html')
-		form = LinkForm()
-		objeto = LinkFeed.objects.get(pk=pk)
-		return render(request, 'editar_link.html', {'form': form, 'objeto': objeto })
+    def get(self, request, pk, *args, **kwargs):
+        if not (request.user.usuario.cargo == 2 and LinkFeed.objects.filter(pk=pk).exists()):
+            return render(request, 'erro_403.html')
+        form = LinkForm()
+        objeto = LinkFeed.objects.get(pk=pk)
+        return render(request, 'editar_link.html', {'form': form, 'objeto': objeto })
 
-	def post(self, request, pk, *args, **kwargs):
-		objeto = LinkFeed.objects.get(pk=pk)
-		objeto.nome = request.POST['nome']
-		objeto.link = request.POST['link']
-		objeto.save()
-		return HttpResponseRedirect('/lista-feedback-admin')
-
+    def post(self, request, pk, *args, **kwargs):
+        objeto = LinkFeed.objects.get(pk=pk)
+        objeto.nome = request.POST['nome']
+        objeto.link = request.POST['link']
+        objeto.save()
+        return HttpResponseRedirect('/lista-feedback-admin')
 
 
 class ListaFeedback(View):
@@ -158,6 +154,7 @@ class ListaFeedback(View):
             else:
                 return render(request, "erro_403.html")
 
+
 class CheckFeedView(View):
     def post(self, request, *args, **kwargs):
         body= json.loads(request.body.decode('utf-8'))
@@ -167,6 +164,3 @@ class CheckFeedView(View):
             obj.save()
             return HttpResponse(status=200)
         return HttpResponse(status=500)
-
-
-			

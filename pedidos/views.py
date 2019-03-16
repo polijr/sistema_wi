@@ -72,7 +72,6 @@ class Pedidos(View):
 		form = PedidosForm(request.POST)
 		current_user = request.user
 		empresa = None
-		messages.success(request, 'Form submission successful')
 		if request.user.usuario.cargo == 0:
 			pedido = Pedido.objects.create(tipo = Type.objects.get(pk=form.data['tipo_de_pedido']), 
 								observacao = form.data['obs'],
@@ -169,7 +168,6 @@ class DeletarTipo(View):
 			return render(request, 'erro_403.html')
 
 
-
 class FazerAgendamento(View):
 	def get(self, request, *args, **kwargs):
 		if request.user.usuario.cargo == 0 or request.user.usuario.cargo == 2:
@@ -226,11 +224,11 @@ class Agendamentos(View):
 	def get(self, request, *args, **kwargs):
 		if request.user.usuario.cargo == 2:
 			template_base = 'base_menus_admin.html'
-			agendamentos = Agendamento.objects.all()
+			agendamentos = Agendamento.objects.all().order_by("horario")
 			return render(request, 'agendamentos.html', {'agendamentos': agendamentos, 'template_base': template_base})
 		elif request.user.usuario.cargo == 0:
 			template_base = 'base_menus_empresa.html'
-			agendamentos = Agendamento.objects.filter(cliente=request.user.usuario)
+			agendamentos = Agendamento.objects.filter(cliente=request.user.usuario).order_by("horario")
 			return render(request, 'agendamentos.html', {'agendamentos': agendamentos, 'template_base': template_base})
 		else:
 			return render(request, 'erro_403.html')
