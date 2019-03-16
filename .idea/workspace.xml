@@ -6,19 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6751dc3d-140d-449b-b22b-f86d19a1a3f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chat/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/chat/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentos/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/documentos/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentos/templates/enviar_nota.html" beforeDir="false" afterPath="$PROJECT_DIR$/documentos/templates/enviar_nota.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/documentos/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/informes/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/informes/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/informes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/informes/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/templates/pedir.html" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/templates/pedir.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedidos/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pedidos/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/templates/definir_data_feed.html" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/templates/definir_data_feed.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sistema_wi/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/sistema_wi/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,35 +17,21 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pedidos/views.py">
+        <entry file="file://$PROJECT_DIR$/usuarios/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="230" column="84" selection-start-line="230" selection-start-column="84" selection-end-line="230" selection-end-column="84" />
+            <state relative-caret-position="302">
+              <caret line="466" column="45" selection-start-line="466" selection-start-column="45" selection-end-line="466" selection-end-column="45" />
               <folding>
-                <element signature="e#0#45#0" expanded="true" />
+                <element signature="e#24#63#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pedidos/templates/agendamentos.html">
+        <entry file="file://$PROJECT_DIR$/usuarios/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret column="24" selection-start-column="11" selection-end-column="24" />
-              <folding>
-                <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#main#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pedidos/templates/pedir.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1020">
-              <caret line="12" column="62" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
-            </state>
+            <state relative-caret-position="-510" />
           </provider>
         </entry>
       </file>
@@ -65,7 +39,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>orga</find>
       <find>inform</find>
       <find>moda</find>
       <find>Cada</find>
@@ -95,6 +68,7 @@
       <find>notas</find>
       <find>nota</find>
       <find>messa</find>
+      <find>minhas</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -127,7 +101,6 @@
         <option value="$PROJECT_DIR$/informes/templates/criar_informe.html" />
         <option value="$PROJECT_DIR$/usuarios/templates/dashboard_organizador.html" />
         <option value="$PROJECT_DIR$/static/js/carregarpedidos.js" />
-        <option value="$PROJECT_DIR$/usuarios/views.py" />
         <option value="$PROJECT_DIR$/pedidos/models.py" />
         <option value="$PROJECT_DIR$/pedidos/admin.py" />
         <option value="$PROJECT_DIR$/pedidos/templates/realizar_agendamento.html" />
@@ -154,6 +127,7 @@
         <option value="$PROJECT_DIR$/documentos/templates/enviar_nota.html" />
         <option value="$PROJECT_DIR$/pedidos/templates/pedir.html" />
         <option value="$PROJECT_DIR$/pedidos/views.py" />
+        <option value="$PROJECT_DIR$/usuarios/views.py" />
       </list>
     </option>
   </component>
@@ -179,35 +153,7 @@
             <path>
               <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
               <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="documentos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="documentos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="pedidos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="pedidos" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
               <item name="usuarios" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sistema_wi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sistema_wi" type="462c0819:PsiDirectoryNode" />
-              <item name="usuarios" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -378,9 +324,6 @@
           <caret line="100" column="92" selection-start-line="100" selection-start-column="84" selection-end-line="100" selection-end-column="92" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/forms.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -634,12 +577,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/views.py">
+    <entry file="file://$PROJECT_DIR$/pedidos/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="550" column="12" lean-forward="true" selection-start-line="550" selection-start-column="12" selection-end-line="550" selection-end-column="78" />
+        <state relative-caret-position="278">
+          <caret line="235" lean-forward="true" selection-start-line="235" selection-end-line="235" />
           <folding>
-            <element signature="e#24#63#0" expanded="true" />
+            <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -656,17 +599,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pedidos/templates/pedir.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1020">
+        <state relative-caret-position="-1017">
           <caret line="12" column="62" selection-start-line="12" selection-start-column="62" selection-end-line="12" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pedidos/views.py">
+    <entry file="file://$PROJECT_DIR$/usuarios/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="230" column="84" selection-start-line="230" selection-start-column="84" selection-end-line="230" selection-end-column="84" />
+        <state relative-caret-position="-510" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="466" column="45" selection-start-line="466" selection-start-column="45" selection-end-line="466" selection-end-column="45" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#24#63#0" expanded="true" />
           </folding>
         </state>
       </provider>

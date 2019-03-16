@@ -460,8 +460,11 @@ class DeletarOrganizador(View):
         request.POST._mutable = True
         request.POST['pk']=pk
         organizador = Organizador.objects.get(pk=pk)
+        empresas = Empresa.objects.filter(organizador_resp=organizador)
         form = EditarOrganizadorForm(request.POST)
         if form.is_valid():
+            for empresa in empresas:
+                empresa.usuario.user.delete()
             organizador.usuario.user.delete()
             messages.success(request, "Organizador deletado com sucesso!")
         return redirect("/usuarios/todos-organizadores")
