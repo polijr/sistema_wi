@@ -287,7 +287,7 @@ class VerMassagens(View):
 	def get(self, request, *args, **kwargs):
 		variaveis = ValoresEstaticos.objects.all()[0]
 		salas = CriarListaSalas(ValoresEstaticos.objects.all()[0].n_salas)
-		agendamentos = Agendamento.objects.all()
+		agendamentos = Agendamento.objects.all().order_by("horario")
 		salas_preenchidas=[]
 		for agendamento in agendamentos:
 			if agendamento.sala not in salas_preenchidas:
