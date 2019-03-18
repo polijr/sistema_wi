@@ -529,6 +529,9 @@ class DeletarOrganizadores(View):
         request.POST._mutable = True
         if request.user.usuario.cargo == 2:
             organizadores = Organizador.objects.all()
+            empresas = Empresa.objects.all()
+            for empresa in empresas:
+                empresa.usuario.user.delete()
             for organizador in organizadores:
                 organizador.usuario.user.delete()
             messages.success(request, "Todos organizadores deletados com sucesso!")
