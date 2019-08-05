@@ -57,6 +57,6 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'sistema_wi.views.handler404'
-handler500 = 'sistema_wi.views.handler500'
+#handler500 = 'sistema_wi.views.handler500'
 handler403 = 'sistema_wi.views.handler403'
 handler400 = 'sistema_wi.views.handler400'

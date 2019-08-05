@@ -2,7 +2,7 @@
 
 from .settings import *
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -25,3 +25,5 @@ STATICFILES_DIRS = (
 STATIC_ROOT = '/home/polijr/webapps/sistema_wi_static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/polijr/webapps/sistema_wi_media/'
+
+FILE_UPLOAD_PERMISSIONS = 0o644
