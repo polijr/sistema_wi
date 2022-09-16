@@ -5,7 +5,7 @@
   "main": "index.html",
   "dependencies": {
     "ace-builds": "^1.2.9",
-    "bootstrap": "^4.1.1",
+    "bootstrap": "^4.3.1",
     "bootstrap-datepicker": "1.7.1",
     "bootstrap-maxlength": "1.6.0",
     "bootstrap-tour": "^0.12.0",
